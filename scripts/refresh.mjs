@@ -13,27 +13,31 @@ const LOOKBACK_DAYS = Number(process.env.LOOKBACK_DAYS || 14);
 const MAX_OFFICIAL = Number(process.env.MAX_OFFICIAL || 120);
 const MAX_RUMOURS = Number(process.env.MAX_RUMOURS || 12);
 
-const COUNTRY_FLAGS = new Map([
-  ["albania", "🇦🇱"], ["algeria", "🇩🇿"], ["argentina", "🇦🇷"], ["australia", "🇦🇺"],
-  ["austria", "🇦🇹"], ["belgium", "🇧🇪"], ["bosnia and herzegovina", "🇧🇦"], ["brazil", "🇧🇷"],
-  ["bulgaria", "🇧🇬"], ["cameroon", "🇨🇲"], ["canada", "🇨🇦"], ["chile", "🇨🇱"],
-  ["colombia", "🇨🇴"], ["comoros", "🇰🇲"], ["costa rica", "🇨🇷"], ["croatia", "🇭🇷"],
-  ["curaçao", "🇨🇼"], ["cyprus", "🇨🇾"],
-  ["czech republic", "🇨🇿"], ["czechia", "🇨🇿"], ["denmark", "🇩🇰"], ["ecuador", "🇪🇨"],
-  ["england", "🇬🇧"], ["estonia", "🇪🇪"], ["finland", "🇫🇮"], ["france", "🇫🇷"], ["gabon", "🇬🇦"],
-  ["gambia", "🇬🇲"], ["the gambia", "🇬🇲"], ["georgia", "🇬🇪"], ["germany", "🇩🇪"],
-  ["ghana", "🇬🇭"], ["greece", "🇬🇷"], ["guyana", "🇬🇾"],
-  ["guinea", "🇬🇳"], ["hungary", "🇭🇺"], ["iceland", "🇮🇸"], ["iran", "🇮🇷"],
-  ["ireland", "🇮🇪"], ["republic of ireland", "🇮🇪"], ["israel", "🇮🇱"], ["italy", "🇮🇹"],
-  ["ivory coast", "🇨🇮"], ["côte d'ivoire", "🇨🇮"], ["jamaica", "🇯🇲"], ["japan", "🇯🇵"],
-  ["kenya", "🇰🇪"], ["kosovo", "🇽🇰"], ["mali", "🇲🇱"], ["mexico", "🇲🇽"], ["morocco", "🇲🇦"],
-  ["netherlands", "🇳🇱"], ["new zealand", "🇳🇿"], ["nigeria", "🇳🇬"], ["north macedonia", "🇲🇰"],
-  ["northern ireland", "🇬🇧"], ["norway", "🇳🇴"], ["paraguay", "🇵🇾"], ["peru", "🇵🇪"],
-  ["poland", "🇵🇱"], ["portugal", "🇵🇹"], ["romania", "🇷🇴"], ["scotland", "🇬🇧"],
-  ["senegal", "🇸🇳"], ["serbia", "🇷🇸"], ["sierra leone", "🇸🇱"], ["slovakia", "🇸🇰"], ["slovenia", "🇸🇮"],
-  ["south africa", "🇿🇦"], ["south korea", "🇰🇷"], ["spain", "🇪🇸"], ["sweden", "🇸🇪"],
-  ["switzerland", "🇨🇭"], ["tunisia", "🇹🇳"], ["turkey", "🇹🇷"], ["ukraine", "🇺🇦"],
-  ["united states", "🇺🇸"], ["uruguay", "🇺🇾"], ["venezuela", "🇻🇪"], ["wales", "🇬🇧"],
+const COUNTRY_FLAG_CODES = new Map([
+  ["albania", "al"], ["algeria", "dz"], ["argentina", "ar"], ["australia", "au"],
+  ["austria", "at"], ["belgium", "be"], ["bosnia and herzegovina", "ba"], ["bosnia & herzegovina", "ba"],
+  ["brazil", "br"], ["bulgaria", "bg"], ["cameroon", "cm"], ["canada", "ca"], ["chile", "cl"],
+  ["colombia", "co"], ["comoros", "km"], ["costa rica", "cr"], ["croatia", "hr"], ["curacao", "cw"],
+  ["cyprus", "cy"], ["czech republic", "cz"], ["czechia", "cz"], ["denmark", "dk"], ["ecuador", "ec"],
+  ["england", "gb-eng"], ["estonia", "ee"], ["finland", "fi"], ["france", "fr"], ["gabon", "ga"],
+  ["gambia", "gm"], ["the gambia", "gm"], ["georgia", "ge"], ["germany", "de"], ["ghana", "gh"],
+  ["greece", "gr"], ["guyana", "gy"], ["guinea", "gn"], ["hungary", "hu"], ["iceland", "is"],
+  ["iran", "ir"], ["ireland", "ie"], ["republic of ireland", "ie"], ["israel", "il"], ["italy", "it"],
+  ["ivory coast", "ci"], ["cote d'ivoire", "ci"], ["jamaica", "jm"], ["japan", "jp"], ["kenya", "ke"],
+  ["kosovo", "xk"], ["mali", "ml"], ["mexico", "mx"], ["morocco", "ma"], ["netherlands", "nl"],
+  ["new zealand", "nz"], ["nigeria", "ng"], ["north macedonia", "mk"], ["northern ireland", "gb-nir"],
+  ["norway", "no"], ["paraguay", "py"], ["peru", "pe"], ["poland", "pl"], ["portugal", "pt"],
+  ["romania", "ro"], ["scotland", "gb-sct"], ["senegal", "sn"], ["serbia", "rs"], ["sierra leone", "sl"],
+  ["slovakia", "sk"], ["slovenia", "si"], ["south africa", "za"], ["south korea", "kr"],
+  ["korea republic", "kr"], ["republic of korea", "kr"], ["spain", "es"], ["sweden", "se"],
+  ["switzerland", "ch"], ["tunisia", "tn"], ["turkey", "tr"], ["turkiye", "tr"], ["ukraine", "ua"],
+  ["united kingdom", "gb"], ["united states", "us"], ["united states of america", "us"], ["usa", "us"],
+  ["uruguay", "uy"], ["venezuela", "ve"], ["wales", "gb-wls"],
+  ["north korea", "kp"], ["dpr korea", "kp"], ["dr congo", "cd"],
+  ["democratic republic of the congo", "cd"], ["congo", "cg"], ["republic of the congo", "cg"],
+  ["cape verde", "cv"], ["cabo verde", "cv"], ["palestine", "ps"],
+  ["united arab emirates", "ae"], ["uae", "ae"], ["tanzania", "tz"], ["bolivia", "bo"],
+  ["moldova", "md"], ["guinea-bissau", "gw"], ["equatorial guinea", "gq"], ["trinidad and tobago", "tt"],
 ]);
 
 function cleanText(value) {
@@ -56,9 +60,24 @@ function inLookback(dateKey, now = new Date()) {
   return date >= cutoff && date <= new Date(now.getTime() + 86_400_000);
 }
 
+function normaliseCountryName(name) {
+  return cleanText(name)
+    .normalize("NFKD")
+    .replace(/\p{Diacritic}/gu, "")
+    .replace(/[’‘]/g, "'")
+    .toLowerCase()
+    .replace(/^flag of /, "")
+    .replace(/\s*\(country\)$/, "");
+}
+
+export function flagCodeFromName(name) {
+  return COUNTRY_FLAG_CODES.get(normaliseCountryName(name)) || null;
+}
+
 function flagFromName(name) {
-  const key = cleanText(name).toLowerCase().replace(/^flag of /, "").replace(/\s*\(country\)$/, "");
-  return COUNTRY_FLAGS.get(key) || "";
+  const code = flagCodeFromName(name)?.slice(0, 2).toUpperCase();
+  if (!/^[A-Z]{2}$/.test(code || "")) return "";
+  return String.fromCodePoint(...[...code].map((character) => 127397 + character.charCodeAt(0)));
 }
 
 function sourceLabel(url) {
@@ -161,6 +180,7 @@ export function parseWikipediaTransfers(html, now = new Date()) {
       age: null,
       position: null,
       nationality: country,
+      flagCode: flagCodeFromName(country),
       flag: flagFromName(country),
       fromClub: cleanText(fromCell.text()),
       fromClubUrl: absoluteWikipediaUrl(fromClubAnchor ? $(fromClubAnchor).attr("href") : null),
@@ -217,6 +237,7 @@ export function parseBbcRumours(xml, now = new Date()) {
       age: null,
       position: null,
       nationality: null,
+      flagCode: null,
       flag: "",
       fromClub: "—",
       fromClubUrl: null,
@@ -495,24 +516,30 @@ function validateManualRumour(item) {
 async function readManualRumours() {
   try {
     const items = JSON.parse(await readFile(MANUAL_RUMOURS_URL, "utf8"));
-    return items.filter(validateManualRumour).map((item) => ({
-      age: null,
-      position: null,
-      nationality: null,
-      flag: "",
-      fromClub: "—",
-      fromClubUrl: null,
-      fromClubCrest: null,
-      toClub: "—",
-      toClubUrl: null,
-      toClubCrest: null,
-      fee: "—",
-      status: "rumour",
-      sourceAdapter: "manual",
-      time: "—",
-      ...item,
-      id: item.id || createHash("sha1").update(`manual|${item.sourceUrl}`).digest("hex").slice(0, 14),
-    }));
+    return items.filter(validateManualRumour).map((item) => {
+      const record = {
+        age: null,
+        position: null,
+        nationality: null,
+        flagCode: null,
+        flag: "",
+        fromClub: "—",
+        fromClubUrl: null,
+        fromClubCrest: null,
+        toClub: "—",
+        toClubUrl: null,
+        toClubCrest: null,
+        fee: "—",
+        status: "rumour",
+        sourceAdapter: "manual",
+        time: "—",
+        ...item,
+        id: item.id || createHash("sha1").update(`manual|${item.sourceUrl}`).digest("hex").slice(0, 14),
+      };
+      record.flagCode ||= flagCodeFromName(record.nationality);
+      record.flag ||= flagFromName(record.nationality);
+      return record;
+    });
   } catch {
     return [];
   }
@@ -555,6 +582,7 @@ const LEGACY_NATIONALITIES = new Map([
 
 function normaliseStoredTransfer(transfer) {
   const position = LEGACY_POSITIONS.has(transfer.position) ? LEGACY_POSITIONS.get(transfer.position) : transfer.position;
+  const nationality = LEGACY_NATIONALITIES.get(transfer.nationality) || transfer.nationality || null;
   const fee = String(transfer.fee ?? "")
     .replace(/^nieujawniona$/i, "Undisclosed")
     .replace(/^bez odstępnego$/i, "Free")
@@ -562,7 +590,9 @@ function normaliseStoredTransfer(transfer) {
   return {
     ...transfer,
     position: position || null,
-    nationality: LEGACY_NATIONALITIES.get(transfer.nationality) || transfer.nationality || null,
+    nationality,
+    flagCode: transfer.flagCode || flagCodeFromName(nationality),
+    flag: transfer.flag || flagFromName(nationality),
     fee,
     fromClubUrl: transfer.fromClubUrl || null,
     fromClubCrest: transfer.fromClubCrest || null,

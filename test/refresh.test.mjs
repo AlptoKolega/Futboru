@@ -1,6 +1,6 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import { parseBbcRumours, parseWikipediaTransfers, positionCode } from "../scripts/refresh.mjs";
+import { flagCodeFromName, parseBbcRumours, parseWikipediaTransfers, positionCode } from "../scripts/refresh.mjs";
 
 test("Wikipedia parser inherits a rowspan date and keeps source and club links", () => {
   const html = `
@@ -30,8 +30,25 @@ test("Wikipedia parser inherits a rowspan date and keeps source and club links",
   assert.equal(result[0].fromClubUrl, "https://en.wikipedia.org/wiki/Tottenham_Hotspur_F.C.");
   assert.equal(result[0].toClubUrl, "https://en.wikipedia.org/wiki/Brighton_%26_Hove_Albion_F.C.");
   assert.equal(result[0].sourceUrl, "https://www.bbc.co.uk/sport/example");
+  assert.equal(result[0].flagCode, "hr");
   assert.equal(result[0].flag, "🇭🇷");
   assert.equal(result[1].fee, "Undisclosed");
+});
+
+test("country aliases map to local 4:3 SVG assets", () => {
+  const cases = [
+    ["England", "gb-eng"],
+    ["Scotland", "gb-sct"],
+    ["Wales", "gb-wls"],
+    ["Northern Ireland", "gb-nir"],
+    ["Kosovo", "xk"],
+    ["Curaçao", "cw"],
+    ["Georgia (country)", "ge"],
+    ["Flag of The Gambia", "gm"],
+    ["Côte d’Ivoire", "ci"],
+  ];
+
+  for (const [label, expected] of cases) assert.equal(flagCodeFromName(label), expected, label);
 });
 
 test("an anticipated move stays a rumour even when it appears in the table", () => {

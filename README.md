@@ -5,7 +5,7 @@ A minimalist, source-backed football transfer feed. The site does not reproduce 
 ## What the PoC includes
 
 - confirmed transfers from the current English summer transfer window list on Wikipedia, including each cited source;
-- age, nationality, and compact Football Manager-style position codes enriched from Wikidata where available;
+- age, nationality, compact locally hosted SVG flags, and Football Manager-style position codes enriched from Wikidata where available;
 - club crests and club links sourced from English Wikipedia page metadata;
 - cautiously filtered transfer signals from the public BBC Football RSS feed, always marked as a `Rumour`;
 - manually curated, source-backed rumours in `data/manual-rumours.json`;
@@ -51,5 +51,7 @@ Do not add an entry without a direct link to the original publication.
 - **Meczyki and other publishers without a public RSS feed or API** — another adapter should only be added after checking the publisher's terms or obtaining permission.
 
 Club crests currently use Wikipedia page thumbnails for PoC coverage, including some non-free images hosted by English Wikipedia. A commercial release should use a licensed football-data/crest provider or a manually approved asset catalogue.
+
+Country flags are self-hosted from the MIT-licensed `flag-icons` package; the licence notice is copied into every production build.
 
 The next production step is to add direct adapters for official Premier League, Bundesliga, LaLiga, Serie A, and Ekstraklasa trackers. At multi-league scale, a licensed API is likely to be more reliable than maintaining many HTML parsers.

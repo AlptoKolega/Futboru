@@ -231,12 +231,7 @@ function transferRow(transfer) {
   item.className = "transfer-row";
   item.dataset.status = transfer.status;
 
-  const flag = document.createElement("span");
-  flag.className = `flag${transfer.flag ? "" : " is-unknown"}`;
-  flag.textContent = transfer.flag || "—";
-  flag.setAttribute("aria-label", transfer.nationality ? `Nationality: ${transfer.nationality}` : "Nationality unknown");
-  flag.setAttribute("role", "img");
-  item.append(flag);
+  item.append(flagElement(transfer));
 
   item.append(playerElement(transfer));
 
@@ -256,6 +251,34 @@ function transferRow(transfer) {
 
   item.append(detailsElement(transfer));
   return item;
+}
+
+function flagElement(transfer) {
+  const flag = document.createElement("span");
+  const code = /^[a-z]{2}(?:-[a-z]{3})?$/.test(transfer.flagCode || "") ? transfer.flagCode : null;
+  flag.className = `flag ${code ? "has-image" : transfer.flag ? "has-emoji" : "is-unknown"}`;
+  flag.setAttribute("aria-label", transfer.nationality ? `Nationality: ${transfer.nationality}` : "Nationality unknown");
+  flag.setAttribute("role", "img");
+
+  if (!code) {
+    flag.textContent = transfer.flag || "—";
+    return flag;
+  }
+
+  const image = document.createElement("img");
+  image.className = "flag-image";
+  image.src = `./assets/flags/${code}.svg`;
+  image.alt = "";
+  image.width = 18;
+  image.height = 14;
+  image.loading = "lazy";
+  image.decoding = "async";
+  image.addEventListener("error", () => {
+    flag.className = `flag ${transfer.flag ? "has-emoji" : "is-unknown"}`;
+    flag.textContent = transfer.flag || "—";
+  }, { once: true });
+  flag.append(image);
+  return flag;
 }
 
 function groupTransfers(transfers) {
