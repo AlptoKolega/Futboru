@@ -1,47 +1,47 @@
 <!doctype html>
-<html lang="pl">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta
       name="description"
-      content="Codzienny, źródłowy przegląd oficjalnych transferów piłkarskich i wiarygodnych doniesień."
+      content="A source-backed feed of official football transfers and credible rumours."
     />
     <meta name="color-scheme" content="light" />
     <meta name="theme-color" content="#ffffff" />
-    <title>Futboru — transfery piłkarskie</title>
+    <title>Futboru — football transfer feed</title>
     <link rel="stylesheet" href="./styles.css" />
     <script type="module" src="./app.js"></script>
   </head>
   <body>
     <div class="page-shell">
       <header class="site-header">
-        <a class="wordmark" href="./" aria-label="Futboru — strona główna">Futboru</a>
-        <p class="freshness" id="freshness">Pobieranie aktualizacji…</p>
+        <a class="wordmark" href="./" aria-label="Futboru home">Futboru</a>
+        <p class="freshness" id="freshness">Checking for updates…</p>
       </header>
 
       <main>
-        <h1 id="page-title">Transfery</h1>
+        <h1 class="sr-only">Football transfers</h1>
 
-        <nav class="filters" aria-label="Filtr statusu transferów">
+        <nav class="filters" aria-label="Filter transfers by status">
           <button class="filter is-active" type="button" data-filter="all" aria-pressed="true">
-            Wszystkie <span class="filter-count" id="count-all">0</span>
+            All <span class="filter-count" id="count-all">0</span>
           </button>
           <button class="filter" type="button" data-filter="official" aria-pressed="false">
-            Oficjalne <span class="filter-count" id="count-official">0</span>
+            Official <span class="filter-count" id="count-official">0</span>
           </button>
           <button class="filter" type="button" data-filter="rumour" aria-pressed="false">
-            Plotki <span class="filter-count" id="count-rumour">0</span>
+            Rumours <span class="filter-count" id="count-rumour">0</span>
           </button>
         </nav>
 
         <div class="feed" id="feed" aria-live="polite" aria-busy="true">
-          <p class="loading">Układam najnowsze wpisy…</p>
+          <p class="loading">Loading the latest moves…</p>
         </div>
 
         <p class="methodology">
-          Każdy wpis prowadzi do źródła. Plotki są oddzielone od potwierdzonych transferów.
-          Dane bazowe: <a href="https://en.wikipedia.org/wiki/List_of_English_football_transfers_summer_2026">English Wikipedia</a>
+          Every entry links to its source. Rumours are kept separate from confirmed transfers.
+          Base data: <a href="https://en.wikipedia.org/wiki/List_of_English_football_transfers_summer_2026">English Wikipedia</a>
           (<a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>).
         </p>
       </main>

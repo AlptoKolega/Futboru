@@ -1,5 +1,4 @@
 const elements = {
-  title: document.querySelector("#page-title"),
   freshness: document.querySelector("#freshness"),
   feed: document.querySelector("#feed"),
   filters: [...document.querySelectorAll("[data-filter]")],
@@ -15,56 +14,61 @@ const state = {
   transfers: [],
 };
 
-const polishDate = new Intl.DateTimeFormat("pl-PL", {
+const fullDate = new Intl.DateTimeFormat("en-GB", {
   day: "numeric",
   month: "long",
   year: "numeric",
   timeZone: "Europe/Warsaw",
 });
 
-const polishDay = new Intl.DateTimeFormat("pl-PL", {
+const updateDate = new Intl.DateTimeFormat("en-GB", {
   day: "numeric",
   month: "long",
   timeZone: "Europe/Warsaw",
 });
 
-const polishTime = new Intl.DateTimeFormat("pl-PL", {
+const updateTime = new Intl.DateTimeFormat("en-GB", {
   hour: "2-digit",
   minute: "2-digit",
+  hour12: false,
   timeZone: "Europe/Warsaw",
 });
 
-function localDateKey(date = new Date()) {
-  return new Intl.DateTimeFormat("en-CA", {
-    year: "numeric",
-    month: "2-digit",
-    day: "2-digit",
-    timeZone: "Europe/Warsaw",
-  }).format(date);
-}
-
-function addDays(dateKey, amount) {
-  const date = new Date(`${dateKey}T12:00:00Z`);
-  date.setUTCDate(date.getUTCDate() + amount);
-  return date.toISOString().slice(0, 10);
-}
+const POSITION_TITLES = {
+  GK: "Goalkeeper",
+  SW: "Sweeper",
+  DR: "Right-back",
+  DL: "Left-back",
+  DC: "Centre-back",
+  FB: "Full-back",
+  WBR: "Right wing-back",
+  WBL: "Left wing-back",
+  WB: "Wing-back",
+  DM: "Defensive midfielder",
+  MR: "Right midfielder",
+  ML: "Left midfielder",
+  WM: "Wide midfielder",
+  MC: "Central midfielder",
+  AMR: "Right attacking midfielder",
+  AML: "Left attacking midfielder",
+  AMC: "Central attacking midfielder",
+  AM: "Attacking midfielder",
+  SS: "Second striker",
+  ST: "Striker",
+};
 
 function dateHeading(dateKey) {
-  const today = localDateKey();
-  const yesterday = addDays(today, -1);
-  const date = new Date(`${dateKey}T12:00:00Z`);
-  const prefix = dateKey === today ? "Dzisiaj · " : dateKey === yesterday ? "Wczoraj · " : "";
-  return `${prefix}${polishDay.format(date)}`;
+  return fullDate.format(new Date(`${dateKey}T12:00:00Z`));
 }
 
 function formatFreshness(timestamp) {
   const date = new Date(timestamp);
-  if (Number.isNaN(date.getTime())) return "Aktualizacja oczekuje";
-  return `Aktualizacja ${polishDay.format(date)}, ${polishTime.format(date)}`;
+  if (Number.isNaN(date.getTime())) return "Update pending";
+  return `Updated ${updateDate.format(date)}, ${updateTime.format(date)}`;
 }
 
 function statusLabel(status) {
-  return status === "official" ? "Oficjalne" : "Plotka";
+  return status === "official" ? "Official" : "Rumour";
 }
 
 function safeText(value, fallback = "—") {
@@ -74,6 +78,25 @@ function safeText(value, fallback = "—") {
 
 function appendText(element, value) {
   element.append(document.createTextNode(value));
+}
+
+function positionElement(position) {
+  const fragment = document.createDocumentFragment();
+  const codes = String(position ?? "")
+    .split("/")
+    .map((code) => code.trim())
+    .filter(Boolean);
+
+  codes.forEach((code, index) => {
+    if (index) fragment.append(document.createTextNode(" / "));
+    const abbreviation = document.createElement("abbr");
+    abbreviation.textContent = code;
+    abbreviation.title = POSITION_TITLES[code] || code;
+    abbreviation.setAttribute("aria-label", `Position: ${POSITION_TITLES[code] || code}`);
+    fragment.append(abbreviation);
+  });
+
+  return fragment;
 }
 
 function playerElement(transfer) {
@@ -87,17 +110,80 @@ function playerElement(transfer) {
     player.href = transfer.playerUrl;
     player.target = "_blank";
     player.rel = "noreferrer";
-    player.setAttribute("aria-label", `${transfer.player} — Wikipedia (otwiera się w nowej karcie)`);
+    player.setAttribute("aria-label", `${transfer.player} on Wikipedia — opens in a new tab`);
   }
   wrapper.append(player);
 
-  const mobileAge = document.createElement("span");
-  mobileAge.className = "mobile-age";
-  mobileAge.setAttribute("aria-hidden", "true");
-  mobileAge.textContent = `· ${safeText(transfer.age)}`;
-  wrapper.append(mobileAge);
+  const hasAge = transfer.age !== null
+    && transfer.age !== undefined
+    && String(transfer.age).trim() !== ""
+    && Number.isFinite(Number(transfer.age));
+  const hasPosition = Boolean(String(transfer.position ?? "").trim());
+  if (hasAge || hasPosition) {
+    const metadata = document.createElement("span");
+    metadata.className = "player-meta";
+
+    if (hasAge) {
+      const age = document.createElement("span");
+      const ageLabel = document.createElement("span");
+      ageLabel.className = "sr-only";
+      ageLabel.textContent = "Age ";
+      age.append(ageLabel, document.createTextNode(String(transfer.age)));
+      metadata.append(age);
+    }
+
+    if (hasAge && hasPosition) {
+      const divider = document.createElement("span");
+      divider.className = "meta-divider";
+      divider.textContent = "·";
+      divider.setAttribute("aria-hidden", "true");
+      metadata.append(divider);
+    }
+
+    if (hasPosition) metadata.append(positionElement(transfer.position));
+    wrapper.append(metadata);
+  }
 
   return wrapper;
+}
+
+function clubElement(transfer, direction) {
+  const isFrom = direction === "from";
+  const name = safeText(isFrom ? transfer.fromClub : transfer.toClub);
+  const url = isFrom ? transfer.fromClubUrl : transfer.toClubUrl;
+  const crestUrl = isFrom ? transfer.fromClubCrest : transfer.toClubCrest;
+
+  const club = document.createElement("span");
+  club.className = `club ${direction}-club`;
+
+  const crestSlot = document.createElement("span");
+  crestSlot.className = "club-crest-slot";
+  crestSlot.setAttribute("aria-hidden", "true");
+  if (crestUrl) {
+    const crest = document.createElement("img");
+    crest.className = "club-crest";
+    crest.src = crestUrl;
+    crest.alt = "";
+    crest.width = 24;
+    crest.height = 24;
+    crest.loading = "lazy";
+    crest.decoding = "async";
+    crest.addEventListener("error", () => crest.remove(), { once: true });
+    crestSlot.append(crest);
+  }
+  club.append(crestSlot);
+
+  const label = url ? document.createElement("a") : document.createElement("span");
+  label.className = "club-name";
+  label.textContent = name;
+  if (url) {
+    label.href = url;
+    label.target = "_blank";
+    label.rel = "noreferrer";
+    label.setAttribute("aria-label", `${name} on Wikipedia — opens in a new tab`);
+  }
+  club.append(label);
+  return club;
 }
 
 function textCell(className, value) {
@@ -105,6 +191,39 @@ function textCell(className, value) {
   cell.className = className;
   cell.textContent = safeText(value);
   return cell;
+}
+
+function detailsElement(transfer) {
+  const details = document.createElement("span");
+  details.className = "row-details";
+
+  details.append(textCell("fee", transfer.fee));
+  details.append(textCell(`status status-${transfer.status}`, statusLabel(transfer.status)));
+
+  const sourceCell = document.createElement("span");
+  sourceCell.className = "source-cell";
+
+  const source = transfer.sourceUrl ? document.createElement("a") : document.createElement("span");
+  source.className = "source-link";
+  source.textContent = safeText(transfer.sourceName, "Source");
+  if (transfer.sourceUrl) {
+    source.href = transfer.sourceUrl;
+    source.target = "_blank";
+    source.rel = "noreferrer";
+    source.setAttribute("aria-label", `${safeText(transfer.sourceName, "Source")} — opens in a new tab`);
+  }
+  sourceCell.append(source);
+
+  if (transfer.time && transfer.time !== "—") {
+    const divider = document.createElement("span");
+    divider.className = "source-divider";
+    divider.textContent = "·";
+    divider.setAttribute("aria-hidden", "true");
+    sourceCell.append(divider, textCell("time", transfer.time));
+  }
+
+  details.append(sourceCell);
+  return details;
 }
 
 function transferRow(transfer) {
@@ -115,50 +234,28 @@ function transferRow(transfer) {
   const flag = document.createElement("span");
   flag.className = `flag${transfer.flag ? "" : " is-unknown"}`;
   flag.textContent = transfer.flag || "—";
-  flag.setAttribute("aria-label", transfer.nationality ? `Narodowość: ${transfer.nationality}` : "Narodowość nieustalona");
+  flag.setAttribute("aria-label", transfer.nationality ? `Nationality: ${transfer.nationality}` : "Nationality unknown");
   flag.setAttribute("role", "img");
   item.append(flag);
 
   item.append(playerElement(transfer));
-  item.append(textCell("age", transfer.age));
-  item.append(textCell("position", transfer.position));
-  item.append(textCell("club from-club", transfer.fromClub));
 
+  const route = document.createElement("span");
+  route.className = "club-route";
+  const fromLabel = document.createElement("span");
+  fromLabel.className = "sr-only";
+  fromLabel.textContent = "From ";
+  route.append(fromLabel, clubElement(transfer, "from"));
   const arrow = textCell("arrow", "→");
   arrow.setAttribute("aria-hidden", "true");
-  item.append(arrow);
+  const toLabel = document.createElement("span");
+  toLabel.className = "sr-only";
+  toLabel.textContent = "to ";
+  route.append(arrow, toLabel, clubElement(transfer, "to"));
+  item.append(route);
 
-  item.append(textCell("club to-club", transfer.toClub));
-  item.append(textCell("fee", transfer.fee));
-
-  const status = textCell(`status status-${transfer.status}`, statusLabel(transfer.status));
-  item.append(status);
-
-  const source = document.createElement("a");
-  source.className = "source-link";
-  source.href = transfer.sourceUrl;
-  source.target = "_blank";
-  source.rel = "noreferrer";
-  source.textContent = safeText(transfer.sourceName, "Źródło");
-  source.setAttribute("aria-label", `${safeText(transfer.sourceName, "Źródło")} — otwiera się w nowej karcie`);
-  item.append(source);
-
-  item.append(textCell("time", transfer.time || "—"));
+  item.append(detailsElement(transfer));
   return item;
-}
-
-function columnHeadings() {
-  const headings = document.createElement("div");
-  headings.className = "column-headings";
-  headings.setAttribute("aria-hidden", "true");
-  ["Nar.", "Zawodnik", "Wiek", "Pozycja", "Klub sprzedający", "", "Klub kupujący", "Opłata", "Status", "Źródło", "Godzina"].forEach(
-    (label) => {
-      const cell = document.createElement("span");
-      cell.textContent = label;
-      headings.append(cell);
-    },
-  );
-  return headings;
 }
 
 function groupTransfers(transfers) {
@@ -182,8 +279,8 @@ function render() {
     const empty = document.createElement("p");
     empty.className = "empty";
     empty.textContent = state.activeFilter === "all"
-      ? "Brak wpisów w bieżącym oknie. Spróbuj ponownie po następnej aktualizacji."
-      : "W tym filtrze nie ma jeszcze wpisów.";
+      ? "No entries in the current window. Check again after the next update."
+      : "There are no entries in this filter yet.";
     elements.feed.append(empty);
     return;
   }
@@ -197,11 +294,12 @@ function render() {
     heading.className = "date-heading";
     heading.id = `date-${date}`;
     heading.textContent = dateHeading(date);
-    section.append(heading, columnHeadings());
+    section.append(heading);
 
     const list = document.createElement("ol");
     list.className = "transfer-list";
-    list.setAttribute("aria-label", `Transfery: ${dateHeading(date)}`);
+    list.setAttribute("role", "list");
+    list.setAttribute("aria-label", `Transfers on ${dateHeading(date)}`);
     transfers.forEach((transfer) => list.append(transferRow(transfer)));
     section.append(list);
     elements.feed.append(section);
@@ -231,7 +329,7 @@ async function loadFeed() {
   const response = await fetch(`./data/transfers.json?v=${cacheWindow}`, { cache: "no-store" });
   if (!response.ok) throw new Error(`HTTP ${response.status}`);
   const payload = await response.json();
-  if (!Array.isArray(payload.transfers)) throw new Error("Nieprawidłowy format danych");
+  if (!Array.isArray(payload.transfers)) throw new Error("Invalid data format");
 
   state.transfers = payload.transfers;
   elements.freshness.textContent = formatFreshness(payload.generatedAt);
@@ -244,16 +342,13 @@ for (const filter of elements.filters) {
   filter.addEventListener("click", () => setFilter(filter.dataset.filter));
 }
 
-const now = new Date();
-elements.title.textContent = `Transfery — ${polishDate.format(now)}`;
-
 loadFeed().catch((error) => {
   console.error(error);
   elements.feed.setAttribute("aria-busy", "false");
   elements.feed.replaceChildren();
   const message = document.createElement("p");
   message.className = "error";
-  appendText(message, "Nie udało się pobrać najnowszej aktualizacji. Odśwież stronę za chwilę.");
+  appendText(message, "The latest update could not be loaded. Refresh the page in a moment.");
   elements.feed.append(message);
-  elements.freshness.textContent = "Aktualizacja chwilowo niedostępna";
+  elements.freshness.textContent = "Update temporarily unavailable";
 });

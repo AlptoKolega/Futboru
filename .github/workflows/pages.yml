@@ -1,4 +1,4 @@
-name: Aktualizuj i publikuj Futboru
+name: Refresh and publish Futboru
 
 on:
   push:
@@ -20,31 +20,31 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Pobierz repozytorium
+      - name: Check out repository
         uses: actions/checkout@v7
 
-      - name: Ustaw Node.js
+      - name: Set up Node.js
         uses: actions/setup-node@v7
         with:
           node-version: 22
           cache: npm
 
-      - name: Zainstaluj zależności
+      - name: Install dependencies
         run: npm ci
 
-      - name: Sprawdź parsery
+      - name: Test parsers
         run: npm test
 
-      - name: Pobierz najnowsze dane
+      - name: Refresh transfer data
         run: npm run refresh
 
-      - name: Zbuduj statyczną stronę
+      - name: Build static site
         run: npm run build
 
-      - name: Skonfiguruj GitHub Pages
+      - name: Configure GitHub Pages
         uses: actions/configure-pages@v6
 
-      - name: Przygotuj artefakt
+      - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v5
         with:
           path: dist
@@ -56,6 +56,6 @@ jobs:
     runs-on: ubuntu-latest
     needs: build
     steps:
-      - name: Opublikuj
+      - name: Deploy
         id: deployment
         uses: actions/deploy-pages@v5

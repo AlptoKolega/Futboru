@@ -17,30 +17,23 @@ const COUNTRY_FLAGS = new Map([
   ["albania", "🇦🇱"], ["algeria", "🇩🇿"], ["argentina", "🇦🇷"], ["australia", "🇦🇺"],
   ["austria", "🇦🇹"], ["belgium", "🇧🇪"], ["bosnia and herzegovina", "🇧🇦"], ["brazil", "🇧🇷"],
   ["bulgaria", "🇧🇬"], ["cameroon", "🇨🇲"], ["canada", "🇨🇦"], ["chile", "🇨🇱"],
-  ["colombia", "🇨🇴"], ["costa rica", "🇨🇷"], ["croatia", "🇭🇷"], ["cyprus", "🇨🇾"],
+  ["colombia", "🇨🇴"], ["comoros", "🇰🇲"], ["costa rica", "🇨🇷"], ["croatia", "🇭🇷"],
+  ["curaçao", "🇨🇼"], ["cyprus", "🇨🇾"],
   ["czech republic", "🇨🇿"], ["czechia", "🇨🇿"], ["denmark", "🇩🇰"], ["ecuador", "🇪🇨"],
-  ["england", "🇬🇧"], ["finland", "🇫🇮"], ["france", "🇫🇷"], ["gabon", "🇬🇦"],
-  ["georgia", "🇬🇪"], ["germany", "🇩🇪"], ["ghana", "🇬🇭"], ["greece", "🇬🇷"],
+  ["england", "🇬🇧"], ["estonia", "🇪🇪"], ["finland", "🇫🇮"], ["france", "🇫🇷"], ["gabon", "🇬🇦"],
+  ["gambia", "🇬🇲"], ["the gambia", "🇬🇲"], ["georgia", "🇬🇪"], ["germany", "🇩🇪"],
+  ["ghana", "🇬🇭"], ["greece", "🇬🇷"], ["guyana", "🇬🇾"],
   ["guinea", "🇬🇳"], ["hungary", "🇭🇺"], ["iceland", "🇮🇸"], ["iran", "🇮🇷"],
   ["ireland", "🇮🇪"], ["republic of ireland", "🇮🇪"], ["israel", "🇮🇱"], ["italy", "🇮🇹"],
   ["ivory coast", "🇨🇮"], ["côte d'ivoire", "🇨🇮"], ["jamaica", "🇯🇲"], ["japan", "🇯🇵"],
-  ["kosovo", "🇽🇰"], ["mali", "🇲🇱"], ["mexico", "🇲🇽"], ["morocco", "🇲🇦"],
+  ["kenya", "🇰🇪"], ["kosovo", "🇽🇰"], ["mali", "🇲🇱"], ["mexico", "🇲🇽"], ["morocco", "🇲🇦"],
   ["netherlands", "🇳🇱"], ["new zealand", "🇳🇿"], ["nigeria", "🇳🇬"], ["north macedonia", "🇲🇰"],
   ["northern ireland", "🇬🇧"], ["norway", "🇳🇴"], ["paraguay", "🇵🇾"], ["peru", "🇵🇪"],
   ["poland", "🇵🇱"], ["portugal", "🇵🇹"], ["romania", "🇷🇴"], ["scotland", "🇬🇧"],
-  ["senegal", "🇸🇳"], ["serbia", "🇷🇸"], ["slovakia", "🇸🇰"], ["slovenia", "🇸🇮"],
+  ["senegal", "🇸🇳"], ["serbia", "🇷🇸"], ["sierra leone", "🇸🇱"], ["slovakia", "🇸🇰"], ["slovenia", "🇸🇮"],
   ["south africa", "🇿🇦"], ["south korea", "🇰🇷"], ["spain", "🇪🇸"], ["sweden", "🇸🇪"],
   ["switzerland", "🇨🇭"], ["tunisia", "🇹🇳"], ["turkey", "🇹🇷"], ["ukraine", "🇺🇦"],
   ["united states", "🇺🇸"], ["uruguay", "🇺🇾"], ["venezuela", "🇻🇪"], ["wales", "🇬🇧"],
-]);
-
-const POLISH_COUNTRIES = new Map([
-  ["England", "Anglia"], ["Scotland", "Szkocja"], ["Wales", "Walia"], ["Northern Ireland", "Irlandia Północna"],
-  ["Republic of Ireland", "Irlandia"], ["Germany", "Niemcy"], ["France", "Francja"], ["Spain", "Hiszpania"],
-  ["Italy", "Włochy"], ["Netherlands", "Holandia"], ["Sweden", "Szwecja"], ["Brazil", "Brazylia"],
-  ["Argentina", "Argentyna"], ["Portugal", "Portugalia"], ["Nigeria", "Nigeria"], ["Croatia", "Chorwacja"],
-  ["Poland", "Polska"], ["Belgium", "Belgia"], ["Denmark", "Dania"], ["Norway", "Norwegia"],
-  ["Switzerland", "Szwajcaria"], ["United States", "Stany Zjednoczone"], ["Ivory Coast", "Wybrzeże Kości Słoniowej"],
 ]);
 
 function cleanText(value) {
@@ -64,7 +57,7 @@ function inLookback(dateKey, now = new Date()) {
 }
 
 function flagFromName(name) {
-  const key = cleanText(name).toLowerCase().replace(/^flag of /, "");
+  const key = cleanText(name).toLowerCase().replace(/^flag of /, "").replace(/\s*\(country\)$/, "");
   return COUNTRY_FLAGS.get(key) || "";
 }
 
@@ -84,7 +77,7 @@ function sourceLabel(url) {
     };
     return known[hostname] || hostname;
   } catch {
-    return "Źródło";
+    return "Source";
   }
 }
 
@@ -120,7 +113,7 @@ function statusFromReference(reference) {
 export function parseWikipediaTransfers(html, now = new Date()) {
   const $ = cheerio.load(html);
   const table = $("table.wikitable").first();
-  if (!table.length) throw new Error("Wikipedia: nie znaleziono tabeli transferów");
+  if (!table.length) throw new Error("Wikipedia: transfer table not found");
 
   const transfers = [];
   let currentDate = null;
@@ -143,18 +136,21 @@ export function parseWikipediaTransfers(html, now = new Date()) {
     if (!feeCell.length) return;
 
     const playerAnchor = firstArticleLink($, playerCell);
+    const fromClubAnchor = firstArticleLink($, fromCell);
+    const toClubAnchor = firstArticleLink($, toCell);
     const player = cleanText(playerAnchor ? $(playerAnchor).text() : playerCell.clone().children("sup").remove().end().text());
     if (!player) return;
 
     const flagImage = playerCell.find("img").first();
-    const country = cleanText(flagImage.attr("alt") || flagImage.attr("title") || "England") || "England";
+    const country = cleanText(
+      flagImage.attr("alt")
+      || flagImage.closest("a").attr("title")
+      || flagImage.attr("title")
+      || "England",
+    ) || "England";
     const reference = firstReference($, feeCell);
     const sourceUrl = reference?.url || WIKIPEDIA_URL;
-    const rawFee = cleanText(feeCell.clone().children("sup").remove().end().text()) || "Undisclosed";
-    const fee = rawFee
-      .replace(/^Undisclosed$/i, "nieujawniona")
-      .replace(/^Free$/i, "bez odstępnego")
-      .replace(/^Loan$/i, "wypożyczenie");
+    const fee = cleanText(feeCell.clone().children("sup").remove().end().text()) || "Undisclosed";
 
     transfers.push({
       id: createHash("sha1").update(`official|${currentDate}|${player}|${cleanText(fromCell.text())}|${cleanText(toCell.text())}`).digest("hex").slice(0, 14),
@@ -164,10 +160,14 @@ export function parseWikipediaTransfers(html, now = new Date()) {
       playerUrl: absoluteWikipediaUrl(playerAnchor ? $(playerAnchor).attr("href") : null),
       age: null,
       position: null,
-      nationality: POLISH_COUNTRIES.get(country) || country,
+      nationality: country,
       flag: flagFromName(country),
       fromClub: cleanText(fromCell.text()),
+      fromClubUrl: absoluteWikipediaUrl(fromClubAnchor ? $(fromClubAnchor).attr("href") : null),
+      fromClubCrest: null,
       toClub: cleanText(toCell.text()),
+      toClubUrl: absoluteWikipediaUrl(toClubAnchor ? $(toClubAnchor).attr("href") : null),
+      toClubCrest: null,
       fee,
       status: statusFromReference(reference),
       sourceAdapter: "wikipedia",
@@ -202,7 +202,7 @@ export function parseBbcRumours(xml, now = new Date()) {
 
     const displayTitle = normaliseTitle(title);
     const date = published.toISOString().slice(0, 10);
-    const time = new Intl.DateTimeFormat("pl-PL", {
+    const time = new Intl.DateTimeFormat("en-GB", {
       hour: "2-digit",
       minute: "2-digit",
       timeZone: "Europe/Warsaw",
@@ -215,11 +215,15 @@ export function parseBbcRumours(xml, now = new Date()) {
       player: displayTitle,
       playerUrl: null,
       age: null,
-      position: "doniesienie",
+      position: null,
       nationality: null,
       flag: "",
       fromClub: "—",
+      fromClubUrl: null,
+      fromClubCrest: null,
       toClub: "—",
+      toClubUrl: null,
+      toClubCrest: null,
       fee: "—",
       status: "rumour",
       sourceAdapter: "bbc-rss",
@@ -244,20 +248,108 @@ async function fetchText(url) {
   return response.text();
 }
 
+function batches(items, size = 45) {
+  const result = [];
+  for (let index = 0; index < items.length; index += size) result.push(items.slice(index, index + size));
+  return result;
+}
+
+function wikipediaTitle(url) {
+  try {
+    const path = new URL(url).pathname.replace(/^\/wiki\//, "");
+    return decodeURIComponent(path).replaceAll("_", " ");
+  } catch {
+    return null;
+  }
+}
+
+async function wikipediaPageMetadata(titles, { includeThumbnail = false } = {}) {
+  const uniqueTitles = [...new Set(titles.filter(Boolean))];
+  const metadata = new Map();
+
+  for (const titleBatch of batches(uniqueTitles)) {
+    const queryUrl = new URL("https://en.wikipedia.org/w/api.php");
+    const parameters = {
+      action: "query",
+      format: "json",
+      formatversion: "2",
+      prop: includeThumbnail ? "pageprops|pageimages" : "pageprops",
+      ppprop: "wikibase_item",
+      redirects: "1",
+      titles: titleBatch.join("|"),
+    };
+    if (includeThumbnail) {
+      parameters.piprop = "thumbnail|name";
+      parameters.pithumbsize = "120";
+      parameters.pilicense = "any";
+    }
+    queryUrl.search = new URLSearchParams(parameters);
+
+    const response = await fetch(queryUrl, {
+      headers: { "User-Agent": USER_AGENT },
+      signal: AbortSignal.timeout(20_000),
+    });
+    if (!response.ok) throw new Error(`Wikipedia API: HTTP ${response.status}`);
+    const payload = await response.json();
+    if (payload?.error) {
+      throw new Error(`Wikipedia API: ${payload.error.code || "unknown error"} — ${payload.error.info || "request failed"}`);
+    }
+    const aliases = new Map();
+    for (const item of [...(payload?.query?.normalized || []), ...(payload?.query?.redirects || [])]) {
+      if (item?.from && item?.to) aliases.set(item.from.toLowerCase(), item.to.toLowerCase());
+    }
+    const pages = new Map(
+      (payload?.query?.pages || [])
+        .filter((page) => page?.title)
+        .map((page) => [page.title.toLowerCase(), page]),
+    );
+
+    for (const originalTitle of titleBatch) {
+      let resolvedTitle = originalTitle.toLowerCase();
+      const visited = new Set();
+      while (aliases.has(resolvedTitle) && !visited.has(resolvedTitle)) {
+        visited.add(resolvedTitle);
+        resolvedTitle = aliases.get(resolvedTitle);
+      }
+      const page = pages.get(resolvedTitle) || pages.get(originalTitle.toLowerCase());
+      if (page) {
+        metadata.set(originalTitle.toLowerCase(), {
+          qid: page?.pageprops?.wikibase_item || null,
+          thumbnail: page?.thumbnail?.source || null,
+        });
+      }
+    }
+  }
+
+  return metadata;
+}
+
 async function wikidataEntities(ids, props = "claims|descriptions") {
-  if (!ids.length) return {};
-  const url = new URL("https://www.wikidata.org/w/api.php");
-  url.search = new URLSearchParams({
-    action: "wbgetentities",
-    format: "json",
-    languages: "pl|en",
-    props,
-    ids: ids.join("|"),
-  });
-  const response = await fetch(url, { headers: { "User-Agent": USER_AGENT }, signal: AbortSignal.timeout(20_000) });
-  if (!response.ok) throw new Error(`Wikidata: HTTP ${response.status}`);
-  const payload = await response.json();
-  return payload.entities || {};
+  const uniqueIds = [...new Set(ids.filter(Boolean))];
+  const entities = {};
+
+  for (const idBatch of batches(uniqueIds)) {
+    const url = new URL("https://www.wikidata.org/w/api.php");
+    url.search = new URLSearchParams({
+      action: "wbgetentities",
+      format: "json",
+      languages: "en",
+      props,
+      ids: idBatch.join("|"),
+    });
+    const response = await fetch(url, {
+      headers: { "User-Agent": USER_AGENT },
+      signal: AbortSignal.timeout(20_000),
+    });
+    if (!response.ok) throw new Error(`Wikidata: HTTP ${response.status}`);
+    const payload = await response.json();
+    if (payload?.error) {
+      throw new Error(`Wikidata: ${payload.error.code || "unknown error"} — ${payload.error.info || "request failed"}`);
+    }
+    Object.assign(entities, payload.entities || {});
+  }
+
+  return entities;
 }
 
 function ageAt(birthTime, dateKey) {
@@ -274,86 +366,120 @@ function ageAt(birthTime, dateKey) {
 
 function claimIds(entity, property) {
   return (entity?.claims?.[property] || [])
+    .filter((claim) => claim?.rank !== "deprecated")
+    .sort((left, right) => Number(right?.rank === "preferred") - Number(left?.rank === "preferred"))
     .map((claim) => claim?.mainsnak?.datavalue?.value?.id)
     .filter(Boolean);
 }
 
-function positionInPolish(label = "") {
-  const value = label.toLowerCase();
-  if (/goalkeeper|bramkar/.test(value)) return "bramkarz";
-  if (/centre-back|center-back|środkowy obrońca/.test(value)) return "środkowy obrońca";
-  if (/full-back|boczny obrońca/.test(value)) return "boczny obrońca";
-  if (/defender|obrońca/.test(value)) return "obrońca";
-  if (/defensive midfielder|defensywny pomocnik/.test(value)) return "defensywny pomocnik";
-  if (/attacking midfielder|ofensywny pomocnik/.test(value)) return "ofensywny pomocnik";
-  if (/winger|skrzydłowy/.test(value)) return "skrzydłowy";
-  if (/midfielder|pomocnik/.test(value)) return "pomocnik";
-  if (/forward|striker|napastnik/.test(value)) return "napastnik";
-  return label || null;
+const POSITION_CODES_BY_QID = new Map([
+  ["Q201330", "GK"],
+  ["Q268258", "DC"],
+  ["Q336286", "DC"],
+  ["Q90173132", "FB"],
+  ["Q124650007", "DL"],
+  ["Q124355618", "DR"],
+  ["Q18691898", "DM"],
+  ["Q193592", "MC"],
+  ["Q6008848", "MC"],
+  ["Q8025128", "MC"],
+  ["Q90326494", "AMC"],
+  ["Q114358150", "AMR"],
+  ["Q114358158", "AML"],
+  ["Q280658", "ST"],
+  ["Q9731197", "ST"],
+  ["Q1642283", "SS"],
+]);
+
+export function positionCode(label = "", qid = "") {
+  if (POSITION_CODES_BY_QID.has(qid)) return POSITION_CODES_BY_QID.get(qid);
+  const value = label.toLowerCase().replace(/[‐‑‒–—]/g, "-");
+  if (/goalkeeper/.test(value)) return "GK";
+  if (/right wing-back/.test(value)) return "WBR";
+  if (/left wing-back/.test(value)) return "WBL";
+  if (/wing-back/.test(value)) return "WB";
+  if (/right-back|right back/.test(value)) return "DR";
+  if (/left-back|left back/.test(value)) return "DL";
+  if (/centre-back|center-back|central defender/.test(value)) return "DC";
+  if (/full-back|full back/.test(value)) return "FB";
+  if (/defensive midfielder|holding midfielder/.test(value)) return "DM";
+  if (/right midfielder/.test(value)) return "MR";
+  if (/left midfielder/.test(value)) return "ML";
+  if (/wide midfielder/.test(value)) return "WM";
+  if (/right winger/.test(value)) return "AMR";
+  if (/left winger/.test(value)) return "AML";
+  if (/attacking midfielder/.test(value)) return "AMC";
+  if (/central midfielder|centre midfielder|wing half/.test(value)) return "MC";
+  if (/second striker/.test(value)) return "SS";
+  if (/centre-forward|center-forward|striker|forward/.test(value)) return "ST";
+  if (/winger/.test(value)) return "AM";
+  if (/midfielder/.test(value)) return "MC";
+  if (/sweeper/.test(value)) return "SW";
+  if (/defender/.test(value)) return "DC";
+  return null;
 }
 
-async function enrichOfficialTransfers(transfers) {
-  const withPages = transfers.filter((transfer) => transfer.playerUrl).slice(0, 50);
+function compactPositionCodes(positionIds, positionEntities) {
+  let codes = [...new Set(positionIds
+    .map((positionId) => positionCode(positionEntities[positionId]?.labels?.en?.value, positionId))
+    .filter(Boolean))];
+
+  const specificGroups = [
+    { generic: "FB", specific: ["DR", "DL", "WBR", "WBL"] },
+    { generic: "WB", specific: ["WBR", "WBL"] },
+    { generic: "MC", specific: ["DM", "MR", "ML", "AMC", "AMR", "AML"] },
+    { generic: "WM", specific: ["MR", "ML"] },
+    { generic: "AM", specific: ["AMC", "AMR", "AML"] },
+    { generic: "ST", specific: ["SS"] },
+  ];
+  for (const { generic, specific } of specificGroups) {
+    if (specific.some((code) => codes.includes(code))) codes = codes.filter((code) => code !== generic);
+  }
+  return codes.slice(0, 2).join(" / ") || null;
+}
+
+async function enrichPlayerDetails(transfers) {
+  const withPages = transfers.filter((transfer) => transfer.playerUrl);
   if (!withPages.length) return transfers;
 
-  const titles = withPages.map((transfer) => decodeURIComponent(new URL(transfer.playerUrl).pathname.replace(/^\/wiki\//, "")).replaceAll("_", " "));
-  const queryUrl = new URL("https://en.wikipedia.org/w/api.php");
-  queryUrl.search = new URLSearchParams({
-    action: "query",
-    format: "json",
-    prop: "pageprops",
-    ppprop: "wikibase_item",
-    redirects: "1",
-    titles: titles.join("|"),
-  });
-  const response = await fetch(queryUrl, { headers: { "User-Agent": USER_AGENT }, signal: AbortSignal.timeout(20_000) });
-  if (!response.ok) throw new Error(`Wikipedia API: HTTP ${response.status}`);
-  const payload = await response.json();
-  const pageToQid = new Map();
-  for (const page of Object.values(payload?.query?.pages || {})) {
-    if (page?.title && page?.pageprops?.wikibase_item) pageToQid.set(page.title.toLowerCase(), page.pageprops.wikibase_item);
-  }
-
-  const qids = [...new Set(pageToQid.values())];
+  const titles = withPages.map((transfer) => wikipediaTitle(transfer.playerUrl));
+  const pageMetadata = await wikipediaPageMetadata(titles);
+  const qids = [...new Set([...pageMetadata.values()].map((page) => page.qid).filter(Boolean))];
   const entities = await wikidataEntities(qids);
   const positionIds = [...new Set(qids.flatMap((qid) => claimIds(entities[qid], "P413")))];
-  const countryIds = [...new Set(qids.flatMap((qid) => claimIds(entities[qid], "P27")))];
   const positionEntities = await wikidataEntities(positionIds, "labels");
-  const countryEntities = await wikidataEntities(countryIds, "labels|claims");
 
   for (let index = 0; index < withPages.length; index += 1) {
     const transfer = withPages[index];
-    const qid = pageToQid.get(titles[index].toLowerCase());
+    const qid = pageMetadata.get(titles[index]?.toLowerCase())?.qid;
     const entity = entities[qid];
     if (!entity) continue;
 
     const birthTime = entity?.claims?.P569?.[0]?.mainsnak?.datavalue?.value?.time;
-    transfer.age = ageAt(birthTime, transfer.date);
+    const enrichedAge = ageAt(birthTime, transfer.date);
+    const enrichedPosition = compactPositionCodes(claimIds(entity, "P413"), positionEntities);
+    if (enrichedAge !== null) transfer.age = enrichedAge;
+    if (enrichedPosition) transfer.position = enrichedPosition;
 
-    const positionId = claimIds(entity, "P413")[0];
-    const positionEntity = positionEntities[positionId];
-    const label = positionEntity?.labels?.pl?.value || positionEntity?.labels?.en?.value;
-    transfer.position = positionInPolish(label);
-
-    const countryId = claimIds(entity, "P27")[0];
-    const countryEntity = countryEntities[countryId];
-    if (countryEntity) {
-      transfer.nationality = countryEntity?.labels?.pl?.value || countryEntity?.labels?.en?.value || transfer.nationality;
-      const specialFlags = {
-        Q21: "🇬🇧",
-        Q22: "🇬🇧",
-        Q25: "🇬🇧",
-        Q26: "🇬🇧",
-      };
-      const isoCode = countryEntity?.claims?.P297?.[0]?.mainsnak?.datavalue?.value;
-      if (specialFlags[countryId]) {
-        transfer.flag = specialFlags[countryId];
-      } else if (/^[A-Z]{2}$/.test(isoCode || "")) {
-        transfer.flag = String.fromCodePoint(...[...isoCode].map((character) => 127397 + character.charCodeAt(0)));
-      }
-    }
   }
 
+  return transfers;
+}
+
+async function enrichClubCrests(transfers) {
+  const titles = transfers.flatMap((transfer) => [
+    wikipediaTitle(transfer.fromClubUrl),
+    wikipediaTitle(transfer.toClubUrl),
+  ]).filter(Boolean);
+  if (!titles.length) return transfers;
+
+  const pageMetadata = await wikipediaPageMetadata(titles, { includeThumbnail: true });
+  for (const transfer of transfers) {
+    const fromTitle = wikipediaTitle(transfer.fromClubUrl);
+    const toTitle = wikipediaTitle(transfer.toClubUrl);
+    transfer.fromClubCrest = pageMetadata.get(fromTitle?.toLowerCase())?.thumbnail || transfer.fromClubCrest || null;
+    transfer.toClubCrest = pageMetadata.get(toTitle?.toLowerCase())?.thumbnail || transfer.toClubCrest || null;
+  }
   return transfers;
 }
 
@@ -371,11 +497,15 @@ async function readManualRumours() {
     const items = JSON.parse(await readFile(MANUAL_RUMOURS_URL, "utf8"));
     return items.filter(validateManualRumour).map((item) => ({
       age: null,
-      position: "doniesienie",
+      position: null,
       nationality: null,
       flag: "",
       fromClub: "—",
+      fromClubUrl: null,
+      fromClubCrest: null,
       toClub: "—",
+      toClubUrl: null,
+      toClubCrest: null,
       fee: "—",
       status: "rumour",
       sourceAdapter: "manual",
@@ -398,13 +528,68 @@ function deduplicate(transfers) {
   });
 }
 
+const LEGACY_POSITIONS = new Map([
+  ["bramkarz", "GK"],
+  ["środkowy obrońca", "DC"],
+  ["boczny obrońca", "FB"],
+  ["obrońca", "DC"],
+  ["defensywny pomocnik", "DM"],
+  ["ofensywny pomocnik", "AMC"],
+  ["skrzydłowy", "AM"],
+  ["pomocnik", "MC"],
+  ["napastnik", "ST"],
+  ["doniesienie", null],
+]);
+
+const LEGACY_NATIONALITIES = new Map([
+  ["Anglia", "England"], ["Szkocja", "Scotland"], ["Walia", "Wales"],
+  ["Irlandia Północna", "Northern Ireland"], ["Irlandia", "Republic of Ireland"],
+  ["Wielka Brytania", "United Kingdom"], ["Niemcy", "Germany"], ["Francja", "France"],
+  ["Hiszpania", "Spain"], ["Włochy", "Italy"], ["Holandia", "Netherlands"],
+  ["Szwecja", "Sweden"], ["Brazylia", "Brazil"], ["Argentyna", "Argentina"],
+  ["Portugalia", "Portugal"], ["Chorwacja", "Croatia"], ["Polska", "Poland"],
+  ["Belgia", "Belgium"], ["Dania", "Denmark"], ["Norwegia", "Norway"],
+  ["Szwajcaria", "Switzerland"], ["Stany Zjednoczone", "United States"],
+  ["Wybrzeże Kości Słoniowej", "Ivory Coast"],
+]);
+
+function normaliseStoredTransfer(transfer) {
+  const position = LEGACY_POSITIONS.has(transfer.position) ? LEGACY_POSITIONS.get(transfer.position) : transfer.position;
+  const fee = String(transfer.fee ?? "")
+    .replace(/^nieujawniona$/i, "Undisclosed")
+    .replace(/^bez odstępnego$/i, "Free")
+    .replace(/^wypożyczenie$/i, "Loan") || "—";
+  return {
+    ...transfer,
+    position: position || null,
+    nationality: LEGACY_NATIONALITIES.get(transfer.nationality) || transfer.nationality || null,
+    fee,
+    fromClubUrl: transfer.fromClubUrl || null,
+    fromClubCrest: transfer.fromClubCrest || null,
+    toClubUrl: transfer.toClubUrl || null,
+    toClubCrest: transfer.toClubCrest || null,
+  };
+}
+
+function carryPreviousEnrichment(transfers, previousTransfers) {
+  const previousById = new Map(previousTransfers.map((transfer) => [transfer.id, transfer]));
+  for (const transfer of transfers) {
+    const previous = previousById.get(transfer.id);
+    if (!previous) continue;
+    for (const field of ["age", "position", "fromClubCrest", "toClubCrest"]) {
+      if (!transfer[field] && previous[field]) transfer[field] = previous[field];
+    }
+  }
+  return transfers;
+}
+
 export async function refresh() {
   const generatedAt = new Date().toISOString();
   const sourceReports = [];
   let previousTransfers = [];
   try {
     const previous = JSON.parse(await readFile(OUTPUT_URL, "utf8"));
-    previousTransfers = Array.isArray(previous.transfers) ? previous.transfers : [];
+    previousTransfers = Array.isArray(previous.transfers) ? previous.transfers.map(normaliseStoredTransfer) : [];
   } catch {
     previousTransfers = [];
   }
@@ -417,10 +602,16 @@ export async function refresh() {
   let official = [];
   if (wikipediaResult.status === "fulfilled") {
     official = parseWikipediaTransfers(wikipediaResult.value).slice(-MAX_OFFICIAL).reverse();
+    carryPreviousEnrichment(official, previousTransfers);
     try {
-      await enrichOfficialTransfers(official);
+      await enrichClubCrests(official);
     } catch (error) {
-      console.warn(`Wzbogacanie Wikidata pominięte: ${error.message}`);
+      console.warn(`Club crest enrichment skipped: ${error.message}`);
+    }
+    try {
+      await enrichPlayerDetails(official);
+    } catch (error) {
+      console.warn(`Player detail enrichment skipped: ${error.message}`);
     }
     sourceReports.push({ id: "wikipedia", label: "English Wikipedia", url: WIKIPEDIA_URL, status: "ok", count: official.length });
   } else {
@@ -448,14 +639,14 @@ export async function refresh() {
   });
 
   if (!transfers.length) {
-    throw new Error("Żadne źródło nie zwróciło wpisów; poprzedni plik danych pozostaje bez zmian");
+    throw new Error("No source returned entries; the previous data file was left unchanged");
   }
 
   const payload = { generatedAt, sources: sourceReports, transfers };
   await writeFile(OUTPUT_URL, `${JSON.stringify(payload, null, 2)}\n`, "utf8");
   const officialCount = transfers.filter((transfer) => transfer.status === "official").length;
   const rumourCount = transfers.filter((transfer) => transfer.status === "rumour").length;
-  console.log(`Zapisano ${transfers.length} wpisów (${officialCount} oficjalnych, ${rumourCount} plotek).`);
+  console.log(`Saved ${transfers.length} entries (${officialCount} official, ${rumourCount} rumours).`);
   return payload;
 }
 

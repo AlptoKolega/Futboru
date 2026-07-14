@@ -1,52 +1,55 @@
 # Futboru
 
-Minimalistyczny, źródłowy feed transferów piłkarskich. Strona nie kopiuje artykułów: pokazuje wyłącznie ustrukturyzowany fakt, status i link do źródła.
+A minimalist, source-backed football transfer feed. The site does not reproduce articles: it shows a structured transfer record, its status, and a direct link to the source.
 
-## Co działa w PoC
+## What the PoC includes
 
-- potwierdzone transfery z bieżącej listy angielskiego okna transferowego w Wikipedii, wraz z cytowanym źródłem;
-- wiek i pozycja wzbogacane przez Wikidane, gdy rekord zawodnika jest dostępny;
-- ostrożnie filtrowane sygnały transferowe z publicznego kanału BBC Football RSS jako `plotka`;
-- ręczne, źródłowe doniesienia w `data/manual-rumours.json`;
-- deduplikacja, walidacja i odświeżanie co 30 minut przez GitHub Actions;
-- dostępny, responsywny interfejs bez menu, kart, zdjęć i efektów.
+- confirmed transfers from the current English summer transfer window list on Wikipedia, including each cited source;
+- age, nationality, and compact Football Manager-style position codes enriched from Wikidata where available;
+- club crests and club links sourced from English Wikipedia page metadata;
+- cautiously filtered transfer signals from the public BBC Football RSS feed, always marked as a `Rumour`;
+- manually curated, source-backed rumours in `data/manual-rumours.json`;
+- deduplication, validation, and a GitHub Actions refresh every 30 minutes;
+- an accessible, responsive interface with no menu, cards, photography, or visual effects.
 
-`Oficjalne` oznacza wpis z listy zakończonych transferów. Link przy wierszu prowadzi do cytowanego komunikatu klubu albo medium, które potwierdziło ruch. Doniesienia BBC pozostają `Plotką`, dopóki nie pojawi się na liście zakończonych transferów.
+`Official` means the move appears in the completed-transfers list. The source link in each row points to the cited club statement or publication. BBC reports remain `Rumours` until the move appears in the completed list.
 
-## Lokalnie
+## Run locally
 
-Wymagany jest Node.js 22 lub nowszy.
+Node.js 22 or newer is required.
 
 ```bash
 npm install
 npm run check
-python3 -m http.server 4173
+python3 -m http.server 4173 --directory dist
 ```
 
-Następnie otwórz `http://127.0.0.1:4173`.
+Then open `http://127.0.0.1:4173`.
 
-## Dodawanie ręcznego źródła
+## Add a manual source
 
-`data/manual-rumours.json` przyjmuje tablicę rekordów. Minimalny wpis:
+`data/manual-rumours.json` accepts an array of records. Minimal example:
 
 ```json
 {
   "date": "2026-07-15",
-  "player": "Imię i nazwisko",
-  "fromClub": "Klub A",
-  "toClub": "Klub B",
-  "fee": "€30 mln?",
-  "sourceName": "Nazwa źródła",
-  "sourceUrl": "https://adres-zrodla.example/wpis"
+  "player": "Player name",
+  "fromClub": "Club A",
+  "toClub": "Club B",
+  "fee": "€30m?",
+  "sourceName": "Source name",
+  "sourceUrl": "https://source.example/post"
 }
 ```
 
-Nie dodawaj rekordu bez bezpośredniego linku do oryginalnej publikacji.
+Do not add an entry without a direct link to the original publication.
 
-## Źródła, których PoC celowo nie scrapuje
+## Sources the PoC deliberately does not scrape
 
-- **X / Fabrizio Romano** — stabilna integracja wymaga oficjalnego X API i tokenu; wpis dziennikarza nadal powinien mieć status `plotka` lub `doniesienie`, nie `oficjalne`.
-- **Facebook Groups** — brak obecnie stabilnej, autoryzowanej ścieżki do automatycznego pobierania postów grupowych; odpowiednią drogą jest ręczne zgłaszanie linków.
-- **Meczyki i inne portale bez publicznego RSS/API** — kolejny adapter powinien powstać dopiero po sprawdzeniu warunków użycia lub uzyskaniu zgody.
+- **X / Fabrizio Romano** — a stable integration requires the official X API and an access token. A journalist's post should still be marked as a rumour, not official confirmation.
+- **Facebook Groups** — there is no stable, authorised route for automatically collecting group posts. Direct links can be curated manually.
+- **Meczyki and other publishers without a public RSS feed or API** — another adapter should only be added after checking the publisher's terms or obtaining permission.
 
-Kolejny krok produkcyjny to bezpośrednie adaptery oficjalnych trackerów Premier League, Bundesligi, LaLigi, Serie A i Ekstraklasy. Przy wielu ligach płatne API (np. Sportmonks) będzie stabilniejsze niż utrzymywanie wielu parserów HTML.
+Club crests currently use Wikipedia page thumbnails for PoC coverage, including some non-free images hosted by English Wikipedia. A commercial release should use a licensed football-data/crest provider or a manually approved asset catalogue.
+
+The next production step is to add direct adapters for official Premier League, Bundesliga, LaLiga, Serie A, and Ekstraklasa trackers. At multi-league scale, a licensed API is likely to be more reliable than maintaining many HTML parsers.

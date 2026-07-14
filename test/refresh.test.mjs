@@ -1,15 +1,16 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import { parseBbcRumours, parseWikipediaTransfers } from "../scripts/refresh.mjs";
+import { parseBbcRumours, parseWikipediaTransfers, positionCode } from "../scripts/refresh.mjs";
 
-test("parser Wikipedii dziedziczy datę z rowspan i zachowuje link źródłowy", () => {
+test("Wikipedia parser inherits a rowspan date and keeps source and club links", () => {
   const html = `
     <table class="wikitable">
       <tr><th>Date</th><th>Player</th><th>From</th><th>To</th><th>Fee</th></tr>
       <tr>
         <td rowspan="2">14 July 2026</td>
-        <td><img alt="Croatia"><a href="./Luka_Vu%C5%A1kovi%C4%87">Luka Vušković</a></td>
-        <td>Tottenham Hotspur</td><td>Brighton</td>
+        <td><a title="Croatia"><img alt=""></a><a href="./Luka_Vu%C5%A1kovi%C4%87">Luka Vušković</a></td>
+        <td><a href="./Tottenham_Hotspur_F.C.">Tottenham Hotspur</a></td>
+        <td><a href="./Brighton_%26_Hove_Albion_F.C.">Brighton</a></td>
         <td>£46m<sup class="reference"><a href="#cite_note-1">[1]</a></sup></td>
       </tr>
       <tr>
@@ -26,11 +27,14 @@ test("parser Wikipedii dziedziczy datę z rowspan i zachowuje link źródłowy",
   assert.equal(result[0].player, "Luka Vušković");
   assert.equal(result[0].playerUrl, "https://en.wikipedia.org/wiki/Luka_Vu%C5%A1kovi%C4%87");
   assert.equal(result[0].fromClub, "Tottenham Hotspur");
+  assert.equal(result[0].fromClubUrl, "https://en.wikipedia.org/wiki/Tottenham_Hotspur_F.C.");
+  assert.equal(result[0].toClubUrl, "https://en.wikipedia.org/wiki/Brighton_%26_Hove_Albion_F.C.");
   assert.equal(result[0].sourceUrl, "https://www.bbc.co.uk/sport/example");
   assert.equal(result[0].flag, "🇭🇷");
+  assert.equal(result[1].fee, "Undisclosed");
 });
 
-test("zapowiedź ruchu pozostaje plotką mimo obecności w tabeli", () => {
+test("an anticipated move stays a rumour even when it appears in the table", () => {
   const html = `
     <table class="wikitable">
       <tr><th>Date</th><th>Player</th><th>From</th><th>To</th><th>Fee</th></tr>
@@ -43,7 +47,7 @@ test("zapowiedź ruchu pozostaje plotką mimo obecności w tabeli", () => {
   assert.equal(result.status, "rumour");
 });
 
-test("parser BBC przyjmuje wyłącznie sygnały o charakterze plotki", () => {
+test("BBC parser accepts only transfer-rumour signals", () => {
   const xml = `
     <rss><channel>
       <item>
@@ -63,4 +67,24 @@ test("parser BBC przyjmuje wyłącznie sygnały o charakterze plotki", () => {
   assert.equal(result[0].status, "rumour");
   assert.equal(result[0].player, "Arsenal linked with Jan Kowalski");
   assert.equal(result[0].sourceName, "BBC Sport");
+});
+
+test("football positions use compact Football Manager-style codes", () => {
+  const cases = [
+    ["goalkeeper", "GK"],
+    ["centre-back", "DC"],
+    ["left-back", "DL"],
+    ["right-back", "DR"],
+    ["defensive midfielder", "DM"],
+    ["wing-back", "WB"],
+    ["wide midfielder", "WM"],
+    ["attacking midfielder", "AMC"],
+    ["right winger", "AMR"],
+    ["left winger", "AML"],
+    ["centre-forward", "ST"],
+  ];
+
+  for (const [label, expected] of cases) assert.equal(positionCode(label), expected, label);
+  assert.equal(positionCode("anything", "Q201330"), "GK");
+  assert.equal(positionCode("unknown role"), null);
 });
