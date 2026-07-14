@@ -1,0 +1,61 @@
+name: Aktualizuj i publikuj Futboru
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+  schedule:
+    - cron: "17,47 * * * *"
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pobierz repozytorium
+        uses: actions/checkout@v4
+
+      - name: Ustaw Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Zainstaluj zależności
+        run: npm ci
+
+      - name: Sprawdź parsery
+        run: npm test
+
+      - name: Pobierz najnowsze dane
+        run: npm run refresh
+
+      - name: Zbuduj statyczną stronę
+        run: npm run build
+
+      - name: Skonfiguruj GitHub Pages
+        uses: actions/configure-pages@v5
+
+      - name: Przygotuj artefakt
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Opublikuj
+        id: deployment
+        uses: actions/deploy-pages@v4
