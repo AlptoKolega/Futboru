@@ -322,13 +322,13 @@ function feeElement(value) {
   const accessibleLabel = document.createElement("span");
   accessibleLabel.className = "sr-only";
 
-  if (/^free(?: transfer)?$/i.test(rawValue)) {
+  if (/^free(?: transfer)?$/i.test(rawValue) || /^0(?:[.,]0+)?$/.test(rawValue)) {
     wrapper.classList.add("fee-free");
     wrapper.title = "Free transfer";
     accessibleLabel.textContent = "Fee: Free transfer";
 
     const visibleValue = document.createElement("span");
-    visibleValue.textContent = "0";
+    visibleValue.textContent = "Free";
     visibleValue.setAttribute("aria-hidden", "true");
     wrapper.append(accessibleLabel, visibleValue);
     return wrapper;
@@ -339,20 +339,12 @@ function feeElement(value) {
     wrapper.title = "Undisclosed fee";
     accessibleLabel.textContent = "Fee: Undisclosed";
 
-    const icon = svgNode("svg", {
-      class: "fee-icon",
-      viewBox: "0 0 24 24",
-      "aria-hidden": "true",
-      focusable: "false",
-    });
-    icon.append(
-      svgNode("path", { d: "m2 2 20 20" }),
-      svgNode("path", { d: "M6.71 6.71C4.5 8.04 3 10 2 12c1.73 3.45 5.33 6 10 6 1.41 0 2.69-.23 3.84-.65" }),
-      svgNode("path", { d: "M10.73 5.08A10.85 10.85 0 0 1 12 5c4.67 0 8.27 2.55 10 7a11.6 11.6 0 0 1-1.55 2.47" }),
-      svgNode("path", { d: "M14.12 14.12A3 3 0 0 1 9.88 9.88" }),
-    );
+    const code = document.createElement("span");
+    code.className = "fee-code";
+    code.textContent = "UND";
+    code.setAttribute("aria-hidden", "true");
 
-    wrapper.append(accessibleLabel, icon);
+    wrapper.append(accessibleLabel, code);
     return wrapper;
   }
 

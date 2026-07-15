@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-15T10:49:57.031Z",
+  "generatedAt": "2026-07-15T12:42:29.032Z",
   "sources": [
     {
       "id": "wikipedia-england",
@@ -35,7 +35,7 @@
       "market": "France",
       "kind": "transfer-register",
       "status": "ok",
-      "count": 25
+      "count": 22
     },
     {
       "id": "wikipedia-netherlands",
@@ -44,7 +44,7 @@
       "market": "Netherlands",
       "kind": "transfer-register",
       "status": "ok",
-      "count": 19
+      "count": 14
     },
     {
       "id": "wikipedia-poland",
@@ -53,7 +53,7 @@
       "market": "Poland",
       "kind": "transfer-register",
       "status": "ok",
-      "count": 60
+      "count": 50
     },
     {
       "id": "bbc-rss",
@@ -71,7 +71,7 @@
       "market": "Germany",
       "kind": "news-rss",
       "status": "ok",
-      "count": 4
+      "count": 3
     },
     {
       "id": "sportschau-rss",
@@ -89,7 +89,7 @@
       "market": "Italy",
       "kind": "news-rss",
       "status": "ok",
-      "count": 0
+      "count": 2
     },
     {
       "id": "marca-rss",
@@ -125,7 +125,7 @@
       "market": "Poland",
       "kind": "news-rss",
       "status": "ok",
-      "count": 0
+      "count": 1
     },
     {
       "id": "guardian-rss",
@@ -202,6 +202,51 @@
       ]
     },
     {
+      "id": "62ba5163b6edbb",
+      "date": "2026-07-15",
+      "time": "—",
+      "player": "Amani Richards",
+      "playerUrl": "https://en.wikipedia.org/wiki/Amani_Richards",
+      "age": 21,
+      "position": null,
+      "nationality": null,
+      "flagCode": null,
+      "flag": "",
+      "fromClub": "Leicester City",
+      "fromClubUrl": "https://en.wikipedia.org/wiki/Leicester_City_F.C.",
+      "fromClubCrest": "https://upload.wikimedia.org/wikipedia/en/thumb/2/2d/Leicester_City_crest.svg/120px-Leicester_City_crest.svg.png",
+      "toClub": "Barnsley",
+      "toClubUrl": "https://en.wikipedia.org/wiki/Barnsley_F.C.",
+      "toClubCrest": "https://upload.wikimedia.org/wikipedia/en/thumb/c/c9/Barnsley_FC.svg/120px-Barnsley_FC.svg.png",
+      "fee": "Undisclosed",
+      "status": "official",
+      "market": "England",
+      "markets": [
+        "England"
+      ],
+      "competition": "English leagues",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
+      "sourceAdapter": "wikipedia-england",
+      "sourceRole": "publication",
+      "sourceName": "BBC Sport",
+      "sourceUrl": "https://www.bbc.co.uk/sport/football/articles/crr8ry1zlr2o",
+      "sources": [
+        {
+          "name": "BBC Sport",
+          "url": "https://www.bbc.co.uk/sport/football/articles/crr8ry1zlr2o",
+          "role": "publication"
+        }
+      ],
+      "firstSeenAt": "2026-07-15T12:00:00.000Z",
+      "competitions": [
+        "English leagues"
+      ],
+      "sourceAdapters": [
+        "wikipedia-england"
+      ]
+    },
+    {
       "id": "99f7a5744422d1",
       "date": "2026-07-15",
       "time": "—",
@@ -244,6 +289,72 @@
       ],
       "sourceAdapters": [
         "wikipedia-england"
+      ]
+    },
+    {
+      "id": "435bd25351c9a7",
+      "date": "2026-07-15",
+      "time": "—",
+      "player": "Thomas Meunier",
+      "playerUrl": "https://en.wikipedia.org/wiki/Thomas_Meunier",
+      "age": 34,
+      "position": "FB",
+      "nationality": "Belgium",
+      "flagCode": "be",
+      "flag": "🇧🇪",
+      "fromClub": "Lille",
+      "fromClubUrl": "https://en.wikipedia.org/wiki/Lille_OSC",
+      "fromClubCrest": "https://upload.wikimedia.org/wikipedia/en/thumb/3/3f/Lille_OSC_2018_logo.svg/120px-Lille_OSC_2018_logo.svg.png",
+      "toClub": "Sunderland",
+      "toClubUrl": "https://en.wikipedia.org/wiki/Sunderland_A.F.C.",
+      "toClubCrest": "https://upload.wikimedia.org/wikipedia/en/thumb/7/77/Logo_Sunderland.svg/120px-Logo_Sunderland.svg.png",
+      "fee": "Free",
+      "status": "official",
+      "market": "England",
+      "markets": [
+        "England",
+        "Brazil",
+        "United Kingdom",
+        "Portugal"
+      ],
+      "competition": "English leagues",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
+      "sourceAdapter": "wikipedia-england",
+      "sourceRole": "publication",
+      "sourceName": "BBC Sport",
+      "sourceUrl": "https://www.bbc.co.uk/sport/football/articles/cgjxjqpgq4xo",
+      "sources": [
+        {
+          "name": "BBC Sport",
+          "url": "https://www.bbc.co.uk/sport/football/articles/cgjxjqpgq4xo",
+          "role": "publication"
+        },
+        {
+          "name": "ge",
+          "url": "https://ge.globo.com/futebol/futebol-internacional/noticia/2026/07/15/sunderland-contrata-meunier-defensor-da-belgica-na-copa-do-mundo.ghtml",
+          "role": "publication"
+        },
+        {
+          "name": "The Guardian",
+          "url": "https://www.theguardian.com/football/2026/jul/15/thomas-meunier-sunderland-transfer-window",
+          "role": "publication"
+        },
+        {
+          "name": "MaisFutebol",
+          "url": "https://maisfutebol.iol.pt/internacional/inglaterra/oficial-thomas-meunier-e-reforco-do-sunderland",
+          "role": "publication"
+        }
+      ],
+      "firstSeenAt": "2026-07-15T09:39:00.000Z",
+      "competitions": [
+        "English leagues"
+      ],
+      "sourceAdapters": [
+        "wikipedia-england",
+        "ge-rss",
+        "guardian-rss",
+        "maisfutebol-rss"
       ]
     },
     {
@@ -821,11 +932,11 @@
       "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-germany",
       "sourceRole": "primary_official",
-      "sourceName": "fcaugsburg.de",
+      "sourceName": "FC Augsburg",
       "sourceUrl": "https://www.fcaugsburg.de/article/fca-holt-junioren-nationaltorhueter-tom-wisbereit-23255",
       "sources": [
         {
-          "name": "fcaugsburg.de",
+          "name": "FC Augsburg",
           "url": "https://www.fcaugsburg.de/article/fca-holt-junioren-nationaltorhueter-tom-wisbereit-23255",
           "role": "primary_official"
         }
@@ -867,16 +978,16 @@
       "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-germany",
       "sourceRole": "primary_official",
-      "sourceName": "sslazio.it",
+      "sourceName": "Lazio",
       "sourceUrl": "https://www.sslazio.it/en/news/comunicati/danilho-doekhi-e-un-nuovo-calciatore-biancoceleste",
       "sources": [
         {
-          "name": "sslazio.it",
+          "name": "Lazio",
           "url": "https://www.sslazio.it/en/news/comunicati/danilho-doekhi-e-un-nuovo-calciatore-biancoceleste",
           "role": "primary_official"
         },
         {
-          "name": "sslazio.it",
+          "name": "Lazio",
           "url": "https://www.sslazio.it/it/news/comunicati/danilho-doekhi-e-un-nuovo-calciatore-biancoceleste",
           "role": "primary_official"
         },
@@ -925,11 +1036,11 @@
       "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-germany",
       "sourceRole": "primary_official",
-      "sourceName": "schalke04.de",
+      "sourceName": "Schalke 04",
       "sourceUrl": "https://schalke04.de/personal/luca-podlech-wird-an-norwegischen-erstligisten-verliehen/",
       "sources": [
         {
-          "name": "schalke04.de",
+          "name": "Schalke 04",
           "url": "https://schalke04.de/personal/luca-podlech-wird-an-norwegischen-erstligisten-verliehen/",
           "role": "primary_official"
         }
@@ -970,11 +1081,11 @@
       "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-germany",
       "sourceRole": "primary_official",
-      "sourceName": "sv07elversberg.de",
+      "sourceName": "SV Elversberg",
       "sourceUrl": "https://sv07elversberg.de/mohammad-mahmoud-schliesst-sich-dem-sv-austria-salzburg-an/",
       "sources": [
         {
-          "name": "sv07elversberg.de",
+          "name": "SV Elversberg",
           "url": "https://sv07elversberg.de/mohammad-mahmoud-schliesst-sich-dem-sv-austria-salzburg-an/",
           "role": "primary_official"
         }
@@ -1015,11 +1126,11 @@
       "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-germany",
       "sourceRole": "primary_official",
-      "sourceName": "dynamo-dresden.de",
+      "sourceName": "Dynamo Dresden",
       "sourceUrl": "https://www.dynamo-dresden.de/aktuelles/news/profis/dynamo-leiht-till-neininger/",
       "sources": [
         {
-          "name": "dynamo-dresden.de",
+          "name": "Dynamo Dresden",
           "url": "https://www.dynamo-dresden.de/aktuelles/news/profis/dynamo-leiht-till-neininger/",
           "role": "primary_official"
         }
@@ -1060,11 +1171,11 @@
       "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-italy",
       "sourceRole": "primary_official",
-      "sourceName": "uscremonese.it",
+      "sourceName": "Cremonese",
       "sourceUrl": "https://uscremonese.it/leonardo-sernicola-ceduto-al-benevento/",
       "sources": [
         {
-          "name": "uscremonese.it",
+          "name": "Cremonese",
           "url": "https://uscremonese.it/leonardo-sernicola-ceduto-al-benevento/",
           "role": "primary_official"
         }
@@ -1105,11 +1216,11 @@
       "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-italy",
       "sourceRole": "primary_official",
-      "sourceName": "uscremonese.it",
+      "sourceName": "Cremonese",
       "sourceUrl": "https://uscremonese.it/fellipe-jack-e-grigiorosso/",
       "sources": [
         {
-          "name": "uscremonese.it",
+          "name": "Cremonese",
           "url": "https://uscremonese.it/fellipe-jack-e-grigiorosso/",
           "role": "primary_official"
         }
@@ -1150,11 +1261,11 @@
       "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-italy",
       "sourceRole": "primary_official",
-      "sourceName": "modenacalcio.com",
+      "sourceName": "Modena",
       "sourceUrl": "https://modenacalcio.com/calciomercato-il-modena-saluta-e-ringrazia-gerli/",
       "sources": [
         {
-          "name": "modenacalcio.com",
+          "name": "Modena",
           "url": "https://modenacalcio.com/calciomercato-il-modena-saluta-e-ringrazia-gerli/",
           "role": "primary_official"
         }
@@ -1195,11 +1306,11 @@
       "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-italy",
       "sourceRole": "primary_official",
-      "sourceName": "modenacalcio.com",
+      "sourceName": "Modena",
       "sourceUrl": "https://modenacalcio.com/calciomercato-stenio-zanetti-e-gialloblu/",
       "sources": [
         {
-          "name": "modenacalcio.com",
+          "name": "Modena",
           "url": "https://modenacalcio.com/calciomercato-stenio-zanetti-e-gialloblu/",
           "role": "primary_official"
         }
@@ -1240,11 +1351,11 @@
       "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-italy",
       "sourceRole": "primary_official",
-      "sourceName": "acffiorentina.com",
+      "sourceName": "Fiorentina",
       "sourceUrl": "https://www.acffiorentina.com/news/harder-al-basilea-14-07-2026",
       "sources": [
         {
-          "name": "acffiorentina.com",
+          "name": "Fiorentina",
           "url": "https://www.acffiorentina.com/news/harder-al-basilea-14-07-2026",
           "role": "primary_official"
         }
@@ -1285,11 +1396,11 @@
       "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-italy",
       "sourceRole": "primary_official",
-      "sourceName": "acffiorentina.com",
+      "sourceName": "Fiorentina",
       "sourceUrl": "https://www.acffiorentina.com/news/caprini-ceduto-14-07-2026",
       "sources": [
         {
-          "name": "acffiorentina.com",
+          "name": "Fiorentina",
           "url": "https://www.acffiorentina.com/news/caprini-ceduto-14-07-2026",
           "role": "primary_official"
         }
@@ -1330,11 +1441,11 @@
       "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-italy",
       "sourceRole": "primary_official",
-      "sourceName": "usavellino1912.com",
+      "sourceName": "Avellino",
       "sourceUrl": "https://www.usavellino1912.com/luca-di-maggio-e-un-nuovo-giocatore-dellavellino/",
       "sources": [
         {
-          "name": "usavellino1912.com",
+          "name": "Avellino",
           "url": "https://www.usavellino1912.com/luca-di-maggio-e-un-nuovo-giocatore-dellavellino/",
           "role": "primary_official"
         }
@@ -1375,11 +1486,11 @@
       "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-italy",
       "sourceRole": "primary_official",
-      "sourceName": "empolifc.it",
+      "sourceName": "Empoli",
       "sourceUrl": "https://www.empolifc.it/edoardo-zanaga-al-milan",
       "sources": [
         {
-          "name": "empolifc.it",
+          "name": "Empoli",
           "url": "https://www.empolifc.it/edoardo-zanaga-al-milan",
           "role": "primary_official"
         }
@@ -1420,11 +1531,11 @@
       "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-italy",
       "sourceRole": "primary_official",
-      "sourceName": "empolifc.it",
+      "sourceName": "Empoli",
       "sourceUrl": "https://www.empolifc.it/lorenzo-ignacchiti-al-mantova",
       "sources": [
         {
-          "name": "empolifc.it",
+          "name": "Empoli",
           "url": "https://www.empolifc.it/lorenzo-ignacchiti-al-mantova",
           "role": "primary_official"
         }
@@ -1465,11 +1576,11 @@
       "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-italy",
       "sourceRole": "primary_official",
-      "sourceName": "mantova1911.club",
+      "sourceName": "Mantova",
       "sourceUrl": "https://www.mantova1911.club/news/filippo-vesentini-a-titolo-definitivo-dallubrescia",
       "sources": [
         {
-          "name": "mantova1911.club",
+          "name": "Mantova",
           "url": "https://www.mantova1911.club/news/filippo-vesentini-a-titolo-definitivo-dallubrescia",
           "role": "primary_official"
         }
@@ -1510,11 +1621,11 @@
       "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-italy",
       "sourceRole": "primary_official",
-      "sourceName": "carraresecalcio1908.it",
+      "sourceName": "Carrarese",
       "sourceUrl": "https://carraresecalcio1908.it/nota-ufficiale-128/",
       "sources": [
         {
-          "name": "carraresecalcio1908.it",
+          "name": "Carrarese",
           "url": "https://carraresecalcio1908.it/nota-ufficiale-128/",
           "role": "primary_official"
         }
@@ -1555,11 +1666,11 @@
       "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-italy",
       "sourceRole": "primary_official",
-      "sourceName": "carraresecalcio1908.it",
+      "sourceName": "Carrarese",
       "sourceUrl": "https://carraresecalcio1908.it/nota-ufficiale-127/",
       "sources": [
         {
-          "name": "carraresecalcio1908.it",
+          "name": "Carrarese",
           "url": "https://carraresecalcio1908.it/nota-ufficiale-127/",
           "role": "primary_official"
         }
@@ -1600,11 +1711,11 @@
       "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-italy",
       "sourceRole": "primary_official",
-      "sourceName": "uscatanzaro1929.com",
+      "sourceName": "Catanzaro",
       "sourceUrl": "https://www.uscatanzaro1929.com/2026/07/14/nicolo-postiglione-in-giallorosso-contratto-fino-al-30-giugno-2030/",
       "sources": [
         {
-          "name": "uscatanzaro1929.com",
+          "name": "Catanzaro",
           "url": "https://www.uscatanzaro1929.com/2026/07/14/nicolo-postiglione-in-giallorosso-contratto-fino-al-30-giugno-2030/",
           "role": "primary_official"
         }
@@ -1645,11 +1756,11 @@
       "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-italy",
       "sourceRole": "primary_official",
-      "sourceName": "palermofc.com",
+      "sourceName": "Palermo",
       "sourceUrl": "https://www.palermofc.com/it/news/prolungamento-contrattuale-e-prestito-alla-virtus-entella-per-corona",
       "sources": [
         {
-          "name": "palermofc.com",
+          "name": "Palermo",
           "url": "https://www.palermofc.com/it/news/prolungamento-contrattuale-e-prestito-alla-virtus-entella-per-corona",
           "role": "primary_official"
         }
@@ -1690,11 +1801,11 @@
       "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-italy",
       "sourceRole": "primary_official",
-      "sourceName": "cagliaricalcio.com",
+      "sourceName": "Cagliari",
       "sourceUrl": "https://cagliaricalcio.com/news/winks-al-cagliari-calcio-seriea/",
       "sources": [
         {
-          "name": "cagliaricalcio.com",
+          "name": "Cagliari",
           "url": "https://cagliaricalcio.com/news/winks-al-cagliari-calcio-seriea/",
           "role": "primary_official"
         }
@@ -1705,51 +1816,6 @@
       ],
       "sourceAdapters": [
         "wikipedia-italy"
-      ]
-    },
-    {
-      "id": "eb74b4a36e8313",
-      "date": "2026-07-14",
-      "time": "23:40",
-      "headline": "Palmeiras negocia empréstimo de Luighi para o New York City",
-      "player": "Luighi",
-      "playerUrl": null,
-      "age": null,
-      "position": null,
-      "nationality": null,
-      "flagCode": null,
-      "flag": "",
-      "fromClub": "Palmeiras",
-      "fromClubUrl": null,
-      "fromClubCrest": null,
-      "toClub": "New York City FC",
-      "toClubUrl": null,
-      "toClubCrest": null,
-      "fee": "Loan",
-      "status": "rumour",
-      "extractionStatus": "complete",
-      "market": "Brazil",
-      "markets": [
-        "Brazil"
-      ],
-      "competition": null,
-      "competitionGender": "unknown",
-      "competitionGenderSource": null,
-      "sourceAdapter": "ge-rss",
-      "sourceRole": "publication",
-      "sourceName": "ge",
-      "sourceUrl": "https://ge.globo.com/futebol/times/palmeiras/noticia/2026/07/14/palmeiras-negocia-emprestimo-de-luighi-para-o-new-york-city.ghtml",
-      "sources": [
-        {
-          "name": "ge",
-          "url": "https://ge.globo.com/futebol/times/palmeiras/noticia/2026/07/14/palmeiras-negocia-emprestimo-de-luighi-para-o-new-york-city.ghtml",
-          "role": "publication"
-        }
-      ],
-      "firstSeenAt": "2026-07-14T21:40:35.000Z",
-      "competitions": [],
-      "sourceAdapters": [
-        "ge-rss"
       ]
     },
     {
@@ -2192,11 +2258,11 @@
       "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-germany",
       "sourceRole": "primary_official",
-      "sourceName": "bvb.de",
+      "sourceName": "Borussia Dortmund",
       "sourceUrl": "https://www.bvb.de/de/de/aktuelles/news/news.html/2026/7/13/Kjell-Waetjen-wechselt-zum-FC-Midtjylland.html",
       "sources": [
         {
-          "name": "bvb.de",
+          "name": "Borussia Dortmund",
           "url": "https://www.bvb.de/de/de/aktuelles/news/news.html/2026/7/13/Kjell-Waetjen-wechselt-zum-FC-Midtjylland.html",
           "role": "primary_official"
         }
@@ -2237,11 +2303,11 @@
       "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-germany",
       "sourceRole": "primary_official",
-      "sourceName": "fcaugsburg.de",
+      "sourceName": "FC Augsburg",
       "sourceUrl": "https://www.fcaugsburg.de/article/langfristiger-vertrag-fca-verstaerkt-sich-mit-hennes-behrens-23249",
       "sources": [
         {
-          "name": "fcaugsburg.de",
+          "name": "FC Augsburg",
           "url": "https://www.fcaugsburg.de/article/langfristiger-vertrag-fca-verstaerkt-sich-mit-hennes-behrens-23249",
           "role": "primary_official"
         }
@@ -2282,11 +2348,11 @@
       "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-germany",
       "sourceRole": "primary_official",
-      "sourceName": "sgf1903.de",
+      "sourceName": "Greuther Fürth",
       "sourceUrl": "https://www.sgf1903.de/news/profis/kleeblatt-lotst-dal-nach-fuerth",
       "sources": [
         {
-          "name": "sgf1903.de",
+          "name": "Greuther Fürth",
           "url": "https://www.sgf1903.de/news/profis/kleeblatt-lotst-dal-nach-fuerth",
           "role": "primary_official"
         }
@@ -2328,11 +2394,11 @@
       "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-germany",
       "sourceRole": "primary_official",
-      "sourceName": "hsv.de",
+      "sourceName": "Hamburger SV",
       "sourceUrl": "https://www.hsv.de/news/martin-adeline-wechselt-zum-hsv",
       "sources": [
         {
-          "name": "hsv.de",
+          "name": "Hamburger SV",
           "url": "https://www.hsv.de/news/martin-adeline-wechselt-zum-hsv",
           "role": "primary_official"
         }
@@ -2372,14 +2438,14 @@
       "competitionGender": "men",
       "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-germany",
-      "sourceRole": "primary_official",
+      "sourceRole": "publication",
       "sourceName": "fcaugsburg.de",
       "sourceUrl": "https://www.fcaugsburg.de/article/langfristiger-vertrag-fca-verstaerkt-sich-mit-hennes-behrens-23249",
       "sources": [
         {
           "name": "fcaugsburg.de",
           "url": "https://www.fcaugsburg.de/article/langfristiger-vertrag-fca-verstaerkt-sich-mit-hennes-behrens-23249",
-          "role": "primary_official"
+          "role": "publication"
         }
       ],
       "firstSeenAt": "2026-07-13T12:00:00.000Z",
@@ -2418,11 +2484,11 @@
       "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-germany",
       "sourceRole": "primary_official",
-      "sourceName": "bvb.de",
+      "sourceName": "Borussia Dortmund",
       "sourceUrl": "https://www.bvb.de/de/de/aktuelles/news/news.html/2026/7/13/Kjell-Waetjen-wechselt-zum-FC-Midtjylland.html",
       "sources": [
         {
-          "name": "bvb.de",
+          "name": "Borussia Dortmund",
           "url": "https://www.bvb.de/de/de/aktuelles/news/news.html/2026/7/13/Kjell-Waetjen-wechselt-zum-FC-Midtjylland.html",
           "role": "primary_official"
         }
@@ -2463,11 +2529,11 @@
       "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-italy",
       "sourceRole": "primary_official",
-      "sourceName": "cagliaricalcio.com",
+      "sourceName": "Cagliari",
       "sourceUrl": "https://cagliaricalcio.com/news/fazzini-al-cagliari-seriea-craisportcenter/",
       "sources": [
         {
-          "name": "cagliaricalcio.com",
+          "name": "Cagliari",
           "url": "https://cagliaricalcio.com/news/fazzini-al-cagliari-seriea-craisportcenter/",
           "role": "primary_official"
         }
@@ -2508,11 +2574,11 @@
       "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-italy",
       "sourceRole": "primary_official",
-      "sourceName": "frosinonecalcio.com",
+      "sourceName": "Frosinone",
       "sourceUrl": "https://www.frosinonecalcio.com/el-azzouzi-e-giallazzurro/",
       "sources": [
         {
-          "name": "frosinonecalcio.com",
+          "name": "Frosinone",
           "url": "https://www.frosinonecalcio.com/el-azzouzi-e-giallazzurro/",
           "role": "primary_official"
         }
@@ -2553,11 +2619,11 @@
       "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-italy",
       "sourceRole": "primary_official",
-      "sourceName": "speziacalcio.com",
+      "sourceName": "Spezia",
       "sourceUrl": "https://www.speziacalcio.com/it/news/ufficiale-kevin-cannav-un-nuovo-calciatore-dello-spezia.28419.html",
       "sources": [
         {
-          "name": "speziacalcio.com",
+          "name": "Spezia",
           "url": "https://www.speziacalcio.com/it/news/ufficiale-kevin-cannav-un-nuovo-calciatore-dello-spezia.28419.html",
           "role": "primary_official"
         }
@@ -2598,11 +2664,11 @@
       "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-italy",
       "sourceRole": "primary_official",
-      "sourceName": "speziacalcio.com",
+      "sourceName": "Spezia",
       "sourceUrl": "https://www.speziacalcio.com/it/news/ufficiale-alessandro-cardinali-un-nuovo-calciatore-dello-spezia.28418.html",
       "sources": [
         {
-          "name": "speziacalcio.com",
+          "name": "Spezia",
           "url": "https://www.speziacalcio.com/it/news/ufficiale-alessandro-cardinali-un-nuovo-calciatore-dello-spezia.28418.html",
           "role": "primary_official"
         }
@@ -2643,11 +2709,11 @@
       "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-italy",
       "sourceRole": "primary_official",
-      "sourceName": "speziacalcio.com",
+      "sourceName": "Spezia",
       "sourceUrl": "https://www.speziacalcio.com/it/news/ufficiale-denis-cazzadori-un-nuovo-attaccante-delle-aquile.28411.html",
       "sources": [
         {
-          "name": "speziacalcio.com",
+          "name": "Spezia",
           "url": "https://www.speziacalcio.com/it/news/ufficiale-denis-cazzadori-un-nuovo-attaccante-delle-aquile.28411.html",
           "role": "primary_official"
         }
@@ -2688,11 +2754,11 @@
       "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-italy",
       "sourceRole": "primary_official",
-      "sourceName": "modenacalcio.com",
+      "sourceName": "Modena",
       "sourceUrl": "https://modenacalcio.com/calciomercato-gaston-brugman-e-del-modena-fc/",
       "sources": [
         {
-          "name": "modenacalcio.com",
+          "name": "Modena",
           "url": "https://modenacalcio.com/calciomercato-gaston-brugman-e-del-modena-fc/",
           "role": "primary_official"
         }
@@ -2733,11 +2799,11 @@
       "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-italy",
       "sourceRole": "primary_official",
-      "sourceName": "carraresecalcio1908.it",
+      "sourceName": "Carrarese",
       "sourceUrl": "https://carraresecalcio1908.it/cisse-si-unisce-alla-squadra-di-mister-cioffi/",
       "sources": [
         {
-          "name": "carraresecalcio1908.it",
+          "name": "Carrarese",
           "url": "https://carraresecalcio1908.it/cisse-si-unisce-alla-squadra-di-mister-cioffi/",
           "role": "primary_official"
         }
@@ -2778,11 +2844,11 @@
       "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-italy",
       "sourceRole": "primary_official",
-      "sourceName": "mantova1911.club",
+      "sourceName": "Mantova",
       "sourceUrl": "https://www.mantova1911.club/news/ufficiale-ismael-cajazzo-a-titolo-definitivo",
       "sources": [
         {
-          "name": "mantova1911.club",
+          "name": "Mantova",
           "url": "https://www.mantova1911.club/news/ufficiale-ismael-cajazzo-a-titolo-definitivo",
           "role": "primary_official"
         }
@@ -2823,11 +2889,11 @@
       "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-italy",
       "sourceRole": "primary_official",
-      "sourceName": "mantova1911.club",
+      "sourceName": "Mantova",
       "sourceUrl": "https://www.mantova1911.club/news/ufficiale-inter-arriva-attacante-spinacce",
       "sources": [
         {
-          "name": "mantova1911.club",
+          "name": "Mantova",
           "url": "https://www.mantova1911.club/news/ufficiale-inter-arriva-attacante-spinacce",
           "role": "primary_official"
         }
@@ -2868,11 +2934,11 @@
       "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-italy",
       "sourceRole": "primary_official",
-      "sourceName": "ascolicalcio1898.it",
+      "sourceName": "Ascoli",
       "sourceUrl": "https://www.ascolicalcio1898.it/ascoli-calcio-calciomercato-acampora-e-bianconero-accordo-fino-al-2028/",
       "sources": [
         {
-          "name": "ascolicalcio1898.it",
+          "name": "Ascoli",
           "url": "https://www.ascolicalcio1898.it/ascoli-calcio-calciomercato-acampora-e-bianconero-accordo-fino-al-2028/",
           "role": "primary_official"
         }
@@ -2913,11 +2979,11 @@
       "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-italy",
       "sourceRole": "primary_official",
-      "sourceName": "fc-suedtirol.com",
+      "sourceName": "Südtirol",
       "sourceUrl": "https://www.fc-suedtirol.com/it/news/alessandro-mallamo-lascia-l-fc-s%C3%BCdtirol/24-10766.html",
       "sources": [
         {
-          "name": "fc-suedtirol.com",
+          "name": "Südtirol",
           "url": "https://www.fc-suedtirol.com/it/news/alessandro-mallamo-lascia-l-fc-s%C3%BCdtirol/24-10766.html",
           "role": "primary_official"
         }
@@ -3003,11 +3069,11 @@
       "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-italy",
       "sourceRole": "primary_official",
-      "sourceName": "frosinonecalcio.com",
+      "sourceName": "Frosinone",
       "sourceUrl": "https://www.frosinonecalcio.com/cittadini-torna-in-giallazzurro/",
       "sources": [
         {
-          "name": "frosinonecalcio.com",
+          "name": "Frosinone",
           "url": "https://www.frosinonecalcio.com/cittadini-torna-in-giallazzurro/",
           "role": "primary_official"
         }
@@ -3048,11 +3114,11 @@
       "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-italy",
       "sourceRole": "primary_official",
-      "sourceName": "frosinonecalcio.com",
+      "sourceName": "Frosinone",
       "sourceUrl": "https://www.frosinonecalcio.com/fini-torna-al-frosinone/",
       "sources": [
         {
-          "name": "frosinonecalcio.com",
+          "name": "Frosinone",
           "url": "https://www.frosinonecalcio.com/fini-torna-al-frosinone/",
           "role": "primary_official"
         }
@@ -3093,11 +3159,11 @@
       "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-italy",
       "sourceRole": "primary_official",
-      "sourceName": "frosinonecalcio.com",
+      "sourceName": "Frosinone",
       "sourceUrl": "https://www.frosinonecalcio.com/calvani-torna-in-giallazzurro/",
       "sources": [
         {
-          "name": "frosinonecalcio.com",
+          "name": "Frosinone",
           "url": "https://www.frosinonecalcio.com/calvani-torna-in-giallazzurro/",
           "role": "primary_official"
         }
@@ -3138,11 +3204,11 @@
       "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-italy",
       "sourceRole": "primary_official",
-      "sourceName": "speziacalcio.com",
+      "sourceName": "Spezia",
       "sourceUrl": "https://www.speziacalcio.com/it/news/ufficiale-abdoulie-ndow-un-nuovo-calciatore-dello-spezia.28415.html",
       "sources": [
         {
-          "name": "speziacalcio.com",
+          "name": "Spezia",
           "url": "https://www.speziacalcio.com/it/news/ufficiale-abdoulie-ndow-un-nuovo-calciatore-dello-spezia.28415.html",
           "role": "primary_official"
         }
@@ -3363,11 +3429,11 @@
       "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-england",
       "sourceRole": "primary_official",
-      "sourceName": "wolves.co.uk",
+      "sourceName": "Wolverhampton Wanderers",
       "sourceUrl": "https://www.wolves.co.uk/news/mens-first-team/20260711-said-becomes-new-wolves-signing/",
       "sources": [
         {
-          "name": "wolves.co.uk",
+          "name": "Wolverhampton Wanderers",
           "url": "https://www.wolves.co.uk/news/mens-first-team/20260711-said-becomes-new-wolves-signing/",
           "role": "primary_official"
         }
@@ -3498,11 +3564,11 @@
       "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-germany",
       "sourceRole": "primary_official",
-      "sourceName": "tsg-hoffenheim.de",
+      "sourceName": "TSG Hoffenheim",
       "sourceUrl": "https://www.tsg-hoffenheim.de/aktuelles/news/2026/07/haris-tabakovic-wechselt-zu-rb-salzburg",
       "sources": [
         {
-          "name": "tsg-hoffenheim.de",
+          "name": "TSG Hoffenheim",
           "url": "https://www.tsg-hoffenheim.de/aktuelles/news/2026/07/haris-tabakovic-wechselt-zu-rb-salzburg",
           "role": "primary_official"
         }
@@ -3543,11 +3609,11 @@
       "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-germany",
       "sourceRole": "primary_official",
-      "sourceName": "tsg-hoffenheim.de",
+      "sourceName": "TSG Hoffenheim",
       "sourceUrl": "https://www.tsg-hoffenheim.de/aktuelles/news/2026/07/haris-tabakovic-wechselt-zu-rb-salzburg",
       "sources": [
         {
-          "name": "tsg-hoffenheim.de",
+          "name": "TSG Hoffenheim",
           "url": "https://www.tsg-hoffenheim.de/aktuelles/news/2026/07/haris-tabakovic-wechselt-zu-rb-salzburg",
           "role": "primary_official"
         }
@@ -3588,11 +3654,11 @@
       "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-germany",
       "sourceRole": "primary_official",
-      "sourceName": "fc.de",
+      "sourceName": "1. FC Köln",
       "sourceUrl": "https://fc.de/aktuelles/news/fc-verpflichtet-gideon-mensah",
       "sources": [
         {
-          "name": "fc.de",
+          "name": "1. FC Köln",
           "url": "https://fc.de/aktuelles/news/fc-verpflichtet-gideon-mensah",
           "role": "primary_official"
         }
@@ -3633,11 +3699,11 @@
       "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-italy",
       "sourceRole": "primary_official",
-      "sourceName": "acffiorentina.com",
+      "sourceName": "Fiorentina",
       "sourceUrl": "https://www.acffiorentina.com/news/atta-e-viola",
       "sources": [
         {
-          "name": "acffiorentina.com",
+          "name": "Fiorentina",
           "url": "https://www.acffiorentina.com/news/atta-e-viola",
           "role": "primary_official"
         }
@@ -3678,11 +3744,11 @@
       "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-italy",
       "sourceRole": "primary_official",
-      "sourceName": "hellasverona.it",
+      "sourceName": "Verona",
       "sourceUrl": "https://www.hellasverona.it/news/salvatore-cerbone-e-un-nuovo-attaccante-gialloblu",
       "sources": [
         {
-          "name": "hellasverona.it",
+          "name": "Verona",
           "url": "https://www.hellasverona.it/news/salvatore-cerbone-e-un-nuovo-attaccante-gialloblu",
           "role": "primary_official"
         }
@@ -3723,11 +3789,11 @@
       "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-italy",
       "sourceRole": "primary_official",
-      "sourceName": "hellasverona.it",
+      "sourceName": "Verona",
       "sourceUrl": "https://www.hellasverona.it/news/benvenuto-nicola-leali-e-un-nuovo-giocatore-gialloblu",
       "sources": [
         {
-          "name": "hellasverona.it",
+          "name": "Verona",
           "url": "https://www.hellasverona.it/news/benvenuto-nicola-leali-e-un-nuovo-giocatore-gialloblu",
           "role": "primary_official"
         }
@@ -3768,11 +3834,11 @@
       "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-italy",
       "sourceRole": "primary_official",
-      "sourceName": "veneziafc.it",
+      "sourceName": "Venezia",
       "sourceUrl": "https://www.veneziafc.it/news/seid-korac-all-hellas-verona",
       "sources": [
         {
-          "name": "veneziafc.it",
+          "name": "Venezia",
           "url": "https://www.veneziafc.it/news/seid-korac-all-hellas-verona",
           "role": "primary_official"
         }
@@ -3813,11 +3879,11 @@
       "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-italy",
       "sourceRole": "primary_official",
-      "sourceName": "veneziafc.it",
+      "sourceName": "Venezia",
       "sourceUrl": "https://www.veneziafc.it/news/alessio-pozzi-al-venezia-fc",
       "sources": [
         {
-          "name": "veneziafc.it",
+          "name": "Venezia",
           "url": "https://www.veneziafc.it/news/alessio-pozzi-al-venezia-fc",
           "role": "primary_official"
         }
@@ -3858,11 +3924,11 @@
       "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-italy",
       "sourceRole": "primary_official",
-      "sourceName": "modenacalcio.com",
+      "sourceName": "Modena",
       "sourceUrl": "https://modenacalcio.com/calciomercato-bentornato-paulo-azzi/",
       "sources": [
         {
-          "name": "modenacalcio.com",
+          "name": "Modena",
           "url": "https://modenacalcio.com/calciomercato-bentornato-paulo-azzi/",
           "role": "primary_official"
         }
@@ -3903,11 +3969,11 @@
       "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-italy",
       "sourceRole": "primary_official",
-      "sourceName": "cesenafc.com",
+      "sourceName": "Cesena",
       "sourceUrl": "https://www.cesenafc.com/it/society/news/mark-natta-e-un-nuovo-calciatore-del-cesena-fc-2026-07-11",
       "sources": [
         {
-          "name": "cesenafc.com",
+          "name": "Cesena",
           "url": "https://www.cesenafc.com/it/society/news/mark-natta-e-un-nuovo-calciatore-del-cesena-fc-2026-07-11",
           "role": "primary_official"
         }
@@ -3948,11 +4014,11 @@
       "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-italy",
       "sourceRole": "primary_official",
-      "sourceName": "pisasportingclub.com",
+      "sourceName": "Pisa",
       "sourceUrl": "https://pisasportingclub.com/tommaso-marras-e-del-pisa/",
       "sources": [
         {
-          "name": "pisasportingclub.com",
+          "name": "Pisa",
           "url": "https://pisasportingclub.com/tommaso-marras-e-del-pisa/",
           "role": "primary_official"
         }
@@ -3993,11 +4059,11 @@
       "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-poland",
       "sourceRole": "primary_official",
-      "sourceName": "legia.com",
+      "sourceName": "Legia Warsaw",
       "sourceUrl": "https://legia.com/michal-sevcik/90322",
       "sources": [
         {
-          "name": "legia.com",
+          "name": "Legia Warsaw",
           "url": "https://legia.com/michal-sevcik/90322",
           "role": "primary_official"
         }
@@ -4038,11 +4104,11 @@
       "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-poland",
       "sourceRole": "primary_official",
-      "sourceName": "piast-gliwice.eu",
+      "sourceName": "Piast Gliwice",
       "sourceUrl": "https://piast-gliwice.eu/aktualnosci/newsy/marcel-mendes-dudzinski-dolacza-do-piasta",
       "sources": [
         {
-          "name": "piast-gliwice.eu",
+          "name": "Piast Gliwice",
           "url": "https://piast-gliwice.eu/aktualnosci/newsy/marcel-mendes-dudzinski-dolacza-do-piasta",
           "role": "primary_official"
         }
@@ -4083,11 +4149,11 @@
       "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-poland",
       "sourceRole": "primary_official",
-      "sourceName": "motorlublin.eu",
+      "sourceName": "Motor Lublin",
       "sourceUrl": "https://motorlublin.eu/w/-gregorski2029",
       "sources": [
         {
-          "name": "motorlublin.eu",
+          "name": "Motor Lublin",
           "url": "https://motorlublin.eu/w/-gregorski2029",
           "role": "primary_official"
         }
@@ -4128,11 +4194,11 @@
       "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-poland",
       "sourceRole": "primary_official",
-      "sourceName": "motorlublin.eu",
+      "sourceName": "Motor Lublin",
       "sourceUrl": "https://motorlublin.eu/w/herv%C3%A9-matthys-odchodzi-z-motoru-lublin",
       "sources": [
         {
-          "name": "motorlublin.eu",
+          "name": "Motor Lublin",
           "url": "https://motorlublin.eu/w/herv%C3%A9-matthys-odchodzi-z-motoru-lublin",
           "role": "primary_official"
         }
@@ -4686,6 +4752,51 @@
       ]
     },
     {
+      "id": "7ee7f6a0f47872",
+      "date": "2026-07-10",
+      "time": "—",
+      "player": "Nathan De Cat",
+      "playerUrl": "https://en.wikipedia.org/wiki/Nathan_De_Cat",
+      "age": 17,
+      "position": "MC",
+      "nationality": "Belgium",
+      "flagCode": "be",
+      "flag": "🇧🇪",
+      "fromClub": "Anderlecht",
+      "fromClubUrl": "https://en.wikipedia.org/wiki/RSC_Anderlecht",
+      "fromClubCrest": "https://upload.wikimedia.org/wikipedia/en/thumb/7/77/R.S.C._Anderlecht.svg/120px-R.S.C._Anderlecht.svg.png",
+      "toClub": "TSG Hoffenheim",
+      "toClubUrl": "https://en.wikipedia.org/wiki/TSG_Hoffenheim",
+      "toClubCrest": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Logo_TSG_Hoffenheim.svg/120px-Logo_TSG_Hoffenheim.svg.png",
+      "fee": "Undisclosed",
+      "status": "official",
+      "market": "Germany",
+      "markets": [
+        "Germany"
+      ],
+      "competition": "Bundesliga",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
+      "sourceAdapter": "wikipedia-germany",
+      "sourceRole": "primary_official",
+      "sourceName": "TSG Hoffenheim",
+      "sourceUrl": "https://www.tsg-hoffenheim.de/aktuelles/news/2026/07/tsg-hoffenheim-verpflichtet-top-talent-nathan-de-cat",
+      "sources": [
+        {
+          "name": "TSG Hoffenheim",
+          "url": "https://www.tsg-hoffenheim.de/aktuelles/news/2026/07/tsg-hoffenheim-verpflichtet-top-talent-nathan-de-cat",
+          "role": "primary_official"
+        }
+      ],
+      "firstSeenAt": "2026-07-10T12:00:00.000Z",
+      "competitions": [
+        "Bundesliga"
+      ],
+      "sourceAdapters": [
+        "wikipedia-germany"
+      ]
+    },
+    {
       "id": "89b4c455e89557",
       "date": "2026-07-10",
       "time": "—",
@@ -4713,11 +4824,11 @@
       "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-germany",
       "sourceRole": "primary_official",
-      "sourceName": "fcaugsburg.de",
+      "sourceName": "FC Augsburg",
       "sourceUrl": "https://www.fcaugsburg.de/article/fca-verpflichtet-defensiv-talent-sima-suso-23244",
       "sources": [
         {
-          "name": "fcaugsburg.de",
+          "name": "FC Augsburg",
           "url": "https://www.fcaugsburg.de/article/fca-verpflichtet-defensiv-talent-sima-suso-23244",
           "role": "primary_official"
         }
@@ -4758,11 +4869,11 @@
       "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-germany",
       "sourceRole": "primary_official",
-      "sourceName": "fcaugsburg.de",
+      "sourceName": "FC Augsburg",
       "sourceUrl": "https://www.fcaugsburg.de/article/felix-meiser-wechselt-nach-duesseldorf-23245",
       "sources": [
         {
-          "name": "fcaugsburg.de",
+          "name": "FC Augsburg",
           "url": "https://www.fcaugsburg.de/article/felix-meiser-wechselt-nach-duesseldorf-23245",
           "role": "primary_official"
         }
@@ -4803,11 +4914,11 @@
       "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-germany",
       "sourceRole": "primary_official",
-      "sourceName": "hsv.de",
+      "sourceName": "Hamburger SV",
       "sourceUrl": "https://www.hsv.de/news/aboubaka-soumahoro-wird-zum-rcd-mallorca-verliehen",
       "sources": [
         {
-          "name": "hsv.de",
+          "name": "Hamburger SV",
           "url": "https://www.hsv.de/news/aboubaka-soumahoro-wird-zum-rcd-mallorca-verliehen",
           "role": "primary_official"
         }
@@ -4848,11 +4959,11 @@
       "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-germany",
       "sourceRole": "primary_official",
-      "sourceName": "werder.de",
+      "sourceName": "Werder Bremen",
       "sourceUrl": "https://www.werder.de/news/maenner/2026-2027/pm-schlager-10072026",
       "sources": [
         {
-          "name": "werder.de",
+          "name": "Werder Bremen",
           "url": "https://www.werder.de/news/maenner/2026-2027/pm-schlager-10072026",
           "role": "primary_official"
         }
@@ -4893,11 +5004,11 @@
       "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-germany",
       "sourceRole": "primary_official",
-      "sourceName": "dynamo-dresden.de",
+      "sourceName": "Dynamo Dresden",
       "sourceUrl": "https://www.dynamo-dresden.de/aktuelles/news/profis/die-sgd-verpflichtet-thomas-keller/",
       "sources": [
         {
-          "name": "dynamo-dresden.de",
+          "name": "Dynamo Dresden",
           "url": "https://www.dynamo-dresden.de/aktuelles/news/profis/die-sgd-verpflichtet-thomas-keller/",
           "role": "primary_official"
         }
@@ -4939,11 +5050,11 @@
       "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-germany",
       "sourceRole": "primary_official",
-      "sourceName": "sampdoria.it",
+      "sourceName": "Sampdoria",
       "sourceUrl": "https://www.sampdoria.it/news/club/2026/07/10/sinani-e-blucerchiato-contratto-fino-al-30-giugno-2028/",
       "sources": [
         {
-          "name": "sampdoria.it",
+          "name": "Sampdoria",
           "url": "https://www.sampdoria.it/news/club/2026/07/10/sinani-e-blucerchiato-contratto-fino-al-30-giugno-2028/",
           "role": "primary_official"
         }
@@ -4986,11 +5097,11 @@
       "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-italy",
       "sourceRole": "primary_official",
-      "sourceName": "sampdoria.it",
+      "sourceName": "Sampdoria",
       "sourceUrl": "https://www.sampdoria.it/news/club/2026/07/10/coucke-ceduto-al-cercle-brugge-a-titolo-definitivo/",
       "sources": [
         {
-          "name": "sampdoria.it",
+          "name": "Sampdoria",
           "url": "https://www.sampdoria.it/news/club/2026/07/10/coucke-ceduto-al-cercle-brugge-a-titolo-definitivo/",
           "role": "primary_official"
         }
@@ -5031,11 +5142,11 @@
       "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-italy",
       "sourceRole": "primary_official",
-      "sourceName": "uscremonese.it",
+      "sourceName": "Cremonese",
       "sourceUrl": "https://uscremonese.it/mattia-scaringi-in-prestito-alla-torres/",
       "sources": [
         {
-          "name": "uscremonese.it",
+          "name": "Cremonese",
           "url": "https://uscremonese.it/mattia-scaringi-in-prestito-alla-torres/",
           "role": "primary_official"
         }
@@ -5076,11 +5187,11 @@
       "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-italy",
       "sourceRole": "primary_official",
-      "sourceName": "veneziafc.it",
+      "sourceName": "Venezia",
       "sourceUrl": "https://www.veneziafc.it/news/alessandro-plizzari-al-fc-sudtirol",
       "sources": [
         {
-          "name": "veneziafc.it",
+          "name": "Venezia",
           "url": "https://www.veneziafc.it/news/alessandro-plizzari-al-fc-sudtirol",
           "role": "primary_official"
         }
@@ -5121,11 +5232,11 @@
       "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-italy",
       "sourceRole": "primary_official",
-      "sourceName": "usavellino1912.com",
+      "sourceName": "Avellino",
       "sourceUrl": "https://www.usavellino1912.com/tommaso-martinelli-in-prestito-dalla-fiorentina/",
       "sources": [
         {
-          "name": "usavellino1912.com",
+          "name": "Avellino",
           "url": "https://www.usavellino1912.com/tommaso-martinelli-in-prestito-dalla-fiorentina/",
           "role": "primary_official"
         }
@@ -5166,11 +5277,11 @@
       "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-italy",
       "sourceRole": "primary_official",
-      "sourceName": "usavellino1912.com",
+      "sourceName": "Avellino",
       "sourceUrl": "https://www.usavellino1912.com/brando-moruzzi-in-prestito-dalla-juventus/",
       "sources": [
         {
-          "name": "usavellino1912.com",
+          "name": "Avellino",
           "url": "https://www.usavellino1912.com/brando-moruzzi-in-prestito-dalla-juventus/",
           "role": "primary_official"
         }
@@ -5211,11 +5322,11 @@
       "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-italy",
       "sourceRole": "primary_official",
-      "sourceName": "usavellino1912.com",
+      "sourceName": "Avellino",
       "sourceUrl": "https://www.usavellino1912.com/giacomo-faticanti-in-prestito-dalla-juventus/",
       "sources": [
         {
-          "name": "usavellino1912.com",
+          "name": "Avellino",
           "url": "https://www.usavellino1912.com/giacomo-faticanti-in-prestito-dalla-juventus/",
           "role": "primary_official"
         }
@@ -5256,11 +5367,11 @@
       "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-italy",
       "sourceRole": "primary_official",
-      "sourceName": "genoacfc.it",
+      "sourceName": "Genoa",
       "sourceUrl": "https://genoacfc.it/2026/07/10/havel-nuovo-attaccante-lacquisto-e-ufficiale/",
       "sources": [
         {
-          "name": "genoacfc.it",
+          "name": "Genoa",
           "url": "https://genoacfc.it/2026/07/10/havel-nuovo-attaccante-lacquisto-e-ufficiale/",
           "role": "primary_official"
         }
@@ -5301,11 +5412,11 @@
       "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-italy",
       "sourceRole": "primary_official",
-      "sourceName": "acmilan.com",
+      "sourceName": "Milan",
       "sourceUrl": "https://www.acmilan.com/en/news/articles/media/2026-07-10/official-statement-mario-gila",
       "sources": [
         {
-          "name": "acmilan.com",
+          "name": "Milan",
           "url": "https://www.acmilan.com/en/news/articles/media/2026-07-10/official-statement-mario-gila",
           "role": "primary_official"
         }
@@ -5346,11 +5457,11 @@
       "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-italy",
       "sourceRole": "primary_official",
-      "sourceName": "pisasportingclub.com",
+      "sourceName": "Pisa",
       "sourceUrl": "https://pisasportingclub.com/pietro-beruatto-passa-al-benevento/",
       "sources": [
         {
-          "name": "pisasportingclub.com",
+          "name": "Pisa",
           "url": "https://pisasportingclub.com/pietro-beruatto-passa-al-benevento/",
           "role": "primary_official"
         }
@@ -5391,11 +5502,11 @@
       "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-italy",
       "sourceRole": "primary_official",
-      "sourceName": "cesenafc.com",
+      "sourceName": "Cesena",
       "sourceUrl": "https://www.cesenafc.com/it/society/news/alberto-cerri-ceduto-a-titolo-definitivo-alla-ss-arezzo-2026-07-10",
       "sources": [
         {
-          "name": "cesenafc.com",
+          "name": "Cesena",
           "url": "https://www.cesenafc.com/it/society/news/alberto-cerri-ceduto-a-titolo-definitivo-alla-ss-arezzo-2026-07-10",
           "role": "primary_official"
         }
@@ -5436,11 +5547,11 @@
       "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-poland",
       "sourceRole": "primary_official",
-      "sourceName": "wisla-plock.pl",
+      "sourceName": "Wisła Płock",
       "sourceUrl": "https://wisla-plock.pl/aktualnosci/adam-radwanski-wraca-do-domu/",
       "sources": [
         {
-          "name": "wisla-plock.pl",
+          "name": "Wisła Płock",
           "url": "https://wisla-plock.pl/aktualnosci/adam-radwanski-wraca-do-domu/",
           "role": "primary_official"
         }
@@ -5481,11 +5592,11 @@
       "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-poland",
       "sourceRole": "primary_official",
-      "sourceName": "widzew.com",
+      "sourceName": "Widzew Łódź",
       "sourceUrl": "https://www.widzew.com/pl/w/garcia-2029",
       "sources": [
         {
-          "name": "widzew.com",
+          "name": "Widzew Łódź",
           "url": "https://www.widzew.com/pl/w/garcia-2029",
           "role": "primary_official"
         }
@@ -5526,11 +5637,11 @@
       "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-poland",
       "sourceRole": "primary_official",
-      "sourceName": "wislakrakow.com",
+      "sourceName": "Wisła Kraków",
       "sourceUrl": "https://wislakrakow.com/en/blogs/news/elie-youan-zawodnikiem-wisly-krakow",
       "sources": [
         {
-          "name": "wislakrakow.com",
+          "name": "Wisła Kraków",
           "url": "https://wislakrakow.com/en/blogs/news/elie-youan-zawodnikiem-wisly-krakow",
           "role": "primary_official"
         }
@@ -5541,57 +5652,6 @@
       ],
       "sourceAdapters": [
         "wikipedia-poland"
-      ]
-    },
-    {
-      "id": "7ee7f6a0f47872",
-      "date": "2026-07-10",
-      "time": "—",
-      "player": "Nathan De Cat",
-      "playerUrl": "https://en.wikipedia.org/wiki/Nathan_De_Cat",
-      "age": 17,
-      "position": "MC",
-      "nationality": "Belgium",
-      "flagCode": "be",
-      "flag": "🇧🇪",
-      "fromClub": "Anderlecht",
-      "fromClubUrl": "https://en.wikipedia.org/wiki/RSC_Anderlecht",
-      "fromClubCrest": "https://upload.wikimedia.org/wikipedia/en/thumb/7/77/R.S.C._Anderlecht.svg/120px-R.S.C._Anderlecht.svg.png",
-      "toClub": "TSG Hoffenheim",
-      "toClubUrl": "https://en.wikipedia.org/wiki/TSG_Hoffenheim",
-      "toClubCrest": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Logo_TSG_Hoffenheim.svg/120px-Logo_TSG_Hoffenheim.svg.png",
-      "fee": "Undisclosed",
-      "status": "official",
-      "market": "Germany",
-      "markets": [
-        "Germany"
-      ],
-      "competition": "Bundesliga",
-      "competitionGender": "men",
-      "competitionGenderSource": "source-register",
-      "sourceAdapter": "wikipedia-germany",
-      "sourceRole": "primary_official",
-      "sourceName": "tsg-hoffenheim.de",
-      "sourceUrl": "https://www.tsg-hoffenheim.de/aktuelles/news/2026/07/tsg-hoffenheim-verpflichtet-top-talent-nathan-de-cat",
-      "sources": [
-        {
-          "name": "tsg-hoffenheim.de",
-          "url": "https://www.tsg-hoffenheim.de/aktuelles/news/2026/07/tsg-hoffenheim-verpflichtet-top-talent-nathan-de-cat",
-          "role": "primary_official"
-        },
-        {
-          "name": "Sportschau",
-          "url": "https://www.sportschau.de/regional/swr/swr-rekordeinkauf-hoffenheim-verpflichtet-belgisches-wunderkind-nathan-de-cat-100.html",
-          "role": "publication"
-        }
-      ],
-      "firstSeenAt": "2026-07-10T11:51:53.000Z",
-      "competitions": [
-        "Bundesliga"
-      ],
-      "sourceAdapters": [
-        "wikipedia-germany",
-        "sportschau-rss"
       ]
     },
     {
@@ -6162,11 +6222,11 @@
       "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-germany",
       "sourceRole": "primary_official",
-      "sourceName": "bjk.com.tr",
+      "sourceName": "Beşiktaş",
       "sourceUrl": "https://bjk.com.tr/tr/haber/94700/besiktasimiza-hos-geldin-salih-ozcan.html",
       "sources": [
         {
-          "name": "bjk.com.tr",
+          "name": "Beşiktaş",
           "url": "https://bjk.com.tr/tr/haber/94700/besiktasimiza-hos-geldin-salih-ozcan.html",
           "role": "primary_official"
         }
@@ -6207,11 +6267,11 @@
       "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-germany",
       "sourceRole": "primary_official",
-      "sourceName": "sv07elversberg.de",
+      "sourceName": "SV Elversberg",
       "sourceUrl": "https://sv07elversberg.de/cole-campbell-wechselt-aus-dortmund-an-die-kaiserlinde/",
       "sources": [
         {
-          "name": "sv07elversberg.de",
+          "name": "SV Elversberg",
           "url": "https://sv07elversberg.de/cole-campbell-wechselt-aus-dortmund-an-die-kaiserlinde/",
           "role": "primary_official"
         }
@@ -6251,14 +6311,14 @@
       "competitionGender": "men",
       "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-germany",
-      "sourceRole": "primary_official",
+      "sourceRole": "publication",
       "sourceName": "sv07elversberg.de",
       "sourceUrl": "https://sv07elversberg.de/cole-campbell-wechselt-aus-dortmund-an-die-kaiserlinde/",
       "sources": [
         {
           "name": "sv07elversberg.de",
           "url": "https://sv07elversberg.de/cole-campbell-wechselt-aus-dortmund-an-die-kaiserlinde/",
-          "role": "primary_official"
+          "role": "publication"
         }
       ],
       "firstSeenAt": "2026-07-09T12:00:00.000Z",
@@ -6297,11 +6357,11 @@
       "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-germany",
       "sourceRole": "primary_official",
-      "sourceName": "pogonszczecin.pl",
+      "sourceName": "Pogoń Szczecin",
       "sourceUrl": "https://pogonszczecin.pl/w/attila-szalai-zostaje-w-pogoni-szczecin-",
       "sources": [
         {
-          "name": "pogonszczecin.pl",
+          "name": "Pogoń Szczecin",
           "url": "https://pogonszczecin.pl/w/attila-szalai-zostaje-w-pogoni-szczecin-",
           "role": "primary_official"
         }
@@ -6343,16 +6403,16 @@
       "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-germany",
       "sourceRole": "primary_official",
-      "sourceName": "werder.de",
+      "sourceName": "Werder Bremen",
       "sourceUrl": "https://www.werder.de/news/maenner/2026-2027/pm-wojcik-09072026",
       "sources": [
         {
-          "name": "werder.de",
+          "name": "Werder Bremen",
           "url": "https://www.werder.de/news/maenner/2026-2027/pm-wojcik-09072026",
           "role": "primary_official"
         },
         {
-          "name": "cracovia.pl",
+          "name": "Cracovia",
           "url": "https://cracovia.pl/posts/oskar-wojcik-odchodzi-z-cracovii/6152",
           "role": "primary_official"
         }
@@ -6395,11 +6455,11 @@
       "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-germany",
       "sourceRole": "primary_official",
-      "sourceName": "hannover96.de",
+      "sourceName": "Hannover 96",
       "sourceUrl": "https://www.hannover96.de/newscenter/news/details/37140-langfristig-gebunden-hannover-96-verpflichtet-torhueter-pascal-loretz-vom-fc-luzern.html",
       "sources": [
         {
-          "name": "hannover96.de",
+          "name": "Hannover 96",
           "url": "https://www.hannover96.de/newscenter/news/details/37140-langfristig-gebunden-hannover-96-verpflichtet-torhueter-pascal-loretz-vom-fc-luzern.html",
           "role": "primary_official"
         }
@@ -6440,11 +6500,11 @@
       "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-italy",
       "sourceRole": "primary_official",
-      "sourceName": "torinofc.it",
+      "sourceName": "Torino",
       "sourceUrl": "https://www.torinofc.it/news/09/07/2026/oristanio-al-toro_43697",
       "sources": [
         {
-          "name": "torinofc.it",
+          "name": "Torino",
           "url": "https://www.torinofc.it/news/09/07/2026/oristanio-al-toro_43697",
           "role": "primary_official"
         }
@@ -6485,11 +6545,11 @@
       "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-italy",
       "sourceRole": "primary_official",
-      "sourceName": "acffiorentina.com",
+      "sourceName": "Fiorentina",
       "sourceUrl": "https://www.acffiorentina.com/news/amatucci-080726",
       "sources": [
         {
-          "name": "acffiorentina.com",
+          "name": "Fiorentina",
           "url": "https://www.acffiorentina.com/news/amatucci-080726",
           "role": "primary_official"
         }
@@ -6530,11 +6590,11 @@
       "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-italy",
       "sourceRole": "primary_official",
-      "sourceName": "veneziafc.it",
+      "sourceName": "Venezia",
       "sourceUrl": "https://www.veneziafc.it/news/albion-rrahmani-al-venezia-fc",
       "sources": [
         {
-          "name": "veneziafc.it",
+          "name": "Venezia",
           "url": "https://www.veneziafc.it/news/albion-rrahmani-al-venezia-fc",
           "role": "primary_official"
         }
@@ -6575,11 +6635,11 @@
       "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-italy",
       "sourceRole": "primary_official",
-      "sourceName": "fc-suedtirol.com",
+      "sourceName": "Südtirol",
       "sourceUrl": "https://www.fc-suedtirol.com/it/news/kenny-mixtur-%C3%A8-un-nuovo-giocatore-dell-fc-s%C3%BCdtirol/24-10738.html",
       "sources": [
         {
-          "name": "fc-suedtirol.com",
+          "name": "Südtirol",
           "url": "https://www.fc-suedtirol.com/it/news/kenny-mixtur-%C3%A8-un-nuovo-giocatore-dell-fc-s%C3%BCdtirol/24-10738.html",
           "role": "primary_official"
         }
@@ -6620,11 +6680,11 @@
       "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-italy",
       "sourceRole": "primary_official",
-      "sourceName": "fc-suedtirol.com",
+      "sourceName": "Südtirol",
       "sourceUrl": "https://www.fc-suedtirol.com/it/news/giacomo-stabile-%C3%A8-un-nuovo-giocatore-dell-fc-s%C3%BCdtirol/24-10741.html",
       "sources": [
         {
-          "name": "fc-suedtirol.com",
+          "name": "Südtirol",
           "url": "https://www.fc-suedtirol.com/it/news/giacomo-stabile-%C3%A8-un-nuovo-giocatore-dell-fc-s%C3%BCdtirol/24-10741.html",
           "role": "primary_official"
         }
@@ -6665,11 +6725,11 @@
       "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-italy",
       "sourceRole": "primary_official",
-      "sourceName": "veneziafc.it",
+      "sourceName": "Venezia",
       "sourceUrl": "https://www.veneziafc.it/news/alejandro-gomes-furtado-al-venezia-fc",
       "sources": [
         {
-          "name": "veneziafc.it",
+          "name": "Venezia",
           "url": "https://www.veneziafc.it/news/alejandro-gomes-furtado-al-venezia-fc",
           "role": "primary_official"
         }
@@ -6710,11 +6770,11 @@
       "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-italy",
       "sourceRole": "primary_official",
-      "sourceName": "torinofc.it",
+      "sourceName": "Torino",
       "sourceUrl": "https://www.torinofc.it/news/09/07/2026/perciun-allascoli_43705",
       "sources": [
         {
-          "name": "torinofc.it",
+          "name": "Torino",
           "url": "https://www.torinofc.it/news/09/07/2026/perciun-allascoli_43705",
           "role": "primary_official"
         }
@@ -6755,11 +6815,11 @@
       "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-italy",
       "sourceRole": "primary_official",
-      "sourceName": "atalanta.it",
+      "sourceName": "Atalanta",
       "sourceUrl": "https://www.atalanta.it/news/nuovo-innesto-a-centrocampo-benvenuto-gianluca-gaetano",
       "sources": [
         {
-          "name": "atalanta.it",
+          "name": "Atalanta",
           "url": "https://www.atalanta.it/news/nuovo-innesto-a-centrocampo-benvenuto-gianluca-gaetano",
           "role": "primary_official"
         }
@@ -6800,11 +6860,11 @@
       "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-italy",
       "sourceRole": "primary_official",
-      "sourceName": "carraresecalcio1908.it",
+      "sourceName": "Carrarese",
       "sourceUrl": "https://carraresecalcio1908.it/bentornato-a-carrara-tommaso-guercio-e-di-nuovo-azzurro/",
       "sources": [
         {
-          "name": "carraresecalcio1908.it",
+          "name": "Carrarese",
           "url": "https://carraresecalcio1908.it/bentornato-a-carrara-tommaso-guercio-e-di-nuovo-azzurro/",
           "role": "primary_official"
         }
@@ -6845,11 +6905,11 @@
       "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-italy",
       "sourceRole": "primary_official",
-      "sourceName": "carraresecalcio1908.it",
+      "sourceName": "Carrarese",
       "sourceUrl": "https://carraresecalcio1908.it/pinelli-e-ufficialmente-azzurro/",
       "sources": [
         {
-          "name": "carraresecalcio1908.it",
+          "name": "Carrarese",
           "url": "https://carraresecalcio1908.it/pinelli-e-ufficialmente-azzurro/",
           "role": "primary_official"
         }
@@ -6890,11 +6950,11 @@
       "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-poland",
       "sourceRole": "primary_official",
-      "sourceName": "zaglebie.com",
+      "sourceName": "Zagłębie Lubin",
       "sourceUrl": "https://www.zaglebie.com/Aktualnosci/Pierwszy-zespol/filip-szymczak-nowym-zawodnikiem-kghm-zaglebia-lubin_n19969",
       "sources": [
         {
-          "name": "zaglebie.com",
+          "name": "Zagłębie Lubin",
           "url": "https://www.zaglebie.com/Aktualnosci/Pierwszy-zespol/filip-szymczak-nowym-zawodnikiem-kghm-zaglebia-lubin_n19969",
           "role": "primary_official"
         }
@@ -6935,11 +6995,11 @@
       "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-poland",
       "sourceRole": "primary_official",
-      "sourceName": "pogonszczecin.pl",
+      "sourceName": "Pogoń Szczecin",
       "sourceUrl": "https://pogonszczecin.pl/w/attila-szalai-zostaje-w-pogoni-szczecin-",
       "sources": [
         {
-          "name": "pogonszczecin.pl",
+          "name": "Pogoń Szczecin",
           "url": "https://pogonszczecin.pl/w/attila-szalai-zostaje-w-pogoni-szczecin-",
           "role": "primary_official"
         }
@@ -6980,11 +7040,11 @@
       "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-poland",
       "sourceRole": "primary_official",
-      "sourceName": "rksradomiak.pl",
+      "sourceName": "Radomiak Radom",
       "sourceUrl": "https://rksradomiak.pl/artykul-6896-filip_koperski_w_radomiaku_.html",
       "sources": [
         {
-          "name": "rksradomiak.pl",
+          "name": "Radomiak Radom",
           "url": "https://rksradomiak.pl/artykul-6896-filip_koperski_w_radomiaku_.html",
           "role": "primary_official"
         }
@@ -7116,18 +7176,18 @@
       "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-england",
       "sourceRole": "primary_official",
-      "sourceName": "toulousefc.com",
+      "sourceName": "Toulouse",
       "sourceUrl": "https://www.toulousefc.com/play/blog/2026/07/emersonn-correia-quitte-le-toulouse-football-club-en-direction-du-ipswitch-town-football-club",
       "sources": [
+        {
+          "name": "Toulouse",
+          "url": "https://www.toulousefc.com/play/blog/2026/07/emersonn-correia-quitte-le-toulouse-football-club-en-direction-du-ipswitch-town-football-club",
+          "role": "primary_official"
+        },
         {
           "name": "BBC Sport",
           "url": "https://www.bbc.co.uk/sport/football/articles/c0jylx731v1o",
           "role": "publication"
-        },
-        {
-          "name": "toulousefc.com",
-          "url": "https://www.toulousefc.com/play/blog/2026/07/emersonn-correia-quitte-le-toulouse-football-club-en-direction-du-ipswitch-town-football-club",
-          "role": "primary_official"
         }
       ],
       "firstSeenAt": "2026-07-08T12:00:00.000Z",
@@ -7276,96 +7336,6 @@
       ]
     },
     {
-      "id": "dbf175f299cdfc",
-      "date": "2026-07-08",
-      "time": "—",
-      "player": "Geovany Quenda",
-      "playerUrl": "https://en.wikipedia.org/wiki/Geovany_Quenda",
-      "age": 19,
-      "position": null,
-      "nationality": "Portugal",
-      "flagCode": "pt",
-      "flag": "🇵🇹",
-      "fromClub": "Sporting CP",
-      "fromClubUrl": "https://en.wikipedia.org/wiki/Sporting_CP",
-      "fromClubCrest": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Sporting_Clube_de_Portugal_2026.svg/120px-Sporting_Clube_de_Portugal_2026.svg.png",
-      "toClub": "Chelsea",
-      "toClubUrl": "https://en.wikipedia.org/wiki/Chelsea_F.C.",
-      "toClubCrest": "https://upload.wikimedia.org/wikipedia/en/thumb/c/cc/Chelsea_FC.svg/120px-Chelsea_FC.svg.png",
-      "fee": "£40m",
-      "status": "official",
-      "market": "England",
-      "markets": [
-        "England"
-      ],
-      "competition": "English leagues",
-      "competitionGender": "men",
-      "competitionGenderSource": "source-register",
-      "sourceAdapter": "wikipedia-england",
-      "sourceRole": "publication",
-      "sourceName": "BBC Sport",
-      "sourceUrl": "https://www.bbc.co.uk/sport/football/articles/c3vy0v39qkko",
-      "sources": [
-        {
-          "name": "BBC Sport",
-          "url": "https://www.bbc.co.uk/sport/football/articles/c3vy0v39qkko",
-          "role": "publication"
-        }
-      ],
-      "firstSeenAt": "2026-07-08T12:00:00.000Z",
-      "competitions": [
-        "English leagues"
-      ],
-      "sourceAdapters": [
-        "wikipedia-england"
-      ]
-    },
-    {
-      "id": "1e1d66307a5d1f",
-      "date": "2026-07-08",
-      "time": "—",
-      "player": "Harry Wilson",
-      "playerUrl": "https://en.wikipedia.org/wiki/Harry_Wilson_(footballer,_born_1997)",
-      "age": 29,
-      "position": "MC",
-      "nationality": "Wales",
-      "flagCode": "gb-wls",
-      "flag": "🇬🇧",
-      "fromClub": "Fulham",
-      "fromClubUrl": "https://en.wikipedia.org/wiki/Fulham_F.C.",
-      "fromClubCrest": "https://upload.wikimedia.org/wikipedia/en/thumb/e/eb/Fulham_FC_%28shield%29.svg/120px-Fulham_FC_%28shield%29.svg.png",
-      "toClub": "Leeds United",
-      "toClubUrl": "https://en.wikipedia.org/wiki/Leeds_United_F.C.",
-      "toClubCrest": "https://upload.wikimedia.org/wikipedia/en/thumb/5/54/Leeds_United_F.C._logo.svg/120px-Leeds_United_F.C._logo.svg.png",
-      "fee": "Free",
-      "status": "official",
-      "market": "England",
-      "markets": [
-        "England"
-      ],
-      "competition": "English leagues",
-      "competitionGender": "men",
-      "competitionGenderSource": "source-register",
-      "sourceAdapter": "wikipedia-england",
-      "sourceRole": "publication",
-      "sourceName": "BBC Sport",
-      "sourceUrl": "https://www.bbc.co.uk/sport/football/articles/c0rydrz49e0o",
-      "sources": [
-        {
-          "name": "BBC Sport",
-          "url": "https://www.bbc.co.uk/sport/football/articles/c0rydrz49e0o",
-          "role": "publication"
-        }
-      ],
-      "firstSeenAt": "2026-07-08T12:00:00.000Z",
-      "competitions": [
-        "English leagues"
-      ],
-      "sourceAdapters": [
-        "wikipedia-england"
-      ]
-    },
-    {
       "id": "846f2c9142ee09",
       "date": "2026-07-08",
       "time": "—",
@@ -7393,11 +7363,11 @@
       "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-germany",
       "sourceRole": "primary_official",
-      "sourceName": "fcbayern.com",
+      "sourceName": "Bayern Munich",
       "sourceUrl": "https://fcbayern.com/de/news/2026/07/abschied-vom-fc-bayern-alexander-nuebel-wechselt-zu-besiktas-istanbul",
       "sources": [
         {
-          "name": "fcbayern.com",
+          "name": "Bayern Munich",
           "url": "https://fcbayern.com/de/news/2026/07/abschied-vom-fc-bayern-alexander-nuebel-wechselt-zu-besiktas-istanbul",
           "role": "primary_official"
         }
@@ -7438,11 +7408,11 @@
       "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-germany",
       "sourceRole": "primary_official",
-      "sourceName": "fcbayern.com",
+      "sourceName": "Bayern Munich",
       "sourceUrl": "https://fcbayern.com/de/news/2026/07/abschied-vom-fc-bayern-alexander-nuebel-wechselt-zu-besiktas-istanbul",
       "sources": [
         {
-          "name": "fcbayern.com",
+          "name": "Bayern Munich",
           "url": "https://fcbayern.com/de/news/2026/07/abschied-vom-fc-bayern-alexander-nuebel-wechselt-zu-besiktas-istanbul",
           "role": "primary_official"
         }
@@ -7483,11 +7453,11 @@
       "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-germany",
       "sourceRole": "primary_official",
-      "sourceName": "fc.de",
+      "sourceName": "1. FC Köln",
       "sourceUrl": "https://fc.de/aktuelles/news/rasmus-carstensen-wechselt-nach-aarhus",
       "sources": [
         {
-          "name": "fc.de",
+          "name": "1. FC Köln",
           "url": "https://fc.de/aktuelles/news/rasmus-carstensen-wechselt-nach-aarhus",
           "role": "primary_official"
         }
@@ -7528,11 +7498,11 @@
       "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-germany",
       "sourceRole": "primary_official",
-      "sourceName": "schalke04.de",
+      "sourceName": "Schalke 04",
       "sourceUrl": "https://schalke04.de/personal/kevin-mueller-weiter-auf-schalke/",
       "sources": [
         {
-          "name": "schalke04.de",
+          "name": "Schalke 04",
           "url": "https://schalke04.de/personal/kevin-mueller-weiter-auf-schalke/",
           "role": "primary_official"
         }
@@ -7574,11 +7544,11 @@
       "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-france",
       "sourceRole": "primary_official",
-      "sourceName": "psg.fr",
+      "sourceName": "Paris Saint-Germain",
       "sourceUrl": "https://www.psg.fr/content/gabriel-moscardo-prete-au-rcd-espanyol-paris-saint-germain-2026-2027",
       "sources": [
         {
-          "name": "psg.fr",
+          "name": "Paris Saint-Germain",
           "url": "https://www.psg.fr/content/gabriel-moscardo-prete-au-rcd-espanyol-paris-saint-germain-2026-2027",
           "role": "primary_official"
         }
@@ -7619,11 +7589,11 @@
       "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-france",
       "sourceRole": "primary_official",
-      "sourceName": "rcstrasbourgalsace.fr",
+      "sourceName": "Strasbourg",
       "sourceUrl": "https://www.rcstrasbourgalsace.fr/mateo-del-blanco-rejoint-le-racing/",
       "sources": [
         {
-          "name": "rcstrasbourgalsace.fr",
+          "name": "Strasbourg",
           "url": "https://www.rcstrasbourgalsace.fr/mateo-del-blanco-rejoint-le-racing/",
           "role": "primary_official"
         }
@@ -7664,11 +7634,11 @@
       "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-poland",
       "sourceRole": "primary_official",
-      "sourceName": "lechpoznan.pl",
+      "sourceName": "Lech Poznań",
       "sourceUrl": "https://www.lechpoznan.pl/aktualnosci,2,sammy-dudek-wypozyczony-do-unii-skierniewice,47849.html",
       "sources": [
         {
-          "name": "lechpoznan.pl",
+          "name": "Lech Poznań",
           "url": "https://www.lechpoznan.pl/aktualnosci,2,sammy-dudek-wypozyczony-do-unii-skierniewice,47849.html",
           "role": "primary_official"
         }
@@ -7709,11 +7679,11 @@
       "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-poland",
       "sourceRole": "primary_official",
-      "sourceName": "gornikzabrze.pl",
+      "sourceName": "Górnik Zabrze",
       "sourceUrl": "https://www.gornikzabrze.pl/aktualnosci/wydarzenia/maksymilian-pingot-wypozyczony-do-odry-opole",
       "sources": [
         {
-          "name": "gornikzabrze.pl",
+          "name": "Górnik Zabrze",
           "url": "https://www.gornikzabrze.pl/aktualnosci/wydarzenia/maksymilian-pingot-wypozyczony-do-odry-opole",
           "role": "primary_official"
         }
@@ -7754,11 +7724,11 @@
       "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-poland",
       "sourceRole": "primary_official",
-      "sourceName": "rakow.com",
+      "sourceName": "Raków Częstochowa",
       "sourceUrl": "https://rakow.com/aktualnosci/adin-molnar-nowym-pilkarzem-rakowa-16430",
       "sources": [
         {
-          "name": "rakow.com",
+          "name": "Raków Częstochowa",
           "url": "https://rakow.com/aktualnosci/adin-molnar-nowym-pilkarzem-rakowa-16430",
           "role": "primary_official"
         }
@@ -7799,11 +7769,11 @@
       "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-poland",
       "sourceRole": "primary_official",
-      "sourceName": "wisla-plock.pl",
+      "sourceName": "Wisła Płock",
       "sourceUrl": "https://wisla-plock.pl/aktualnosci/giannis-niarchos-odchodzi-do-1-fc-slovacko/",
       "sources": [
         {
-          "name": "wisla-plock.pl",
+          "name": "Wisła Płock",
           "url": "https://wisla-plock.pl/aktualnosci/giannis-niarchos-odchodzi-do-1-fc-slovacko/",
           "role": "primary_official"
         }
@@ -7844,11 +7814,11 @@
       "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-poland",
       "sourceRole": "primary_official",
-      "sourceName": "rksradomiak.pl",
+      "sourceName": "Radomiak Radom",
       "sourceUrl": "https://rksradomiak.pl/artykul-6892-conrado_w_radomiaku_.html",
       "sources": [
         {
-          "name": "rksradomiak.pl",
+          "name": "Radomiak Radom",
           "url": "https://rksradomiak.pl/artykul-6892-conrado_w_radomiaku_.html",
           "role": "primary_official"
         }
@@ -7889,11 +7859,11 @@
       "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-germany",
       "sourceRole": "primary_official",
-      "sourceName": "fck.de",
+      "sourceName": "1. FC Kaiserslautern",
       "sourceUrl": "https://fck.de/blog/kelven-frees-wird-ein-roter-teufel/",
       "sources": [
         {
-          "name": "fck.de",
+          "name": "1. FC Kaiserslautern",
           "url": "https://fck.de/blog/kelven-frees-wird-ein-roter-teufel/",
           "role": "primary_official"
         }
@@ -7935,11 +7905,11 @@
       "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-germany",
       "sourceRole": "primary_official",
-      "sourceName": "fcaugsburg.de",
+      "sourceName": "FC Augsburg",
       "sourceUrl": "https://www.fcaugsburg.de/article/erneute-leihe-kyliane-dong-wechselt-zu-den-bolton-wanderers-23233",
       "sources": [
         {
-          "name": "fcaugsburg.de",
+          "name": "FC Augsburg",
           "url": "https://www.fcaugsburg.de/article/erneute-leihe-kyliane-dong-wechselt-zu-den-bolton-wanderers-23233",
           "role": "primary_official"
         }
@@ -7980,11 +7950,11 @@
       "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-germany",
       "sourceRole": "primary_official",
-      "sourceName": "fc.de",
+      "sourceName": "1. FC Köln",
       "sourceUrl": "https://fc.de/aktuelles/news/jakub-kaminski-verlaesst-den-1-fc-koeln",
       "sources": [
         {
-          "name": "fc.de",
+          "name": "1. FC Köln",
           "url": "https://fc.de/aktuelles/news/jakub-kaminski-verlaesst-den-1-fc-koeln",
           "role": "primary_official"
         }
@@ -8025,11 +7995,11 @@
       "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-germany",
       "sourceRole": "primary_official",
-      "sourceName": "scp07.de",
+      "sourceName": "SC Paderborn",
       "sourceUrl": "https://www.scp07.de/Newsarchiv/Woerner-nach-Regensburg.html",
       "sources": [
         {
-          "name": "scp07.de",
+          "name": "SC Paderborn",
           "url": "https://www.scp07.de/Newsarchiv/Woerner-nach-Regensburg.html",
           "role": "primary_official"
         }
@@ -8115,11 +8085,11 @@
       "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-germany",
       "sourceRole": "primary_official",
-      "sourceName": "fc-heidenheim.de",
+      "sourceName": "1. FC Heidenheim",
       "sourceUrl": "https://www.fc-heidenheim.de/news/detail/nick-rothweiler-wechselt-auf-leihbasis-zum-ksv-hessen-kassel",
       "sources": [
         {
-          "name": "fc-heidenheim.de",
+          "name": "1. FC Heidenheim",
           "url": "https://www.fc-heidenheim.de/news/detail/nick-rothweiler-wechselt-auf-leihbasis-zum-ksv-hessen-kassel",
           "role": "primary_official"
         }
@@ -8160,11 +8130,11 @@
       "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-germany",
       "sourceRole": "primary_official",
-      "sourceName": "fcstpauli.com",
+      "sourceName": "FC St. Pauli",
       "sourceUrl": "https://www.fcstpauli.com/news/der-fc-st-pauli-verpflichtet-branimir-hrgota",
       "sources": [
         {
-          "name": "fcstpauli.com",
+          "name": "FC St. Pauli",
           "url": "https://www.fcstpauli.com/news/der-fc-st-pauli-verpflichtet-branimir-hrgota",
           "role": "primary_official"
         }
@@ -8205,11 +8175,11 @@
       "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-france",
       "sourceRole": "primary_official",
-      "sourceName": "asmonaco.com",
+      "sourceName": "Monaco",
       "sourceUrl": "https://www.asmonaco.com/fr/news/sadibou-sane-s-engages-a-l-as-monaco",
       "sources": [
         {
-          "name": "asmonaco.com",
+          "name": "Monaco",
           "url": "https://www.asmonaco.com/fr/news/sadibou-sane-s-engages-a-l-as-monaco",
           "role": "primary_official"
         }
@@ -8251,11 +8221,11 @@
       "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-france",
       "sourceRole": "primary_official",
-      "sourceName": "sdponferradina.com",
+      "sourceName": "Ponferradina",
       "sourceUrl": "https://sdponferradina.com/2026/07/07/la-sd-ponferradina-incorpora-al-portero-alex-dominguez/",
       "sources": [
         {
-          "name": "sdponferradina.com",
+          "name": "Ponferradina",
           "url": "https://sdponferradina.com/2026/07/07/la-sd-ponferradina-incorpora-al-portero-alex-dominguez/",
           "role": "primary_official"
         }
@@ -8296,11 +8266,11 @@
       "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-france",
       "sourceRole": "primary_official",
-      "sourceName": "stade-de-reims.com",
+      "sourceName": "Reims",
       "sourceUrl": "https://www.stade-de-reims.com/sambou-soumano-nouvelle-arme-offensive/",
       "sources": [
         {
-          "name": "stade-de-reims.com",
+          "name": "Reims",
           "url": "https://www.stade-de-reims.com/sambou-soumano-nouvelle-arme-offensive/",
           "role": "primary_official"
         }
@@ -8342,11 +8312,11 @@
       "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-poland",
       "sourceRole": "primary_official",
-      "sourceName": "zaglebie.com",
+      "sourceName": "Zagłębie Lubin",
       "sourceUrl": "https://www.zaglebie.com/Aktualnosci/Pierwszy-zespol/krzysztof-kolanko-odchodzi-z-kghm-zaglebia-lubin_n19965",
       "sources": [
         {
-          "name": "zaglebie.com",
+          "name": "Zagłębie Lubin",
           "url": "https://www.zaglebie.com/Aktualnosci/Pierwszy-zespol/krzysztof-kolanko-odchodzi-z-kghm-zaglebia-lubin_n19965",
           "role": "primary_official"
         }
@@ -8387,11 +8357,11 @@
       "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-poland",
       "sourceRole": "primary_official",
-      "sourceName": "lkslodz.pl",
+      "sourceName": "ŁKS Łódź",
       "sourceUrl": "https://lkslodz.pl/aktualnosci/michal-kaput-w-lks/",
       "sources": [
         {
-          "name": "lkslodz.pl",
+          "name": "ŁKS Łódź",
           "url": "https://lkslodz.pl/aktualnosci/michal-kaput-w-lks/",
           "role": "primary_official"
         }
@@ -8432,11 +8402,11 @@
       "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-poland",
       "sourceRole": "primary_official",
-      "sourceName": "motorlublin.eu",
+      "sourceName": "Motor Lublin",
       "sourceUrl": "https://motorlublin.eu/w/-a%C3%8Fko2028",
       "sources": [
         {
-          "name": "motorlublin.eu",
+          "name": "Motor Lublin",
           "url": "https://motorlublin.eu/w/-a%C3%8Fko2028",
           "role": "primary_official"
         }
@@ -8477,11 +8447,11 @@
       "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-poland",
       "sourceRole": "primary_official",
-      "sourceName": "motorlublin.eu",
+      "sourceName": "Motor Lublin",
       "sourceUrl": "https://motorlublin.eu/w/bright-ede-przechodzi-do-deportivo-a-coru%C3%B1a",
       "sources": [
         {
-          "name": "motorlublin.eu",
+          "name": "Motor Lublin",
           "url": "https://motorlublin.eu/w/bright-ede-przechodzi-do-deportivo-a-coru%C3%B1a",
           "role": "primary_official"
         }
@@ -8567,11 +8537,11 @@
       "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-poland",
       "sourceRole": "primary_official",
-      "sourceName": "slaskwroclaw.pl",
+      "sourceName": "Śląsk Wrocław",
       "sourceUrl": "https://www.slaskwroclaw.pl/w/alex-timossi-andersson-pi%C5%82karzem-%C5%9Al%C4%85ska-wroc%C5%82aw",
       "sources": [
         {
-          "name": "slaskwroclaw.pl",
+          "name": "Śląsk Wrocław",
           "url": "https://www.slaskwroclaw.pl/w/alex-timossi-andersson-pi%C5%82karzem-%C5%9Al%C4%85ska-wroc%C5%82aw",
           "role": "primary_official"
         }
@@ -8612,11 +8582,11 @@
       "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-germany",
       "sourceRole": "primary_official",
-      "sourceName": "bayer04.de",
+      "sourceName": "Bayer Leverkusen",
       "sourceUrl": "https://www.bayer04.de/de-de/news/bayer04/bayer-04-verleiht-verteidiger-talent-traore-zum-slowakischen-erstligisten-as-trencin",
       "sources": [
         {
-          "name": "bayer04.de",
+          "name": "Bayer Leverkusen",
           "url": "https://www.bayer04.de/de-de/news/bayer04/bayer-04-verleiht-verteidiger-talent-traore-zum-slowakischen-erstligisten-as-trencin",
           "role": "primary_official"
         }
@@ -8657,11 +8627,11 @@
       "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-germany",
       "sourceRole": "primary_official",
-      "sourceName": "scfreiburg.com",
+      "sourceName": "SC Freiburg",
       "sourceUrl": "https://www.scfreiburg.com/aktuell/nachrichten/profis/news/2026/27/good-luck-and-goodbye-merlin/",
       "sources": [
         {
-          "name": "scfreiburg.com",
+          "name": "SC Freiburg",
           "url": "https://www.scfreiburg.com/aktuell/nachrichten/profis/news/2026/27/good-luck-and-goodbye-merlin/",
           "role": "primary_official"
         }
@@ -8702,11 +8672,11 @@
       "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-germany",
       "sourceRole": "primary_official",
-      "sourceName": "fcaugsburg.de",
+      "sourceName": "FC Augsburg",
       "sourceUrl": "https://www.fcaugsburg.de/article/oliver-sorg-wechselt-zuruck-nach-osterreich-23228",
       "sources": [
         {
-          "name": "fcaugsburg.de",
+          "name": "FC Augsburg",
           "url": "https://www.fcaugsburg.de/article/oliver-sorg-wechselt-zuruck-nach-osterreich-23228",
           "role": "primary_official"
         }
@@ -8747,11 +8717,11 @@
       "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-germany",
       "sourceRole": "primary_official",
-      "sourceName": "mainz05.de",
+      "sourceName": "Mainz 05",
       "sourceUrl": "https://www.mainz05.de/news/lasse-riess-neuer-vertrag-und-leihe-nach-duesseldorf",
       "sources": [
         {
-          "name": "mainz05.de",
+          "name": "Mainz 05",
           "url": "https://www.mainz05.de/news/lasse-riess-neuer-vertrag-und-leihe-nach-duesseldorf",
           "role": "primary_official"
         }
@@ -8792,11 +8762,11 @@
       "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-germany",
       "sourceRole": "primary_official",
-      "sourceName": "zelvia.co.jp",
+      "sourceName": "Machida Zelvia",
       "sourceUrl": "https://www.zelvia.co.jp/news/news-351681/",
       "sources": [
         {
-          "name": "zelvia.co.jp",
+          "name": "Machida Zelvia",
           "url": "https://www.zelvia.co.jp/news/news-351681/",
           "role": "primary_official"
         }
@@ -8837,11 +8807,11 @@
       "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-france",
       "sourceRole": "primary_official",
-      "sourceName": "psg.fr",
+      "sourceName": "Paris Saint-Germain",
       "sourceUrl": "https://www.psg.fr/content/alessandro-longoni-sengage-avec-le-paris-saint-germain-jusquen-2031-psg-news-equipe-premiere-football-mercato-2026-2027",
       "sources": [
         {
-          "name": "psg.fr",
+          "name": "Paris Saint-Germain",
           "url": "https://www.psg.fr/content/alessandro-longoni-sengage-avec-le-paris-saint-germain-jusquen-2031-psg-news-equipe-premiere-football-mercato-2026-2027",
           "role": "primary_official"
         }
@@ -8882,11 +8852,11 @@
       "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-france",
       "sourceRole": "primary_official",
-      "sourceName": "psg.fr",
+      "sourceName": "Paris Saint-Germain",
       "sourceUrl": "https://www.psg.fr/content/renato-marin-prete-une-saison-au-cd-nacional-paris-saint-germain-2026-2027",
       "sources": [
         {
-          "name": "psg.fr",
+          "name": "Paris Saint-Germain",
           "url": "https://www.psg.fr/content/renato-marin-prete-une-saison-au-cd-nacional-paris-saint-germain-2026-2027",
           "role": "primary_official"
         }
@@ -8927,11 +8897,11 @@
       "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-france",
       "sourceRole": "primary_official",
-      "sourceName": "losc.fr",
+      "sourceName": "Lille",
       "sourceUrl": "https://losc.fr/actualites/2026-07-06/loun-srdanovic-defenseur-international-u19-suisse-rejoint-le-losc",
       "sources": [
         {
-          "name": "losc.fr",
+          "name": "Lille",
           "url": "https://losc.fr/actualites/2026-07-06/loun-srdanovic-defenseur-international-u19-suisse-rejoint-le-losc",
           "role": "primary_official"
         }
@@ -8973,11 +8943,11 @@
       "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-france",
       "sourceRole": "primary_official",
-      "sourceName": "rcstrasbourgalsace.fr",
+      "sourceName": "Strasbourg",
       "sourceUrl": "https://www.rcstrasbourgalsace.fr/milosz-piekutowski-est-bleublanc/",
       "sources": [
         {
-          "name": "rcstrasbourgalsace.fr",
+          "name": "Strasbourg",
           "url": "https://www.rcstrasbourgalsace.fr/milosz-piekutowski-est-bleublanc/",
           "role": "primary_official"
         }
@@ -9020,11 +8990,11 @@
       "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-netherlands",
       "sourceRole": "primary_official",
-      "sourceName": "psv.nl",
+      "sourceName": "PSV",
       "sourceUrl": "https://www.psv.nl/media/artikel/transfer-psv-verwelkomt-sven-mijnans-als-nieuwe-middenvelder",
       "sources": [
         {
-          "name": "psv.nl",
+          "name": "PSV",
           "url": "https://www.psv.nl/media/artikel/transfer-psv-verwelkomt-sven-mijnans-als-nieuwe-middenvelder",
           "role": "primary_official"
         }
@@ -9065,11 +9035,11 @@
       "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-netherlands",
       "sourceRole": "primary_official",
-      "sourceName": "sanfrecce.co.jp",
+      "sourceName": "Sanfrecce Hiroshima",
       "sourceUrl": "https://www.sanfrecce.co.jp/news/team/12554",
       "sources": [
         {
-          "name": "sanfrecce.co.jp",
+          "name": "Sanfrecce Hiroshima",
           "url": "https://www.sanfrecce.co.jp/news/team/12554",
           "role": "primary_official"
         }
@@ -9110,11 +9080,11 @@
       "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-netherlands",
       "sourceRole": "primary_official",
-      "sourceName": "realzaragoza.com",
+      "sourceName": "Real Zaragoza",
       "sourceUrl": "https://www.realzaragoza.com/noticias/sem-westerveld-nuevo-jugador-del-real-zaragoza",
       "sources": [
         {
-          "name": "realzaragoza.com",
+          "name": "Real Zaragoza",
           "url": "https://www.realzaragoza.com/noticias/sem-westerveld-nuevo-jugador-del-real-zaragoza",
           "role": "primary_official"
         }
@@ -9155,11 +9125,11 @@
       "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-netherlands",
       "sourceRole": "primary_official",
-      "sourceName": "az.nl",
+      "sourceName": "AZ",
       "sourceUrl": "https://az.nl/inside-az/nieuws/2026/juli/buurmeester-gaat-spaans-avontuur-aan-bij-cd-leganes",
       "sources": [
         {
-          "name": "az.nl",
+          "name": "AZ",
           "url": "https://az.nl/inside-az/nieuws/2026/juli/buurmeester-gaat-spaans-avontuur-aan-bij-cd-leganes",
           "role": "primary_official"
         }
@@ -9200,11 +9170,11 @@
       "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-netherlands",
       "sourceRole": "primary_official",
-      "sourceName": "az.nl",
+      "sourceName": "AZ",
       "sourceUrl": "https://az.nl/inside-az/nieuws/2026/juli/buurmeester-gaat-spaans-avontuur-aan-bij-cd-leganes",
       "sources": [
         {
-          "name": "az.nl",
+          "name": "AZ",
           "url": "https://az.nl/inside-az/nieuws/2026/juli/buurmeester-gaat-spaans-avontuur-aan-bij-cd-leganes",
           "role": "primary_official"
         }
@@ -9245,11 +9215,11 @@
       "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-poland",
       "sourceRole": "primary_official",
-      "sourceName": "nkmaribor.com",
+      "sourceName": "Maribor",
       "sourceUrl": "https://www.nkmaribor.com/news/jBymN4sae4iXzw532Qei",
       "sources": [
         {
-          "name": "nkmaribor.com",
+          "name": "Maribor",
           "url": "https://www.nkmaribor.com/news/jBymN4sae4iXzw532Qei",
           "role": "primary_official"
         }
@@ -9290,11 +9260,11 @@
       "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-poland",
       "sourceRole": "primary_official",
-      "sourceName": "korona-kielce.pl",
+      "sourceName": "Korona Kielce",
       "sourceUrl": "https://www.korona-kielce.pl/w/marcin-cebula-odchodzi-z-korony-kielce",
       "sources": [
         {
-          "name": "korona-kielce.pl",
+          "name": "Korona Kielce",
           "url": "https://www.korona-kielce.pl/w/marcin-cebula-odchodzi-z-korony-kielce",
           "role": "primary_official"
         }
@@ -9335,11 +9305,11 @@
       "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-poland",
       "sourceRole": "primary_official",
-      "sourceName": "sandecja.pl",
+      "sourceName": "Sandecja Nowy Sącz",
       "sourceUrl": "https://sandecja.pl/Aktualnosci/Pierwsza-Druzyna/2026-07-06-Lukasz-Gerstenstein-Saczersem~n3686",
       "sources": [
         {
-          "name": "sandecja.pl",
+          "name": "Sandecja Nowy Sącz",
           "url": "https://sandecja.pl/Aktualnosci/Pierwsza-Druzyna/2026-07-06-Lukasz-Gerstenstein-Saczersem~n3686",
           "role": "primary_official"
         }
@@ -9425,11 +9395,11 @@
       "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-germany",
       "sourceRole": "primary_official",
-      "sourceName": "tsg-hoffenheim.de",
+      "sourceName": "TSG Hoffenheim",
       "sourceUrl": "https://www.tsg-hoffenheim.de/aktuelles/news/2026/07/bazoumana-toure-wechselt-zu-newcastle-united",
       "sources": [
         {
-          "name": "tsg-hoffenheim.de",
+          "name": "TSG Hoffenheim",
           "url": "https://www.tsg-hoffenheim.de/aktuelles/news/2026/07/bazoumana-toure-wechselt-zu-newcastle-united",
           "role": "primary_official"
         }
@@ -9470,11 +9440,11 @@
       "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-germany",
       "sourceRole": "primary_official",
-      "sourceName": "schalke04.de",
+      "sourceName": "Schalke 04",
       "sourceUrl": "https://schalke04.de/personal/leihe-felipe-sanchez/",
       "sources": [
         {
-          "name": "schalke04.de",
+          "name": "Schalke 04",
           "url": "https://schalke04.de/personal/leihe-felipe-sanchez/",
           "role": "primary_official"
         }
@@ -9515,11 +9485,11 @@
       "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-germany",
       "sourceRole": "primary_official",
-      "sourceName": "1.fc-magdeburg.de",
+      "sourceName": "1. FC Magdeburg",
       "sourceUrl": "https://1.fc-magdeburg.de/news/detail/junges-offensivtalent-fuer-den-fcm",
       "sources": [
         {
-          "name": "1.fc-magdeburg.de",
+          "name": "1. FC Magdeburg",
           "url": "https://1.fc-magdeburg.de/news/detail/junges-offensivtalent-fuer-den-fcm",
           "role": "primary_official"
         }
@@ -9560,11 +9530,11 @@
       "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-france",
       "sourceRole": "primary_official",
-      "sourceName": "staderennais.com",
+      "sourceName": "Rennes",
       "sourceUrl": "https://www.staderennais.com/actualites/mercato/voici-big-man-bienvenue-eliezer-mayenda",
       "sources": [
         {
-          "name": "staderennais.com",
+          "name": "Rennes",
           "url": "https://www.staderennais.com/actualites/mercato/voici-big-man-bienvenue-eliezer-mayenda",
           "role": "primary_official"
         }
@@ -9605,11 +9575,11 @@
       "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-netherlands",
       "sourceRole": "primary_official",
-      "sourceName": "baliutd.com",
+      "sourceName": "Bali United",
       "sourceUrl": "https://www.baliutd.com/news/swasti-prapta-remco-balk-dan-bali-united-fc-resmi-jalin-kerja-sama-untuk-menyambut-kompetisi-musim-baru",
       "sources": [
         {
-          "name": "baliutd.com",
+          "name": "Bali United",
           "url": "https://www.baliutd.com/news/swasti-prapta-remco-balk-dan-bali-united-fc-resmi-jalin-kerja-sama-untuk-menyambut-kompetisi-musim-baru",
           "role": "primary_official"
         }
@@ -9650,11 +9620,11 @@
       "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-poland",
       "sourceRole": "primary_official",
-      "sourceName": "korona-kielce.pl",
+      "sourceName": "Korona Kielce",
       "sourceUrl": "https://www.korona-kielce.pl/w/ariel-mos%C3%B3r-nowym-zawodnikiem-korony-kielce-",
       "sources": [
         {
-          "name": "korona-kielce.pl",
+          "name": "Korona Kielce",
           "url": "https://www.korona-kielce.pl/w/ariel-mos%C3%B3r-nowym-zawodnikiem-korony-kielce-",
           "role": "primary_official"
         }
@@ -9695,11 +9665,11 @@
       "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-poland",
       "sourceRole": "primary_official",
-      "sourceName": "rksradomiak.pl",
+      "sourceName": "Radomiak Radom",
       "sourceUrl": "https://rksradomiak.pl/artykul-6890-maurides_odchodzi_z_radomiaka.html",
       "sources": [
         {
-          "name": "rksradomiak.pl",
+          "name": "Radomiak Radom",
           "url": "https://rksradomiak.pl/artykul-6890-maurides_odchodzi_z_radomiaka.html",
           "role": "primary_official"
         }
@@ -9740,11 +9710,11 @@
       "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-germany",
       "sourceRole": "primary_official",
-      "sourceName": "hsv.de",
+      "sourceName": "Hamburger SV",
       "sourceUrl": "https://www.hsv.de/news/hsv-verpflichtet-mads-broecker",
       "sources": [
         {
-          "name": "hsv.de",
+          "name": "Hamburger SV",
           "url": "https://www.hsv.de/news/hsv-verpflichtet-mads-broecker",
           "role": "primary_official"
         }
@@ -9785,11 +9755,11 @@
       "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-germany",
       "sourceRole": "primary_official",
-      "sourceName": "fussball.vsg-altglienicke.de",
+      "sourceName": "VSG Altglienicke",
       "sourceUrl": "https://www.fussball.vsg-altglienicke.de/artikel/108956/john-anthony-brooks-wechselt-zur-vsg-altglienicke",
       "sources": [
         {
-          "name": "fussball.vsg-altglienicke.de",
+          "name": "VSG Altglienicke",
           "url": "https://www.fussball.vsg-altglienicke.de/artikel/108956/john-anthony-brooks-wechselt-zur-vsg-altglienicke",
           "role": "primary_official"
         }
@@ -9830,11 +9800,11 @@
       "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-germany",
       "sourceRole": "primary_official",
-      "sourceName": "ksc.de",
+      "sourceName": "Karlsruher SC",
       "sourceUrl": "https://www.ksc.de/profis/saison/news/show/article/naechster-neuzugang-deniz-ofli-kommt-per-leihe-aus-muenchen/",
       "sources": [
         {
-          "name": "ksc.de",
+          "name": "Karlsruher SC",
           "url": "https://www.ksc.de/profis/saison/news/show/article/naechster-neuzugang-deniz-ofli-kommt-per-leihe-aus-muenchen/",
           "role": "primary_official"
         }
@@ -9875,11 +9845,11 @@
       "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-germany",
       "sourceRole": "primary_official",
-      "sourceName": "holstein-kiel.de",
+      "sourceName": "Holstein Kiel",
       "sourceUrl": "https://www.holstein-kiel.de/news-profis/holstein-kiel-verpflichtet-sebastian-schonlau/",
       "sources": [
         {
-          "name": "holstein-kiel.de",
+          "name": "Holstein Kiel",
           "url": "https://www.holstein-kiel.de/news-profis/holstein-kiel-verpflichtet-sebastian-schonlau/",
           "role": "primary_official"
         }
@@ -9920,11 +9890,11 @@
       "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-france",
       "sourceRole": "primary_official",
-      "sourceName": "rcstrasbourgalsace.fr",
+      "sourceName": "Strasbourg",
       "sourceUrl": "https://www.rcstrasbourgalsace.fr/benjamin-brantlind-sengage-avec-le-racing/",
       "sources": [
         {
-          "name": "rcstrasbourgalsace.fr",
+          "name": "Strasbourg",
           "url": "https://www.rcstrasbourgalsace.fr/benjamin-brantlind-sengage-avec-le-racing/",
           "role": "primary_official"
         }
@@ -9965,11 +9935,11 @@
       "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-poland",
       "sourceRole": "primary_official",
-      "sourceName": "rakow.com",
+      "sourceName": "Raków Częstochowa",
       "sourceUrl": "https://rakow.com/aktualnosci/leonardo-rocha-odchodzi-z-rakowa-16393",
       "sources": [
         {
-          "name": "rakow.com",
+          "name": "Raków Częstochowa",
           "url": "https://rakow.com/aktualnosci/leonardo-rocha-odchodzi-z-rakowa-16393",
           "role": "primary_official"
         }
@@ -10010,11 +9980,11 @@
       "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-poland",
       "sourceRole": "primary_official",
-      "sourceName": "pogongrodzisk.pl",
+      "sourceName": "Pogoń Grodzisk Mazowiecki",
       "sourceUrl": "https://pogongrodzisk.pl/aktualnosci/krzysztof-kaminski-nowym-bramkarzem-pogoni-grodzisk-mazowiecki",
       "sources": [
         {
-          "name": "pogongrodzisk.pl",
+          "name": "Pogoń Grodzisk Mazowiecki",
           "url": "https://pogongrodzisk.pl/aktualnosci/krzysztof-kaminski-nowym-bramkarzem-pogoni-grodzisk-mazowiecki",
           "role": "primary_official"
         }
@@ -10055,11 +10025,11 @@
       "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-poland",
       "sourceRole": "primary_official",
-      "sourceName": "korona-kielce.pl",
+      "sourceName": "Korona Kielce",
       "sourceUrl": "https://www.korona-kielce.pl/w/kamil-jakubczyk-nowym-zawodnikiem-korony-kielce-1",
       "sources": [
         {
-          "name": "korona-kielce.pl",
+          "name": "Korona Kielce",
           "url": "https://www.korona-kielce.pl/w/kamil-jakubczyk-nowym-zawodnikiem-korony-kielce-1",
           "role": "primary_official"
         }
@@ -10100,11 +10070,11 @@
       "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-poland",
       "sourceRole": "primary_official",
-      "sourceName": "motorlublin.eu",
+      "sourceName": "Motor Lublin",
       "sourceUrl": "https://motorlublin.eu/w/-%C5%81%C4%98gowski2028",
       "sources": [
         {
-          "name": "motorlublin.eu",
+          "name": "Motor Lublin",
           "url": "https://motorlublin.eu/w/-%C5%81%C4%98gowski2028",
           "role": "primary_official"
         }
@@ -10145,11 +10115,11 @@
       "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-poland",
       "sourceRole": "primary_official",
-      "sourceName": "slaskwroclaw.pl",
+      "sourceName": "Śląsk Wrocław",
       "sourceUrl": "https://www.slaskwroclaw.pl/w/irodotos-christodoulou-pi%C5%82karzem-%C5%9Al%C4%85ska-wroc%C5%82aw",
       "sources": [
         {
-          "name": "slaskwroclaw.pl",
+          "name": "Śląsk Wrocław",
           "url": "https://www.slaskwroclaw.pl/w/irodotos-christodoulou-pi%C5%82karzem-%C5%9Al%C4%85ska-wroc%C5%82aw",
           "role": "primary_official"
         }
@@ -10190,11 +10160,11 @@
       "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-germany",
       "sourceRole": "primary_official",
-      "sourceName": "fcbayern.com",
+      "sourceName": "Bayern Munich",
       "sourceUrl": "https://fcbayern.com/de/news/2026/07/neuzugang-aus-frankfurt-fc-bayern-holt-nathaniel-brown",
       "sources": [
         {
-          "name": "fcbayern.com",
+          "name": "Bayern Munich",
           "url": "https://fcbayern.com/de/news/2026/07/neuzugang-aus-frankfurt-fc-bayern-holt-nathaniel-brown",
           "role": "primary_official"
         }
@@ -10235,11 +10205,11 @@
       "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-france",
       "sourceRole": "primary_official",
-      "sourceName": "ol.fr",
+      "sourceName": "Lyon",
       "sourceUrl": "https://www.ol.fr/fr/actualites/mohamed-ouedraogo-s-engage-avec-l-ol-jusqu-en-2031",
       "sources": [
         {
-          "name": "ol.fr",
+          "name": "Lyon",
           "url": "https://www.ol.fr/fr/actualites/mohamed-ouedraogo-s-engage-avec-l-ol-jusqu-en-2031",
           "role": "primary_official"
         }
@@ -10280,11 +10250,11 @@
       "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-france",
       "sourceRole": "primary_official",
-      "sourceName": "staderennais.com",
+      "sourceName": "Rennes",
       "sourceUrl": "https://www.staderennais.com/actualites/mercato/mathys-silistrie-en-pret-a-quevilly-rouen-metropole",
       "sources": [
         {
-          "name": "staderennais.com",
+          "name": "Rennes",
           "url": "https://www.staderennais.com/actualites/mercato/mathys-silistrie-en-pret-a-quevilly-rouen-metropole",
           "role": "primary_official"
         }
@@ -10325,11 +10295,11 @@
       "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-netherlands",
       "sourceRole": "primary_official",
-      "sourceName": "sc-heerenveen.nl",
+      "sourceName": "Heerenveen",
       "sourceUrl": "https://www.sc-heerenveen.nl/nieuws/sc-heerenveen-haalt-darling-bladi-van-real-betis",
       "sources": [
         {
-          "name": "sc-heerenveen.nl",
+          "name": "Heerenveen",
           "url": "https://www.sc-heerenveen.nl/nieuws/sc-heerenveen-haalt-darling-bladi-van-real-betis",
           "role": "primary_official"
         }
@@ -10370,11 +10340,11 @@
       "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-netherlands",
       "sourceRole": "primary_official",
-      "sourceName": "ga-eagles.nl",
+      "sourceName": "Go Ahead Eagles",
       "sourceUrl": "https://www.ga-eagles.nl/jakob-breum-maakt-overstap-naar-as-saint-etienne/",
       "sources": [
         {
-          "name": "ga-eagles.nl",
+          "name": "Go Ahead Eagles",
           "url": "https://www.ga-eagles.nl/jakob-breum-maakt-overstap-naar-as-saint-etienne/",
           "role": "primary_official"
         }
@@ -10415,11 +10385,11 @@
       "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-netherlands",
       "sourceRole": "primary_official",
-      "sourceName": "htafc.com",
+      "sourceName": "Huddersfield Town",
       "sourceUrl": "https://www.htafc.com/news/2026/july/03/ilias-bronkhorst-joins-the-terriers-/",
       "sources": [
         {
-          "name": "htafc.com",
+          "name": "Huddersfield Town",
           "url": "https://www.htafc.com/news/2026/july/03/ilias-bronkhorst-joins-the-terriers-/",
           "role": "primary_official"
         }
@@ -10460,11 +10430,11 @@
       "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-netherlands",
       "sourceRole": "primary_official",
-      "sourceName": "realvalladolid.es",
+      "sourceName": "Real Valladolid",
       "sourceUrl": "https://www.realvalladolid.es/noticias/de-rooij-potencia-las-bandas",
       "sources": [
         {
-          "name": "realvalladolid.es",
+          "name": "Real Valladolid",
           "url": "https://www.realvalladolid.es/noticias/de-rooij-potencia-las-bandas",
           "role": "primary_official"
         }
@@ -10505,11 +10475,11 @@
       "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-netherlands",
       "sourceRole": "primary_official",
-      "sourceName": "fc.tps.fi",
+      "sourceName": "TPS",
       "sourceUrl": "https://fc.tps.fi/uutiset/hollantilaishyokkaaja-kian-visser-loppukauden-kattavalla-sopimuksella-tps-hyokkaykseen/",
       "sources": [
         {
-          "name": "fc.tps.fi",
+          "name": "TPS",
           "url": "https://fc.tps.fi/uutiset/hollantilaishyokkaaja-kian-visser-loppukauden-kattavalla-sopimuksella-tps-hyokkaykseen/",
           "role": "primary_official"
         }
@@ -10550,11 +10520,11 @@
       "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-poland",
       "sourceRole": "primary_official",
-      "sourceName": "gornikzabrze.pl",
+      "sourceName": "Górnik Zabrze",
       "sourceUrl": "https://www.gornikzabrze.pl/aktualnosci/wydarzenia/borislav-rupanov-wypozyczony-do-uniao-leiria",
       "sources": [
         {
-          "name": "gornikzabrze.pl",
+          "name": "Górnik Zabrze",
           "url": "https://www.gornikzabrze.pl/aktualnosci/wydarzenia/borislav-rupanov-wypozyczony-do-uniao-leiria",
           "role": "primary_official"
         }
@@ -10595,11 +10565,11 @@
       "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-poland",
       "sourceRole": "primary_official",
-      "sourceName": "rakow.com",
+      "sourceName": "Raków Częstochowa",
       "sourceUrl": "https://rakow.com/aktualnosci/jakub-jendryka-nowym-pilkarzem-rakowa-16406",
       "sources": [
         {
-          "name": "rakow.com",
+          "name": "Raków Częstochowa",
           "url": "https://rakow.com/aktualnosci/jakub-jendryka-nowym-pilkarzem-rakowa-16406",
           "role": "primary_official"
         }
@@ -10640,11 +10610,11 @@
       "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-poland",
       "sourceRole": "primary_official",
-      "sourceName": "legia.com",
+      "sourceName": "Legia Warsaw",
       "sourceUrl": "https://legia.com/pilka-nozna/leszczu/89497",
       "sources": [
         {
-          "name": "legia.com",
+          "name": "Legia Warsaw",
           "url": "https://legia.com/pilka-nozna/leszczu/89497",
           "role": "primary_official"
         }
@@ -10685,11 +10655,11 @@
       "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-poland",
       "sourceRole": "primary_official",
-      "sourceName": "zaglebie.com",
+      "sourceName": "Zagłębie Lubin",
       "sourceUrl": "https://www.zaglebie.com/Aktualnosci/Pierwszy-zespol/david-colina-wzmacnia-zespol-miedziowych_n19960",
       "sources": [
         {
-          "name": "zaglebie.com",
+          "name": "Zagłębie Lubin",
           "url": "https://www.zaglebie.com/Aktualnosci/Pierwszy-zespol/david-colina-wzmacnia-zespol-miedziowych_n19960",
           "role": "primary_official"
         }
@@ -10730,11 +10700,11 @@
       "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-poland",
       "sourceRole": "primary_official",
-      "sourceName": "wisla-plock.pl",
+      "sourceName": "Wisła Płock",
       "sourceUrl": "https://wisla-plock.pl/aktualnosci/oskar-klat-wypozyczony-do-olimpii-grudziadz/",
       "sources": [
         {
-          "name": "wisla-plock.pl",
+          "name": "Wisła Płock",
           "url": "https://wisla-plock.pl/aktualnosci/oskar-klat-wypozyczony-do-olimpii-grudziadz/",
           "role": "primary_official"
         }
@@ -10775,11 +10745,11 @@
       "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-poland",
       "sourceRole": "primary_official",
-      "sourceName": "motorlublin.eu",
+      "sourceName": "Motor Lublin",
       "sourceUrl": "https://motorlublin.eu/w/-bereszy%C5%83ski2028",
       "sources": [
         {
-          "name": "motorlublin.eu",
+          "name": "Motor Lublin",
           "url": "https://motorlublin.eu/w/-bereszy%C5%83ski2028",
           "role": "primary_official"
         }
@@ -10820,11 +10790,11 @@
       "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-poland",
       "sourceRole": "primary_official",
-      "sourceName": "cfintercity.com",
+      "sourceName": "Intercity",
       "sourceUrl": "https://cfintercity.com/el-cf-intercity-incorpora-a-carlitos-un-delantero-de-prestigio-internacional-de-regreso-a-casa/",
       "sources": [
         {
-          "name": "cfintercity.com",
+          "name": "Intercity",
           "url": "https://cfintercity.com/el-cf-intercity-incorpora-a-carlitos-un-delantero-de-prestigio-internacional-de-regreso-a-casa/",
           "role": "primary_official"
         }
@@ -10865,11 +10835,11 @@
       "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-france",
       "sourceRole": "primary_official",
-      "sourceName": "losc.fr",
+      "sourceName": "Lille",
       "sourceUrl": "https://losc.fr/actualites/2026-07-02/rafael-fernandes-prete-au-club-sport-maritimo",
       "sources": [
         {
-          "name": "losc.fr",
+          "name": "Lille",
           "url": "https://losc.fr/actualites/2026-07-02/rafael-fernandes-prete-au-club-sport-maritimo",
           "role": "primary_official"
         }
@@ -10910,11 +10880,11 @@
       "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-france",
       "sourceRole": "primary_official",
-      "sourceName": "ol.fr",
+      "sourceName": "Lyon",
       "sourceUrl": "https://www.ol.fr/fr/actualites/l-international-belge-julien-duranville-s-engage-avec-l-ol-jusqu-en-2031",
       "sources": [
         {
-          "name": "ol.fr",
+          "name": "Lyon",
           "url": "https://www.ol.fr/fr/actualites/l-international-belge-julien-duranville-s-engage-avec-l-ol-jusqu-en-2031",
           "role": "primary_official"
         }
@@ -10955,11 +10925,11 @@
       "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-france",
       "sourceRole": "primary_official",
-      "sourceName": "asmonaco.com",
+      "sourceName": "Monaco",
       "sourceUrl": "https://www.asmonaco.com/fr/news/mathys-detourbet-rejoint-l-as-monaco-en-pret",
       "sources": [
         {
-          "name": "asmonaco.com",
+          "name": "Monaco",
           "url": "https://www.asmonaco.com/fr/news/mathys-detourbet-rejoint-l-as-monaco-en-pret",
           "role": "primary_official"
         }
@@ -11000,11 +10970,11 @@
       "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-france",
       "sourceRole": "primary_official",
-      "sourceName": "asmonaco.com",
+      "sourceName": "Monaco",
       "sourceUrl": "https://www.asmonaco.com/fr/news/kassoum-ouattara-rejoint-le-besiktas-jk",
       "sources": [
         {
-          "name": "asmonaco.com",
+          "name": "Monaco",
           "url": "https://www.asmonaco.com/fr/news/kassoum-ouattara-rejoint-le-besiktas-jk",
           "role": "primary_official"
         }
@@ -11045,11 +11015,11 @@
       "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-france",
       "sourceRole": "primary_official",
-      "sourceName": "ogcnice.com",
+      "sourceName": "Nice",
       "sourceUrl": "https://www.ogcnice.com/fr/article/130533/laurent-abergel-est-nicois.html",
       "sources": [
         {
-          "name": "ogcnice.com",
+          "name": "Nice",
           "url": "https://www.ogcnice.com/fr/article/130533/laurent-abergel-est-nicois.html",
           "role": "primary_official"
         }
@@ -11090,11 +11060,11 @@
       "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-netherlands",
       "sourceRole": "primary_official",
-      "sourceName": "fctwente.nl",
+      "sourceName": "Twente",
       "sourceUrl": "https://fctwente.nl/nieuws/remko-pasveer-breidt-keepersteam-uit-bij-fc-twente",
       "sources": [
         {
-          "name": "fctwente.nl",
+          "name": "Twente",
           "url": "https://fctwente.nl/nieuws/remko-pasveer-breidt-keepersteam-uit-bij-fc-twente",
           "role": "primary_official"
         }
@@ -11135,11 +11105,11 @@
       "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-netherlands",
       "sourceRole": "primary_official",
-      "sourceName": "fcgroningen.nl",
+      "sourceName": "Groningen",
       "sourceUrl": "https://www.fcgroningen.nl/nieuws/fc-groningen-transfereert-postema-naar-noors-kampioen/",
       "sources": [
         {
-          "name": "fcgroningen.nl",
+          "name": "Groningen",
           "url": "https://www.fcgroningen.nl/nieuws/fc-groningen-transfereert-postema-naar-noors-kampioen/",
           "role": "primary_official"
         }
@@ -11180,11 +11150,11 @@
       "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-poland",
       "sourceRole": "primary_official",
-      "sourceName": "slaskwroclaw.pl",
+      "sourceName": "Śląsk Wrocław",
       "sourceUrl": "https://www.slaskwroclaw.pl/w/dominik-szala-pi%C5%82karzem-%C5%9Al%C4%85ska-wroc%C5%82aw",
       "sources": [
         {
-          "name": "slaskwroclaw.pl",
+          "name": "Śląsk Wrocław",
           "url": "https://www.slaskwroclaw.pl/w/dominik-szala-pi%C5%82karzem-%C5%9Al%C4%85ska-wroc%C5%82aw",
           "role": "primary_official"
         }
@@ -11225,11 +11195,11 @@
       "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-poland",
       "sourceRole": "primary_official",
-      "sourceName": "kspolonia.pl",
+      "sourceName": "Polonia Warsaw",
       "sourceUrl": "https://kspolonia.pl/tomasz-makowski-nowym-pilkarzem-czarnych-koszul/",
       "sources": [
         {
-          "name": "kspolonia.pl",
+          "name": "Polonia Warsaw",
           "url": "https://kspolonia.pl/tomasz-makowski-nowym-pilkarzem-czarnych-koszul/",
           "role": "primary_official"
         }
@@ -11270,11 +11240,11 @@
       "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-poland",
       "sourceRole": "primary_official",
-      "sourceName": "pogonszczecin.pl",
+      "sourceName": "Pogoń Szczecin",
       "sourceUrl": "https://pogonszczecin.pl/w/marian-huja-odchodzi-z-pogoni",
       "sources": [
         {
-          "name": "pogonszczecin.pl",
+          "name": "Pogoń Szczecin",
           "url": "https://pogonszczecin.pl/w/marian-huja-odchodzi-z-pogoni",
           "role": "primary_official"
         }
@@ -11315,11 +11285,11 @@
       "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-poland",
       "sourceRole": "primary_official",
-      "sourceName": "pogongrodzisk.pl",
+      "sourceName": "Pogoń Grodzisk Mazowiecki",
       "sourceUrl": "https://pogongrodzisk.pl/aktualnosci/nikodem-niski-wraca-do-pogoni-grodzisk-mazowiecki",
       "sources": [
         {
-          "name": "pogongrodzisk.pl",
+          "name": "Pogoń Grodzisk Mazowiecki",
           "url": "https://pogongrodzisk.pl/aktualnosci/nikodem-niski-wraca-do-pogoni-grodzisk-mazowiecki",
           "role": "primary_official"
         }
@@ -11360,781 +11330,16 @@
       "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-poland",
       "sourceRole": "primary_official",
-      "sourceName": "wartasieradz.com",
+      "sourceName": "Warta Sieradz",
       "sourceUrl": "https://wartasieradz.com/tomasz-swedrowski-wrocil-do-warty-sieradz/",
       "sources": [
         {
-          "name": "wartasieradz.com",
+          "name": "Warta Sieradz",
           "url": "https://wartasieradz.com/tomasz-swedrowski-wrocil-do-warty-sieradz/",
           "role": "primary_official"
         }
       ],
       "firstSeenAt": "2026-07-02T12:00:00.000Z",
-      "competitions": [
-        "Ekstraklasa"
-      ],
-      "sourceAdapters": [
-        "wikipedia-poland"
-      ]
-    },
-    {
-      "id": "05e2d9d9a5d58b",
-      "date": "2026-07-01",
-      "time": "—",
-      "player": "Fodé Sylla",
-      "playerUrl": "https://en.wikipedia.org/wiki/Fod%C3%A9_Sylla_(footballer)",
-      "age": 20,
-      "position": "MC",
-      "nationality": "France",
-      "flagCode": "fr",
-      "flag": "🇫🇷",
-      "fromClub": "Lens",
-      "fromClubUrl": "https://en.wikipedia.org/wiki/Lens",
-      "fromClubCrest": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Double-lens_burning_apparatus%2C_Ehrenfried_Walther_von_Tschirnhaus%2C_Kieslingswalde_%28today_Slawonice%2C_Poland%29%2C_c._1690_-_Mathematisch-Physikalischer_Salon%2C_Dresden_-_DSC08133.JPG/120px-thumbnail.jpg",
-      "toClub": "Sion",
-      "toClubUrl": "https://en.wikipedia.org/wiki/FC_Sion",
-      "toClubCrest": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/FC_Sion.svg/120px-FC_Sion.svg.png",
-      "fee": "Undisclosed",
-      "status": "official",
-      "market": "France",
-      "markets": [
-        "France"
-      ],
-      "competition": "Ligue 1",
-      "competitionGender": "men",
-      "competitionGenderSource": "source-register",
-      "sourceAdapter": "wikipedia-france",
-      "sourceRole": "primary_official",
-      "sourceName": "rclens.fr",
-      "sourceUrl": "https://www.rclens.fr/fr/merci-fode-sylla-2026030",
-      "sources": [
-        {
-          "name": "rclens.fr",
-          "url": "https://www.rclens.fr/fr/merci-fode-sylla-2026030",
-          "role": "primary_official"
-        }
-      ],
-      "firstSeenAt": "2026-07-01T12:00:00.000Z",
-      "competitions": [
-        "Ligue 1"
-      ],
-      "sourceAdapters": [
-        "wikipedia-france"
-      ]
-    },
-    {
-      "id": "a2918bd327feb7",
-      "date": "2026-07-01",
-      "time": "—",
-      "player": "Mads Bidstrup",
-      "playerUrl": "https://en.wikipedia.org/wiki/Mads_Bidstrup",
-      "age": 25,
-      "position": "MC",
-      "nationality": "Denmark",
-      "flagCode": "dk",
-      "flag": "🇩🇰",
-      "fromClub": "Red Bull Salzburg",
-      "fromClubUrl": "https://en.wikipedia.org/wiki/FC_Red_Bull_Salzburg",
-      "fromClubCrest": "https://upload.wikimedia.org/wikipedia/en/thumb/7/77/FC_Red_Bull_Salzburg_logo.svg/120px-FC_Red_Bull_Salzburg_logo.svg.png",
-      "toClub": "Lyon",
-      "toClubUrl": "https://en.wikipedia.org/wiki/Lyon",
-      "toClubCrest": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/Lyon-part-dieu-2023.jpg/120px-Lyon-part-dieu-2023.jpg",
-      "fee": "Undisclosed",
-      "status": "official",
-      "market": "France",
-      "markets": [
-        "France"
-      ],
-      "competition": "Ligue 1",
-      "competitionGender": "men",
-      "competitionGenderSource": "source-register",
-      "sourceAdapter": "wikipedia-france",
-      "sourceRole": "primary_official",
-      "sourceName": "ol.fr",
-      "sourceUrl": "https://www.ol.fr/fr/actualites/mads-bidstrup-rejoint-l-olympique-lyonnais-jusqu-en-2031",
-      "sources": [
-        {
-          "name": "ol.fr",
-          "url": "https://www.ol.fr/fr/actualites/mads-bidstrup-rejoint-l-olympique-lyonnais-jusqu-en-2031",
-          "role": "primary_official"
-        }
-      ],
-      "firstSeenAt": "2026-07-01T12:00:00.000Z",
-      "competitions": [
-        "Ligue 1"
-      ],
-      "sourceAdapters": [
-        "wikipedia-france"
-      ]
-    },
-    {
-      "id": "4daa24964ca6cc",
-      "date": "2026-07-01",
-      "time": "—",
-      "player": "Jérémy Jacquet",
-      "playerUrl": "https://en.wikipedia.org/wiki/J%C3%A9r%C3%A9my_Jacquet",
-      "age": 20,
-      "position": "DC",
-      "nationality": "France",
-      "flagCode": "fr",
-      "flag": "🇫🇷",
-      "fromClub": "Rennes",
-      "fromClubUrl": "https://en.wikipedia.org/wiki/Rennes",
-      "fromClubCrest": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Place_de_la_Mairie%2C_Rennes%2C_France.jpg/120px-Place_de_la_Mairie%2C_Rennes%2C_France.jpg",
-      "toClub": "Liverpool",
-      "toClubUrl": "https://en.wikipedia.org/wiki/Liverpool_F.C.",
-      "toClubCrest": "https://upload.wikimedia.org/wikipedia/en/thumb/0/0c/Liverpool_FC.svg/120px-Liverpool_FC.svg.png",
-      "fee": "Undisclosed",
-      "status": "official",
-      "market": "France",
-      "markets": [
-        "France"
-      ],
-      "competition": "Ligue 1",
-      "competitionGender": "men",
-      "competitionGenderSource": "source-register",
-      "sourceAdapter": "wikipedia-france",
-      "sourceRole": "primary_official",
-      "sourceName": "staderennais.com",
-      "sourceUrl": "https://www.staderennais.com/actualites/mercato/depart-jacquet-officiel",
-      "sources": [
-        {
-          "name": "staderennais.com",
-          "url": "https://www.staderennais.com/actualites/mercato/depart-jacquet-officiel",
-          "role": "primary_official"
-        }
-      ],
-      "firstSeenAt": "2026-07-01T12:00:00.000Z",
-      "competitions": [
-        "Ligue 1"
-      ],
-      "sourceAdapters": [
-        "wikipedia-france"
-      ]
-    },
-    {
-      "id": "1b2d1feb7c3499",
-      "date": "2026-07-01",
-      "time": "—",
-      "player": "Anass Salah-Eddine",
-      "playerUrl": "https://en.wikipedia.org/wiki/Anass_Salah-Eddine",
-      "age": 24,
-      "position": "DC",
-      "nationality": "Morocco",
-      "flagCode": "ma",
-      "flag": "🇲🇦",
-      "fromClub": "PSV",
-      "fromClubUrl": "https://en.wikipedia.org/wiki/PSV",
-      "fromClubCrest": null,
-      "toClub": "Roma",
-      "toClubUrl": "https://en.wikipedia.org/wiki/AS_Roma",
-      "toClubCrest": "https://upload.wikimedia.org/wikipedia/en/thumb/f/f7/AS_Roma_logo_%282017%29.svg/120px-AS_Roma_logo_%282017%29.svg.png",
-      "fee": "Loan return",
-      "status": "official",
-      "market": "Netherlands",
-      "markets": [
-        "Netherlands"
-      ],
-      "competition": "Eredivisie",
-      "competitionGender": "men",
-      "competitionGenderSource": "source-register",
-      "sourceAdapter": "wikipedia-netherlands",
-      "sourceRole": "primary_official",
-      "sourceName": "psv.nl",
-      "sourceUrl": "https://www.psv.nl/media/artikel/nieuws-huurperiode-anass-salah-eddine-ten-einde",
-      "sources": [
-        {
-          "name": "psv.nl",
-          "url": "https://www.psv.nl/media/artikel/nieuws-huurperiode-anass-salah-eddine-ten-einde",
-          "role": "primary_official"
-        }
-      ],
-      "firstSeenAt": "2026-07-01T12:00:00.000Z",
-      "competitions": [
-        "Eredivisie"
-      ],
-      "sourceAdapters": [
-        "wikipedia-netherlands"
-      ]
-    },
-    {
-      "id": "b35a32fa36439a",
-      "date": "2026-07-01",
-      "time": "—",
-      "player": "Ismael Saibari",
-      "playerUrl": "https://en.wikipedia.org/wiki/Ismael_Saibari",
-      "age": 25,
-      "position": "AMC / ST",
-      "nationality": "Morocco",
-      "flagCode": "ma",
-      "flag": "🇲🇦",
-      "fromClub": "PSV",
-      "fromClubUrl": "https://en.wikipedia.org/wiki/PSV",
-      "fromClubCrest": "https://upload.wikimedia.org/wikipedia/en/thumb/0/05/PSV_Eindhoven.svg/120px-PSV_Eindhoven.svg.png",
-      "toClub": "Bayern Munich",
-      "toClubUrl": "https://en.wikipedia.org/wiki/FC_Bayern_Munich",
-      "toClubCrest": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/FC_Bayern_M%C3%BCnchen_logo_%282024%29.svg/120px-FC_Bayern_M%C3%BCnchen_logo_%282024%29.svg.png",
-      "fee": "Undisclosed",
-      "status": "official",
-      "market": "Netherlands",
-      "markets": [
-        "Netherlands"
-      ],
-      "competition": "Eredivisie",
-      "competitionGender": "men",
-      "competitionGenderSource": "source-register",
-      "sourceAdapter": "wikipedia-netherlands",
-      "sourceRole": "primary_official",
-      "sourceName": "psv.nl",
-      "sourceUrl": "https://www.psv.nl/media/artikel/transfer-ismael-saibari-vertrekt-naar-fc-bayern-munchen",
-      "sources": [
-        {
-          "name": "psv.nl",
-          "url": "https://www.psv.nl/media/artikel/transfer-ismael-saibari-vertrekt-naar-fc-bayern-munchen",
-          "role": "primary_official"
-        }
-      ],
-      "firstSeenAt": "2026-07-01T12:00:00.000Z",
-      "competitions": [
-        "Eredivisie"
-      ],
-      "sourceAdapters": [
-        "wikipedia-netherlands"
-      ]
-    },
-    {
-      "id": "6ab28a1853684c",
-      "date": "2026-07-01",
-      "time": "—",
-      "player": "Nordin Bakker",
-      "playerUrl": "https://en.wikipedia.org/wiki/Nordin_Bakker",
-      "age": 28,
-      "position": "GK",
-      "nationality": "Netherlands",
-      "flagCode": "nl",
-      "flag": "🇳🇱",
-      "fromClub": "Heerenveen",
-      "fromClubUrl": "https://en.wikipedia.org/wiki/Heerenveen",
-      "fromClubCrest": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Heeresloot_03.JPG/120px-Heeresloot_03.JPG",
-      "toClub": "Midtjylland",
-      "toClubUrl": "https://en.wikipedia.org/wiki/FC_Midtjylland",
-      "toClubCrest": "https://upload.wikimedia.org/wikipedia/en/thumb/d/dd/FC_Midtjylland_logo.svg/120px-FC_Midtjylland_logo.svg.png",
-      "fee": "Undisclosed",
-      "status": "official",
-      "market": "Netherlands",
-      "markets": [
-        "Netherlands"
-      ],
-      "competition": "Eredivisie",
-      "competitionGender": "men",
-      "competitionGenderSource": "source-register",
-      "sourceAdapter": "wikipedia-netherlands",
-      "sourceRole": "primary_official",
-      "sourceName": "sc-heerenveen.nl",
-      "sourceUrl": "https://www.sc-heerenveen.nl/nieuws/nordin-bakker-maakt-overstap-naar-fc-midtjylland",
-      "sources": [
-        {
-          "name": "sc-heerenveen.nl",
-          "url": "https://www.sc-heerenveen.nl/nieuws/nordin-bakker-maakt-overstap-naar-fc-midtjylland",
-          "role": "primary_official"
-        }
-      ],
-      "firstSeenAt": "2026-07-01T12:00:00.000Z",
-      "competitions": [
-        "Eredivisie"
-      ],
-      "sourceAdapters": [
-        "wikipedia-netherlands"
-      ]
-    },
-    {
-      "id": "ff77005ef51b06",
-      "date": "2026-07-01",
-      "time": "—",
-      "player": "Yacqub Finey",
-      "playerUrl": null,
-      "age": null,
-      "position": "MC",
-      "nationality": "Sweden",
-      "flagCode": "se",
-      "flag": "🇸🇪",
-      "fromClub": "GIF Sundsvall",
-      "fromClubUrl": "https://en.wikipedia.org/wiki/GIF_Sundsvall",
-      "fromClubCrest": "https://upload.wikimedia.org/wikipedia/en/thumb/9/99/GIF_Sundsvall_logo.svg/120px-GIF_Sundsvall_logo.svg.png",
-      "toClub": "Excelsior",
-      "toClubUrl": "https://en.wikipedia.org/wiki/Excelsior",
-      "toClubCrest": null,
-      "fee": "Undisclosed",
-      "status": "official",
-      "market": "Netherlands",
-      "markets": [
-        "Netherlands"
-      ],
-      "competition": "Eredivisie",
-      "competitionGender": "men",
-      "competitionGenderSource": "source-register",
-      "sourceAdapter": "wikipedia-netherlands",
-      "sourceRole": "primary_official",
-      "sourceName": "excelsiorrotterdam.nl",
-      "sourceUrl": "https://excelsiorrotterdam.nl/2026/07/yacqub-finey-kiest-voor-excelsior/",
-      "sources": [
-        {
-          "name": "excelsiorrotterdam.nl",
-          "url": "https://excelsiorrotterdam.nl/2026/07/yacqub-finey-kiest-voor-excelsior/",
-          "role": "primary_official"
-        }
-      ],
-      "firstSeenAt": "2026-07-01T12:00:00.000Z",
-      "competitions": [
-        "Eredivisie"
-      ],
-      "sourceAdapters": [
-        "wikipedia-netherlands"
-      ]
-    },
-    {
-      "id": "0d98581da55330",
-      "date": "2026-07-01",
-      "time": "—",
-      "player": "Jort van der Sande",
-      "playerUrl": "https://en.wikipedia.org/wiki/Jort_van_der_Sande",
-      "age": 30,
-      "position": "ST",
-      "nationality": "Bonaire",
-      "flagCode": "bq",
-      "flag": "🇧🇶",
-      "fromClub": "Cambuur",
-      "fromClubUrl": "https://en.wikipedia.org/wiki/Cambuur",
-      "fromClubCrest": "https://upload.wikimedia.org/wikipedia/en/thumb/c/cb/SC_Cambuur_logo.svg/120px-SC_Cambuur_logo.svg.png",
-      "toClub": "Bali United",
-      "toClubUrl": "https://en.wikipedia.org/wiki/Bali_United_F.C.",
-      "toClubCrest": "https://upload.wikimedia.org/wikipedia/en/thumb/5/5e/Bali_United_logo.svg/120px-Bali_United_logo.svg.png",
-      "fee": "Undisclosed",
-      "status": "official",
-      "market": "Netherlands",
-      "markets": [
-        "Netherlands"
-      ],
-      "competition": "Eredivisie",
-      "competitionGender": "men",
-      "competitionGenderSource": "source-register",
-      "sourceAdapter": "wikipedia-netherlands",
-      "sourceRole": "primary_official",
-      "sourceName": "cambuur.nl",
-      "sourceUrl": "https://cambuur.nl/nieuws/jort-van-der-sande-maakt-overstap-naar-bali-united-fc/",
-      "sources": [
-        {
-          "name": "cambuur.nl",
-          "url": "https://cambuur.nl/nieuws/jort-van-der-sande-maakt-overstap-naar-bali-united-fc/",
-          "role": "primary_official"
-        }
-      ],
-      "firstSeenAt": "2026-07-01T12:00:00.000Z",
-      "competitions": [
-        "Eredivisie"
-      ],
-      "sourceAdapters": [
-        "wikipedia-netherlands"
-      ]
-    },
-    {
-      "id": "7997e12331ac0f",
-      "date": "2026-07-01",
-      "time": "—",
-      "player": "Bartosz Mazurek",
-      "playerUrl": "https://en.wikipedia.org/wiki/Bartosz_Mazurek",
-      "age": 19,
-      "position": "MC",
-      "nationality": "Poland",
-      "flagCode": "pl",
-      "flag": "🇵🇱",
-      "fromClub": "Jagiellonia Białystok",
-      "fromClubUrl": "https://en.wikipedia.org/wiki/Jagiellonia_Bia%C5%82ystok",
-      "fromClubCrest": "https://upload.wikimedia.org/wikipedia/en/thumb/9/90/Jagiellonia_Bia%C5%82ystok_logo.svg/120px-Jagiellonia_Bia%C5%82ystok_logo.svg.png",
-      "toClub": "Red Bull Salzburg",
-      "toClubUrl": "https://en.wikipedia.org/wiki/FC_Red_Bull_Salzburg",
-      "toClubCrest": "https://upload.wikimedia.org/wikipedia/en/thumb/7/77/FC_Red_Bull_Salzburg_logo.svg/120px-FC_Red_Bull_Salzburg_logo.svg.png",
-      "fee": "Undisclosed",
-      "status": "official",
-      "market": "Poland",
-      "markets": [
-        "Poland"
-      ],
-      "competition": "Ekstraklasa",
-      "competitionGender": "men",
-      "competitionGenderSource": "source-register",
-      "sourceAdapter": "wikipedia-poland",
-      "sourceRole": "primary_official",
-      "sourceName": "jagiellonia.pl",
-      "sourceUrl": "https://jagiellonia.pl/aktualnosci/bartosz-mazurek-odchodzi-z-jagiellonii-biaystok-1782892849419/",
-      "sources": [
-        {
-          "name": "jagiellonia.pl",
-          "url": "https://jagiellonia.pl/aktualnosci/bartosz-mazurek-odchodzi-z-jagiellonii-biaystok-1782892849419/",
-          "role": "primary_official"
-        }
-      ],
-      "firstSeenAt": "2026-07-01T12:00:00.000Z",
-      "competitions": [
-        "Ekstraklasa"
-      ],
-      "sourceAdapters": [
-        "wikipedia-poland"
-      ]
-    },
-    {
-      "id": "c2bfb085072560",
-      "date": "2026-07-01",
-      "time": "—",
-      "player": "Patryk Kun",
-      "playerUrl": "https://en.wikipedia.org/wiki/Patryk_Kun",
-      "age": 31,
-      "position": "ST",
-      "nationality": "Poland",
-      "flagCode": "pl",
-      "flag": "🇵🇱",
-      "fromClub": "Legia Warsaw",
-      "fromClubUrl": "https://en.wikipedia.org/wiki/Legia_Warsaw",
-      "fromClubCrest": "https://upload.wikimedia.org/wikipedia/en/thumb/6/6d/Legia_Warsaw_logo.svg/120px-Legia_Warsaw_logo.svg.png",
-      "toClub": "Wisła Płock",
-      "toClubUrl": "https://en.wikipedia.org/wiki/Wis%C5%82a_P%C5%82ock",
-      "toClubCrest": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Wisla_P%C5%82ock.png/120px-Wisla_P%C5%82ock.png",
-      "fee": "Undisclosed",
-      "status": "official",
-      "market": "Poland",
-      "markets": [
-        "Poland"
-      ],
-      "competition": "Ekstraklasa",
-      "competitionGender": "men",
-      "competitionGenderSource": "source-register",
-      "sourceAdapter": "wikipedia-poland",
-      "sourceRole": "primary_official",
-      "sourceName": "wisla-plock.pl",
-      "sourceUrl": "https://wisla-plock.pl/aktualnosci/patryk-kun-witamy/",
-      "sources": [
-        {
-          "name": "wisla-plock.pl",
-          "url": "https://wisla-plock.pl/aktualnosci/patryk-kun-witamy/",
-          "role": "primary_official"
-        }
-      ],
-      "firstSeenAt": "2026-07-01T12:00:00.000Z",
-      "competitions": [
-        "Ekstraklasa"
-      ],
-      "sourceAdapters": [
-        "wikipedia-poland"
-      ]
-    },
-    {
-      "id": "58b03fcda2a57f",
-      "date": "2026-07-01",
-      "time": "—",
-      "player": "Olaf Kobacki",
-      "playerUrl": "https://en.wikipedia.org/wiki/Olaf_Kobacki",
-      "age": 24,
-      "position": "ST",
-      "nationality": "Poland",
-      "flagCode": "pl",
-      "flag": "🇵🇱",
-      "fromClub": "Sheffield Wednesday",
-      "fromClubUrl": "https://en.wikipedia.org/wiki/Sheffield_Wednesday_F.C.",
-      "fromClubCrest": "https://upload.wikimedia.org/wikipedia/en/thumb/b/b8/Sheffield_Wednesday_FC_2026_crest.svg/120px-Sheffield_Wednesday_FC_2026_crest.svg.png",
-      "toClub": "Wisła Płock",
-      "toClubUrl": "https://en.wikipedia.org/wiki/Wis%C5%82a_P%C5%82ock",
-      "toClubCrest": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Wisla_P%C5%82ock.png/120px-Wisla_P%C5%82ock.png",
-      "fee": "Undisclosed",
-      "status": "official",
-      "market": "Poland",
-      "markets": [
-        "Poland"
-      ],
-      "competition": "Ekstraklasa",
-      "competitionGender": "men",
-      "competitionGenderSource": "source-register",
-      "sourceAdapter": "wikipedia-poland",
-      "sourceRole": "primary_official",
-      "sourceName": "wisla-plock.pl",
-      "sourceUrl": "https://wisla-plock.pl/aktualnosci/olaf-kobacki-witamy/",
-      "sources": [
-        {
-          "name": "wisla-plock.pl",
-          "url": "https://wisla-plock.pl/aktualnosci/olaf-kobacki-witamy/",
-          "role": "primary_official"
-        }
-      ],
-      "firstSeenAt": "2026-07-01T12:00:00.000Z",
-      "competitions": [
-        "Ekstraklasa"
-      ],
-      "sourceAdapters": [
-        "wikipedia-poland"
-      ]
-    },
-    {
-      "id": "eebd32823ba272",
-      "date": "2026-07-01",
-      "time": "—",
-      "player": "Bartosz Borowski",
-      "playerUrl": null,
-      "age": null,
-      "position": "ST",
-      "nationality": "Poland",
-      "flagCode": "pl",
-      "flag": "🇵🇱",
-      "fromClub": "Wisła Płock",
-      "fromClubUrl": "https://en.wikipedia.org/wiki/Wis%C5%82a_P%C5%82ock",
-      "fromClubCrest": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Wisla_P%C5%82ock.png/120px-Wisla_P%C5%82ock.png",
-      "toClub": "Chojniczanka Chojnice",
-      "toClubUrl": "https://en.wikipedia.org/wiki/Chojniczanka_Chojnice",
-      "toClubCrest": "https://upload.wikimedia.org/wikipedia/en/thumb/d/df/Chojniczanka_Chojnice_logo.png/120px-Chojniczanka_Chojnice_logo.png",
-      "fee": "Loan",
-      "status": "official",
-      "market": "Poland",
-      "markets": [
-        "Poland"
-      ],
-      "competition": "Ekstraklasa",
-      "competitionGender": "men",
-      "competitionGenderSource": "source-register",
-      "sourceAdapter": "wikipedia-poland",
-      "sourceRole": "primary_official",
-      "sourceName": "wisla-plock.pl",
-      "sourceUrl": "https://wisla-plock.pl/aktualnosci/bartosz-borowski-wypozyczony-do-chojniczanki-chojnice/",
-      "sources": [
-        {
-          "name": "wisla-plock.pl",
-          "url": "https://wisla-plock.pl/aktualnosci/bartosz-borowski-wypozyczony-do-chojniczanki-chojnice/",
-          "role": "primary_official"
-        }
-      ],
-      "firstSeenAt": "2026-07-01T12:00:00.000Z",
-      "competitions": [
-        "Ekstraklasa"
-      ],
-      "sourceAdapters": [
-        "wikipedia-poland"
-      ]
-    },
-    {
-      "id": "db6c1c6f8efb38",
-      "date": "2026-07-01",
-      "time": "—",
-      "player": "Leonardo Koutris",
-      "playerUrl": "https://en.wikipedia.org/wiki/Leonardo_Koutris",
-      "age": 30,
-      "position": "FB",
-      "nationality": "Greece",
-      "flagCode": "gr",
-      "flag": "🇬🇷",
-      "fromClub": "Pogoń Szczecin",
-      "fromClubUrl": "https://en.wikipedia.org/wiki/Pogo%C5%84_Szczecin",
-      "fromClubCrest": "https://upload.wikimedia.org/wikipedia/en/thumb/5/55/Pogon_Szczecin_logo.svg/120px-Pogon_Szczecin_logo.svg.png",
-      "toClub": "Celje",
-      "toClubUrl": "https://en.wikipedia.org/wiki/NK_Celje",
-      "toClubCrest": "https://upload.wikimedia.org/wikipedia/en/thumb/f/fc/NK_Celje.png/120px-NK_Celje.png",
-      "fee": "Undisclosed",
-      "status": "official",
-      "market": "Poland",
-      "markets": [
-        "Poland"
-      ],
-      "competition": "Ekstraklasa",
-      "competitionGender": "men",
-      "competitionGenderSource": "source-register",
-      "sourceAdapter": "wikipedia-poland",
-      "sourceRole": "primary_official",
-      "sourceName": "nk-celje.si",
-      "sourceUrl": "https://www.nk-celje.si/sl/novica/leonardo-koutris-dobrodosel-v-celju-3254",
-      "sources": [
-        {
-          "name": "nk-celje.si",
-          "url": "https://www.nk-celje.si/sl/novica/leonardo-koutris-dobrodosel-v-celju-3254",
-          "role": "primary_official"
-        }
-      ],
-      "firstSeenAt": "2026-07-01T12:00:00.000Z",
-      "competitions": [
-        "Ekstraklasa"
-      ],
-      "sourceAdapters": [
-        "wikipedia-poland"
-      ]
-    },
-    {
-      "id": "65f97d6b57014f",
-      "date": "2026-07-01",
-      "time": "—",
-      "player": "Jakub Bochniarz",
-      "playerUrl": null,
-      "age": null,
-      "position": "GK",
-      "nationality": "Poland",
-      "flagCode": "pl",
-      "flag": "🇵🇱",
-      "fromClub": "Pogoń Szczecin",
-      "fromClubUrl": "https://en.wikipedia.org/wiki/Pogo%C5%84_Szczecin",
-      "fromClubCrest": "https://upload.wikimedia.org/wikipedia/en/thumb/5/55/Pogon_Szczecin_logo.svg/120px-Pogon_Szczecin_logo.svg.png",
-      "toClub": "Resovia",
-      "toClubUrl": "https://en.wikipedia.org/wiki/Resovia_(football)",
-      "toClubCrest": "https://upload.wikimedia.org/wikipedia/en/thumb/e/e8/Resovia_Rzesz%C3%B3w.png/120px-Resovia_Rzesz%C3%B3w.png",
-      "fee": "Undisclosed",
-      "status": "official",
-      "market": "Poland",
-      "markets": [
-        "Poland"
-      ],
-      "competition": "Ekstraklasa",
-      "competitionGender": "men",
-      "competitionGenderSource": "source-register",
-      "sourceAdapter": "wikipedia-poland",
-      "sourceRole": "primary_official",
-      "sourceName": "cwks-resovia.pl",
-      "sourceUrl": "https://cwks-resovia.pl/kuba-bochniarz-nowym-bramkarzem-resovii/",
-      "sources": [
-        {
-          "name": "cwks-resovia.pl",
-          "url": "https://cwks-resovia.pl/kuba-bochniarz-nowym-bramkarzem-resovii/",
-          "role": "primary_official"
-        }
-      ],
-      "firstSeenAt": "2026-07-01T12:00:00.000Z",
-      "competitions": [
-        "Ekstraklasa"
-      ],
-      "sourceAdapters": [
-        "wikipedia-poland"
-      ]
-    },
-    {
-      "id": "c103b4e1dedde4",
-      "date": "2026-07-01",
-      "time": "—",
-      "player": "João Pedro",
-      "playerUrl": "https://en.wikipedia.org/wiki/Jo%C3%A3o_Pedro_Reginaldo",
-      "age": 23,
-      "position": "DC",
-      "nationality": "Brazil",
-      "flagCode": "br",
-      "flag": "🇧🇷",
-      "fromClub": "Radomiak Radom",
-      "fromClubUrl": "https://en.wikipedia.org/wiki/Radomiak_Radom",
-      "fromClubCrest": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/Herb_radomiaka_300dpi.png/120px-Herb_radomiaka_300dpi.png",
-      "toClub": "Gwangju",
-      "toClubUrl": "https://en.wikipedia.org/wiki/Gwangju_FC",
-      "toClubCrest": "https://upload.wikimedia.org/wikipedia/en/thumb/6/65/Gwangju_FC.svg/120px-Gwangju_FC.svg.png",
-      "fee": "Undisclosed",
-      "status": "official",
-      "market": "Poland",
-      "markets": [
-        "Poland"
-      ],
-      "competition": "Ekstraklasa",
-      "competitionGender": "men",
-      "competitionGenderSource": "source-register",
-      "sourceAdapter": "wikipedia-poland",
-      "sourceRole": "primary_official",
-      "sourceName": "gwangjufc.com",
-      "sourceUrl": "https://www.gwangjufc.com/gwboard/gwboard_view.php?page=1&document_srl=79436&board_type=31&s_field=board_name&s_value=&video_gbn=",
-      "sources": [
-        {
-          "name": "gwangjufc.com",
-          "url": "https://www.gwangjufc.com/gwboard/gwboard_view.php?page=1&document_srl=79436&board_type=31&s_field=board_name&s_value=&video_gbn=",
-          "role": "primary_official"
-        }
-      ],
-      "firstSeenAt": "2026-07-01T12:00:00.000Z",
-      "competitions": [
-        "Ekstraklasa"
-      ],
-      "sourceAdapters": [
-        "wikipedia-poland"
-      ]
-    },
-    {
-      "id": "968951c8c7f5b5",
-      "date": "2026-07-01",
-      "time": "—",
-      "player": "Antoñín",
-      "playerUrl": "https://en.wikipedia.org/wiki/Anto%C3%B1%C3%ADn",
-      "age": 26,
-      "position": "ST",
-      "nationality": "Spain",
-      "flagCode": "es",
-      "flag": "🇪🇸",
-      "fromClub": "Korona Kielce",
-      "fromClubUrl": "https://en.wikipedia.org/wiki/Korona_Kielce",
-      "fromClubCrest": "https://upload.wikimedia.org/wikipedia/en/thumb/f/fc/Korona_Kielce_crest.png/120px-Korona_Kielce_crest.png",
-      "toClub": "Hércules",
-      "toClubUrl": "https://en.wikipedia.org/wiki/H%C3%A9rcules_CF",
-      "toClubCrest": "https://upload.wikimedia.org/wikipedia/en/thumb/8/84/Hercules_CF_crest.svg/120px-Hercules_CF_crest.svg.png",
-      "fee": "Loan",
-      "status": "official",
-      "market": "Poland",
-      "markets": [
-        "Poland"
-      ],
-      "competition": "Ekstraklasa",
-      "competitionGender": "men",
-      "competitionGenderSource": "source-register",
-      "sourceAdapter": "wikipedia-poland",
-      "sourceRole": "primary_official",
-      "sourceName": "korona-kielce.pl",
-      "sourceUrl": "https://www.korona-kielce.pl/w/anto%C3%B1%C3%ADn-wypo%C5%BCyczony-do-h%C3%A9rcules-cf",
-      "sources": [
-        {
-          "name": "korona-kielce.pl",
-          "url": "https://www.korona-kielce.pl/w/anto%C3%B1%C3%ADn-wypo%C5%BCyczony-do-h%C3%A9rcules-cf",
-          "role": "primary_official"
-        }
-      ],
-      "firstSeenAt": "2026-07-01T12:00:00.000Z",
-      "competitions": [
-        "Ekstraklasa"
-      ],
-      "sourceAdapters": [
-        "wikipedia-poland"
-      ]
-    },
-    {
-      "id": "3fe4cae69c1b39",
-      "date": "2026-07-01",
-      "time": "—",
-      "player": "Maxime Dominguez",
-      "playerUrl": "https://en.wikipedia.org/wiki/Maxime_Dominguez",
-      "age": 30,
-      "position": "MC",
-      "nationality": "Switzerland",
-      "flagCode": "ch",
-      "flag": "🇨🇭",
-      "fromClub": "Cracovia",
-      "fromClubUrl": "https://en.wikipedia.org/wiki/Cracovia",
-      "fromClubCrest": null,
-      "toClub": "Marítimo",
-      "toClubUrl": "https://en.wikipedia.org/wiki/C.S._Mar%C3%ADtimo",
-      "toClubCrest": "https://upload.wikimedia.org/wikipedia/en/thumb/3/30/C.S._Mar%C3%ADtimo_logo.svg/120px-C.S._Mar%C3%ADtimo_logo.svg.png",
-      "fee": "Undisclosed",
-      "status": "official",
-      "market": "Poland",
-      "markets": [
-        "Poland"
-      ],
-      "competition": "Ekstraklasa",
-      "competitionGender": "men",
-      "competitionGenderSource": "source-register",
-      "sourceAdapter": "wikipedia-poland",
-      "sourceRole": "primary_official",
-      "sourceName": "cracovia.pl",
-      "sourceUrl": "https://cracovia.pl/posts/maxime-dominguez-odchodzi-z-cracovii/6132",
-      "sources": [
-        {
-          "name": "cracovia.pl",
-          "url": "https://cracovia.pl/posts/maxime-dominguez-odchodzi-z-cracovii/6132",
-          "role": "primary_official"
-        }
-      ],
-      "firstSeenAt": "2026-07-01T12:00:00.000Z",
       "competitions": [
         "Ekstraklasa"
       ],

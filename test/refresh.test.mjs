@@ -10,6 +10,7 @@ import {
   hasStructuredRoute,
   mergeHeadlineEvidence,
   mergeRumourFragments,
+  matchesOfficialWebsite,
   newestPreviousTransfers,
   normaliseStoredTransfer,
   parseBbcRumours,
@@ -18,6 +19,7 @@ import {
   parseWikipediaDatedTransfers,
   parseWikipediaTransfers,
   positionCode,
+  verifyOfficialClubSources,
 } from "../scripts/refresh.mjs";
 
 test("Wikipedia parser inherits a rowspan date and keeps source and club links", () => {
@@ -348,6 +350,7 @@ test("dated market parser supports Name headers and skips a citation without a s
   const result = parseWikipediaDatedTransfers(html, config, new Date("2026-07-15T12:00:00Z"));
   assert.equal(result.length, 2);
   assert.equal(result[0].sourceUrl, "https://club.it/signing");
+  assert.equal(result[0].sourceRole, "publication");
   assert.equal(result[0].market, "Italy");
   assert.equal(result[0].nationality, null);
   assert.equal(result[0].competitionGender, "unknown");
@@ -582,6 +585,163 @@ test("duplicate transfer claims merge source evidence and prefer the primary sou
   assert.equal(result.sources.length, 2);
   assert.equal(result.sourceName, "Toulouse FC");
   assert.deepEqual(result.markets, ["England", "France"]);
+});
+
+test("only a club domain verified through Wikidata becomes the preferred official source", async () => {
+  const transfers = [{
+    id: "verified", date: "2026-07-14", player: "Example Player",
+    fromClub: "Toulouse FC", fromClubUrl: "https://en.wikipedia.org/wiki/Toulouse_FC",
+    toClub: "Ipswich Town", toClubUrl: "https://en.wikipedia.org/wiki/Ipswich_Town_F.C.",
+    status: "official", sourceName: "BBC Sport", sourceUrl: "https://www.bbc.co.uk/sport/example",
+    sourceRole: "publication", sources: [
+      { name: "BBC Sport", url: "https://www.bbc.co.uk/sport/example", role: "publication" },
+      { name: "toulousefc.com", url: "https://news.toulousefc.com/announcement", role: "publication" },
+      { name: "Impostor", url: "https://toulousefc.com.evil.example/post", role: "publication" },
+    ],
+  }, {
+    id: "unverified", date: "2026-07-14", player: "Another Player",
+    fromClub: "Toulouse FC", fromClubUrl: "https://en.wikipedia.org/wiki/Toulouse_FC",
+    toClub: "Ipswich Town", toClubUrl: "https://en.wikipedia.org/wiki/Ipswich_Town_F.C.",
+    status: "official", sourceName: "Regional blog", sourceUrl: "https://regional.example/post",
+    sourceRole: "primary_official",
+  }];
+  const pageMetadata = new Map([
+    ["toulouse fc", { qid: "Q1" }],
+    ["ipswich town f.c.", { qid: "Q2" }],
+  ]);
+  const entities = {
+    Q1: { claims: {
+      P31: [{ mainsnak: { datavalue: { value: { id: "Q476028" } } } }],
+      P856: [{ mainsnak: { datavalue: { value: "https://www.toulousefc.com" } } }],
+    } },
+    Q2: { claims: {
+      P31: [{ mainsnak: { datavalue: { value: { id: "Q476028" } } } }],
+      P856: [{ mainsnak: { datavalue: { value: "https://www.itfc.co.uk" } } }],
+    } },
+  };
+
+  await verifyOfficialClubSources(transfers, {
+    wikipediaPageMetadata: async () => pageMetadata,
+    wikidataEntities: async () => entities,
+  });
+
+  assert.equal(transfers[0].sourceName, "Toulouse FC");
+  assert.equal(transfers[0].sourceRole, "primary_official");
+  assert.equal(transfers[0].sources.find((source) => source.name === "Impostor").role, "publication");
+  assert.equal(transfers[1].status, "official");
+  assert.equal(transfers[1].sourceRole, "publication");
+});
+
+test("official website matching respects hostname boundaries", () => {
+  assert.equal(matchesOfficialWebsite("https://news.club.example/post", "https://club.example"), true);
+  assert.equal(matchesOfficialWebsite("https://club.example/post", "https://news.club.example"), false);
+  assert.equal(matchesOfficialWebsite("https://club.example.evil.test/post", "https://club.example"), false);
+  assert.equal(matchesOfficialWebsite("https://medium.example/club/post", "https://medium.example/club"), true);
+  assert.equal(matchesOfficialWebsite("https://medium.example/other/post", "https://medium.example/club"), false);
+  assert.equal(matchesOfficialWebsite("not a url", "https://club.example"), false);
+});
+
+test("a non-club Wikidata entity cannot verify an official source", async () => {
+  const transfers = [{
+    id: "city", date: "2026-07-14", player: "Example Player",
+    fromClub: "Monaco", fromClubUrl: "https://en.wikipedia.org/wiki/Monaco",
+    toClub: "Club B", toClubUrl: "https://en.wikipedia.org/wiki/Club_B",
+    status: "official", sourceName: "Monaco", sourceUrl: "https://www.gouv.mc/announcement",
+    sourceRole: "publication",
+  }];
+
+  await verifyOfficialClubSources(transfers, {
+    wikipediaPageMetadata: async () => new Map([
+      ["monaco", { qid: "Q235" }],
+      ["club b", { qid: "Q2" }],
+    ]),
+    wikidataEntities: async () => ({
+      Q235: { claims: {
+        P31: [{ mainsnak: { datavalue: { value: { id: "Q6256" } } } }],
+        P856: [{ mainsnak: { datavalue: { value: "https://www.gouv.mc" } } }],
+      } },
+      Q2: { claims: {} },
+    }),
+  });
+
+  assert.equal(transfers[0].sourceRole, "publication");
+});
+
+test("an audited club override resolves an ambiguous Wikipedia title without trusting another domain", async () => {
+  const base = {
+    date: "2026-07-14", player: "Example Player",
+    fromClub: "Monaco", fromClubUrl: "https://en.wikipedia.org/wiki/Monaco",
+    toClub: "Club B", toClubUrl: "https://en.wikipedia.org/wiki/Club_B",
+    status: "official", sourceRole: "publication",
+  };
+  const transfers = [{
+    ...base, id: "club", sourceName: "asmonaco.com", sourceUrl: "https://www.asmonaco.com/fr/news/signing",
+  }, {
+    ...base, id: "state", sourceName: "Monaco government", sourceUrl: "https://www.gouv.mc/announcement",
+  }];
+  const pageMetadata = new Map([
+    ["monaco", { qid: "Q235" }],
+    ["club b", { qid: "Q2" }],
+  ]);
+  const entities = {
+    Q235: { claims: {
+      P31: [{ mainsnak: { datavalue: { value: { id: "Q6256" } } } }],
+      P856: [{ mainsnak: { datavalue: { value: "https://www.gouv.mc" } } }],
+    } },
+    Q2: { claims: {} },
+  };
+
+  await verifyOfficialClubSources(transfers, {
+    wikipediaPageMetadata: async () => pageMetadata,
+    wikidataEntities: async () => entities,
+  });
+
+  assert.equal(transfers[0].sourceRole, "primary_official");
+  assert.equal(transfers[1].sourceRole, "publication");
+});
+
+test("association football alone does not make a federation or competition a club", async () => {
+  const transfers = [{
+    id: "federation", date: "2026-07-14", player: "Example Player",
+    fromClub: "Club A", fromClubUrl: "https://en.wikipedia.org/wiki/Club_A",
+    toClub: "Club B", toClubUrl: "https://en.wikipedia.org/wiki/Club_B",
+    status: "official", sourceName: "Football body", sourceUrl: "https://football-body.example/post",
+    sourceRole: "publication",
+  }];
+
+  await verifyOfficialClubSources(transfers, {
+    wikipediaPageMetadata: async () => new Map([
+      ["club a", { qid: "Q1" }],
+      ["club b", { qid: "Q2" }],
+    ]),
+    wikidataEntities: async () => ({
+      Q1: { claims: {
+        P31: [{ mainsnak: { datavalue: { value: { id: "Q327333" } } } }],
+        P641: [{ mainsnak: { datavalue: { value: { id: "Q2736" } } } }],
+        P856: [{ mainsnak: { datavalue: { value: "https://football-body.example" } } }],
+      } },
+      Q2: { claims: {} },
+    }),
+  });
+
+  assert.equal(transfers[0].sourceRole, "publication");
+});
+
+test("official source verification fails closed without changing transfer status", async () => {
+  const transfers = [{
+    id: "stale", date: "2026-07-14", player: "Example Player",
+    fromClub: "Club A", fromClubUrl: "https://en.wikipedia.org/wiki/Club_A",
+    toClub: "Club B", toClubUrl: "https://en.wikipedia.org/wiki/Club_B",
+    status: "official", sourceName: "Club A", sourceUrl: "https://club-a.example/post",
+    sourceRole: "primary_official",
+  }];
+
+  await assert.rejects(verifyOfficialClubSources(transfers, {
+    wikipediaPageMetadata: async () => { throw new Error("metadata unavailable"); },
+  }), /metadata unavailable/);
+
+  assert.equal(transfers[0].status, "official");
+  assert.equal(transfers[0].sourceRole, "publication");
 });
 
 test("unknown and social domains never outrank a known publication without explicit trust metadata", () => {

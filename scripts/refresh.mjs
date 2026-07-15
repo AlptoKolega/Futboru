@@ -340,7 +340,7 @@ function statusFromReference(reference) {
   return uncertainty.test(reference.title) ? "rumour" : "official";
 }
 
-function sourceRole(url, { allowPrimary = false } = {}) {
+function sourceRole(url) {
   if (!url) return "aggregator";
   let hostname = "";
   try {
@@ -361,7 +361,7 @@ function sourceRole(url, { allowPrimary = false } = {}) {
     "skysports.", "espn.", "reuters.", "lequipe.", "kicker.", "globo.",
   ];
   if (publicationDomains.some((domain) => hostname.includes(domain))) return "publication";
-  return allowPrimary ? "primary_official" : "publication";
+  return "publication";
 }
 
 function sourceEvidence(name, url, role = sourceRole(url)) {
@@ -453,7 +453,7 @@ export function parseWikipediaDatedTransfers(html, config = WIKIPEDIA_SOURCES[0]
     const reference = firstReference($, feeCell, references) || firstReference($, $(row), references);
     const sourceUrl = reference?.url || config.url;
     const sourceName = sourceLabel(sourceUrl);
-    const role = sourceRole(sourceUrl, { allowPrimary: Boolean(reference?.url) });
+    const role = sourceRole(sourceUrl);
     const fromClub = cleanText(fromCell.text());
     const toClub = cleanText(toCell.text());
     const fee = cleanText(feeCell.clone().children("sup").remove().end().text()) || "Undisclosed";
@@ -567,7 +567,7 @@ export function parseWikipediaClubTransfers(html, config, now = new Date()) {
         const toClub = incoming ? clubName : otherClub;
         const sourceUrl = reference?.url || config.url;
         const sourceName = sourceLabel(sourceUrl);
-        const role = sourceRole(sourceUrl, { allowPrimary: Boolean(reference?.url) });
+        const role = sourceRole(sourceUrl);
         const country = countryFromFlag($, $(cells[cells.length - 2]));
         const rawPosition = cleanText($(cells[1]).find("abbr").attr("title") || $(cells[1]).text());
         const shortPosition = ({ GK: "GK", DF: "DC", MF: "MC", FW: "ST" })[cleanText($(cells[1]).text())]
@@ -1409,7 +1409,7 @@ function transferSources(transfer) {
     ? [sourceEvidence(transfer.sourceName || sourceLabel(transfer.sourceUrl), transfer.sourceUrl, transfer.sourceRole)]
     : [];
   const byUrl = new Map();
-  for (const source of [...items, ...fallback]) {
+  for (const source of [...fallback, ...items]) {
     if (!source?.url) continue;
     byUrl.set(source.url, {
       name: source.name || sourceLabel(source.url),
@@ -1418,6 +1418,138 @@ function transferSources(transfer) {
     });
   }
   return [...byUrl.values()];
+}
+
+function stringClaimValues(entity, property) {
+  return activeClaims(entity, property)
+    .map((claim) => claim?.mainsnak?.datavalue?.value)
+    .filter((value) => typeof value === "string" && value.trim());
+}
+
+function sourceHostname(url) {
+  try {
+    return new URL(url).hostname.toLowerCase().replace(/^www\./, "");
+  } catch {
+    return null;
+  }
+}
+
+function sourcePathname(url) {
+  try {
+    return new URL(url).pathname.replace(/\/+$/, "") || "/";
+  } catch {
+    return null;
+  }
+}
+
+export function matchesOfficialWebsite(sourceUrl, officialWebsiteUrl) {
+  const sourceHost = sourceHostname(sourceUrl);
+  const officialHost = sourceHostname(officialWebsiteUrl);
+  if (!sourceHost || !officialHost) return false;
+  const hostMatches = sourceHost === officialHost || sourceHost.endsWith(`.${officialHost}`);
+  if (!hostMatches) return false;
+  const officialPath = sourcePathname(officialWebsiteUrl);
+  const sourcePath = sourcePathname(sourceUrl);
+  if (!officialPath || !sourcePath) return false;
+  return officialPath === "/"
+    || sourcePath === officialPath
+    || sourcePath.startsWith(`${officialPath}/`);
+}
+
+const GENERIC_CLUB_ENTITY_TYPES = new Set(["Q847017"]);
+
+function isFootballClubEntity(entity) {
+  const entityTypes = claimIds(entity, "P31");
+  if (entityTypes.includes("Q476028")) return true;
+  return entityTypes.some((qid) => GENERIC_CLUB_ENTITY_TYPES.has(qid))
+    && claimIds(entity, "P641").includes("Q2736");
+}
+
+const OFFICIAL_CLUB_WEBSITE_OVERRIDES = new Map([
+  [["AS Monaco", "Monaco"], "https://www.asmonaco.com"],
+  [["AZ", "AZ Alkmaar"], "https://www.az.nl"],
+  [["Empoli", "Empoli FC"], "https://www.empolifc.it"],
+  [["FC Groningen", "Groningen"], "https://www.fcgroningen.nl"],
+  [["FC Twente", "Twente"], "https://www.fctwente.nl"],
+  [["Heerenveen", "SC Heerenveen"], "https://www.sc-heerenveen.nl"],
+  [["Hamburger SV", "HSV"], "https://www.hsv.de"],
+  [["Intercity", "CF Intercity"], "https://cfintercity.com"],
+  [["Legia Warsaw"], "https://legia.com"],
+  [["Lille", "LOSC Lille"], "https://www.losc.fr"],
+  [["Lyon", "Olympique Lyonnais"], "https://www.ol.fr"],
+  [["Piast Gliwice"], "https://piast-gliwice.eu"],
+  [["Pogoń Grodzisk Mazowiecki"], "https://pogongrodzisk.pl"],
+  [["PSV", "PSV Eindhoven"], "https://www.psv.nl"],
+  [["Radomiak Radom"], "https://rksradomiak.pl"],
+  [["Rennes", "Stade Rennais"], "https://www.staderennais.com"],
+  [["Strasbourg", "RC Strasbourg"], "https://www.rcstrasbourgalsace.fr"],
+  [["Warta Sieradz"], "https://wartasieradz.com"],
+  [["Wisła Kraków"], "https://wislakrakow.com"],
+].flatMap(([aliases, website]) => aliases.map((alias) => [footballClubKey(alias), website])));
+
+function selectPreferredSource(transfer) {
+  const preferredSource = [...transferSources(transfer)]
+    .sort((left, right) => sourcePriority(right) - sourcePriority(left))[0];
+  if (!preferredSource) return;
+  transfer.sourceName = preferredSource.name;
+  transfer.sourceUrl = preferredSource.url;
+  transfer.sourceRole = preferredSource.role;
+}
+
+export async function verifyOfficialClubSources(transfers, loaders = {}) {
+  for (const transfer of transfers) {
+    transfer.sources = transferSources(transfer).map((source) => (
+      source.role === "primary_official"
+        ? { ...source, role: sourceRole(source.url) }
+        : source
+    ));
+    selectPreferredSource(transfer);
+  }
+
+  const clubTitles = transfers.flatMap((transfer) => [
+    wikipediaTitle(transfer.fromClubUrl),
+    wikipediaTitle(transfer.toClubUrl),
+  ]).filter(Boolean);
+  if (!clubTitles.length) return transfers;
+
+  const loadPageMetadata = loaders.wikipediaPageMetadata || wikipediaPageMetadata;
+  const loadEntities = loaders.wikidataEntities || wikidataEntities;
+  const pageMetadata = await loadPageMetadata(clubTitles);
+  const clubQids = [...new Set([...pageMetadata.values()].map((page) => page?.qid).filter(Boolean))];
+  if (!clubQids.length) return transfers;
+  const clubEntities = await loadEntities(clubQids, "claims");
+
+  for (const transfer of transfers) {
+    const clubs = [
+      { name: transfer.fromClub, title: wikipediaTitle(transfer.fromClubUrl) },
+      { name: transfer.toClub, title: wikipediaTitle(transfer.toClubUrl) },
+    ].filter((club) => club.name && club.title)
+      .map((club) => {
+        const qid = pageMetadata.get(club.title.toLowerCase())?.qid;
+        const entity = clubEntities[qid];
+        const overrideWebsite = OFFICIAL_CLUB_WEBSITE_OVERRIDES.get(footballClubKey(club.name));
+        return {
+          ...club,
+          officialWebsites: [
+            ...(isFootballClubEntity(entity) ? stringClaimValues(entity, "P856") : []),
+            ...(overrideWebsite ? [overrideWebsite] : []),
+          ],
+        };
+      });
+
+    transfer.sources = transferSources(transfer).map((source) => {
+      const verifiedClub = clubs.find((club) => club.officialWebsites.some((website) => (
+        matchesOfficialWebsite(source.url, website)
+      )));
+      if (verifiedClub) {
+        return { ...source, name: verifiedClub.name, role: "primary_official" };
+      }
+      return source;
+    });
+    selectPreferredSource(transfer);
+  }
+
+  return transfers;
 }
 
 function competitionGenderAuditRecord(transfer) {
@@ -1887,15 +2019,21 @@ export async function refresh() {
     console.warn(`Competition category enrichment skipped: ${error.message}`);
   }
 
-  const transfers = deduplicateTransfers([...official, ...rumours, ...manualRumours])
+  let transfers = deduplicateTransfers([...official, ...rumours, ...manualRumours])
     .filter(hasStructuredRoute)
     .sort((a, b) => {
       const dateOrder = b.date.localeCompare(a.date);
       if (dateOrder !== 0) return dateOrder;
       if (a.status !== b.status) return a.status === "official" ? -1 : 1;
       return (b.firstSeenAt || "").localeCompare(a.firstSeenAt || "");
-    })
-    .map(normaliseStoredTransfer);
+    });
+
+  try {
+    await verifyOfficialClubSources(transfers);
+  } catch (error) {
+    console.warn(`Official club source verification skipped: ${error.message}`);
+  }
+  transfers = transfers.map(normaliseStoredTransfer);
 
   if (!transfers.length) {
     throw new Error("No source returned entries; the previous data file was left unchanged");

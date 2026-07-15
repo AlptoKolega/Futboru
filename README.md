@@ -42,7 +42,9 @@ Rumour and discovery feeds:
 - Portugal: [MaisFutebol](https://maisfutebol.iol.pt/rss)
 - Brazil: [ge](https://ge.globo.com/rss/ge/)
 
-The registers are used as structured indexes, but Futboru does not send the reader to a generic index when a direct citation exists. The row links to the underlying club announcement or local/national publication. Transfermarkt is used only as a news signal through the RSS interface listed in its [official RSS guide](https://www.transfermarkt.us/intern/rssguide); its HTML database is not scraped.
+The registers are used as structured indexes, but Futboru does not send the reader to a generic index when a direct citation exists. The row links to the underlying club announcement or local/national publication. A citation receives the highest `primary_official` priority only when its hostname matches the official website (`P856`) of the selling or buying club in Wikidata. An unknown domain remains a publication source; source quality never changes an already confirmed transfer back into a rumour. Transfermarkt is used only as a news signal through the RSS interface listed in its [official RSS guide](https://www.transfermarkt.us/intern/rssguide); its HTML database is not scraped.
+
+The next direct-discovery layer will use official club sitemaps or clearly separated team news listings rather than undocumented app APIs. The first adapter candidates are Manchester City's news sitemap, Manchester United's separate men's and women's listings, Liverpool's `Transfer` category (excluding `Media watch`), Barcelona's detailed article sitemap, and Juventus' separate men's and women's sitemaps. Initially these adapters should only replace or corroborate the source of an already structured transfer. Publishing a brand-new row from a club article will require explicit completion language plus an unambiguous player and route.
 
 ## Run locally
 
@@ -85,4 +87,4 @@ Club crests currently use Wikipedia page thumbnails for PoC coverage, including 
 
 Country flags are self-hosted from the MIT-licensed `flag-icons` package; the licence notice is copied into every production build.
 
-The next production step is to replace register-backed confirmation market by market with direct adapters for the official Premier League, Bundesliga, LaLiga, Serie A, Liga Portugal, and Ekstraklasa trackers. At larger scale, a licensed transfer API can supplement—but should not silently replace—direct official evidence.
+The next production step is to add direct club-news adapters market by market, backed by the official Premier League, Bundesliga, LaLiga, Serie A, Liga Portugal, and Ekstraklasa trackers. The intended source order is: club announcement, league or federation register, established publication, reporter, database, then community or aggregator. At larger scale, a licensed transfer API can supplement—but should not silently replace—direct official evidence.

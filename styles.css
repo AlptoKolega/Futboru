@@ -516,15 +516,10 @@ a.club-name:hover {
   justify-self: start;
 }
 
-.fee-icon {
-  display: block;
-  width: 15px;
-  height: 15px;
-  fill: none;
-  stroke: currentColor;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  stroke-width: 1.5;
+.fee-code {
+  font-size: 0.78em;
+  font-weight: 600;
+  letter-spacing: 0.045em;
 }
 
 .fee,
