@@ -156,13 +156,15 @@ function safeHttpsLink(value) {
   }
 }
 
-function primaryOfficialSource(transfer) {
+function previewSourceFor(transfer) {
   const url = safeHttpsLink(transfer?.sourceUrl);
-  if (transfer?.status !== "official" || transfer?.sourceRole !== "primary_official" || !url) return null;
+  if (transfer?.status !== "official" || !url) return null;
+  const isPrimaryOfficial = transfer.sourceRole === "primary_official";
   return {
-    name: safeText(transfer.sourceName, "Official source"),
+    name: safeText(transfer.sourceName, "Source"),
     url,
-    preview: transfer.sourcePreview && typeof transfer.sourcePreview === "object"
+    isPrimaryOfficial,
+    preview: isPrimaryOfficial && transfer.sourcePreview && typeof transfer.sourcePreview === "object"
       ? transfer.sourcePreview
       : null,
   };
@@ -177,15 +179,16 @@ function openSourceDrawer(transfer, source, trigger) {
   const preview = source.preview;
   const previewImage = safeHttpsLink(preview?.imageUrl);
   const fallbackTitle = `${safeText(transfer.player)}: ${safeText(transfer.fromClub)} → ${safeText(transfer.toClub)}`;
+  const sourceType = source.isPrimaryOfficial ? "Official source" : "Cited source";
+  const fallbackDescription = source.isPrimaryOfficial
+    ? "A short preview is not available yet. Read the complete official announcement at the source above."
+    : "A verified club announcement is not available for this transfer yet. Open the cited report above.";
 
   elements.sourceDrawerLink.href = source.url;
-  elements.sourceDrawerLink.setAttribute("aria-label", `Open the official announcement from ${source.name} in a new tab`);
-  elements.sourceDrawerSource.textContent = `Official source · ${source.name}`;
+  elements.sourceDrawerLink.setAttribute("aria-label", `Open the ${sourceType.toLowerCase()} from ${source.name} in a new tab`);
+  elements.sourceDrawerSource.textContent = `${sourceType} · ${source.name}`;
   elements.sourceDrawerTitle.textContent = safeText(preview?.title, fallbackTitle);
-  elements.sourceDrawerDescription.textContent = safeText(
-    preview?.description,
-    "A short preview is not available yet. Read the complete official announcement at the source above.",
-  );
+  elements.sourceDrawerDescription.textContent = safeText(preview?.description, fallbackDescription);
   if (preview?.language) elements.sourceDrawerDescription.lang = preview.language;
   else elements.sourceDrawerDescription.removeAttribute("lang");
 
@@ -450,6 +453,20 @@ function detailsElement(transfer) {
   }
   sourceCell.append(source);
 
+  if (previewSourceFor(transfer)) {
+    const indicator = document.createElement("span");
+    indicator.className = "row-preview-indicator";
+    indicator.title = "Open source details";
+    indicator.setAttribute("aria-hidden", "true");
+    const icon = svgNode("svg", {
+      viewBox: "0 0 12 12",
+      focusable: "false",
+    });
+    icon.append(svgNode("path", { d: "m4.25 2.25 3.5 3.75-3.5 3.75" }));
+    indicator.append(icon);
+    sourceCell.append(indicator);
+  }
+
   details.append(sourceCell);
   return details;
 }
@@ -460,8 +477,8 @@ function transferRow(transfer) {
   item.dataset.status = transfer.status;
   item.dataset.competitionGender = competitionGender(transfer);
 
-  const officialSource = primaryOfficialSource(transfer);
-  if (officialSource) {
+  const previewSource = previewSourceFor(transfer);
+  if (previewSource) {
     item.classList.add("is-previewable");
     const trigger = document.createElement("button");
     trigger.className = "row-preview-trigger";
@@ -470,12 +487,14 @@ function transferRow(transfer) {
     trigger.setAttribute("aria-controls", "source-drawer");
     trigger.setAttribute(
       "aria-label",
-      `Preview official source for ${safeText(transfer.player)}: ${safeText(transfer.fromClub)} to ${safeText(transfer.toClub)}`,
+      `Open source details for ${safeText(transfer.player)}: ${safeText(transfer.fromClub)} to ${safeText(transfer.toClub)}`,
     );
-    trigger.addEventListener("click", () => openSourceDrawer(transfer, officialSource, trigger));
+    trigger.addEventListener("click", () => openSourceDrawer(transfer, previewSource, trigger));
     item.addEventListener("click", (event) => {
       if (event.target.closest("a, button")) return;
-      openSourceDrawer(transfer, officialSource, trigger);
+      const selection = window.getSelection();
+      if (selection && !selection.isCollapsed) return;
+      openSourceDrawer(transfer, previewSource, trigger);
     });
     item.append(trigger);
   }
