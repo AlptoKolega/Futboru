@@ -77,7 +77,7 @@ export const RSS_SOURCES = [
     url: "https://www.sportschau.de/fussball/bundesliga/index~rss2.xml",
     market: "Germany",
     pattern: /\b(transfer\w*|wechsel\w*|verpflicht\w*|leihe|ausleih\w*|abgang|zugang|einig|interess\w*)\b/i,
-    excludePattern: /wechselb[oö]rse|[uü]bersicht der sommertransfers/i,
+    excludePattern: /wechselb[oö]rse|[uü]bersicht der sommertransfers|transfer-ziele .* noch/i,
   },
   {
     id: "tmw-rss",
@@ -93,6 +93,7 @@ export const RSS_SOURCES = [
     url: "https://e00-marca.uecdn.es/rss/futbol/primera-division.xml",
     market: "Spain",
     pattern: /\b(fichaje\w*|traspas\w*|cesi[oó]n|transfer\w*|acuerdo|firma\w*)\b|a un paso/i,
+    excludePattern: /tres fichajes .* van a venir/i,
   },
   {
     id: "rmc-rss",
@@ -137,6 +138,7 @@ export const RSS_SOURCES = [
     url: "https://ge.globo.com/rss/ge/",
     market: "Brazil",
     pattern: /\b(mercado|transfer\w*|contrata\w*|refor[cç]o\w*|empr[eé]stimo|acordo|assina\w*|negocia\w*)\b/i,
+    excludePattern: /ganha refor[cç]os .* contra/i,
     linkPattern: /\/futebol\//i,
   },
 ];
@@ -595,13 +597,237 @@ export function parseWikipediaTransfers(html, now = new Date()) {
   return parseWikipediaDatedTransfers(html, WIKIPEDIA_SOURCES[0], now);
 }
 
+const RUMOUR_CLUB_ALIASES = new Map([
+  ["barca", "Barcelona"],
+  ["barcelona", "Barcelona"],
+  ["celta", "Celta Vigo"],
+  ["fenerbahce", "Fenerbahçe"],
+  ["lazio rom", "Lazio"],
+  ["leeds", "Leeds United"],
+  ["man city", "Manchester City"],
+  ["man utd", "Manchester United"],
+  ["new york city", "New York City FC"],
+  ["om", "Marseille"],
+  ["olympique de marseille", "Marseille"],
+]);
+
+const RUMOUR_PLAYER_ALIAS_RULES = [
+  { key: "adeyemi", name: "Karim Adeyemi", toClub: "Barcelona" },
+  { key: "doekhi", name: "Danilho Doekhi", toClub: "Lazio" },
+  { key: "greenwood", name: "Mason Greenwood", fromClub: "Marseille", toClub: "Fenerbahçe" },
+  { key: "muharemovic", name: "Tarik Muharemović", toClub: "Leeds United" },
+  { key: "ter stegen", name: "Marc-André ter Stegen", fromClub: "Barcelona", toClub: "Ajax" },
+];
+
+const AMBIGUOUS_RUMOUR_PLAYER_KEYS = new Set(["greenwood"]);
+
+function trimRumourEntity(value) {
+  return cleanText(value)
+    .replace(/^["'“”‘’„]+|["'“”‘’„:,.!?]+$/g, "")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+function normaliseRumourPlayer(value) {
+  return trimRumourEntity(value)
+    .replace(/^(?:atacante|zagueiro|goleiro|meio-campista|lateral|forward|midfielder|defender)\s+/i, "")
+    .replace(/\s+(?:por|for)\s+[£€$]?\d.*$/i, "")
+    .trim() || null;
+}
+
+function normaliseRumourClub(value) {
+  const club = trimRumourEntity(value)
+    .replace(/^l['’]\s*/i, "")
+    .replace(/^(?:the|el|o|a|le|der|die|das)\s+/i, "")
+    .trim();
+  return RUMOUR_CLUB_ALIASES.get(canonicalIdentity(club)) || club || null;
+}
+
+function rumourPlayerKey(value) {
+  const key = canonicalIdentity(value);
+  const alias = RUMOUR_PLAYER_ALIAS_RULES.find((rule) => (
+    rule.key === key || canonicalIdentity(rule.name) === key
+  ));
+  return alias?.key || key;
+}
+
+function resolveRumourPlayerAlias(player, fromClub, toClub) {
+  const key = rumourPlayerKey(player);
+  const alias = RUMOUR_PLAYER_ALIAS_RULES.find((rule) => (
+    rule.key === key
+    && (!rule.fromClub || canonicalIdentity(rule.fromClub) === canonicalIdentity(fromClub))
+    && (!rule.toClub || canonicalIdentity(rule.toClub) === canonicalIdentity(toClub))
+  ));
+  return alias?.name || player;
+}
+
+function normaliseRumourFee(value, fallback = "—") {
+  const fee = trimRumourEntity(value);
+  if (!fee) return fallback;
+
+  const euroMillions = fee.match(/(\d+(?:[.,]\d+)?)\s+milh[oõ]es?\s+de\s+euros?/i);
+  if (euroMillions) return `€${euroMillions[1].replace(",", ".")}m`;
+
+  const compact = fee.match(/([£€$])\s*(\d+(?:[.,]\d+)?)\s*(?:million|m)\b/i);
+  if (compact) return `${compact[1]}${compact[2].replace(",", ".")}m`;
+  return fallback;
+}
+
+const RUMOUR_CLAIM_RULES = [
+  {
+    markets: ["Brazil", "Portugal"],
+    pattern: /^(?<from>.+?) negocia (?:o )?empr[eé]stimo de (?<player>.+?) para (?:o |a )?(?<to>.+)$/iu,
+    fee: "Loan",
+  },
+  {
+    markets: ["Brazil", "Portugal"],
+    pattern: /^(?<to>.+?) negocia (?:a )?contrata[cç][aã]o (?:d[oa] )?(?:(?:atacante|zagueiro|goleiro|meio-campista|lateral)\s+)?(?<player>.+?), que pertence (?:ao|à|a) (?<from>.+)$/iu,
+  },
+  {
+    markets: ["Brazil", "Portugal"],
+    pattern: /^(?:OFICIAL:\s*)?(?<to>.+?) contrata (?<player>.+?)(?: por (?<fee>\d+(?:[.,]\d+)?\s+milh[oõ]es?\s+de\s+euros?))?$/iu,
+  },
+  {
+    markets: ["Brazil", "Portugal"],
+    pattern: /^(?<to>.+?) encaminha contrata[cç][aã]o de (?<player>.+)$/iu,
+  },
+  {
+    markets: ["France"],
+    pattern: /^(?:DIRECT\.\s*)?(?:Mercato:\s*)?(?<to>.+?) officialise l['’]arriv[eé]e de (?<player>.+)$/iu,
+  },
+  {
+    markets: ["France"],
+    pattern: /^(?:Mercato:\s*)?(?:c['’]est officiel,\s*)?(?<from>(?:l['’])?.+?) vend (?<player>.+?)(?: (?:à|au) (?<to>.+?))?(?: et .*)?$/iu,
+  },
+  {
+    markets: ["Germany"],
+    pattern: /^(?<to>.+?) meldet (?<player>.+?)-(?:Deal|Transfer|Wechsel)(?:\s*[–—-].*)?$/iu,
+  },
+  {
+    markets: ["Germany"],
+    pattern: /^(?<to>.+?) vor (?<player>.+?)-(?:Transfer|Wechsel)(?:\s*[–—-].*)?$/iu,
+  },
+  {
+    markets: ["Germany"],
+    pattern: /^(?<to>.+?)-Pr[aä]sident .*? best[aä]tigt (?<player>.+?)-(?:Wechsel|Transfer)$/iu,
+  },
+  {
+    markets: ["Germany"],
+    pattern: /^(?<to>.+?) best[aä]tigt (?<player>.+?)-(?:Wechsel|Transfer)$/iu,
+  },
+  {
+    markets: ["Germany"],
+    pattern: /^(?<player>[\p{L}\p{M}.'’ -]+?) zu (?<to>.+?)(?:\s+[–—-]\s+.*)?$/u,
+  },
+  {
+    markets: ["Netherlands"],
+    pattern: /^Transfers? (?<to>[^:]+):\s*['“]?(?<from>.+?) geeft groen licht voor transfer (?<player>.+?)['”]?$/iu,
+  },
+  {
+    markets: ["United Kingdom"],
+    pattern: /^(?<from>.+?) close to agreeing(?: .*?)? sale of (?<player>.+?) to (?<to>.+)$/iu,
+  },
+  {
+    markets: ["United Kingdom"],
+    pattern: /^(?<to>.+?) (?:signs|agrees to sign) (?<player>.+?) from (?<from>.+)$/iu,
+  },
+  {
+    markets: ["United Kingdom"],
+    pattern: /^(?<player>.+?) joins (?<to>.+?) from (?<from>.+)$/iu,
+  },
+  {
+    markets: ["United Kingdom"],
+    pattern: /^(?<to>.+?) set sights on signing (?:[\p{L}-]+[’']s\s+)?(?<player>.+?)(?: for (?<fee>[£€$].+))?$/iu,
+  },
+  {
+    markets: ["United Kingdom"],
+    pattern: /^(?<to>.+?) linked with (?<player>.+)$/iu,
+  },
+  {
+    markets: ["Spain"],
+    pattern: /^(?:El|La)\s+(?<from>.+?) a un paso de .*? (?:cesi[oó]n|traspaso) de (?<player>.+?) (?:al|a la) (?<to>.+)$/iu,
+    fee: "Loan",
+  },
+  {
+    markets: ["Spain"],
+    pattern: /^(?<player>.+?), el fichaje .*? del (?<to>.+?) a sus \d+ a[nñ]os.*$/iu,
+  },
+  {
+    markets: ["Spain"],
+    pattern: /^(?<player>.+?), cerca de ser .*? fichaje del (?<to>.+)$/iu,
+  },
+  {
+    markets: ["Italy"],
+    pattern: /^(?:UFFICIALE:?\s*)?(?<to>.+?) (?:acquista|ingaggia|ufficializza) (?<player>.+?) (?:dal|dalla) (?<from>.+)$/iu,
+  },
+  {
+    markets: ["Italy"],
+    pattern: /^(?:UFFICIALE:?\s*)?(?<from>.+?) cede (?<player>.+?) (?:al|alla) (?<to>.+)$/iu,
+  },
+  {
+    markets: ["Italy"],
+    pattern: /^(?:UFFICIALE:?\s*)?(?<player>.+?) passa (?:dal|dalla) (?<from>.+?) (?:al|alla) (?<to>.+)$/iu,
+  },
+  {
+    markets: ["Poland"],
+    pattern: /^(?<player>.+?) przechodzi z (?<from>.+?) do (?<to>.+)$/iu,
+  },
+  {
+    markets: ["Poland"],
+    pattern: /^(?<to>.+?) pozyska[łl] (?<player>.+?) z (?<from>.+)$/iu,
+  },
+  {
+    markets: ["Poland"],
+    pattern: /^(?<from>.+?) wypo[zż]ycza (?<player>.+?) do (?<to>.+)$/iu,
+    fee: "Loan",
+  },
+];
+
+function extractionStatus(player, fromClub, toClub) {
+  if (player && fromClub && toClub) return "complete";
+  if (player && (fromClub || toClub)) return "partial";
+  return "unresolved";
+}
+
+export function extractRumourMovement(headline, config = {}) {
+  const title = cleanText(headline).replace(config.stripPrefix || /^$/, "").trim();
+
+  for (const rule of RUMOUR_CLAIM_RULES) {
+    if (rule.markets && !rule.markets.includes(config.market)) continue;
+    const match = title.match(rule.pattern);
+    if (!match?.groups) continue;
+
+    const fromClub = normaliseRumourClub(match.groups.from);
+    const toClub = normaliseRumourClub(match.groups.to);
+    const player = resolveRumourPlayerAlias(
+      normaliseRumourPlayer(match.groups.player),
+      fromClub,
+      toClub,
+    );
+    return {
+      player,
+      fromClub,
+      toClub,
+      fee: normaliseRumourFee(match.groups.fee, rule.fee || "—"),
+      extractionStatus: extractionStatus(player, fromClub, toClub),
+    };
+  }
+
+  return {
+    player: null,
+    fromClub: null,
+    toClub: null,
+    fee: "—",
+    extractionStatus: "unresolved",
+  };
+}
+
 export function parseRssRumours(xml, config = RSS_SOURCES[0], now = new Date()) {
   const $ = cheerio.load(xml, { xmlMode: true });
   const rumours = [];
   const maxItems = Number(config.maxItems || MAX_RUMOURS_PER_SOURCE);
 
   $("item, entry").each((_, item) => {
-    if (rumours.length >= maxItems) return;
     const title = cleanText($(item).find("title").first().text());
     const linkNode = $(item).find("link").first();
     const link = cleanText(linkNode.text() || linkNode.attr("href"));
@@ -612,6 +838,7 @@ export function parseRssRumours(xml, config = RSS_SOURCES[0], now = new Date()) 
     if (now.getTime() - published.getTime() > LOOKBACK_DAYS * 86_400_000) return;
 
     const displayTitle = cleanText(title.replace(config.stripPrefix || /^$/, ""));
+    const movement = extractRumourMovement(displayTitle, config);
     const date = published.toISOString().slice(0, 10);
     const time = new Intl.DateTimeFormat("en-GB", {
       hour: "2-digit",
@@ -623,21 +850,23 @@ export function parseRssRumours(xml, config = RSS_SOURCES[0], now = new Date()) 
       id: createHash("sha1").update(`rumour|${link}`).digest("hex").slice(0, 14),
       date,
       time,
-      player: displayTitle,
+      headline: displayTitle,
+      player: movement.player,
       playerUrl: null,
       age: null,
       position: null,
       nationality: null,
       flagCode: null,
       flag: "",
-      fromClub: "—",
+      fromClub: movement.fromClub,
       fromClubUrl: null,
       fromClubCrest: null,
-      toClub: "—",
+      toClub: movement.toClub,
       toClubUrl: null,
       toClubCrest: null,
-      fee: "—",
+      fee: movement.fee,
       status: "rumour",
+      extractionStatus: movement.extractionStatus,
       market: config.market || null,
       markets: config.market ? [config.market] : [],
       competition: config.competition || null,
@@ -650,7 +879,13 @@ export function parseRssRumours(xml, config = RSS_SOURCES[0], now = new Date()) 
     });
   });
 
-  return rumours;
+  const extractionRank = { complete: 2, partial: 1, unresolved: 0 };
+  return rumours
+    .sort((left, right) => (
+      (extractionRank[right.extractionStatus] || 0) - (extractionRank[left.extractionStatus] || 0)
+      || (right.firstSeenAt || "").localeCompare(left.firstSeenAt || "")
+    ))
+    .slice(0, maxItems);
 }
 
 export function parseBbcRumours(xml, now = new Date()) {
@@ -916,7 +1151,7 @@ function validateManualRumour(item) {
   return item
     && typeof item === "object"
     && /^\d{4}-\d{2}-\d{2}$/.test(item.date || "")
-    && item.player
+    && hasStructuredRoute(item)
     && item.sourceUrl
     && /^https:\/\//.test(item.sourceUrl);
 }
@@ -971,9 +1206,15 @@ function canonicalIdentity(value) {
     .trim();
 }
 
-function hasStructuredRoute(transfer) {
-  return [transfer.player, transfer.fromClub, transfer.toClub]
+export function hasStructuredRoute(transfer) {
+  const entitiesArePresent = [transfer.player, transfer.fromClub, transfer.toClub]
     .every((value) => cleanText(value) && !/^(?:—|-|unknown)$/i.test(cleanText(value)));
+  if (!entitiesArePresent) return false;
+
+  const playerKey = canonicalIdentity(transfer.player);
+  const headlineKey = canonicalIdentity(transfer.headline || transfer.sourceHeadline);
+  if (headlineKey && headlineKey === playerKey) return false;
+  return !AMBIGUOUS_RUMOUR_PLAYER_KEYS.has(playerKey);
 }
 
 function claimIdentity(transfer) {
@@ -1095,7 +1336,18 @@ function headlineContainsPlayer(headline, player) {
   const headlineKey = canonicalIdentity(headline);
   const playerKey = canonicalIdentity(player);
   if (playerKey.length < 5) return false;
-  return ` ${headlineKey} `.includes(` ${playerKey} `);
+  if (` ${headlineKey} `.includes(` ${playerKey} `)) return true;
+
+  const surname = playerKey.split(" ").at(-1);
+  return surname?.length >= 5 && ` ${headlineKey} `.includes(` ${surname} `);
+}
+
+function evidenceRouteMatches(signal, transfer) {
+  return ["fromClub", "toClub"].every((field) => (
+    !meaningful(signal[field])
+    || !meaningful(transfer[field])
+    || canonicalIdentity(signal[field]) === canonicalIdentity(transfer[field])
+  ));
 }
 
 export function mergeHeadlineEvidence(structuredTransfers, newsSignals) {
@@ -1105,7 +1357,8 @@ export function mergeHeadlineEvidence(structuredTransfers, newsSignals) {
     const matches = structuredTransfers.filter((transfer) => (
       hasStructuredRoute(transfer)
       && dayDistance(transfer.date, signal.date) <= 7
-      && headlineContainsPlayer(signal.player, transfer.player)
+      && headlineContainsPlayer(signal.headline || signal.player, transfer.player)
+      && evidenceRouteMatches(signal, transfer)
     ));
 
     if (matches.length === 1) {
@@ -1116,6 +1369,41 @@ export function mergeHeadlineEvidence(structuredTransfers, newsSignals) {
   }
 
   return remainingSignals;
+}
+
+function compatibleRumourFragments(left, right) {
+  if (!left.player || !right.player) return false;
+  if (rumourPlayerKey(left.player) !== rumourPlayerKey(right.player)) return false;
+  if (dayDistance(left.date, right.date) > 3) return false;
+
+  return ["fromClub", "toClub"].every((field) => (
+    !meaningful(left[field])
+    || !meaningful(right[field])
+    || canonicalIdentity(left[field]) === canonicalIdentity(right[field])
+  ));
+}
+
+export function mergeRumourFragments(signals) {
+  const merged = [];
+
+  for (const signal of signals) {
+    const target = merged.find((candidate) => compatibleRumourFragments(candidate, signal));
+    if (!target) {
+      merged.push({ ...signal });
+      continue;
+    }
+
+    if (!meaningful(target.fromClub) && meaningful(signal.fromClub)) target.fromClub = signal.fromClub;
+    if (!meaningful(target.toClub) && meaningful(signal.toClub)) target.toClub = signal.toClub;
+    mergeTransfer(target, signal);
+    target.player = resolveRumourPlayerAlias(target.player, target.fromClub, target.toClub);
+    target.extractionStatus = extractionStatus(target.player, target.fromClub, target.toClub);
+    if (hasStructuredRoute(target)) {
+      target.id = transferId(target.date, target.player, target.fromClub, target.toClub);
+    }
+  }
+
+  return merged;
 }
 
 const LEGACY_POSITIONS = new Map([
@@ -1282,17 +1570,21 @@ export async function refresh() {
   }
 
   rumours = deduplicateTransfers(rumours)
-    .sort((left, right) => (right.firstSeenAt || "").localeCompare(left.firstSeenAt || ""))
-    .slice(0, MAX_RUMOURS);
+    .sort((left, right) => (right.firstSeenAt || "").localeCompare(left.firstSeenAt || ""));
   rumours = mergeHeadlineEvidence(official, rumours);
+  rumours = mergeRumourFragments(rumours)
+    .filter(hasStructuredRoute)
+    .slice(0, MAX_RUMOURS);
 
   const manualRumours = await readManualRumours();
-  const transfers = deduplicateTransfers([...official, ...rumours, ...manualRumours]).sort((a, b) => {
-    const dateOrder = b.date.localeCompare(a.date);
-    if (dateOrder !== 0) return dateOrder;
-    if (a.status !== b.status) return a.status === "official" ? -1 : 1;
-    return (b.firstSeenAt || "").localeCompare(a.firstSeenAt || "");
-  });
+  const transfers = deduplicateTransfers([...official, ...rumours, ...manualRumours])
+    .filter(hasStructuredRoute)
+    .sort((a, b) => {
+      const dateOrder = b.date.localeCompare(a.date);
+      if (dateOrder !== 0) return dateOrder;
+      if (a.status !== b.status) return a.status === "official" ? -1 : 1;
+      return (b.firstSeenAt || "").localeCompare(a.firstSeenAt || "");
+    });
 
   if (!transfers.length) {
     throw new Error("No source returned entries; the previous data file was left unchanged");

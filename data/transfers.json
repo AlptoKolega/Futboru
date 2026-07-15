@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-15T01:34:21.073Z",
+  "generatedAt": "2026-07-15T08:16:31.169Z",
   "sources": [
     {
       "id": "wikipedia-england",
@@ -62,7 +62,7 @@
       "market": "United Kingdom",
       "kind": "news-rss",
       "status": "ok",
-      "count": 0
+      "count": 1
     },
     {
       "id": "transfermarkt-de-rss",
@@ -89,7 +89,7 @@
       "market": "Italy",
       "kind": "news-rss",
       "status": "ok",
-      "count": 0
+      "count": 1
     },
     {
       "id": "marca-rss",
@@ -107,7 +107,7 @@
       "market": "France",
       "kind": "news-rss",
       "status": "ok",
-      "count": 2
+      "count": 0
     },
     {
       "id": "vi-rss",
@@ -116,7 +116,7 @@
       "market": "Netherlands",
       "kind": "news-rss",
       "status": "ok",
-      "count": 1
+      "count": 0
     },
     {
       "id": "weszlo-rss",
@@ -160,21 +160,23 @@
       "id": "2c308b10034688",
       "date": "2026-07-15",
       "time": "02:05",
-      "player": "Botafogo negocia a contratação do atacante Danilo Pereira, que pertence ao Rangers",
+      "headline": "Botafogo negocia a contratação do atacante Danilo Pereira, que pertence ao Rangers",
+      "player": "Danilo Pereira",
       "playerUrl": null,
       "age": null,
       "position": null,
       "nationality": null,
       "flagCode": null,
       "flag": "",
-      "fromClub": "—",
+      "fromClub": "Rangers",
       "fromClubUrl": null,
       "fromClubCrest": null,
-      "toClub": "—",
+      "toClub": "Botafogo",
       "toClubUrl": null,
       "toClubCrest": null,
       "fee": "—",
       "status": "rumour",
+      "extractionStatus": "complete",
       "market": "Brazil",
       "markets": [
         "Brazil"
@@ -635,6 +637,235 @@
       ]
     },
     {
+      "id": "0f3df8c4c20144",
+      "date": "2026-07-14",
+      "time": "—",
+      "player": "Luka Vušković",
+      "playerUrl": "https://en.wikipedia.org/wiki/Luka_Vu%C5%A1kovi%C4%87",
+      "age": 19,
+      "position": "DC",
+      "nationality": "Croatia",
+      "flagCode": "hr",
+      "flag": "🇭🇷",
+      "fromClub": "Tottenham Hotspur",
+      "fromClubUrl": "https://en.wikipedia.org/wiki/Tottenham_Hotspur_F.C.",
+      "fromClubCrest": "https://upload.wikimedia.org/wikipedia/en/thumb/b/b4/Tottenham_Hotspur.svg/120px-Tottenham_Hotspur.svg.png",
+      "toClub": "Brighton & Hove Albion",
+      "toClubUrl": "https://en.wikipedia.org/wiki/Brighton_&_Hove_Albion_F.C.",
+      "toClubCrest": "https://upload.wikimedia.org/wikipedia/en/thumb/d/d0/Brighton_and_Hove_Albion_FC_crest.svg/120px-Brighton_and_Hove_Albion_FC_crest.svg.png",
+      "fee": "£46m",
+      "status": "official",
+      "market": "England",
+      "markets": [
+        "England"
+      ],
+      "competition": "English leagues",
+      "sourceAdapter": "wikipedia-england",
+      "sourceRole": "publication",
+      "sourceName": "BBC Sport",
+      "sourceUrl": "https://www.bbc.co.uk/sport/football/articles/cy7370x2yp7o",
+      "sources": [
+        {
+          "name": "BBC Sport",
+          "url": "https://www.bbc.co.uk/sport/football/articles/cy7370x2yp7o",
+          "role": "publication"
+        }
+      ],
+      "firstSeenAt": "2026-07-14T12:00:00.000Z",
+      "competitions": [
+        "English leagues"
+      ],
+      "sourceAdapters": [
+        "wikipedia-england"
+      ]
+    },
+    {
+      "id": "ac8317bf65644c",
+      "date": "2026-07-14",
+      "time": "—",
+      "player": "Tom Wisbereit",
+      "playerUrl": null,
+      "age": null,
+      "position": "GK",
+      "nationality": "Germany",
+      "flagCode": "de",
+      "flag": "🇩🇪",
+      "fromClub": "Union Berlin",
+      "fromClubUrl": "https://en.wikipedia.org/wiki/1._FC_Union_Berlin",
+      "fromClubCrest": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/1._FC_Union_Berlin_Logo.svg/120px-1._FC_Union_Berlin_Logo.svg.png",
+      "toClub": "FC Augsburg",
+      "toClubUrl": "https://en.wikipedia.org/wiki/FC_Augsburg",
+      "toClubCrest": "https://upload.wikimedia.org/wikipedia/en/thumb/c/c5/FC_Augsburg_logo.svg/120px-FC_Augsburg_logo.svg.png",
+      "fee": "Undisclosed",
+      "status": "official",
+      "market": "Germany",
+      "markets": [
+        "Germany"
+      ],
+      "competition": "Bundesliga",
+      "sourceAdapter": "wikipedia-germany",
+      "sourceRole": "primary_official",
+      "sourceName": "fcaugsburg.de",
+      "sourceUrl": "https://www.fcaugsburg.de/article/fca-holt-junioren-nationaltorhueter-tom-wisbereit-23255",
+      "sources": [
+        {
+          "name": "fcaugsburg.de",
+          "url": "https://www.fcaugsburg.de/article/fca-holt-junioren-nationaltorhueter-tom-wisbereit-23255",
+          "role": "primary_official"
+        }
+      ],
+      "firstSeenAt": "2026-07-14T12:00:00.000Z",
+      "competitions": [
+        "Bundesliga"
+      ],
+      "sourceAdapters": [
+        "wikipedia-germany"
+      ]
+    },
+    {
+      "id": "d7a3928cf006c5",
+      "date": "2026-07-14",
+      "time": "—",
+      "player": "Danilho Doekhi",
+      "playerUrl": "https://en.wikipedia.org/wiki/Danilho_Doekhi",
+      "age": 28,
+      "position": "DC",
+      "nationality": "Netherlands",
+      "flagCode": "nl",
+      "flag": "🇳🇱",
+      "fromClub": "Union Berlin",
+      "fromClubUrl": "https://en.wikipedia.org/wiki/Union_Berlin",
+      "fromClubCrest": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/1._FC_Union_Berlin_Logo.svg/120px-1._FC_Union_Berlin_Logo.svg.png",
+      "toClub": "Lazio",
+      "toClubUrl": "https://en.wikipedia.org/wiki/SS_Lazio",
+      "toClubCrest": "https://upload.wikimedia.org/wikipedia/en/thumb/c/ce/S.S._Lazio_badge.svg/120px-S.S._Lazio_badge.svg.png",
+      "fee": "Free",
+      "status": "official",
+      "market": "Germany",
+      "markets": [
+        "Germany",
+        "Italy"
+      ],
+      "competition": "Bundesliga",
+      "sourceAdapter": "wikipedia-germany",
+      "sourceRole": "primary_official",
+      "sourceName": "sslazio.it",
+      "sourceUrl": "https://www.sslazio.it/en/news/comunicati/danilho-doekhi-e-un-nuovo-calciatore-biancoceleste",
+      "sources": [
+        {
+          "name": "sslazio.it",
+          "url": "https://www.sslazio.it/en/news/comunicati/danilho-doekhi-e-un-nuovo-calciatore-biancoceleste",
+          "role": "primary_official"
+        },
+        {
+          "name": "sslazio.it",
+          "url": "https://www.sslazio.it/it/news/comunicati/danilho-doekhi-e-un-nuovo-calciatore-biancoceleste",
+          "role": "primary_official"
+        },
+        {
+          "name": "Sportschau",
+          "url": "https://www.sportschau.de/regional/rbb/rbb-doekhi-zu-lazio-rom-ex-unioner-verteidiger-mit-italienern-einig-100.html",
+          "role": "publication"
+        }
+      ],
+      "firstSeenAt": "2026-07-14T12:00:00.000Z",
+      "competitions": [
+        "Bundesliga",
+        "Serie A / Serie B"
+      ],
+      "sourceAdapters": [
+        "wikipedia-germany",
+        "wikipedia-italy",
+        "sportschau-rss"
+      ]
+    },
+    {
+      "id": "6c54ab93a3122d",
+      "date": "2026-07-14",
+      "time": "—",
+      "player": "Luca Podlech",
+      "playerUrl": null,
+      "age": null,
+      "position": "GK",
+      "nationality": "Germany",
+      "flagCode": "de",
+      "flag": "🇩🇪",
+      "fromClub": "Schalke 04",
+      "fromClubUrl": "https://en.wikipedia.org/wiki/Schalke_04",
+      "fromClubCrest": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/FC_Schalke_04_Logo.svg/120px-FC_Schalke_04_Logo.svg.png",
+      "toClub": "Aalesund",
+      "toClubUrl": "https://en.wikipedia.org/wiki/Aalesunds_FK",
+      "toClubCrest": "https://upload.wikimedia.org/wikipedia/en/thumb/b/b2/Aalesunds_FK_logo.svg/120px-Aalesunds_FK_logo.svg.png",
+      "fee": "Loan",
+      "status": "official",
+      "market": "Germany",
+      "markets": [
+        "Germany"
+      ],
+      "competition": "Bundesliga",
+      "sourceAdapter": "wikipedia-germany",
+      "sourceRole": "primary_official",
+      "sourceName": "schalke04.de",
+      "sourceUrl": "https://schalke04.de/personal/luca-podlech-wird-an-norwegischen-erstligisten-verliehen/",
+      "sources": [
+        {
+          "name": "schalke04.de",
+          "url": "https://schalke04.de/personal/luca-podlech-wird-an-norwegischen-erstligisten-verliehen/",
+          "role": "primary_official"
+        }
+      ],
+      "firstSeenAt": "2026-07-14T12:00:00.000Z",
+      "competitions": [
+        "Bundesliga"
+      ],
+      "sourceAdapters": [
+        "wikipedia-germany"
+      ]
+    },
+    {
+      "id": "8a237d6c0ccece",
+      "date": "2026-07-14",
+      "time": "—",
+      "player": "Mohammad Mahmoud",
+      "playerUrl": null,
+      "age": null,
+      "position": "ST",
+      "nationality": "Germany",
+      "flagCode": "de",
+      "flag": "🇩🇪",
+      "fromClub": "SV Elversberg",
+      "fromClubUrl": "https://en.wikipedia.org/wiki/SV_Elversberg",
+      "fromClubCrest": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/SV_Elversberg_Logo_2021.svg/120px-SV_Elversberg_Logo_2021.svg.png",
+      "toClub": "Austria Salzburg",
+      "toClubUrl": "https://en.wikipedia.org/wiki/SV_Austria_Salzburg",
+      "toClubCrest": "https://upload.wikimedia.org/wikipedia/en/thumb/2/24/SV_Austria_Salzburg_crest.svg/120px-SV_Austria_Salzburg_crest.svg.png",
+      "fee": "Undisclosed",
+      "status": "official",
+      "market": "Germany",
+      "markets": [
+        "Germany"
+      ],
+      "competition": "Bundesliga",
+      "sourceAdapter": "wikipedia-germany",
+      "sourceRole": "primary_official",
+      "sourceName": "sv07elversberg.de",
+      "sourceUrl": "https://sv07elversberg.de/mohammad-mahmoud-schliesst-sich-dem-sv-austria-salzburg-an/",
+      "sources": [
+        {
+          "name": "sv07elversberg.de",
+          "url": "https://sv07elversberg.de/mohammad-mahmoud-schliesst-sich-dem-sv-austria-salzburg-an/",
+          "role": "primary_official"
+        }
+      ],
+      "firstSeenAt": "2026-07-14T12:00:00.000Z",
+      "competitions": [
+        "Bundesliga"
+      ],
+      "sourceAdapters": [
+        "wikipedia-germany"
+      ]
+    },
+    {
       "id": "06237ebecaff3c",
       "date": "2026-07-14",
       "time": "—",
@@ -807,281 +1038,26 @@
       ]
     },
     {
-      "id": "d7a3928cf006c5",
-      "date": "2026-07-14",
-      "time": "—",
-      "player": "Danilho Doekhi",
-      "playerUrl": "https://en.wikipedia.org/wiki/Danilho_Doekhi",
-      "age": 28,
-      "position": "DC",
-      "nationality": "Netherlands",
-      "flagCode": "nl",
-      "flag": "🇳🇱",
-      "fromClub": "Union Berlin",
-      "fromClubUrl": "https://en.wikipedia.org/wiki/1._FC_Union_Berlin",
-      "fromClubCrest": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/1._FC_Union_Berlin_Logo.svg/120px-1._FC_Union_Berlin_Logo.svg.png",
-      "toClub": "Lazio",
-      "toClubUrl": "https://en.wikipedia.org/wiki/SS_Lazio",
-      "toClubCrest": "https://upload.wikimedia.org/wikipedia/en/thumb/c/ce/S.S._Lazio_badge.svg/120px-S.S._Lazio_badge.svg.png",
-      "fee": "Free",
-      "status": "official",
-      "market": "Italy",
-      "markets": [
-        "Italy"
-      ],
-      "competition": "Serie A / Serie B",
-      "sourceAdapter": "wikipedia-italy",
-      "sourceRole": "primary_official",
-      "sourceName": "sslazio.it",
-      "sourceUrl": "https://www.sslazio.it/it/news/comunicati/danilho-doekhi-e-un-nuovo-calciatore-biancoceleste",
-      "sources": [
-        {
-          "name": "sslazio.it",
-          "url": "https://www.sslazio.it/it/news/comunicati/danilho-doekhi-e-un-nuovo-calciatore-biancoceleste",
-          "role": "primary_official"
-        }
-      ],
-      "firstSeenAt": "2026-07-14T12:00:00.000Z",
-      "competitions": [
-        "Serie A / Serie B"
-      ],
-      "sourceAdapters": [
-        "wikipedia-italy"
-      ]
-    },
-    {
-      "id": "0f3df8c4c20144",
-      "date": "2026-07-14",
-      "time": "—",
-      "player": "Luka Vušković",
-      "playerUrl": "https://en.wikipedia.org/wiki/Luka_Vu%C5%A1kovi%C4%87",
-      "age": 19,
-      "position": "DC",
-      "nationality": "Croatia",
-      "flagCode": "hr",
-      "flag": "🇭🇷",
-      "fromClub": "Tottenham Hotspur",
-      "fromClubUrl": "https://en.wikipedia.org/wiki/Tottenham_Hotspur_F.C.",
-      "fromClubCrest": "https://upload.wikimedia.org/wikipedia/en/thumb/b/b4/Tottenham_Hotspur.svg/120px-Tottenham_Hotspur.svg.png",
-      "toClub": "Brighton & Hove Albion",
-      "toClubUrl": "https://en.wikipedia.org/wiki/Brighton_&_Hove_Albion_F.C.",
-      "toClubCrest": "https://upload.wikimedia.org/wikipedia/en/thumb/d/d0/Brighton_and_Hove_Albion_FC_crest.svg/120px-Brighton_and_Hove_Albion_FC_crest.svg.png",
-      "fee": "£46m",
-      "status": "official",
-      "market": "England",
-      "markets": [
-        "England",
-        "Germany"
-      ],
-      "competition": "English leagues",
-      "sourceAdapter": "wikipedia-england",
-      "sourceRole": "publication",
-      "sourceName": "BBC Sport",
-      "sourceUrl": "https://www.bbc.co.uk/sport/football/articles/cy7370x2yp7o",
-      "sources": [
-        {
-          "name": "BBC Sport",
-          "url": "https://www.bbc.co.uk/sport/football/articles/cy7370x2yp7o",
-          "role": "publication"
-        },
-        {
-          "name": "Sportschau",
-          "url": "https://www.sportschau.de/regional/ndr/ex-hsv-verteidiger-vuskovic-wechselt-zu-huerzeler-club-brighton,vuskovic-128.html",
-          "role": "publication"
-        }
-      ],
-      "firstSeenAt": "2026-07-14T10:16:23.000Z",
-      "competitions": [
-        "English leagues"
-      ],
-      "sourceAdapters": [
-        "wikipedia-england",
-        "sportschau-rss"
-      ]
-    },
-    {
-      "id": "883f6ee57dfbde",
-      "date": "2026-07-14",
-      "time": "00:20",
-      "player": "Vila Nova encaminha contratação de Everton Galdino",
-      "playerUrl": null,
-      "age": null,
-      "position": null,
-      "nationality": null,
-      "flagCode": null,
-      "flag": "",
-      "fromClub": "—",
-      "fromClubUrl": null,
-      "fromClubCrest": null,
-      "toClub": "—",
-      "toClubUrl": null,
-      "toClubCrest": null,
-      "fee": "—",
-      "status": "rumour",
-      "market": "Brazil",
-      "markets": [
-        "Brazil"
-      ],
-      "competition": null,
-      "sourceAdapter": "ge-rss",
-      "sourceRole": "publication",
-      "sourceName": "ge",
-      "sourceUrl": "https://ge.globo.com/go/futebol/noticia/2026/07/14/vila-nova-encaminha-contratacao-de-everton-galdino.ghtml",
-      "sources": [
-        {
-          "name": "ge",
-          "url": "https://ge.globo.com/go/futebol/noticia/2026/07/14/vila-nova-encaminha-contratacao-de-everton-galdino.ghtml",
-          "role": "publication"
-        }
-      ],
-      "firstSeenAt": "2026-07-14T22:20:04.000Z",
-      "competitions": [],
-      "sourceAdapters": [
-        "ge-rss"
-      ]
-    },
-    {
-      "id": "b13d9954456859",
-      "date": "2026-07-14",
-      "time": "00:12",
-      "player": "Botafogo-SP ganha reforços de Pedrinho e Marco Antônio contra Londrina",
-      "playerUrl": null,
-      "age": null,
-      "position": null,
-      "nationality": null,
-      "flagCode": null,
-      "flag": "",
-      "fromClub": "—",
-      "fromClubUrl": null,
-      "fromClubCrest": null,
-      "toClub": "—",
-      "toClubUrl": null,
-      "toClubCrest": null,
-      "fee": "—",
-      "status": "rumour",
-      "market": "Brazil",
-      "markets": [
-        "Brazil"
-      ],
-      "competition": null,
-      "sourceAdapter": "ge-rss",
-      "sourceRole": "publication",
-      "sourceName": "ge",
-      "sourceUrl": "https://ge.globo.com/sp/ribeirao-preto-e-regiao/futebol/times/botafogo-sp/noticia/2026/07/14/botafogo-sp-ganha-reforcos-de-pedrinho-e-marco-antonio-contra-londrina.ghtml",
-      "sources": [
-        {
-          "name": "ge",
-          "url": "https://ge.globo.com/sp/ribeirao-preto-e-regiao/futebol/times/botafogo-sp/noticia/2026/07/14/botafogo-sp-ganha-reforcos-de-pedrinho-e-marco-antonio-contra-londrina.ghtml",
-          "role": "publication"
-        }
-      ],
-      "firstSeenAt": "2026-07-14T22:12:42.000Z",
-      "competitions": [],
-      "sourceAdapters": [
-        "ge-rss"
-      ]
-    },
-    {
-      "id": "201025b58c9c43",
-      "date": "2026-07-14",
-      "time": "23:59",
-      "player": "OFICIAL: Fenerbahçe contrata Greenwood por 39 milhões de euros",
-      "playerUrl": null,
-      "age": null,
-      "position": null,
-      "nationality": null,
-      "flagCode": null,
-      "flag": "",
-      "fromClub": "—",
-      "fromClubUrl": null,
-      "fromClubCrest": null,
-      "toClub": "—",
-      "toClubUrl": null,
-      "toClubCrest": null,
-      "fee": "—",
-      "status": "rumour",
-      "market": "Portugal",
-      "markets": [
-        "Portugal"
-      ],
-      "competition": null,
-      "sourceAdapter": "maisfutebol-rss",
-      "sourceRole": "publication",
-      "sourceName": "MaisFutebol",
-      "sourceUrl": "https://maisfutebol.iol.pt/internacional/fenerbahce/oficial-fenerbahce-contrata-greenwood-por-39-milhoes-de-euros",
-      "sources": [
-        {
-          "name": "MaisFutebol",
-          "url": "https://maisfutebol.iol.pt/internacional/fenerbahce/oficial-fenerbahce-contrata-greenwood-por-39-milhoes-de-euros",
-          "role": "publication"
-        }
-      ],
-      "firstSeenAt": "2026-07-14T21:59:00.000Z",
-      "competitions": [],
-      "sourceAdapters": [
-        "maisfutebol-rss"
-      ]
-    },
-    {
-      "id": "7f9bbc205d6690",
-      "date": "2026-07-14",
-      "time": "23:53",
-      "player": "Kibic Schalke wróci do domu? Wymarzony transfer na ostatniej prostej",
-      "playerUrl": null,
-      "age": null,
-      "position": null,
-      "nationality": null,
-      "flagCode": null,
-      "flag": "",
-      "fromClub": "—",
-      "fromClubUrl": null,
-      "fromClubCrest": null,
-      "toClub": "—",
-      "toClubUrl": null,
-      "toClubCrest": null,
-      "fee": "—",
-      "status": "rumour",
-      "market": "Poland",
-      "markets": [
-        "Poland"
-      ],
-      "competition": null,
-      "sourceAdapter": "weszlo-rss",
-      "sourceRole": "publication",
-      "sourceName": "Weszło",
-      "sourceUrl": "https://weszlo.com/kibic-schalke-wroci-do-domu%3F+transfer+na+ostatniej+prostej",
-      "sources": [
-        {
-          "name": "Weszło",
-          "url": "https://weszlo.com/kibic-schalke-wroci-do-domu%3F+transfer+na+ostatniej+prostej",
-          "role": "publication"
-        }
-      ],
-      "firstSeenAt": "2026-07-14T21:53:04.000Z",
-      "competitions": [],
-      "sourceAdapters": [
-        "weszlo-rss"
-      ]
-    },
-    {
       "id": "eb74b4a36e8313",
       "date": "2026-07-14",
       "time": "23:40",
-      "player": "Palmeiras negocia empréstimo de Luighi para o New York City",
+      "headline": "Palmeiras negocia empréstimo de Luighi para o New York City",
+      "player": "Luighi",
       "playerUrl": null,
       "age": null,
       "position": null,
       "nationality": null,
       "flagCode": null,
       "flag": "",
-      "fromClub": "—",
+      "fromClub": "Palmeiras",
       "fromClubUrl": null,
       "fromClubCrest": null,
-      "toClub": "—",
+      "toClub": "New York City FC",
       "toClubUrl": null,
       "toClubCrest": null,
-      "fee": "—",
+      "fee": "Loan",
       "status": "rumour",
+      "extractionStatus": "complete",
       "market": "Brazil",
       "markets": [
         "Brazil"
@@ -1105,270 +1081,26 @@
       ]
     },
     {
-      "id": "2adc4ce3e3127d",
-      "date": "2026-07-14",
-      "time": "22:38",
-      "player": "Doekhi zu Lazio Rom - Ex-Unioner Verteidiger mit Italienern einig",
-      "playerUrl": null,
-      "age": null,
-      "position": null,
-      "nationality": null,
-      "flagCode": null,
-      "flag": "",
-      "fromClub": "—",
-      "fromClubUrl": null,
-      "fromClubCrest": null,
-      "toClub": "—",
-      "toClubUrl": null,
-      "toClubCrest": null,
-      "fee": "—",
-      "status": "rumour",
-      "market": "Germany",
-      "markets": [
-        "Germany"
-      ],
-      "competition": null,
-      "sourceAdapter": "sportschau-rss",
-      "sourceRole": "publication",
-      "sourceName": "Sportschau",
-      "sourceUrl": "https://www.sportschau.de/regional/rbb/rbb-doekhi-zu-lazio-rom-ex-unioner-verteidiger-mit-italienern-einig-100.html",
-      "sources": [
-        {
-          "name": "Sportschau",
-          "url": "https://www.sportschau.de/regional/rbb/rbb-doekhi-zu-lazio-rom-ex-unioner-verteidiger-mit-italienern-einig-100.html",
-          "role": "publication"
-        }
-      ],
-      "firstSeenAt": "2026-07-14T20:38:53.000Z",
-      "competitions": [],
-      "sourceAdapters": [
-        "sportschau-rss"
-      ]
-    },
-    {
-      "id": "de7e68d891308a",
-      "date": "2026-07-14",
-      "time": "22:12",
-      "player": "Mercato: c'est officiel, l'OM vend Greenwood et dit au revoir à son meilleur buteur",
-      "playerUrl": null,
-      "age": null,
-      "position": null,
-      "nationality": null,
-      "flagCode": null,
-      "flag": "",
-      "fromClub": "—",
-      "fromClubUrl": null,
-      "fromClubCrest": null,
-      "toClub": "—",
-      "toClubUrl": null,
-      "toClubCrest": null,
-      "fee": "—",
-      "status": "rumour",
-      "market": "France",
-      "markets": [
-        "France"
-      ],
-      "competition": null,
-      "sourceAdapter": "rmc-rss",
-      "sourceRole": "publication",
-      "sourceName": "RMC Sport",
-      "sourceUrl": "https://rmcsport.bfmtv.com/football/transferts/mercato-c-est-officiel-l-om-vend-greenwood-et-dit-au-revoir-a-son-meilleur-buteur_AV-202607140633.html",
-      "sources": [
-        {
-          "name": "RMC Sport",
-          "url": "https://rmcsport.bfmtv.com/football/transferts/mercato-c-est-officiel-l-om-vend-greenwood-et-dit-au-revoir-a-son-meilleur-buteur_AV-202607140633.html",
-          "role": "publication"
-        }
-      ],
-      "firstSeenAt": "2026-07-14T20:12:06.000Z",
-      "competitions": [],
-      "sourceAdapters": [
-        "rmc-rss"
-      ]
-    },
-    {
-      "id": "0b61e8b47ee9c8",
-      "date": "2026-07-14",
-      "time": "21:48",
-      "player": "DIRECT. Mercato: Fenerbahçe officialise l'arrivée de Greenwood",
-      "playerUrl": null,
-      "age": null,
-      "position": null,
-      "nationality": null,
-      "flagCode": null,
-      "flag": "",
-      "fromClub": "—",
-      "fromClubUrl": null,
-      "fromClubCrest": null,
-      "toClub": "—",
-      "toClubUrl": null,
-      "toClubCrest": null,
-      "fee": "—",
-      "status": "rumour",
-      "market": "France",
-      "markets": [
-        "France"
-      ],
-      "competition": null,
-      "sourceAdapter": "rmc-rss",
-      "sourceRole": "publication",
-      "sourceName": "RMC Sport",
-      "sourceUrl": "https://rmcsport.bfmtv.com/football/transferts/direct-mercato-suivez-en-live-toutes-les-infos-et-rumeurs-du-13-juillet-2026_LN-202607130225.html",
-      "sources": [
-        {
-          "name": "RMC Sport",
-          "url": "https://rmcsport.bfmtv.com/football/transferts/direct-mercato-suivez-en-live-toutes-les-infos-et-rumeurs-du-13-juillet-2026_LN-202607130225.html",
-          "role": "publication"
-        }
-      ],
-      "firstSeenAt": "2026-07-14T19:48:54.000Z",
-      "competitions": [],
-      "sourceAdapters": [
-        "rmc-rss"
-      ]
-    },
-    {
-      "id": "3b19f419d3bbf5",
-      "date": "2026-07-14",
-      "time": "21:35",
-      "player": "Fenerbahce meldet Greenwood-Deal – Dreifaches Gehalt wie in Marseille",
-      "playerUrl": null,
-      "age": null,
-      "position": null,
-      "nationality": null,
-      "flagCode": null,
-      "flag": "",
-      "fromClub": "—",
-      "fromClubUrl": null,
-      "fromClubCrest": null,
-      "toClub": "—",
-      "toClubUrl": null,
-      "toClubCrest": null,
-      "fee": "—",
-      "status": "rumour",
-      "market": "Germany",
-      "markets": [
-        "Germany"
-      ],
-      "competition": null,
-      "sourceAdapter": "transfermarkt-de-rss",
-      "sourceRole": "database",
-      "sourceName": "Transfermarkt DE",
-      "sourceUrl": "https://www.transfermarkt.de/fener-meldet-greenwood-deal-dreifaches-gehalt-wie-bei-om-nur-osimhen-war-teurer/view/news/482670",
-      "sources": [
-        {
-          "name": "Transfermarkt DE",
-          "url": "https://www.transfermarkt.de/fener-meldet-greenwood-deal-dreifaches-gehalt-wie-bei-om-nur-osimhen-war-teurer/view/news/482670",
-          "role": "database"
-        }
-      ],
-      "firstSeenAt": "2026-07-14T19:35:50.000Z",
-      "competitions": [],
-      "sourceAdapters": [
-        "transfermarkt-de-rss"
-      ]
-    },
-    {
-      "id": "d9f07f6adab027",
-      "date": "2026-07-14",
-      "time": "20:54",
-      "player": "Transfers Ajax: 'Barça geeft groen licht voor transfer Ter Stegen'",
-      "playerUrl": null,
-      "age": null,
-      "position": null,
-      "nationality": null,
-      "flagCode": null,
-      "flag": "",
-      "fromClub": "—",
-      "fromClubUrl": null,
-      "fromClubCrest": null,
-      "toClub": "—",
-      "toClubUrl": null,
-      "toClubCrest": null,
-      "fee": "—",
-      "status": "rumour",
-      "market": "Netherlands",
-      "markets": [
-        "Netherlands"
-      ],
-      "competition": null,
-      "sourceAdapter": "vi-rss",
-      "sourceRole": "publication",
-      "sourceName": "Voetbal International",
-      "sourceUrl": "https://www.vi.nl/nieuws/transfers-ajax-barca-geeft-groen-licht-voor-transfer-ter-stegen",
-      "sources": [
-        {
-          "name": "Voetbal International",
-          "url": "https://www.vi.nl/nieuws/transfers-ajax-barca-geeft-groen-licht-voor-transfer-ter-stegen",
-          "role": "publication"
-        }
-      ],
-      "firstSeenAt": "2026-07-14T18:54:00.000Z",
-      "competitions": [],
-      "sourceAdapters": [
-        "vi-rss"
-      ]
-    },
-    {
-      "id": "7e03eb0c244988",
-      "date": "2026-07-14",
-      "time": "20:40",
-      "player": "Leeds vor Muharemović-Transfer – Juventus verdient großen Anteil",
-      "playerUrl": null,
-      "age": null,
-      "position": null,
-      "nationality": null,
-      "flagCode": null,
-      "flag": "",
-      "fromClub": "—",
-      "fromClubUrl": null,
-      "fromClubCrest": null,
-      "toClub": "—",
-      "toClubUrl": null,
-      "toClubCrest": null,
-      "fee": "—",
-      "status": "rumour",
-      "market": "Germany",
-      "markets": [
-        "Germany"
-      ],
-      "competition": null,
-      "sourceAdapter": "transfermarkt-de-rss",
-      "sourceRole": "database",
-      "sourceName": "Transfermarkt DE",
-      "sourceUrl": "https://www.transfermarkt.de/leeds-vor-transfer-von-muharemovic-rutter-nur-wegen-weiterverkaufsbeteiligung-teurer/view/news/482958",
-      "sources": [
-        {
-          "name": "Transfermarkt DE",
-          "url": "https://www.transfermarkt.de/leeds-vor-transfer-von-muharemovic-rutter-nur-wegen-weiterverkaufsbeteiligung-teurer/view/news/482958",
-          "role": "database"
-        }
-      ],
-      "firstSeenAt": "2026-07-14T18:40:25.000Z",
-      "competitions": [],
-      "sourceAdapters": [
-        "transfermarkt-de-rss"
-      ]
-    },
-    {
       "id": "c02824898ac21d",
       "date": "2026-07-14",
       "time": "19:02",
-      "player": "Manchester United close to agreeing club-record sale of Melvine Malard to Chelsea",
+      "headline": "Manchester United close to agreeing club-record sale of Melvine Malard to Chelsea",
+      "player": "Melvine Malard",
       "playerUrl": null,
       "age": null,
       "position": null,
       "nationality": null,
       "flagCode": null,
       "flag": "",
-      "fromClub": "—",
+      "fromClub": "Manchester United",
       "fromClubUrl": null,
       "fromClubCrest": null,
-      "toClub": "—",
+      "toClub": "Chelsea",
       "toClubUrl": null,
       "toClubCrest": null,
       "fee": "—",
       "status": "rumour",
+      "extractionStatus": "complete",
       "market": "United Kingdom",
       "markets": [
         "United Kingdom"
@@ -1395,21 +1127,23 @@
       "id": "cb12d9f0adbaeb",
       "date": "2026-07-14",
       "time": "14:25",
-      "player": "El Celta a un paso de cerrar la cesión de Hugo Sotelo al Levante",
+      "headline": "El Celta a un paso de cerrar la cesión de Hugo Sotelo al Levante",
+      "player": "Hugo Sotelo",
       "playerUrl": null,
       "age": null,
       "position": null,
       "nationality": null,
       "flagCode": null,
       "flag": "",
-      "fromClub": "—",
+      "fromClub": "Celta Vigo",
       "fromClubUrl": null,
       "fromClubCrest": null,
-      "toClub": "—",
+      "toClub": "Levante",
       "toClubUrl": null,
       "toClubCrest": null,
-      "fee": "—",
+      "fee": "Loan",
       "status": "rumour",
+      "extractionStatus": "complete",
       "market": "Spain",
       "markets": [
         "Spain"
@@ -1480,170 +1214,6 @@
       "sourceAdapters": [
         "wikipedia-england",
         "guardian-rss"
-      ]
-    },
-    {
-      "id": "19db9be223dd52",
-      "date": "2026-07-14",
-      "time": "13:59",
-      "player": "Fernando Soriano: \"Tres fichajes más van a venir seguro\"",
-      "playerUrl": null,
-      "age": null,
-      "position": null,
-      "nationality": null,
-      "flagCode": null,
-      "flag": "",
-      "fromClub": "—",
-      "fromClubUrl": null,
-      "fromClubCrest": null,
-      "toClub": "—",
-      "toClubUrl": null,
-      "toClubCrest": null,
-      "fee": "—",
-      "status": "rumour",
-      "market": "Spain",
-      "markets": [
-        "Spain"
-      ],
-      "competition": null,
-      "sourceAdapter": "marca-rss",
-      "sourceRole": "publication",
-      "sourceName": "Marca",
-      "sourceUrl": "https://www.marca.com/futbol/deportivo/2026/07/14/fernando-soriano-tres-fichajes-venir-seguro.html",
-      "sources": [
-        {
-          "name": "Marca",
-          "url": "https://www.marca.com/futbol/deportivo/2026/07/14/fernando-soriano-tres-fichajes-venir-seguro.html",
-          "role": "publication"
-        }
-      ],
-      "firstSeenAt": "2026-07-14T11:59:10.000Z",
-      "competitions": [],
-      "sourceAdapters": [
-        "marca-rss"
-      ]
-    },
-    {
-      "id": "ad17d7c605af4f",
-      "date": "2026-07-14",
-      "time": "13:08",
-      "player": "Manchester City set sights on signing Morocco’s Ayyoub Bouaddi for £85m",
-      "playerUrl": null,
-      "age": null,
-      "position": null,
-      "nationality": null,
-      "flagCode": null,
-      "flag": "",
-      "fromClub": "—",
-      "fromClubUrl": null,
-      "fromClubCrest": null,
-      "toClub": "—",
-      "toClubUrl": null,
-      "toClubCrest": null,
-      "fee": "—",
-      "status": "rumour",
-      "market": "United Kingdom",
-      "markets": [
-        "United Kingdom"
-      ],
-      "competition": null,
-      "sourceAdapter": "guardian-rss",
-      "sourceRole": "publication",
-      "sourceName": "The Guardian",
-      "sourceUrl": "https://www.theguardian.com/football/2026/jul/14/manchester-city-set-sights-on-signing-morocco-ayyoub-bouaddi-85m-transfer-window",
-      "sources": [
-        {
-          "name": "The Guardian",
-          "url": "https://www.theguardian.com/football/2026/jul/14/manchester-city-set-sights-on-signing-morocco-ayyoub-bouaddi-85m-transfer-window",
-          "role": "publication"
-        }
-      ],
-      "firstSeenAt": "2026-07-14T11:08:17.000Z",
-      "competitions": [],
-      "sourceAdapters": [
-        "guardian-rss"
-      ]
-    },
-    {
-      "id": "b15dae1587b66c",
-      "date": "2026-07-14",
-      "time": "11:22",
-      "player": "Aliou Dieng, el fichaje ‘desconocido’ del Valencia a sus 28 años: así lo ve el club en clave defensiva y ofensiva",
-      "playerUrl": null,
-      "age": null,
-      "position": null,
-      "nationality": null,
-      "flagCode": null,
-      "flag": "",
-      "fromClub": "—",
-      "fromClubUrl": null,
-      "fromClubCrest": null,
-      "toClub": "—",
-      "toClubUrl": null,
-      "toClubCrest": null,
-      "fee": "—",
-      "status": "rumour",
-      "market": "Spain",
-      "markets": [
-        "Spain"
-      ],
-      "competition": null,
-      "sourceAdapter": "marca-rss",
-      "sourceRole": "publication",
-      "sourceName": "Marca",
-      "sourceUrl": "https://www.marca.com/futbol/valencia/2026/07/14/aliou-dieng-fichaje-desconocido-valencia-28-anos-asi-ve-club-clave-defensiva-ofensiva.html",
-      "sources": [
-        {
-          "name": "Marca",
-          "url": "https://www.marca.com/futbol/valencia/2026/07/14/aliou-dieng-fichaje-desconocido-valencia-28-anos-asi-ve-club-clave-defensiva-ofensiva.html",
-          "role": "publication"
-        }
-      ],
-      "firstSeenAt": "2026-07-14T09:22:11.000Z",
-      "competitions": [],
-      "sourceAdapters": [
-        "marca-rss"
-      ]
-    },
-    {
-      "id": "4fef4ef2b2c9e2",
-      "date": "2026-07-14",
-      "time": "08:55",
-      "player": "Fernando Calero, cerca de ser el primer fichaje del Málaga",
-      "playerUrl": null,
-      "age": null,
-      "position": null,
-      "nationality": null,
-      "flagCode": null,
-      "flag": "",
-      "fromClub": "—",
-      "fromClubUrl": null,
-      "fromClubCrest": null,
-      "toClub": "—",
-      "toClubUrl": null,
-      "toClubCrest": null,
-      "fee": "—",
-      "status": "rumour",
-      "market": "Spain",
-      "markets": [
-        "Spain"
-      ],
-      "competition": null,
-      "sourceAdapter": "marca-rss",
-      "sourceRole": "publication",
-      "sourceName": "Marca",
-      "sourceUrl": "https://www.marca.com/futbol/malaga/2026/07/14/fernando-calero-cerca-primer-fichaje-malaga.html",
-      "sources": [
-        {
-          "name": "Marca",
-          "url": "https://www.marca.com/futbol/malaga/2026/07/14/fernando-calero-cerca-primer-fichaje-malaga.html",
-          "role": "publication"
-        }
-      ],
-      "firstSeenAt": "2026-07-14T06:55:46.000Z",
-      "competitions": [],
-      "sourceAdapters": [
-        "marca-rss"
       ]
     },
     {
@@ -1948,6 +1518,265 @@
       ]
     },
     {
+      "id": "36d99f8331f7b6",
+      "date": "2026-07-13",
+      "time": "—",
+      "player": "Kjell Wätjen",
+      "playerUrl": "https://en.wikipedia.org/wiki/Kjell_W%C3%A4tjen",
+      "age": 20,
+      "position": "MC",
+      "nationality": "Germany",
+      "flagCode": "de",
+      "flag": "🇩🇪",
+      "fromClub": "Borussia Dortmund",
+      "fromClubUrl": "https://en.wikipedia.org/wiki/Borussia_Dortmund",
+      "fromClubCrest": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/Borussia_Dortmund_logo.svg/120px-Borussia_Dortmund_logo.svg.png",
+      "toClub": "Midtjylland",
+      "toClubUrl": "https://en.wikipedia.org/wiki/FC_Midtjylland",
+      "toClubCrest": "https://upload.wikimedia.org/wikipedia/en/thumb/d/dd/FC_Midtjylland_logo.svg/120px-FC_Midtjylland_logo.svg.png",
+      "fee": "Undisclosed",
+      "status": "official",
+      "market": "Germany",
+      "markets": [
+        "Germany"
+      ],
+      "competition": "Bundesliga",
+      "sourceAdapter": "wikipedia-germany",
+      "sourceRole": "primary_official",
+      "sourceName": "bvb.de",
+      "sourceUrl": "https://www.bvb.de/de/de/aktuelles/news/news.html/2026/7/13/Kjell-Waetjen-wechselt-zum-FC-Midtjylland.html",
+      "sources": [
+        {
+          "name": "bvb.de",
+          "url": "https://www.bvb.de/de/de/aktuelles/news/news.html/2026/7/13/Kjell-Waetjen-wechselt-zum-FC-Midtjylland.html",
+          "role": "primary_official"
+        }
+      ],
+      "firstSeenAt": "2026-07-13T12:00:00.000Z",
+      "competitions": [
+        "Bundesliga"
+      ],
+      "sourceAdapters": [
+        "wikipedia-germany"
+      ]
+    },
+    {
+      "id": "2f92049dfc39d4",
+      "date": "2026-07-13",
+      "time": "—",
+      "player": "Hennes Behrens",
+      "playerUrl": "https://en.wikipedia.org/wiki/Hennes_Behrens",
+      "age": 21,
+      "position": "DC",
+      "nationality": "Germany",
+      "flagCode": "de",
+      "flag": "🇩🇪",
+      "fromClub": "TSG Hoffenheim",
+      "fromClubUrl": "https://en.wikipedia.org/wiki/TSG_Hoffenheim",
+      "fromClubCrest": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Logo_TSG_Hoffenheim.svg/120px-Logo_TSG_Hoffenheim.svg.png",
+      "toClub": "FC Augsburg",
+      "toClubUrl": "https://en.wikipedia.org/wiki/FC_Augsburg",
+      "toClubCrest": "https://upload.wikimedia.org/wikipedia/en/thumb/c/c5/FC_Augsburg_logo.svg/120px-FC_Augsburg_logo.svg.png",
+      "fee": "Undisclosed",
+      "status": "official",
+      "market": "Germany",
+      "markets": [
+        "Germany"
+      ],
+      "competition": "Bundesliga",
+      "sourceAdapter": "wikipedia-germany",
+      "sourceRole": "primary_official",
+      "sourceName": "fcaugsburg.de",
+      "sourceUrl": "https://www.fcaugsburg.de/article/langfristiger-vertrag-fca-verstaerkt-sich-mit-hennes-behrens-23249",
+      "sources": [
+        {
+          "name": "fcaugsburg.de",
+          "url": "https://www.fcaugsburg.de/article/langfristiger-vertrag-fca-verstaerkt-sich-mit-hennes-behrens-23249",
+          "role": "primary_official"
+        }
+      ],
+      "firstSeenAt": "2026-07-13T12:00:00.000Z",
+      "competitions": [
+        "Bundesliga"
+      ],
+      "sourceAdapters": [
+        "wikipedia-germany"
+      ]
+    },
+    {
+      "id": "6b5fbd6bdb872e",
+      "date": "2026-07-13",
+      "time": "—",
+      "player": "Maxim Dal",
+      "playerUrl": null,
+      "age": null,
+      "position": "DC",
+      "nationality": "Germany",
+      "flagCode": "de",
+      "flag": "🇩🇪",
+      "fromClub": "Mainz 05",
+      "fromClubUrl": "https://en.wikipedia.org/wiki/Mainz_05",
+      "fromClubCrest": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/1._FSV_Mainz_05_logo.svg/120px-1._FSV_Mainz_05_logo.svg.png",
+      "toClub": "Greuther Fürth",
+      "toClubUrl": "https://en.wikipedia.org/wiki/SpVgg_Greuther_F%C3%BCrth",
+      "toClubCrest": "https://upload.wikimedia.org/wikipedia/en/thumb/f/f2/SpVgg_Greuther_F%C3%BCrth_logo_%282017%29.svg/120px-SpVgg_Greuther_F%C3%BCrth_logo_%282017%29.svg.png",
+      "fee": "Undisclosed",
+      "status": "official",
+      "market": "Germany",
+      "markets": [
+        "Germany"
+      ],
+      "competition": "Bundesliga",
+      "sourceAdapter": "wikipedia-germany",
+      "sourceRole": "primary_official",
+      "sourceName": "sgf1903.de",
+      "sourceUrl": "https://www.sgf1903.de/news/profis/kleeblatt-lotst-dal-nach-fuerth",
+      "sources": [
+        {
+          "name": "sgf1903.de",
+          "url": "https://www.sgf1903.de/news/profis/kleeblatt-lotst-dal-nach-fuerth",
+          "role": "primary_official"
+        }
+      ],
+      "firstSeenAt": "2026-07-13T12:00:00.000Z",
+      "competitions": [
+        "Bundesliga",
+        "2. Bundesliga"
+      ],
+      "sourceAdapters": [
+        "wikipedia-germany"
+      ]
+    },
+    {
+      "id": "f2895ac18f1393",
+      "date": "2026-07-13",
+      "time": "—",
+      "player": "Martin Adeline",
+      "playerUrl": "https://en.wikipedia.org/wiki/Martin_Adeline",
+      "age": 22,
+      "position": "MC",
+      "nationality": "France",
+      "flagCode": "fr",
+      "flag": "🇫🇷",
+      "fromClub": "Troyes",
+      "fromClubUrl": "https://en.wikipedia.org/wiki/ES_Troyes_AC",
+      "fromClubCrest": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/ESTAC_Troyes_Logo.svg/120px-ESTAC_Troyes_Logo.svg.png",
+      "toClub": "Hamburger SV",
+      "toClubUrl": "https://en.wikipedia.org/wiki/Hamburger_SV",
+      "toClubCrest": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Hamburger_SV_logo.svg/120px-Hamburger_SV_logo.svg.png",
+      "fee": "Undisclosed",
+      "status": "official",
+      "market": "Germany",
+      "markets": [
+        "Germany"
+      ],
+      "competition": "Bundesliga",
+      "sourceAdapter": "wikipedia-germany",
+      "sourceRole": "primary_official",
+      "sourceName": "hsv.de",
+      "sourceUrl": "https://www.hsv.de/news/martin-adeline-wechselt-zum-hsv",
+      "sources": [
+        {
+          "name": "hsv.de",
+          "url": "https://www.hsv.de/news/martin-adeline-wechselt-zum-hsv",
+          "role": "primary_official"
+        }
+      ],
+      "firstSeenAt": "2026-07-13T12:00:00.000Z",
+      "competitions": [
+        "Bundesliga"
+      ],
+      "sourceAdapters": [
+        "wikipedia-germany"
+      ]
+    },
+    {
+      "id": "88dc9e06191516",
+      "date": "2026-07-13",
+      "time": "—",
+      "player": "Hennes Behrens",
+      "playerUrl": "https://en.wikipedia.org/wiki/Hennes_Behrens",
+      "age": 21,
+      "position": "DC",
+      "nationality": "Germany",
+      "flagCode": "de",
+      "flag": "🇩🇪",
+      "fromClub": "1. FC Heidenheim",
+      "fromClubUrl": "https://en.wikipedia.org/wiki/1._FC_Heidenheim",
+      "fromClubCrest": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/1._FC_Heidenheim_1846.svg/120px-1._FC_Heidenheim_1846.svg.png",
+      "toClub": "TSG Hoffenheim",
+      "toClubUrl": "https://en.wikipedia.org/wiki/TSG_1899_Hoffenheim",
+      "toClubCrest": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Logo_TSG_Hoffenheim.svg/120px-Logo_TSG_Hoffenheim.svg.png",
+      "fee": "Loan return",
+      "status": "official",
+      "market": "Germany",
+      "markets": [
+        "Germany"
+      ],
+      "competition": "2. Bundesliga",
+      "sourceAdapter": "wikipedia-germany",
+      "sourceRole": "primary_official",
+      "sourceName": "fcaugsburg.de",
+      "sourceUrl": "https://www.fcaugsburg.de/article/langfristiger-vertrag-fca-verstaerkt-sich-mit-hennes-behrens-23249",
+      "sources": [
+        {
+          "name": "fcaugsburg.de",
+          "url": "https://www.fcaugsburg.de/article/langfristiger-vertrag-fca-verstaerkt-sich-mit-hennes-behrens-23249",
+          "role": "primary_official"
+        }
+      ],
+      "firstSeenAt": "2026-07-13T12:00:00.000Z",
+      "competitions": [
+        "2. Bundesliga"
+      ],
+      "sourceAdapters": [
+        "wikipedia-germany"
+      ]
+    },
+    {
+      "id": "a0f60586d78f73",
+      "date": "2026-07-13",
+      "time": "—",
+      "player": "Kjell Wätjen",
+      "playerUrl": "https://en.wikipedia.org/wiki/Kjell_W%C3%A4tjen",
+      "age": 20,
+      "position": "MC",
+      "nationality": "Germany",
+      "flagCode": "de",
+      "flag": "🇩🇪",
+      "fromClub": "VfL Bochum",
+      "fromClubUrl": "https://en.wikipedia.org/wiki/VfL_Bochum",
+      "fromClubCrest": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/VfL_Bochum_logo.svg/120px-VfL_Bochum_logo.svg.png",
+      "toClub": "Borussia Dortmund",
+      "toClubUrl": "https://en.wikipedia.org/wiki/Borussia_Dortmund",
+      "toClubCrest": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/Borussia_Dortmund_logo.svg/120px-Borussia_Dortmund_logo.svg.png",
+      "fee": "Loan return",
+      "status": "official",
+      "market": "Germany",
+      "markets": [
+        "Germany"
+      ],
+      "competition": "2. Bundesliga",
+      "sourceAdapter": "wikipedia-germany",
+      "sourceRole": "primary_official",
+      "sourceName": "bvb.de",
+      "sourceUrl": "https://www.bvb.de/de/de/aktuelles/news/news.html/2026/7/13/Kjell-Waetjen-wechselt-zum-FC-Midtjylland.html",
+      "sources": [
+        {
+          "name": "bvb.de",
+          "url": "https://www.bvb.de/de/de/aktuelles/news/news.html/2026/7/13/Kjell-Waetjen-wechselt-zum-FC-Midtjylland.html",
+          "role": "primary_official"
+        }
+      ],
+      "firstSeenAt": "2026-07-13T12:00:00.000Z",
+      "competitions": [
+        "2. Bundesliga"
+      ],
+      "sourceAdapters": [
+        "wikipedia-germany"
+      ]
+    },
+    {
       "id": "6ae3d15b4b67d1",
       "date": "2026-07-13",
       "time": "—",
@@ -2203,47 +2032,6 @@
       ],
       "sourceAdapters": [
         "wikipedia-italy"
-      ]
-    },
-    {
-      "id": "805995bcd79642",
-      "date": "2026-07-13",
-      "time": "08:18",
-      "player": "Barca-Präsident Laporta bestätigt Adeyemi-Wechsel",
-      "playerUrl": null,
-      "age": null,
-      "position": null,
-      "nationality": null,
-      "flagCode": null,
-      "flag": "",
-      "fromClub": "—",
-      "fromClubUrl": null,
-      "fromClubCrest": null,
-      "toClub": "—",
-      "toClubUrl": null,
-      "toClubCrest": null,
-      "fee": "—",
-      "status": "rumour",
-      "market": "Germany",
-      "markets": [
-        "Germany"
-      ],
-      "competition": null,
-      "sourceAdapter": "sportschau-rss",
-      "sourceRole": "publication",
-      "sourceName": "Sportschau",
-      "sourceUrl": "https://www.sportschau.de/regional/wdr/wdr-barca-praesident-laporta-bestaetigt-adeyemi-wechsel-100.html",
-      "sources": [
-        {
-          "name": "Sportschau",
-          "url": "https://www.sportschau.de/regional/wdr/wdr-barca-praesident-laporta-bestaetigt-adeyemi-wechsel-100.html",
-          "role": "publication"
-        }
-      ],
-      "firstSeenAt": "2026-07-13T06:18:13.000Z",
-      "competitions": [],
-      "sourceAdapters": [
-        "sportschau-rss"
       ]
     },
     {
@@ -2760,6 +2548,135 @@
       ],
       "sourceAdapters": [
         "wikipedia-england"
+      ]
+    },
+    {
+      "id": "c626cd62e98b3a",
+      "date": "2026-07-11",
+      "time": "—",
+      "player": "Haris Tabaković",
+      "playerUrl": "https://en.wikipedia.org/wiki/Haris_Tabakovi%C4%87",
+      "age": 32,
+      "position": "ST",
+      "nationality": "Bosnia and Herzegovina",
+      "flagCode": "ba",
+      "flag": "🇧🇦",
+      "fromClub": "TSG Hoffenheim",
+      "fromClubUrl": "https://en.wikipedia.org/wiki/TSG_Hoffenheim",
+      "fromClubCrest": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Logo_TSG_Hoffenheim.svg/120px-Logo_TSG_Hoffenheim.svg.png",
+      "toClub": "Red Bull Salzburg",
+      "toClubUrl": "https://en.wikipedia.org/wiki/FC_Red_Bull_Salzburg",
+      "toClubCrest": "https://upload.wikimedia.org/wikipedia/en/thumb/7/77/FC_Red_Bull_Salzburg_logo.svg/120px-FC_Red_Bull_Salzburg_logo.svg.png",
+      "fee": "Undisclosed",
+      "status": "official",
+      "market": "Germany",
+      "markets": [
+        "Germany"
+      ],
+      "competition": "Bundesliga",
+      "sourceAdapter": "wikipedia-germany",
+      "sourceRole": "primary_official",
+      "sourceName": "tsg-hoffenheim.de",
+      "sourceUrl": "https://www.tsg-hoffenheim.de/aktuelles/news/2026/07/haris-tabakovic-wechselt-zu-rb-salzburg",
+      "sources": [
+        {
+          "name": "tsg-hoffenheim.de",
+          "url": "https://www.tsg-hoffenheim.de/aktuelles/news/2026/07/haris-tabakovic-wechselt-zu-rb-salzburg",
+          "role": "primary_official"
+        }
+      ],
+      "firstSeenAt": "2026-07-11T12:00:00.000Z",
+      "competitions": [
+        "Bundesliga"
+      ],
+      "sourceAdapters": [
+        "wikipedia-germany"
+      ]
+    },
+    {
+      "id": "e9db1c9b92ea51",
+      "date": "2026-07-11",
+      "time": "—",
+      "player": "Haris Tabaković",
+      "playerUrl": "https://en.wikipedia.org/wiki/Haris_Tabakovi%C4%87",
+      "age": 32,
+      "position": "ST",
+      "nationality": "Bosnia and Herzegovina",
+      "flagCode": "ba",
+      "flag": "🇧🇦",
+      "fromClub": "Borussia Mönchengladbach",
+      "fromClubUrl": "https://en.wikipedia.org/wiki/Borussia_M%C3%B6nchengladbach",
+      "fromClubCrest": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/Borussia_M%C3%B6nchengladbach_logo.svg/120px-Borussia_M%C3%B6nchengladbach_logo.svg.png",
+      "toClub": "TSG Hoffenheim",
+      "toClubUrl": "https://en.wikipedia.org/wiki/TSG_1899_Hoffenheim",
+      "toClubCrest": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Logo_TSG_Hoffenheim.svg/120px-Logo_TSG_Hoffenheim.svg.png",
+      "fee": "Loan return",
+      "status": "official",
+      "market": "Germany",
+      "markets": [
+        "Germany"
+      ],
+      "competition": "Bundesliga",
+      "sourceAdapter": "wikipedia-germany",
+      "sourceRole": "primary_official",
+      "sourceName": "tsg-hoffenheim.de",
+      "sourceUrl": "https://www.tsg-hoffenheim.de/aktuelles/news/2026/07/haris-tabakovic-wechselt-zu-rb-salzburg",
+      "sources": [
+        {
+          "name": "tsg-hoffenheim.de",
+          "url": "https://www.tsg-hoffenheim.de/aktuelles/news/2026/07/haris-tabakovic-wechselt-zu-rb-salzburg",
+          "role": "primary_official"
+        }
+      ],
+      "firstSeenAt": "2026-07-11T12:00:00.000Z",
+      "competitions": [
+        "Bundesliga"
+      ],
+      "sourceAdapters": [
+        "wikipedia-germany"
+      ]
+    },
+    {
+      "id": "de36e20e332441",
+      "date": "2026-07-11",
+      "time": "—",
+      "player": "Gideon Mensah",
+      "playerUrl": "https://en.wikipedia.org/wiki/Gideon_Mensah_(footballer,_born_1998)",
+      "age": 27,
+      "position": "DC",
+      "nationality": "Ghana",
+      "flagCode": "gh",
+      "flag": "🇬🇭",
+      "fromClub": "Auxerre",
+      "fromClubUrl": "https://en.wikipedia.org/wiki/AJ_Auxerre",
+      "fromClubCrest": "https://upload.wikimedia.org/wikipedia/en/thumb/5/51/AJAuxerreLogo.svg/120px-AJAuxerreLogo.svg.png",
+      "toClub": "1. FC Köln",
+      "toClubUrl": "https://en.wikipedia.org/wiki/1._FC_K%C3%B6ln",
+      "toClubCrest": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/1._FC_Koeln_Logo_2014%E2%80%93.svg/120px-1._FC_Koeln_Logo_2014%E2%80%93.svg.png",
+      "fee": "Undisclosed",
+      "status": "official",
+      "market": "Germany",
+      "markets": [
+        "Germany"
+      ],
+      "competition": "Bundesliga",
+      "sourceAdapter": "wikipedia-germany",
+      "sourceRole": "primary_official",
+      "sourceName": "fc.de",
+      "sourceUrl": "https://fc.de/aktuelles/news/fc-verpflichtet-gideon-mensah",
+      "sources": [
+        {
+          "name": "fc.de",
+          "url": "https://fc.de/aktuelles/news/fc-verpflichtet-gideon-mensah",
+          "role": "primary_official"
+        }
+      ],
+      "firstSeenAt": "2026-07-11T12:00:00.000Z",
+      "competitions": [
+        "Bundesliga"
+      ],
+      "sourceAdapters": [
+        "wikipedia-germany"
       ]
     },
     {
@@ -3838,6 +3755,178 @@
       ]
     },
     {
+      "id": "89b4c455e89557",
+      "date": "2026-07-10",
+      "time": "—",
+      "player": "Sima Suso",
+      "playerUrl": "https://en.wikipedia.org/wiki/Sima_Suso",
+      "age": 21,
+      "position": "MC",
+      "nationality": "Germany",
+      "flagCode": "de",
+      "flag": "🇩🇪",
+      "fromClub": "Fortuna Düsseldorf",
+      "fromClubUrl": "https://en.wikipedia.org/wiki/Fortuna_D%C3%BCsseldorf",
+      "fromClubCrest": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/Fortuna_D%C3%BCsseldorf.svg/120px-Fortuna_D%C3%BCsseldorf.svg.png",
+      "toClub": "FC Augsburg",
+      "toClubUrl": "https://en.wikipedia.org/wiki/FC_Augsburg",
+      "toClubCrest": "https://upload.wikimedia.org/wikipedia/en/thumb/c/c5/FC_Augsburg_logo.svg/120px-FC_Augsburg_logo.svg.png",
+      "fee": "Undisclosed",
+      "status": "official",
+      "market": "Germany",
+      "markets": [
+        "Germany"
+      ],
+      "competition": "Bundesliga",
+      "sourceAdapter": "wikipedia-germany",
+      "sourceRole": "primary_official",
+      "sourceName": "fcaugsburg.de",
+      "sourceUrl": "https://www.fcaugsburg.de/article/fca-verpflichtet-defensiv-talent-sima-suso-23244",
+      "sources": [
+        {
+          "name": "fcaugsburg.de",
+          "url": "https://www.fcaugsburg.de/article/fca-verpflichtet-defensiv-talent-sima-suso-23244",
+          "role": "primary_official"
+        }
+      ],
+      "firstSeenAt": "2026-07-10T12:00:00.000Z",
+      "competitions": [
+        "Bundesliga"
+      ],
+      "sourceAdapters": [
+        "wikipedia-germany"
+      ]
+    },
+    {
+      "id": "f16959c80dc65c",
+      "date": "2026-07-10",
+      "time": "—",
+      "player": "Felix Meiser",
+      "playerUrl": null,
+      "age": null,
+      "position": "DC",
+      "nationality": "Germany",
+      "flagCode": "de",
+      "flag": "🇩🇪",
+      "fromClub": "FC Augsburg",
+      "fromClubUrl": "https://en.wikipedia.org/wiki/FC_Augsburg",
+      "fromClubCrest": "https://upload.wikimedia.org/wikipedia/en/thumb/c/c5/FC_Augsburg_logo.svg/120px-FC_Augsburg_logo.svg.png",
+      "toClub": "Fortuna Düsseldorf",
+      "toClubUrl": "https://en.wikipedia.org/wiki/Fortuna_D%C3%BCsseldorf",
+      "toClubCrest": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/Fortuna_D%C3%BCsseldorf.svg/120px-Fortuna_D%C3%BCsseldorf.svg.png",
+      "fee": "Undisclosed",
+      "status": "official",
+      "market": "Germany",
+      "markets": [
+        "Germany"
+      ],
+      "competition": "Bundesliga",
+      "sourceAdapter": "wikipedia-germany",
+      "sourceRole": "primary_official",
+      "sourceName": "fcaugsburg.de",
+      "sourceUrl": "https://www.fcaugsburg.de/article/felix-meiser-wechselt-nach-duesseldorf-23245",
+      "sources": [
+        {
+          "name": "fcaugsburg.de",
+          "url": "https://www.fcaugsburg.de/article/felix-meiser-wechselt-nach-duesseldorf-23245",
+          "role": "primary_official"
+        }
+      ],
+      "firstSeenAt": "2026-07-10T12:00:00.000Z",
+      "competitions": [
+        "Bundesliga"
+      ],
+      "sourceAdapters": [
+        "wikipedia-germany"
+      ]
+    },
+    {
+      "id": "b252911bc32657",
+      "date": "2026-07-10",
+      "time": "—",
+      "player": "Aboubaka Soumahoro",
+      "playerUrl": "https://en.wikipedia.org/wiki/Aboubaka_Soumahoro",
+      "age": 21,
+      "position": "DC",
+      "nationality": "France",
+      "flagCode": "fr",
+      "flag": "🇫🇷",
+      "fromClub": "Hamburger SV",
+      "fromClubUrl": "https://en.wikipedia.org/wiki/Hamburger_SV",
+      "fromClubCrest": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Hamburger_SV_logo.svg/120px-Hamburger_SV_logo.svg.png",
+      "toClub": "Mallorca",
+      "toClubUrl": "https://en.wikipedia.org/wiki/RCD_Mallorca",
+      "toClubCrest": "https://upload.wikimedia.org/wikipedia/en/thumb/e/e0/Rcd_mallorca.svg/120px-Rcd_mallorca.svg.png",
+      "fee": "Loan",
+      "status": "official",
+      "market": "Germany",
+      "markets": [
+        "Germany"
+      ],
+      "competition": "Bundesliga",
+      "sourceAdapter": "wikipedia-germany",
+      "sourceRole": "primary_official",
+      "sourceName": "hsv.de",
+      "sourceUrl": "https://www.hsv.de/news/aboubaka-soumahoro-wird-zum-rcd-mallorca-verliehen",
+      "sources": [
+        {
+          "name": "hsv.de",
+          "url": "https://www.hsv.de/news/aboubaka-soumahoro-wird-zum-rcd-mallorca-verliehen",
+          "role": "primary_official"
+        }
+      ],
+      "firstSeenAt": "2026-07-10T12:00:00.000Z",
+      "competitions": [
+        "Bundesliga"
+      ],
+      "sourceAdapters": [
+        "wikipedia-germany"
+      ]
+    },
+    {
+      "id": "9a4e6d1d336547",
+      "date": "2026-07-10",
+      "time": "—",
+      "player": "Alexander Schlager",
+      "playerUrl": "https://en.wikipedia.org/wiki/Alexander_Schlager",
+      "age": 30,
+      "position": "GK",
+      "nationality": "Poland",
+      "flagCode": "pl",
+      "flag": "🇵🇱",
+      "fromClub": "Red Bull Salzburg",
+      "fromClubUrl": "https://en.wikipedia.org/wiki/FC_Red_Bull_Salzburg",
+      "fromClubCrest": "https://upload.wikimedia.org/wikipedia/en/thumb/7/77/FC_Red_Bull_Salzburg_logo.svg/120px-FC_Red_Bull_Salzburg_logo.svg.png",
+      "toClub": "Werder Bremen",
+      "toClubUrl": "https://en.wikipedia.org/wiki/Werder_Bremen",
+      "toClubCrest": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/SV-Werder-Bremen-Logo.svg/120px-SV-Werder-Bremen-Logo.svg.png",
+      "fee": "Undisclosed",
+      "status": "official",
+      "market": "Germany",
+      "markets": [
+        "Germany"
+      ],
+      "competition": "Bundesliga",
+      "sourceAdapter": "wikipedia-germany",
+      "sourceRole": "primary_official",
+      "sourceName": "werder.de",
+      "sourceUrl": "https://www.werder.de/news/maenner/2026-2027/pm-schlager-10072026",
+      "sources": [
+        {
+          "name": "werder.de",
+          "url": "https://www.werder.de/news/maenner/2026-2027/pm-schlager-10072026",
+          "role": "primary_official"
+        }
+      ],
+      "firstSeenAt": "2026-07-10T12:00:00.000Z",
+      "competitions": [
+        "Bundesliga"
+      ],
+      "sourceAdapters": [
+        "wikipedia-germany"
+      ]
+    },
+    {
       "id": "3e9e64cc7e5c4b",
       "date": "2026-07-10",
       "time": "—",
@@ -4397,43 +4486,51 @@
       ]
     },
     {
-      "id": "9b69654412de32",
+      "id": "7ee7f6a0f47872",
       "date": "2026-07-10",
-      "time": "08:49",
-      "player": "Eberls Kader-Kniff: Die Transfer-Ziele hat FC Bayern noch",
-      "playerUrl": null,
-      "age": null,
-      "position": null,
-      "nationality": null,
-      "flagCode": null,
-      "flag": "",
-      "fromClub": "—",
-      "fromClubUrl": null,
-      "fromClubCrest": null,
-      "toClub": "—",
-      "toClubUrl": null,
-      "toClubCrest": null,
-      "fee": "—",
-      "status": "rumour",
+      "time": "—",
+      "player": "Nathan De Cat",
+      "playerUrl": "https://en.wikipedia.org/wiki/Nathan_De_Cat",
+      "age": 17,
+      "position": "MC",
+      "nationality": "Belgium",
+      "flagCode": "be",
+      "flag": "🇧🇪",
+      "fromClub": "Anderlecht",
+      "fromClubUrl": "https://en.wikipedia.org/wiki/RSC_Anderlecht",
+      "fromClubCrest": "https://upload.wikimedia.org/wikipedia/en/thumb/7/77/R.S.C._Anderlecht.svg/120px-R.S.C._Anderlecht.svg.png",
+      "toClub": "TSG Hoffenheim",
+      "toClubUrl": "https://en.wikipedia.org/wiki/TSG_Hoffenheim",
+      "toClubCrest": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Logo_TSG_Hoffenheim.svg/120px-Logo_TSG_Hoffenheim.svg.png",
+      "fee": "Undisclosed",
+      "status": "official",
       "market": "Germany",
       "markets": [
         "Germany"
       ],
-      "competition": null,
-      "sourceAdapter": "sportschau-rss",
-      "sourceRole": "publication",
-      "sourceName": "Sportschau",
-      "sourceUrl": "https://www.sportschau.de/regional/br/br-nur-noch-ein-ziel-fuer-eberl-der-kader-kniff-des-fc-bayern-102.html",
+      "competition": "Bundesliga",
+      "sourceAdapter": "wikipedia-germany",
+      "sourceRole": "primary_official",
+      "sourceName": "tsg-hoffenheim.de",
+      "sourceUrl": "https://www.tsg-hoffenheim.de/aktuelles/news/2026/07/tsg-hoffenheim-verpflichtet-top-talent-nathan-de-cat",
       "sources": [
         {
+          "name": "tsg-hoffenheim.de",
+          "url": "https://www.tsg-hoffenheim.de/aktuelles/news/2026/07/tsg-hoffenheim-verpflichtet-top-talent-nathan-de-cat",
+          "role": "primary_official"
+        },
+        {
           "name": "Sportschau",
-          "url": "https://www.sportschau.de/regional/br/br-nur-noch-ein-ziel-fuer-eberl-der-kader-kniff-des-fc-bayern-102.html",
+          "url": "https://www.sportschau.de/regional/swr/swr-rekordeinkauf-hoffenheim-verpflichtet-belgisches-wunderkind-nathan-de-cat-100.html",
           "role": "publication"
         }
       ],
-      "firstSeenAt": "2026-07-10T06:49:53.000Z",
-      "competitions": [],
+      "firstSeenAt": "2026-07-10T11:51:53.000Z",
+      "competitions": [
+        "Bundesliga"
+      ],
       "sourceAdapters": [
+        "wikipedia-germany",
         "sportschau-rss"
       ]
     },
@@ -4954,6 +5051,229 @@
       ]
     },
     {
+      "id": "4715e3120ff0d4",
+      "date": "2026-07-09",
+      "time": "—",
+      "player": "Salih Özcan",
+      "playerUrl": "https://en.wikipedia.org/wiki/Salih_%C3%96zcan",
+      "age": 28,
+      "position": "MC",
+      "nationality": "Turkey",
+      "flagCode": "tr",
+      "flag": "🇹🇷",
+      "fromClub": "Borussia Dortmund",
+      "fromClubUrl": "https://en.wikipedia.org/wiki/Borussia_Dortmund",
+      "fromClubCrest": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/Borussia_Dortmund_logo.svg/120px-Borussia_Dortmund_logo.svg.png",
+      "toClub": "Beşiktaş",
+      "toClubUrl": "https://en.wikipedia.org/wiki/Be%C5%9Fikta%C5%9F_J.K.",
+      "toClubCrest": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/BesiktasJK-Logo.svg/120px-BesiktasJK-Logo.svg.png",
+      "fee": "Undisclosed",
+      "status": "official",
+      "market": "Germany",
+      "markets": [
+        "Germany"
+      ],
+      "competition": "Bundesliga",
+      "sourceAdapter": "wikipedia-germany",
+      "sourceRole": "primary_official",
+      "sourceName": "bjk.com.tr",
+      "sourceUrl": "https://bjk.com.tr/tr/haber/94700/besiktasimiza-hos-geldin-salih-ozcan.html",
+      "sources": [
+        {
+          "name": "bjk.com.tr",
+          "url": "https://bjk.com.tr/tr/haber/94700/besiktasimiza-hos-geldin-salih-ozcan.html",
+          "role": "primary_official"
+        }
+      ],
+      "firstSeenAt": "2026-07-09T12:00:00.000Z",
+      "competitions": [
+        "Bundesliga"
+      ],
+      "sourceAdapters": [
+        "wikipedia-germany"
+      ]
+    },
+    {
+      "id": "9ebbc9550ed5b4",
+      "date": "2026-07-09",
+      "time": "—",
+      "player": "Cole Campbell",
+      "playerUrl": "https://en.wikipedia.org/wiki/Cole_Campbell",
+      "age": 20,
+      "position": "AM",
+      "nationality": "United States",
+      "flagCode": "us",
+      "flag": "🇺🇸",
+      "fromClub": "Borussia Dortmund",
+      "fromClubUrl": "https://en.wikipedia.org/wiki/Borussia_Dortmund",
+      "fromClubCrest": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/Borussia_Dortmund_logo.svg/120px-Borussia_Dortmund_logo.svg.png",
+      "toClub": "SV Elversberg",
+      "toClubUrl": "https://en.wikipedia.org/wiki/SV_Elversberg",
+      "toClubCrest": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/SV_Elversberg_Logo_2021.svg/120px-SV_Elversberg_Logo_2021.svg.png",
+      "fee": "Undisclosed",
+      "status": "official",
+      "market": "Germany",
+      "markets": [
+        "Germany"
+      ],
+      "competition": "Bundesliga",
+      "sourceAdapter": "wikipedia-germany",
+      "sourceRole": "primary_official",
+      "sourceName": "sv07elversberg.de",
+      "sourceUrl": "https://sv07elversberg.de/cole-campbell-wechselt-aus-dortmund-an-die-kaiserlinde/",
+      "sources": [
+        {
+          "name": "sv07elversberg.de",
+          "url": "https://sv07elversberg.de/cole-campbell-wechselt-aus-dortmund-an-die-kaiserlinde/",
+          "role": "primary_official"
+        }
+      ],
+      "firstSeenAt": "2026-07-09T12:00:00.000Z",
+      "competitions": [
+        "Bundesliga"
+      ],
+      "sourceAdapters": [
+        "wikipedia-germany"
+      ]
+    },
+    {
+      "id": "34afab7a3e2639",
+      "date": "2026-07-09",
+      "time": "—",
+      "player": "Cole Campbell",
+      "playerUrl": "https://en.wikipedia.org/wiki/Cole_Campbell",
+      "age": 20,
+      "position": "AM",
+      "nationality": "United States",
+      "flagCode": "us",
+      "flag": "🇺🇸",
+      "fromClub": "TSG Hoffenheim",
+      "fromClubUrl": "https://en.wikipedia.org/wiki/TSG_Hoffenheim",
+      "fromClubCrest": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Logo_TSG_Hoffenheim.svg/120px-Logo_TSG_Hoffenheim.svg.png",
+      "toClub": "Borussia Dortmund",
+      "toClubUrl": "https://en.wikipedia.org/wiki/Borussia_Dortmund",
+      "toClubCrest": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/Borussia_Dortmund_logo.svg/120px-Borussia_Dortmund_logo.svg.png",
+      "fee": "Loan return",
+      "status": "official",
+      "market": "Germany",
+      "markets": [
+        "Germany"
+      ],
+      "competition": "Bundesliga",
+      "sourceAdapter": "wikipedia-germany",
+      "sourceRole": "primary_official",
+      "sourceName": "sv07elversberg.de",
+      "sourceUrl": "https://sv07elversberg.de/cole-campbell-wechselt-aus-dortmund-an-die-kaiserlinde/",
+      "sources": [
+        {
+          "name": "sv07elversberg.de",
+          "url": "https://sv07elversberg.de/cole-campbell-wechselt-aus-dortmund-an-die-kaiserlinde/",
+          "role": "primary_official"
+        }
+      ],
+      "firstSeenAt": "2026-07-09T12:00:00.000Z",
+      "competitions": [
+        "Bundesliga"
+      ],
+      "sourceAdapters": [
+        "wikipedia-germany"
+      ]
+    },
+    {
+      "id": "f10616aa2532a0",
+      "date": "2026-07-09",
+      "time": "—",
+      "player": "Attila Szalai",
+      "playerUrl": "https://en.wikipedia.org/wiki/Attila_Szalai",
+      "age": 28,
+      "position": "DC",
+      "nationality": "Hungary",
+      "flagCode": "hu",
+      "flag": "🇭🇺",
+      "fromClub": "TSG Hoffenheim",
+      "fromClubUrl": "https://en.wikipedia.org/wiki/TSG_Hoffenheim",
+      "fromClubCrest": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Logo_TSG_Hoffenheim.svg/120px-Logo_TSG_Hoffenheim.svg.png",
+      "toClub": "Pogoń Szczecin",
+      "toClubUrl": "https://en.wikipedia.org/wiki/Pogo%C5%84_Szczecin",
+      "toClubCrest": "https://upload.wikimedia.org/wikipedia/en/thumb/5/55/Pogon_Szczecin_logo.svg/120px-Pogon_Szczecin_logo.svg.png",
+      "fee": "Undisclosed",
+      "status": "official",
+      "market": "Germany",
+      "markets": [
+        "Germany"
+      ],
+      "competition": "Bundesliga",
+      "sourceAdapter": "wikipedia-germany",
+      "sourceRole": "primary_official",
+      "sourceName": "pogonszczecin.pl",
+      "sourceUrl": "https://pogonszczecin.pl/w/attila-szalai-zostaje-w-pogoni-szczecin-",
+      "sources": [
+        {
+          "name": "pogonszczecin.pl",
+          "url": "https://pogonszczecin.pl/w/attila-szalai-zostaje-w-pogoni-szczecin-",
+          "role": "primary_official"
+        }
+      ],
+      "firstSeenAt": "2026-07-09T12:00:00.000Z",
+      "competitions": [
+        "Bundesliga"
+      ],
+      "sourceAdapters": [
+        "wikipedia-germany"
+      ]
+    },
+    {
+      "id": "bb6241256f2ebc",
+      "date": "2026-07-09",
+      "time": "—",
+      "player": "Oskar Wójcik",
+      "playerUrl": "https://en.wikipedia.org/wiki/Oskar_W%C3%B3jcik",
+      "age": 22,
+      "position": "DC",
+      "nationality": "Poland",
+      "flagCode": "pl",
+      "flag": "🇵🇱",
+      "fromClub": "Cracovia",
+      "fromClubUrl": "https://en.wikipedia.org/wiki/KS_Cracovia",
+      "fromClubCrest": "https://upload.wikimedia.org/wikipedia/en/thumb/b/b9/Cracovia_%28football_club%29_logo.svg/120px-Cracovia_%28football_club%29_logo.svg.png",
+      "toClub": "Werder Bremen",
+      "toClubUrl": "https://en.wikipedia.org/wiki/Werder_Bremen",
+      "toClubCrest": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/SV-Werder-Bremen-Logo.svg/120px-SV-Werder-Bremen-Logo.svg.png",
+      "fee": "Undisclosed",
+      "status": "official",
+      "market": "Germany",
+      "markets": [
+        "Germany",
+        "Poland"
+      ],
+      "competition": "Bundesliga",
+      "sourceAdapter": "wikipedia-germany",
+      "sourceRole": "primary_official",
+      "sourceName": "werder.de",
+      "sourceUrl": "https://www.werder.de/news/maenner/2026-2027/pm-wojcik-09072026",
+      "sources": [
+        {
+          "name": "werder.de",
+          "url": "https://www.werder.de/news/maenner/2026-2027/pm-wojcik-09072026",
+          "role": "primary_official"
+        },
+        {
+          "name": "cracovia.pl",
+          "url": "https://cracovia.pl/posts/oskar-wojcik-odchodzi-z-cracovii/6152",
+          "role": "primary_official"
+        }
+      ],
+      "firstSeenAt": "2026-07-09T12:00:00.000Z",
+      "competitions": [
+        "Bundesliga",
+        "Ekstraklasa"
+      ],
+      "sourceAdapters": [
+        "wikipedia-germany",
+        "wikipedia-poland"
+      ]
+    },
+    {
       "id": "ad578ec03e7562",
       "date": "2026-07-09",
       "time": "—",
@@ -5330,6 +5650,11 @@
           "name": "atalanta.it",
           "url": "https://www.atalanta.it/news/nuovo-innesto-a-centrocampo-benvenuto-gianluca-gaetano",
           "role": "primary_official"
+        },
+        {
+          "name": "TuttomercatoWeb",
+          "url": "https://www.tuttomercatoweb.com/fantacalcio/fantacalcio-analisi-acquisto-atalanta-gianluca-gaetano-2253049",
+          "role": "publication"
         }
       ],
       "firstSeenAt": "2026-07-09T12:00:00.000Z",
@@ -5337,7 +5662,8 @@
         "Serie A / Serie B"
       ],
       "sourceAdapters": [
-        "wikipedia-italy"
+        "wikipedia-italy",
+        "tmw-rss"
       ]
     },
     {
@@ -5673,49 +5999,6 @@
         {
           "name": "rksradomiak.pl",
           "url": "https://rksradomiak.pl/artykul-6896-filip_koperski_w_radomiaku_.html",
-          "role": "primary_official"
-        }
-      ],
-      "firstSeenAt": "2026-07-09T12:00:00.000Z",
-      "competitions": [
-        "Ekstraklasa"
-      ],
-      "sourceAdapters": [
-        "wikipedia-poland"
-      ]
-    },
-    {
-      "id": "bb6241256f2ebc",
-      "date": "2026-07-09",
-      "time": "—",
-      "player": "Oskar Wójcik",
-      "playerUrl": "https://en.wikipedia.org/wiki/Oskar_W%C3%B3jcik",
-      "age": 22,
-      "position": "DC",
-      "nationality": "Poland",
-      "flagCode": "pl",
-      "flag": "🇵🇱",
-      "fromClub": "Cracovia",
-      "fromClubUrl": "https://en.wikipedia.org/wiki/Cracovia",
-      "fromClubCrest": null,
-      "toClub": "Werder Bremen",
-      "toClubUrl": "https://en.wikipedia.org/wiki/SV_Werder_Bremen",
-      "toClubCrest": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/SV-Werder-Bremen-Logo.svg/120px-SV-Werder-Bremen-Logo.svg.png",
-      "fee": "Undisclosed",
-      "status": "official",
-      "market": "Poland",
-      "markets": [
-        "Poland"
-      ],
-      "competition": "Ekstraklasa",
-      "sourceAdapter": "wikipedia-poland",
-      "sourceRole": "primary_official",
-      "sourceName": "cracovia.pl",
-      "sourceUrl": "https://cracovia.pl/posts/oskar-wojcik-odchodzi-z-cracovii/6152",
-      "sources": [
-        {
-          "name": "cracovia.pl",
-          "url": "https://cracovia.pl/posts/oskar-wojcik-odchodzi-z-cracovii/6152",
           "role": "primary_official"
         }
       ],
@@ -7804,6 +8087,49 @@
       ]
     },
     {
+      "id": "fc0e761b96e006",
+      "date": "2026-07-06",
+      "time": "—",
+      "player": "Merlin Röhl",
+      "playerUrl": "https://en.wikipedia.org/wiki/Merlin_R%C3%B6hl",
+      "age": 24,
+      "position": "MC",
+      "nationality": "Germany",
+      "flagCode": "de",
+      "flag": "🇩🇪",
+      "fromClub": "SC Freiburg",
+      "fromClubUrl": "https://en.wikipedia.org/wiki/SC_Freiburg",
+      "fromClubCrest": "https://upload.wikimedia.org/wikipedia/en/thumb/6/6d/SC_Freiburg_logo.svg/120px-SC_Freiburg_logo.svg.png",
+      "toClub": "Everton",
+      "toClubUrl": "https://en.wikipedia.org/wiki/Everton_F.C.",
+      "toClubCrest": "https://upload.wikimedia.org/wikipedia/en/thumb/7/7c/Everton_FC_logo.svg/120px-Everton_FC_logo.svg.png",
+      "fee": "Undisclosed",
+      "status": "official",
+      "market": "Germany",
+      "markets": [
+        "Germany"
+      ],
+      "competition": "Bundesliga",
+      "sourceAdapter": "wikipedia-germany",
+      "sourceRole": "primary_official",
+      "sourceName": "scfreiburg.com",
+      "sourceUrl": "https://www.scfreiburg.com/aktuell/nachrichten/profis/news/2026/27/good-luck-and-goodbye-merlin/",
+      "sources": [
+        {
+          "name": "scfreiburg.com",
+          "url": "https://www.scfreiburg.com/aktuell/nachrichten/profis/news/2026/27/good-luck-and-goodbye-merlin/",
+          "role": "primary_official"
+        }
+      ],
+      "firstSeenAt": "2026-07-06T12:00:00.000Z",
+      "competitions": [
+        "Bundesliga"
+      ],
+      "sourceAdapters": [
+        "wikipedia-germany"
+      ]
+    },
+    {
       "id": "515de34312f189",
       "date": "2026-07-06",
       "time": "—",
@@ -9543,350 +9869,6 @@
       ]
     },
     {
-      "id": "9735dd07b31e90",
-      "date": "2026-07-03",
-      "time": "—",
-      "player": "Taycan Etçibaşı",
-      "playerUrl": null,
-      "age": null,
-      "position": "ST",
-      "nationality": "Germany",
-      "flagCode": "de",
-      "flag": "🇩🇪",
-      "fromClub": "Borussia Dortmund Youth Sector",
-      "fromClubUrl": "https://en.wikipedia.org/wiki/Borussia_Dortmund_Youth_Sector",
-      "fromClubCrest": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/Borussia_Dortmund_logo.svg/120px-Borussia_Dortmund_logo.svg.png",
-      "toClub": "Hannover 96",
-      "toClubUrl": "https://en.wikipedia.org/wiki/Hannover_96",
-      "toClubCrest": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Hannover_96_Logo.svg/120px-Hannover_96_Logo.svg.png",
-      "fee": "Undisclosed",
-      "status": "official",
-      "market": "Germany",
-      "markets": [
-        "Germany"
-      ],
-      "competition": "2. Bundesliga",
-      "sourceAdapter": "wikipedia-germany",
-      "sourceRole": "primary_official",
-      "sourceName": "hannover96.de",
-      "sourceUrl": "https://www.hannover96.de/newscenter/news/details/37108-deutscher-u-nationalspieler-fuer-hannover-96-taycan-etcibasi-kommt-von-borussia-dortmund.html",
-      "sources": [
-        {
-          "name": "hannover96.de",
-          "url": "https://www.hannover96.de/newscenter/news/details/37108-deutscher-u-nationalspieler-fuer-hannover-96-taycan-etcibasi-kommt-von-borussia-dortmund.html",
-          "role": "primary_official"
-        }
-      ],
-      "firstSeenAt": "2026-07-03T12:00:00.000Z",
-      "competitions": [
-        "2. Bundesliga"
-      ],
-      "sourceAdapters": [
-        "wikipedia-germany"
-      ]
-    },
-    {
-      "id": "2c0aefc238ebf4",
-      "date": "2026-07-03",
-      "time": "—",
-      "player": "Paul Will",
-      "playerUrl": "https://en.wikipedia.org/wiki/Paul_Will",
-      "age": 27,
-      "position": "MC",
-      "nationality": "Germany",
-      "flagCode": "de",
-      "flag": "🇩🇪",
-      "fromClub": "Darmstadt 98",
-      "fromClubUrl": "https://en.wikipedia.org/wiki/Darmstadt_98",
-      "fromClubCrest": "https://upload.wikimedia.org/wikipedia/en/thumb/9/92/SV_Darmstadt_98_logo.svg/120px-SV_Darmstadt_98_logo.svg.png",
-      "toClub": "Greuther Fürth",
-      "toClubUrl": "https://en.wikipedia.org/wiki/SpVgg_Greuther_F%C3%BCrth",
-      "toClubCrest": "https://upload.wikimedia.org/wikipedia/en/thumb/f/f2/SpVgg_Greuther_F%C3%BCrth_logo_%282017%29.svg/120px-SpVgg_Greuther_F%C3%BCrth_logo_%282017%29.svg.png",
-      "fee": "Undisclosed",
-      "status": "official",
-      "market": "Germany",
-      "markets": [
-        "Germany"
-      ],
-      "competition": "2. Bundesliga",
-      "sourceAdapter": "wikipedia-germany",
-      "sourceRole": "primary_official",
-      "sourceName": "sgf1903.de",
-      "sourceUrl": "https://www.sgf1903.de/news/profis/kleeblatt-verpflichtet-will-fest",
-      "sources": [
-        {
-          "name": "sgf1903.de",
-          "url": "https://www.sgf1903.de/news/profis/kleeblatt-verpflichtet-will-fest",
-          "role": "primary_official"
-        }
-      ],
-      "firstSeenAt": "2026-07-03T12:00:00.000Z",
-      "competitions": [
-        "2. Bundesliga"
-      ],
-      "sourceAdapters": [
-        "wikipedia-germany"
-      ]
-    },
-    {
-      "id": "1e62a00cc41707",
-      "date": "2026-07-03",
-      "time": "—",
-      "player": "Ali-Eren Ersungur",
-      "playerUrl": null,
-      "age": null,
-      "position": "ST",
-      "nationality": "Turkey",
-      "flagCode": "tr",
-      "flag": "🇹🇷",
-      "fromClub": "Karlsruher SC",
-      "fromClubUrl": "https://en.wikipedia.org/wiki/Karlsruher_SC",
-      "fromClubCrest": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Karlsruher_SC_Logo_2.svg/120px-Karlsruher_SC_Logo_2.svg.png",
-      "toClub": "VSG Altglienicke",
-      "toClubUrl": "https://en.wikipedia.org/wiki/VSG_Altglienicke",
-      "toClubCrest": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/VSG_Altglienicke.svg/120px-VSG_Altglienicke.svg.png",
-      "fee": "Undisclosed",
-      "status": "official",
-      "market": "Germany",
-      "markets": [
-        "Germany"
-      ],
-      "competition": "2. Bundesliga",
-      "sourceAdapter": "wikipedia-germany",
-      "sourceRole": "primary_official",
-      "sourceName": "ksc.de",
-      "sourceUrl": "https://www.ksc.de/profis/saison/news/show/article/ali-eren-ersungur-wechselt-nach-altglienicke/",
-      "sources": [
-        {
-          "name": "ksc.de",
-          "url": "https://www.ksc.de/profis/saison/news/show/article/ali-eren-ersungur-wechselt-nach-altglienicke/",
-          "role": "primary_official"
-        }
-      ],
-      "firstSeenAt": "2026-07-03T12:00:00.000Z",
-      "competitions": [
-        "2. Bundesliga"
-      ],
-      "sourceAdapters": [
-        "wikipedia-germany"
-      ]
-    },
-    {
-      "id": "193d8107f23a45",
-      "date": "2026-07-03",
-      "time": "—",
-      "player": "Noah Pesch",
-      "playerUrl": "https://en.wikipedia.org/wiki/Noah_Pesch",
-      "age": 21,
-      "position": "MC",
-      "nationality": "Croatia",
-      "flagCode": "hr",
-      "flag": "🇭🇷",
-      "fromClub": "1. FC Magdeburg",
-      "fromClubUrl": "https://en.wikipedia.org/wiki/1._FC_Magdeburg",
-      "fromClubCrest": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/1._FC_Magdeburg.svg/120px-1._FC_Magdeburg.svg.png",
-      "toClub": "Borussia Mönchengladbach",
-      "toClubUrl": "https://en.wikipedia.org/wiki/Borussia_M%C3%B6nchengladbach",
-      "toClubCrest": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/Borussia_M%C3%B6nchengladbach_logo.svg/120px-Borussia_M%C3%B6nchengladbach_logo.svg.png",
-      "fee": "Loan return",
-      "status": "official",
-      "market": "Germany",
-      "markets": [
-        "Germany"
-      ],
-      "competition": "2. Bundesliga",
-      "sourceAdapter": "wikipedia-germany",
-      "sourceRole": "primary_official",
-      "sourceName": "borussia.de",
-      "sourceUrl": "https://www.borussia.de/news/noah-pesch-wechselt-zu-rot-weiss-essen",
-      "sources": [
-        {
-          "name": "borussia.de",
-          "url": "https://www.borussia.de/news/noah-pesch-wechselt-zu-rot-weiss-essen",
-          "role": "primary_official"
-        }
-      ],
-      "firstSeenAt": "2026-07-03T12:00:00.000Z",
-      "competitions": [
-        "2. Bundesliga"
-      ],
-      "sourceAdapters": [
-        "wikipedia-germany"
-      ]
-    },
-    {
-      "id": "474a023f4074d3",
-      "date": "2026-07-03",
-      "time": "—",
-      "player": "Maximilian Entrup",
-      "playerUrl": "https://en.wikipedia.org/wiki/Maximilian_Entrup",
-      "age": 28,
-      "position": "ST",
-      "nationality": "Austria",
-      "flagCode": "at",
-      "flag": "🇦🇹",
-      "fromClub": "LASK",
-      "fromClubUrl": "https://en.wikipedia.org/wiki/LASK",
-      "fromClubCrest": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/LASK-Logo_2023.svg/120px-LASK-Logo_2023.svg.png",
-      "toClub": "Eintracht Braunschweig",
-      "toClubUrl": "https://en.wikipedia.org/wiki/Eintracht_Braunschweig",
-      "toClubCrest": "https://upload.wikimedia.org/wikipedia/en/thumb/6/60/Eintracht_Braunschweig_logo.svg/120px-Eintracht_Braunschweig_logo.svg.png",
-      "fee": "Undisclosed",
-      "status": "official",
-      "market": "Germany",
-      "markets": [
-        "Germany"
-      ],
-      "competition": "2. Bundesliga",
-      "sourceAdapter": "wikipedia-germany",
-      "sourceRole": "primary_official",
-      "sourceName": "eintracht.com",
-      "sourceUrl": "https://www.eintracht.com/news/artikel/neue-nummer-9-in-der-loewenstadt-maximilian-entrup-ist-eintrachts-neuer-mittelstuermer",
-      "sources": [
-        {
-          "name": "eintracht.com",
-          "url": "https://www.eintracht.com/news/artikel/neue-nummer-9-in-der-loewenstadt-maximilian-entrup-ist-eintrachts-neuer-mittelstuermer",
-          "role": "primary_official"
-        }
-      ],
-      "firstSeenAt": "2026-07-03T12:00:00.000Z",
-      "competitions": [
-        "2. Bundesliga"
-      ],
-      "sourceAdapters": [
-        "wikipedia-germany"
-      ]
-    },
-    {
-      "id": "4116df2d52910c",
-      "date": "2026-07-03",
-      "time": "—",
-      "player": "Arlet Junior Zé",
-      "playerUrl": "https://en.wikipedia.org/wiki/Arlet_Junior_Z%C3%A9",
-      "age": 20,
-      "position": "ST",
-      "nationality": "Switzerland",
-      "flagCode": "ch",
-      "flag": "🇨🇭",
-      "fromClub": "Basel",
-      "fromClubUrl": "https://en.wikipedia.org/wiki/FC_Basel",
-      "fromClubCrest": "https://upload.wikimedia.org/wikipedia/en/thumb/c/c1/FC_Basel_crest.svg/120px-FC_Basel_crest.svg.png",
-      "toClub": "Eintracht Braunschweig",
-      "toClubUrl": "https://en.wikipedia.org/wiki/Eintracht_Braunschweig",
-      "toClubCrest": "https://upload.wikimedia.org/wikipedia/en/thumb/6/60/Eintracht_Braunschweig_logo.svg/120px-Eintracht_Braunschweig_logo.svg.png",
-      "fee": "Undisclosed",
-      "status": "official",
-      "market": "Germany",
-      "markets": [
-        "Germany"
-      ],
-      "competition": "2. Bundesliga",
-      "sourceAdapter": "wikipedia-germany",
-      "sourceRole": "primary_official",
-      "sourceName": "eintracht.com",
-      "sourceUrl": "https://www.eintracht.com/news/artikel/fuer-die-offensive-eintracht-holt-aussenbahnspieler-junior-ze",
-      "sources": [
-        {
-          "name": "eintracht.com",
-          "url": "https://www.eintracht.com/news/artikel/fuer-die-offensive-eintracht-holt-aussenbahnspieler-junior-ze",
-          "role": "primary_official"
-        }
-      ],
-      "firstSeenAt": "2026-07-03T12:00:00.000Z",
-      "competitions": [
-        "2. Bundesliga"
-      ],
-      "sourceAdapters": [
-        "wikipedia-germany"
-      ]
-    },
-    {
-      "id": "5311e51fc85a0c",
-      "date": "2026-07-03",
-      "time": "—",
-      "player": "Timo Schlieck",
-      "playerUrl": null,
-      "age": null,
-      "position": "GK",
-      "nationality": "Germany",
-      "flagCode": "de",
-      "flag": "🇩🇪",
-      "fromClub": "Greuther Fürth",
-      "fromClubUrl": "https://en.wikipedia.org/wiki/Greuther_F%C3%BCrth",
-      "fromClubCrest": "https://upload.wikimedia.org/wikipedia/en/thumb/f/f2/SpVgg_Greuther_F%C3%BCrth_logo_%282017%29.svg/120px-SpVgg_Greuther_F%C3%BCrth_logo_%282017%29.svg.png",
-      "toClub": "RB Leipzig",
-      "toClubUrl": "https://en.wikipedia.org/wiki/RB_Leipzig",
-      "toClubCrest": "https://upload.wikimedia.org/wikipedia/en/thumb/0/04/RB_Leipzig_2014_logo.svg/120px-RB_Leipzig_2014_logo.svg.png",
-      "fee": "Loan return",
-      "status": "official",
-      "market": "Germany",
-      "markets": [
-        "Germany"
-      ],
-      "competition": "2. Bundesliga",
-      "sourceAdapter": "wikipedia-germany",
-      "sourceRole": "primary_official",
-      "sourceName": "rbleipzig.com",
-      "sourceUrl": "https://rbleipzig.com/de/news/leihe-timo-schlieck-von-rb-leipzig-zum-sc-verl",
-      "sources": [
-        {
-          "name": "rbleipzig.com",
-          "url": "https://rbleipzig.com/de/news/leihe-timo-schlieck-von-rb-leipzig-zum-sc-verl",
-          "role": "primary_official"
-        }
-      ],
-      "firstSeenAt": "2026-07-03T12:00:00.000Z",
-      "competitions": [
-        "2. Bundesliga"
-      ],
-      "sourceAdapters": [
-        "wikipedia-germany"
-      ]
-    },
-    {
-      "id": "2be7f5a2ad3eea",
-      "date": "2026-07-03",
-      "time": "—",
-      "player": "Kevin Schumacher",
-      "playerUrl": "https://en.wikipedia.org/wiki/Kevin_Schumacher",
-      "age": 28,
-      "position": "MC",
-      "nationality": "Germany",
-      "flagCode": "de",
-      "flag": "🇩🇪",
-      "fromClub": "VfL Osnabrück",
-      "fromClubUrl": "https://en.wikipedia.org/wiki/VfL_Osnabr%C3%BCck",
-      "fromClubCrest": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/VfL_Osnabrueck_Logo_2021%E2%80%93.svg/120px-VfL_Osnabrueck_Logo_2021%E2%80%93.svg.png",
-      "toClub": "TSV Havelse",
-      "toClubUrl": "https://en.wikipedia.org/wiki/TSV_Havelse",
-      "toClubCrest": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/TSV_Havelse_logo.svg/120px-TSV_Havelse_logo.svg.png",
-      "fee": "Undisclosed",
-      "status": "official",
-      "market": "Germany",
-      "markets": [
-        "Germany"
-      ],
-      "competition": "2. Bundesliga",
-      "sourceAdapter": "wikipedia-germany",
-      "sourceRole": "primary_official",
-      "sourceName": "vfl.de",
-      "sourceUrl": "https://www.vfl.de/schumacher-verlaesst-den-vfl/",
-      "sources": [
-        {
-          "name": "vfl.de",
-          "url": "https://www.vfl.de/schumacher-verlaesst-den-vfl/",
-          "role": "primary_official"
-        }
-      ],
-      "firstSeenAt": "2026-07-03T12:00:00.000Z",
-      "competitions": [
-        "2. Bundesliga"
-      ],
-      "sourceAdapters": [
-        "wikipedia-germany"
-      ]
-    },
-    {
       "id": "a658cddd64e71a",
       "date": "2026-07-03",
       "time": "—",
@@ -10403,317 +10385,6 @@
       ]
     },
     {
-      "id": "34d484549e571d",
-      "date": "2026-07-02",
-      "time": "—",
-      "player": "Julien Duranville",
-      "playerUrl": "https://en.wikipedia.org/wiki/Julien_Duranville",
-      "age": 20,
-      "position": "ST",
-      "nationality": "Belgium",
-      "flagCode": "be",
-      "flag": "🇧🇪",
-      "fromClub": "Borussia Dortmund",
-      "fromClubUrl": "https://en.wikipedia.org/wiki/Borussia_Dortmund",
-      "fromClubCrest": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/Borussia_Dortmund_logo.svg/120px-Borussia_Dortmund_logo.svg.png",
-      "toClub": "Lyon",
-      "toClubUrl": "https://en.wikipedia.org/wiki/Olympique_Lyonnais",
-      "toClubCrest": "https://upload.wikimedia.org/wikipedia/en/thumb/1/1c/Olympique_Lyonnais_logo.svg/120px-Olympique_Lyonnais_logo.svg.png",
-      "fee": "Undisclosed",
-      "status": "official",
-      "market": "Germany",
-      "markets": [
-        "Germany",
-        "France"
-      ],
-      "competition": "Bundesliga",
-      "sourceAdapter": "wikipedia-germany",
-      "sourceRole": "primary_official",
-      "sourceName": "bvb.de",
-      "sourceUrl": "https://www.bvb.de/de/de/aktuelles/news/news.html/2026/7/2/Julien-Duranville-wechselt-zu-Olympique-Lyon.html",
-      "sources": [
-        {
-          "name": "bvb.de",
-          "url": "https://www.bvb.de/de/de/aktuelles/news/news.html/2026/7/2/Julien-Duranville-wechselt-zu-Olympique-Lyon.html",
-          "role": "primary_official"
-        },
-        {
-          "name": "ol.fr",
-          "url": "https://www.ol.fr/fr/actualites/l-international-belge-julien-duranville-s-engage-avec-l-ol-jusqu-en-2031",
-          "role": "primary_official"
-        }
-      ],
-      "firstSeenAt": "2026-07-02T12:00:00.000Z",
-      "competitions": [
-        "Bundesliga",
-        "Ligue 1"
-      ],
-      "sourceAdapters": [
-        "wikipedia-germany",
-        "wikipedia-france"
-      ]
-    },
-    {
-      "id": "a1566c32d653ce",
-      "date": "2026-07-02",
-      "time": "—",
-      "player": "David Preu",
-      "playerUrl": "https://en.wikipedia.org/wiki/David_Preu",
-      "age": 21,
-      "position": "ST",
-      "nationality": "Germany",
-      "flagCode": "de",
-      "flag": "🇩🇪",
-      "fromClub": "Union Berlin",
-      "fromClubUrl": "https://en.wikipedia.org/wiki/Union_Berlin",
-      "fromClubCrest": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/1._FC_Union_Berlin_Logo.svg/120px-1._FC_Union_Berlin_Logo.svg.png",
-      "toClub": "VfB Stuttgart II",
-      "toClubUrl": "https://en.wikipedia.org/wiki/VfB_Stuttgart_II",
-      "toClubCrest": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/eb/VfB_Stuttgart_1893_Logo.svg/120px-VfB_Stuttgart_1893_Logo.svg.png",
-      "fee": "Undisclosed",
-      "status": "official",
-      "market": "Germany",
-      "markets": [
-        "Germany"
-      ],
-      "competition": "Bundesliga",
-      "sourceAdapter": "wikipedia-germany",
-      "sourceRole": "primary_official",
-      "sourceName": "fc-union-berlin.de",
-      "sourceUrl": "https://www.fc-union-berlin.de/de/meldungen/union-gibt-offensivspieler-ab-david-preu-wechselt-zur-u21-des-vfb-stuttgart-ARsCeS",
-      "sources": [
-        {
-          "name": "fc-union-berlin.de",
-          "url": "https://www.fc-union-berlin.de/de/meldungen/union-gibt-offensivspieler-ab-david-preu-wechselt-zur-u21-des-vfb-stuttgart-ARsCeS",
-          "role": "primary_official"
-        }
-      ],
-      "firstSeenAt": "2026-07-02T12:00:00.000Z",
-      "competitions": [
-        "Bundesliga"
-      ],
-      "sourceAdapters": [
-        "wikipedia-germany"
-      ]
-    },
-    {
-      "id": "49799408251867",
-      "date": "2026-07-02",
-      "time": "—",
-      "player": "Luka Lochoshvili",
-      "playerUrl": "https://en.wikipedia.org/wiki/Luka_Lochoshvili",
-      "age": 28,
-      "position": "DC",
-      "nationality": "Georgia",
-      "flagCode": "ge",
-      "flag": "🇬🇪",
-      "fromClub": "1. FC Nürnberg",
-      "fromClubUrl": "https://en.wikipedia.org/wiki/1._FC_N%C3%BCrnberg",
-      "fromClubCrest": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/1._FC_N%C3%BCrnberg_logo.svg/120px-1._FC_N%C3%BCrnberg_logo.svg.png",
-      "toClub": "1. FC Köln",
-      "toClubUrl": "https://en.wikipedia.org/wiki/1._FC_K%C3%B6ln",
-      "toClubCrest": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/1._FC_Koeln_Logo_2014%E2%80%93.svg/120px-1._FC_Koeln_Logo_2014%E2%80%93.svg.png",
-      "fee": "Undisclosed",
-      "status": "official",
-      "market": "Germany",
-      "markets": [
-        "Germany"
-      ],
-      "competition": "Bundesliga",
-      "sourceAdapter": "wikipedia-germany",
-      "sourceRole": "primary_official",
-      "sourceName": "fc.de",
-      "sourceUrl": "https://fc.de/aktuelles/news/fc-verpflichtet-luka-lochoshvili",
-      "sources": [
-        {
-          "name": "fc.de",
-          "url": "https://fc.de/aktuelles/news/fc-verpflichtet-luka-lochoshvili",
-          "role": "primary_official"
-        }
-      ],
-      "firstSeenAt": "2026-07-02T12:00:00.000Z",
-      "competitions": [
-        "Bundesliga",
-        "2. Bundesliga"
-      ],
-      "sourceAdapters": [
-        "wikipedia-germany"
-      ]
-    },
-    {
-      "id": "8f20e89ab7c754",
-      "date": "2026-07-02",
-      "time": "—",
-      "player": "Lucas Copado",
-      "playerUrl": "https://en.wikipedia.org/wiki/Lucas_Copado",
-      "age": 22,
-      "position": "ST",
-      "nationality": "Germany",
-      "flagCode": "de",
-      "flag": "🇩🇪",
-      "fromClub": "SC Paderborn",
-      "fromClubUrl": "https://en.wikipedia.org/wiki/SC_Paderborn",
-      "fromClubCrest": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/SC_Paderborn_07_Logo_new.svg/120px-SC_Paderborn_07_Logo_new.svg.png",
-      "toClub": "Energie Cottbus",
-      "toClubUrl": "https://en.wikipedia.org/wiki/FC_Energie_Cottbus",
-      "toClubCrest": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Logo_Energie_Cottbus.svg/120px-Logo_Energie_Cottbus.svg.png",
-      "fee": "Undisclosed",
-      "status": "official",
-      "market": "Germany",
-      "markets": [
-        "Germany"
-      ],
-      "competition": "Bundesliga",
-      "sourceAdapter": "wikipedia-germany",
-      "sourceRole": "primary_official",
-      "sourceName": "fcenergie.de",
-      "sourceUrl": "https://www.fcenergie.de/news/copado-comeback.html",
-      "sources": [
-        {
-          "name": "fcenergie.de",
-          "url": "https://www.fcenergie.de/news/copado-comeback.html",
-          "role": "primary_official"
-        }
-      ],
-      "firstSeenAt": "2026-07-02T12:00:00.000Z",
-      "competitions": [
-        "Bundesliga",
-        "2. Bundesliga"
-      ],
-      "sourceAdapters": [
-        "wikipedia-germany"
-      ]
-    },
-    {
-      "id": "e1135bc57b34ff",
-      "date": "2026-07-02",
-      "time": "—",
-      "player": "Moritz Broschinski",
-      "playerUrl": "https://en.wikipedia.org/wiki/Moritz_Broschinski",
-      "age": 25,
-      "position": "ST",
-      "nationality": "Germany",
-      "flagCode": "de",
-      "flag": "🇩🇪",
-      "fromClub": "Basel",
-      "fromClubUrl": "https://en.wikipedia.org/wiki/FC_Basel",
-      "fromClubCrest": "https://upload.wikimedia.org/wikipedia/en/thumb/c/c1/FC_Basel_crest.svg/120px-FC_Basel_crest.svg.png",
-      "toClub": "Karlsruher SC",
-      "toClubUrl": "https://en.wikipedia.org/wiki/Karlsruher_SC",
-      "toClubCrest": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Karlsruher_SC_Logo_2.svg/120px-Karlsruher_SC_Logo_2.svg.png",
-      "fee": "Loan",
-      "status": "official",
-      "market": "Germany",
-      "markets": [
-        "Germany"
-      ],
-      "competition": "2. Bundesliga",
-      "sourceAdapter": "wikipedia-germany",
-      "sourceRole": "primary_official",
-      "sourceName": "ksc.de",
-      "sourceUrl": "https://www.ksc.de/profis/saison/news/show/article/aus-basel-in-den-bbbank-wildpark-broschinski-ist-da/",
-      "sources": [
-        {
-          "name": "ksc.de",
-          "url": "https://www.ksc.de/profis/saison/news/show/article/aus-basel-in-den-bbbank-wildpark-broschinski-ist-da/",
-          "role": "primary_official"
-        }
-      ],
-      "firstSeenAt": "2026-07-02T12:00:00.000Z",
-      "competitions": [
-        "2. Bundesliga"
-      ],
-      "sourceAdapters": [
-        "wikipedia-germany"
-      ]
-    },
-    {
-      "id": "ea9a42a9234b63",
-      "date": "2026-07-02",
-      "time": "—",
-      "player": "Silas Gnaka",
-      "playerUrl": "https://en.wikipedia.org/wiki/Silas_Gnaka",
-      "age": 27,
-      "position": "DC",
-      "nationality": "Côte d'Ivoire",
-      "flagCode": "ci",
-      "flag": "🇨🇮",
-      "fromClub": "1. FC Magdeburg",
-      "fromClubUrl": "https://en.wikipedia.org/wiki/1._FC_Magdeburg",
-      "fromClubCrest": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/1._FC_Magdeburg.svg/120px-1._FC_Magdeburg.svg.png",
-      "toClub": "Maxline Vitebsk",
-      "toClubUrl": "https://en.wikipedia.org/wiki/FC_Maxline_Vitebsk",
-      "toClubCrest": "https://upload.wikimedia.org/wikipedia/en/d/de/FC_Maxline_Vitebsk_logo.png",
-      "fee": "Undisclosed",
-      "status": "official",
-      "market": "Germany",
-      "markets": [
-        "Germany"
-      ],
-      "competition": "2. Bundesliga",
-      "sourceAdapter": "wikipedia-germany",
-      "sourceRole": "primary_official",
-      "sourceName": "fcml.by",
-      "sourceUrl": "https://fcml.by/?p=2551",
-      "sources": [
-        {
-          "name": "fcml.by",
-          "url": "https://fcml.by/?p=2551",
-          "role": "primary_official"
-        }
-      ],
-      "firstSeenAt": "2026-07-02T12:00:00.000Z",
-      "competitions": [
-        "2. Bundesliga"
-      ],
-      "sourceAdapters": [
-        "wikipedia-germany"
-      ]
-    },
-    {
-      "id": "11b2d592d21fb8",
-      "date": "2026-07-02",
-      "time": "—",
-      "player": "Benjamin Zank",
-      "playerUrl": null,
-      "age": null,
-      "position": "ST",
-      "nationality": "Germany",
-      "flagCode": "de",
-      "flag": "🇩🇪",
-      "fromClub": "Viktoria Köln",
-      "fromClubUrl": "https://en.wikipedia.org/wiki/FC_Viktoria_K%C3%B6ln",
-      "fromClubCrest": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dc/FC_Viktoria_K%C3%B6ln_1904_Logo.svg/120px-FC_Viktoria_K%C3%B6ln_1904_Logo.svg.png",
-      "toClub": "Greuther Fürth",
-      "toClubUrl": "https://en.wikipedia.org/wiki/Greuther_F%C3%BCrth",
-      "toClubCrest": "https://upload.wikimedia.org/wikipedia/en/thumb/f/f2/SpVgg_Greuther_F%C3%BCrth_logo_%282017%29.svg/120px-SpVgg_Greuther_F%C3%BCrth_logo_%282017%29.svg.png",
-      "fee": "Undisclosed",
-      "status": "official",
-      "market": "Germany",
-      "markets": [
-        "Germany"
-      ],
-      "competition": "2. Bundesliga",
-      "sourceAdapter": "wikipedia-germany",
-      "sourceRole": "primary_official",
-      "sourceName": "sgf1903.de",
-      "sourceUrl": "https://www.sgf1903.de/news/profis/zank-stuermt-fuers-kleeblatt",
-      "sources": [
-        {
-          "name": "sgf1903.de",
-          "url": "https://www.sgf1903.de/news/profis/zank-stuermt-fuers-kleeblatt",
-          "role": "primary_official"
-        }
-      ],
-      "firstSeenAt": "2026-07-02T12:00:00.000Z",
-      "competitions": [
-        "2. Bundesliga"
-      ],
-      "sourceAdapters": [
-        "wikipedia-germany"
-      ]
-    },
-    {
       "id": "4da299cc2170d0",
       "date": "2026-07-02",
       "time": "—",
@@ -10745,6 +10416,49 @@
         {
           "name": "losc.fr",
           "url": "https://losc.fr/actualites/2026-07-02/rafael-fernandes-prete-au-club-sport-maritimo",
+          "role": "primary_official"
+        }
+      ],
+      "firstSeenAt": "2026-07-02T12:00:00.000Z",
+      "competitions": [
+        "Ligue 1"
+      ],
+      "sourceAdapters": [
+        "wikipedia-france"
+      ]
+    },
+    {
+      "id": "34d484549e571d",
+      "date": "2026-07-02",
+      "time": "—",
+      "player": "Julien Duranville",
+      "playerUrl": "https://en.wikipedia.org/wiki/Julien_Duranville",
+      "age": 20,
+      "position": "ST",
+      "nationality": "Belgium",
+      "flagCode": "be",
+      "flag": "🇧🇪",
+      "fromClub": "Borussia Dortmund",
+      "fromClubUrl": "https://en.wikipedia.org/wiki/Borussia_Dortmund",
+      "fromClubCrest": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/Borussia_Dortmund_logo.svg/120px-Borussia_Dortmund_logo.svg.png",
+      "toClub": "Lyon",
+      "toClubUrl": "https://en.wikipedia.org/wiki/Lyon",
+      "toClubCrest": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/Lyon-part-dieu-2023.jpg/120px-Lyon-part-dieu-2023.jpg",
+      "fee": "Undisclosed",
+      "status": "official",
+      "market": "France",
+      "markets": [
+        "France"
+      ],
+      "competition": "Ligue 1",
+      "sourceAdapter": "wikipedia-france",
+      "sourceRole": "primary_official",
+      "sourceName": "ol.fr",
+      "sourceUrl": "https://www.ol.fr/fr/actualites/l-international-belge-julien-duranville-s-engage-avec-l-ol-jusqu-en-2031",
+      "sources": [
+        {
+          "name": "ol.fr",
+          "url": "https://www.ol.fr/fr/actualites/l-international-belge-julien-duranville-s-engage-avec-l-ol-jusqu-en-2031",
           "role": "primary_official"
         }
       ],
@@ -11187,358 +10901,6 @@
       ]
     },
     {
-      "id": "b35a32fa36439a",
-      "date": "2026-07-01",
-      "time": "—",
-      "player": "Ismael Saibari",
-      "playerUrl": "https://en.wikipedia.org/wiki/Ismael_Saibari",
-      "age": 25,
-      "position": "AMC / ST",
-      "nationality": "Morocco",
-      "flagCode": "ma",
-      "flag": "🇲🇦",
-      "fromClub": "PSV",
-      "fromClubUrl": "https://en.wikipedia.org/wiki/PSV_Eindhoven",
-      "fromClubCrest": "https://upload.wikimedia.org/wikipedia/en/thumb/0/05/PSV_Eindhoven.svg/120px-PSV_Eindhoven.svg.png",
-      "toClub": "Bayern Munich",
-      "toClubUrl": "https://en.wikipedia.org/wiki/Bayern_Munich",
-      "toClubCrest": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/FC_Bayern_M%C3%BCnchen_logo_%282024%29.svg/120px-FC_Bayern_M%C3%BCnchen_logo_%282024%29.svg.png",
-      "fee": "Undisclosed",
-      "status": "official",
-      "market": "Germany",
-      "markets": [
-        "Germany",
-        "Netherlands"
-      ],
-      "competition": "Bundesliga",
-      "sourceAdapter": "wikipedia-germany",
-      "sourceRole": "primary_official",
-      "sourceName": "fcbayern.com",
-      "sourceUrl": "https://fcbayern.com/de/news/2026/07/fc-bayern-verpflichtet-ismael-saibari",
-      "sources": [
-        {
-          "name": "fcbayern.com",
-          "url": "https://fcbayern.com/de/news/2026/07/fc-bayern-verpflichtet-ismael-saibari",
-          "role": "primary_official"
-        },
-        {
-          "name": "psv.nl",
-          "url": "https://www.psv.nl/media/artikel/transfer-ismael-saibari-vertrekt-naar-fc-bayern-munchen",
-          "role": "primary_official"
-        }
-      ],
-      "firstSeenAt": "2026-07-01T12:00:00.000Z",
-      "competitions": [
-        "Bundesliga",
-        "Eredivisie"
-      ],
-      "sourceAdapters": [
-        "wikipedia-germany",
-        "wikipedia-netherlands"
-      ]
-    },
-    {
-      "id": "597ada4e7e1b06",
-      "date": "2026-07-01",
-      "time": "—",
-      "player": "Stanley Nsoki",
-      "playerUrl": "https://en.wikipedia.org/wiki/Stanley_Nsoki",
-      "age": 27,
-      "position": "DC",
-      "nationality": "France",
-      "flagCode": "fr",
-      "flag": "🇫🇷",
-      "fromClub": "TSG Hoffenheim",
-      "fromClubUrl": "https://en.wikipedia.org/wiki/TSG_Hoffenheim",
-      "fromClubCrest": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Logo_TSG_Hoffenheim.svg/120px-Logo_TSG_Hoffenheim.svg.png",
-      "toClub": "Union Berlin",
-      "toClubUrl": "https://en.wikipedia.org/wiki/1._FC_Union_Berlin",
-      "toClubCrest": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/1._FC_Union_Berlin_Logo.svg/120px-1._FC_Union_Berlin_Logo.svg.png",
-      "fee": "Undisclosed",
-      "status": "official",
-      "market": "Germany",
-      "markets": [
-        "Germany"
-      ],
-      "competition": "Bundesliga",
-      "sourceAdapter": "wikipedia-germany",
-      "sourceRole": "primary_official",
-      "sourceName": "fc-union-berlin.de",
-      "sourceUrl": "https://www.fc-union-berlin.de/de/meldungen/aus-leihe-wird-festverpflichtung-stanley-nsoki-bleibt-ein-eiserner-p5kbUW",
-      "sources": [
-        {
-          "name": "fc-union-berlin.de",
-          "url": "https://www.fc-union-berlin.de/de/meldungen/aus-leihe-wird-festverpflichtung-stanley-nsoki-bleibt-ein-eiserner-p5kbUW",
-          "role": "primary_official"
-        }
-      ],
-      "firstSeenAt": "2026-07-01T12:00:00.000Z",
-      "competitions": [
-        "Bundesliga"
-      ],
-      "sourceAdapters": [
-        "wikipedia-germany"
-      ]
-    },
-    {
-      "id": "510ff4ee0d2eb5",
-      "date": "2026-07-01",
-      "time": "—",
-      "player": "Merlin Röhl",
-      "playerUrl": "https://en.wikipedia.org/wiki/Merlin_R%C3%B6hl",
-      "age": 24,
-      "position": "MC",
-      "nationality": "Germany",
-      "flagCode": "de",
-      "flag": "🇩🇪",
-      "fromClub": "SC Freiburg",
-      "fromClubUrl": "https://en.wikipedia.org/wiki/SC_Freiburg",
-      "fromClubCrest": "https://upload.wikimedia.org/wikipedia/en/thumb/6/6d/SC_Freiburg_logo.svg/120px-SC_Freiburg_logo.svg.png",
-      "toClub": "Everton",
-      "toClubUrl": "https://en.wikipedia.org/wiki/Everton_F.C.",
-      "toClubCrest": "https://upload.wikimedia.org/wikipedia/en/thumb/7/7c/Everton_FC_logo.svg/120px-Everton_FC_logo.svg.png",
-      "fee": "Undisclosed",
-      "status": "official",
-      "market": "Germany",
-      "markets": [
-        "Germany"
-      ],
-      "competition": "Bundesliga",
-      "sourceAdapter": "wikipedia-germany",
-      "sourceRole": "primary_official",
-      "sourceName": "evertonfc.com",
-      "sourceUrl": "https://www.evertonfc.com/news/2026/june/30/r-hl--why-everton-is-the-perfect-fit-for-me/",
-      "sources": [
-        {
-          "name": "evertonfc.com",
-          "url": "https://www.evertonfc.com/news/2026/june/30/r-hl--why-everton-is-the-perfect-fit-for-me/",
-          "role": "primary_official"
-        }
-      ],
-      "firstSeenAt": "2026-07-01T12:00:00.000Z",
-      "competitions": [
-        "Bundesliga"
-      ],
-      "sourceAdapters": [
-        "wikipedia-germany"
-      ]
-    },
-    {
-      "id": "0c1cfef52802d2",
-      "date": "2026-07-01",
-      "time": "—",
-      "player": "Hrvoje Smolčić",
-      "playerUrl": "https://en.wikipedia.org/wiki/Hrvoje_Smol%C4%8Di%C4%87",
-      "age": 25,
-      "position": "MC",
-      "nationality": "Croatia",
-      "flagCode": "hr",
-      "flag": "🇭🇷",
-      "fromClub": "Eintracht Frankfurt",
-      "fromClubUrl": "https://en.wikipedia.org/wiki/Eintracht_Frankfurt",
-      "fromClubCrest": "https://upload.wikimedia.org/wikipedia/en/thumb/7/7e/Eintracht_Frankfurt_crest.svg/120px-Eintracht_Frankfurt_crest.svg.png",
-      "toClub": "Çorum",
-      "toClubUrl": "https://en.wikipedia.org/wiki/%C3%87orum_F.K.",
-      "toClubCrest": "https://upload.wikimedia.org/wikipedia/en/thumb/a/ab/%C3%87orum_F.K._crest.svg/120px-%C3%87orum_F.K._crest.svg.png",
-      "fee": "Undisclosed",
-      "status": "official",
-      "market": "Germany",
-      "markets": [
-        "Germany"
-      ],
-      "competition": "Bundesliga",
-      "sourceAdapter": "wikipedia-germany",
-      "sourceRole": "primary_official",
-      "sourceName": "profis.eintracht.de",
-      "sourceUrl": "https://profis.eintracht.de/news/abgang-hrvoje-smolcic-wechselt-von-eintracht-frankfurt-zum-corum-fk-178056",
-      "sources": [
-        {
-          "name": "profis.eintracht.de",
-          "url": "https://profis.eintracht.de/news/abgang-hrvoje-smolcic-wechselt-von-eintracht-frankfurt-zum-corum-fk-178056",
-          "role": "primary_official"
-        }
-      ],
-      "firstSeenAt": "2026-07-01T12:00:00.000Z",
-      "competitions": [
-        "Bundesliga"
-      ],
-      "sourceAdapters": [
-        "wikipedia-germany"
-      ]
-    },
-    {
-      "id": "3d76083de23cf9",
-      "date": "2026-07-01",
-      "time": "—",
-      "player": "Jonas Wind",
-      "playerUrl": "https://en.wikipedia.org/wiki/Jonas_Wind",
-      "age": 27,
-      "position": "ST",
-      "nationality": "Denmark",
-      "flagCode": "dk",
-      "flag": "🇩🇰",
-      "fromClub": "VfL Wolfsburg",
-      "fromClubUrl": "https://en.wikipedia.org/wiki/VfL_Wolfsburg",
-      "fromClubCrest": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/VfL_Wolfsburg_logo_2026.svg/120px-VfL_Wolfsburg_logo_2026.svg.png",
-      "toClub": "Braga",
-      "toClubUrl": "https://en.wikipedia.org/wiki/S.C._Braga",
-      "toClubCrest": "https://upload.wikimedia.org/wikipedia/en/thumb/7/79/S.C._Braga_logo.svg/120px-S.C._Braga_logo.svg.png",
-      "fee": "Undisclosed",
-      "status": "official",
-      "market": "Germany",
-      "markets": [
-        "Germany"
-      ],
-      "competition": "2. Bundesliga",
-      "sourceAdapter": "wikipedia-germany",
-      "sourceRole": "primary_official",
-      "sourceName": "scbraga.pt",
-      "sourceUrl": "https://scbraga.pt/jonas-wind-e-reforco-ate-2029/",
-      "sources": [
-        {
-          "name": "scbraga.pt",
-          "url": "https://scbraga.pt/jonas-wind-e-reforco-ate-2029/",
-          "role": "primary_official"
-        }
-      ],
-      "firstSeenAt": "2026-07-01T12:00:00.000Z",
-      "competitions": [
-        "2. Bundesliga"
-      ],
-      "sourceAdapters": [
-        "wikipedia-germany"
-      ]
-    },
-    {
-      "id": "73b63ec1a82924",
-      "date": "2026-07-01",
-      "time": "—",
-      "player": "Nick Seidel",
-      "playerUrl": null,
-      "age": null,
-      "position": "DC",
-      "nationality": "Germany",
-      "flagCode": "de",
-      "flag": "🇩🇪",
-      "fromClub": "1. FC Nürnberg",
-      "fromClubUrl": "https://en.wikipedia.org/wiki/1._FC_N%C3%BCrnberg",
-      "fromClubCrest": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/1._FC_N%C3%BCrnberg_logo.svg/120px-1._FC_N%C3%BCrnberg_logo.svg.png",
-      "toClub": "SC Verl",
-      "toClubUrl": "https://en.wikipedia.org/wiki/SC_Verl",
-      "toClubCrest": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/SC_Verl_Logo.svg/120px-SC_Verl_Logo.svg.png",
-      "fee": "Undisclosed",
-      "status": "official",
-      "market": "Germany",
-      "markets": [
-        "Germany"
-      ],
-      "competition": "2. Bundesliga",
-      "sourceAdapter": "wikipedia-germany",
-      "sourceRole": "primary_official",
-      "sourceName": "fcn.de",
-      "sourceUrl": "https://www.fcn.de/news/artikel/nick-seidel-wechselt-zum-sc-verl/",
-      "sources": [
-        {
-          "name": "fcn.de",
-          "url": "https://www.fcn.de/news/artikel/nick-seidel-wechselt-zum-sc-verl/",
-          "role": "primary_official"
-        }
-      ],
-      "firstSeenAt": "2026-07-01T12:00:00.000Z",
-      "competitions": [
-        "2. Bundesliga"
-      ],
-      "sourceAdapters": [
-        "wikipedia-germany"
-      ]
-    },
-    {
-      "id": "b49673f9fa7158",
-      "date": "2026-07-01",
-      "time": "—",
-      "player": "Reno Münz",
-      "playerUrl": "https://en.wikipedia.org/wiki/Reno_M%C3%BCnz",
-      "age": 20,
-      "position": "DC",
-      "nationality": "Germany",
-      "flagCode": "de",
-      "flag": "🇩🇪",
-      "fromClub": "Greuther Fürth",
-      "fromClubUrl": "https://en.wikipedia.org/wiki/Greuther_F%C3%BCrth",
-      "fromClubCrest": "https://upload.wikimedia.org/wikipedia/en/thumb/f/f2/SpVgg_Greuther_F%C3%BCrth_logo_%282017%29.svg/120px-SpVgg_Greuther_F%C3%BCrth_logo_%282017%29.svg.png",
-      "toClub": "Westerlo",
-      "toClubUrl": "https://en.wikipedia.org/wiki/KVC_Westerlo",
-      "toClubCrest": "https://upload.wikimedia.org/wikipedia/en/thumb/1/17/K.V.C._Westerlo_logo.png/120px-K.V.C._Westerlo_logo.png",
-      "fee": "Undisclosed",
-      "status": "official",
-      "market": "Germany",
-      "markets": [
-        "Germany"
-      ],
-      "competition": "2. Bundesliga",
-      "sourceAdapter": "wikipedia-germany",
-      "sourceRole": "primary_official",
-      "sourceName": "sgf1903.de",
-      "sourceUrl": "https://www.sgf1903.de/news/profis/muenz-wechselt-nach-belgien",
-      "sources": [
-        {
-          "name": "sgf1903.de",
-          "url": "https://www.sgf1903.de/news/profis/muenz-wechselt-nach-belgien",
-          "role": "primary_official"
-        }
-      ],
-      "firstSeenAt": "2026-07-01T12:00:00.000Z",
-      "competitions": [
-        "2. Bundesliga"
-      ],
-      "sourceAdapters": [
-        "wikipedia-germany"
-      ]
-    },
-    {
-      "id": "a35447df104683",
-      "date": "2026-07-01",
-      "time": "—",
-      "player": "Kai Pröger",
-      "playerUrl": "https://en.wikipedia.org/wiki/Kai_Pr%C3%B6ger",
-      "age": 34,
-      "position": "MC",
-      "nationality": "Germany",
-      "flagCode": "de",
-      "flag": "🇩🇪",
-      "fromClub": "VfL Osnabrück",
-      "fromClubUrl": "https://en.wikipedia.org/wiki/VfL_Osnabr%C3%BCck",
-      "fromClubCrest": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/VfL_Osnabrueck_Logo_2021%E2%80%93.svg/120px-VfL_Osnabrueck_Logo_2021%E2%80%93.svg.png",
-      "toClub": "VfB Oldenburg",
-      "toClubUrl": "https://en.wikipedia.org/wiki/VfB_Oldenburg",
-      "toClubCrest": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/VfB_Oldenburg.svg/120px-VfB_Oldenburg.svg.png",
-      "fee": "Undisclosed",
-      "status": "official",
-      "market": "Germany",
-      "markets": [
-        "Germany"
-      ],
-      "competition": "2. Bundesliga",
-      "sourceAdapter": "wikipedia-germany",
-      "sourceRole": "primary_official",
-      "sourceName": "vfl.de",
-      "sourceUrl": "https://www.vfl.de/proeger-oldenburg/",
-      "sources": [
-        {
-          "name": "vfl.de",
-          "url": "https://www.vfl.de/proeger-oldenburg/",
-          "role": "primary_official"
-        }
-      ],
-      "firstSeenAt": "2026-07-01T12:00:00.000Z",
-      "competitions": [
-        "2. Bundesliga"
-      ],
-      "sourceAdapters": [
-        "wikipedia-germany"
-      ]
-    },
-    {
       "id": "05e2d9d9a5d58b",
       "date": "2026-07-01",
       "time": "—",
@@ -11699,6 +11061,49 @@
         {
           "name": "psv.nl",
           "url": "https://www.psv.nl/media/artikel/nieuws-huurperiode-anass-salah-eddine-ten-einde",
+          "role": "primary_official"
+        }
+      ],
+      "firstSeenAt": "2026-07-01T12:00:00.000Z",
+      "competitions": [
+        "Eredivisie"
+      ],
+      "sourceAdapters": [
+        "wikipedia-netherlands"
+      ]
+    },
+    {
+      "id": "b35a32fa36439a",
+      "date": "2026-07-01",
+      "time": "—",
+      "player": "Ismael Saibari",
+      "playerUrl": "https://en.wikipedia.org/wiki/Ismael_Saibari",
+      "age": 25,
+      "position": "AMC / ST",
+      "nationality": "Morocco",
+      "flagCode": "ma",
+      "flag": "🇲🇦",
+      "fromClub": "PSV",
+      "fromClubUrl": "https://en.wikipedia.org/wiki/PSV",
+      "fromClubCrest": "https://upload.wikimedia.org/wikipedia/en/thumb/0/05/PSV_Eindhoven.svg/120px-PSV_Eindhoven.svg.png",
+      "toClub": "Bayern Munich",
+      "toClubUrl": "https://en.wikipedia.org/wiki/FC_Bayern_Munich",
+      "toClubCrest": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/FC_Bayern_M%C3%BCnchen_logo_%282024%29.svg/120px-FC_Bayern_M%C3%BCnchen_logo_%282024%29.svg.png",
+      "fee": "Undisclosed",
+      "status": "official",
+      "market": "Netherlands",
+      "markets": [
+        "Netherlands"
+      ],
+      "competition": "Eredivisie",
+      "sourceAdapter": "wikipedia-netherlands",
+      "sourceRole": "primary_official",
+      "sourceName": "psv.nl",
+      "sourceUrl": "https://www.psv.nl/media/artikel/transfer-ismael-saibari-vertrekt-naar-fc-bayern-munchen",
+      "sources": [
+        {
+          "name": "psv.nl",
+          "url": "https://www.psv.nl/media/artikel/transfer-ismael-saibari-vertrekt-naar-fc-bayern-munchen",
           "role": "primary_official"
         }
       ],

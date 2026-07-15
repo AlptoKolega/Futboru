@@ -96,6 +96,26 @@ function safeText(value, fallback = "—") {
   return normalized || fallback;
 }
 
+function entityKey(value) {
+  return String(value ?? "")
+    .normalize("NFKD")
+    .replace(/\p{Diacritic}/gu, "")
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, " ")
+    .trim();
+}
+
+function isStructuredMovement(transfer) {
+  const entitiesArePresent = [transfer?.player, transfer?.fromClub, transfer?.toClub].every((value) => {
+    const entity = String(value ?? "").trim();
+    return entity && !/^(?:—|-|unknown)$/i.test(entity);
+  });
+  if (!entitiesArePresent) return false;
+
+  const headline = transfer?.headline || transfer?.sourceHeadline;
+  return !headline || entityKey(headline) !== entityKey(transfer.player);
+}
+
 function appendText(element, value) {
   element.append(document.createTextNode(value));
 }
@@ -480,7 +500,7 @@ async function loadFeed() {
   const payload = await response.json();
   if (!Array.isArray(payload.transfers)) throw new Error("Invalid data format");
 
-  state.transfers = payload.transfers;
+  state.transfers = payload.transfers.filter(isStructuredMovement);
   elements.freshness.textContent = formatFreshness(payload.generatedAt);
   updateCounts();
   render();

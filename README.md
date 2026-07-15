@@ -8,7 +8,7 @@ A minimalist, source-backed football transfer feed. The site does not reproduce 
 - league coverage across the Premier League and EFL, Bundesliga and 2. Bundesliga, Serie A and Serie B, Ligue 1 and Ligue 2, Eredivisie, Ekstraklasa, and other divisions present in those national registers;
 - age, nationality, compact locally hosted SVG flags, and Football Manager-style position codes enriched from Wikidata where available;
 - club crests and club links sourced from English Wikipedia page metadata;
-- cautiously filtered transfer signals from national football RSS feeds in the United Kingdom, Germany, Italy, Spain, France, the Netherlands, Poland, Portugal, and Brazil, always marked as a `Rumour`;
+- cautiously filtered transfer signals from national football RSS feeds in the United Kingdom, Germany, Italy, Spain, France, the Netherlands, Poland, Portugal, and Brazil, always marked as a `Rumour`; headlines are parsed into player, selling club, and buying club, and incomplete claims are not published as table rows;
 - Transfermarkt DE news through its published RSS feed, never by scraping or copying its transfer database;
 - manually curated, source-backed rumours in `data/manual-rumours.json`;
 - claim-level deduplication that retains multiple source links when two markets report the same move;
@@ -16,6 +16,8 @@ A minimalist, source-backed football transfer feed. The site does not reproduce 
 - an accessible, responsive interface with no menu, cards, photography, or visual effects.
 
 `Official` means the move appears in one of the completed-transfer registers. The source link in each row points to the cited club statement or publication. Newsroom, database, journalist, and community reports remain `Rumours` until the move appears in a completed register.
+
+The public feed only contains structured movements: `Player · From club → To club`. A newsroom headline is kept as source metadata, never used as the player's name. Partial or ambiguous headlines may still help corroborate another record, but they are withheld from the table until the complete route can be established.
 
 ## Source network
 
