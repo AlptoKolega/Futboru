@@ -143,6 +143,12 @@ function playerElement(transfer) {
     const metadata = document.createElement("span");
     metadata.className = "player-meta";
 
+    const identityDivider = document.createElement("span");
+    identityDivider.className = "meta-divider";
+    identityDivider.textContent = "·";
+    identityDivider.setAttribute("aria-hidden", "true");
+    metadata.append(identityDivider);
+
     if (hasAge) {
       const age = document.createElement("span");
       const ageLabel = document.createElement("span");

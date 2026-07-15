@@ -290,7 +290,7 @@ html[data-theme="light"] .theme-icon-moon {
   display: grid;
   grid-template-columns: 18px minmax(150px, 0.92fr) minmax(360px, 2.1fr) minmax(286px, 1.35fr);
   column-gap: 8px;
-  min-height: 46px;
+  min-height: 40px;
   align-items: center;
   border-bottom: 1px solid var(--rule);
   font-size: 14px;
@@ -346,16 +346,18 @@ html[data-theme="light"] .theme-icon-moon {
 .player-cell {
   display: flex;
   min-width: 0;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 2px;
+  flex-direction: row;
+  align-items: baseline;
+  gap: 5px;
 }
 
 .player-link,
 .player-name {
   display: block;
+  min-width: 0;
   max-width: 100%;
   overflow: hidden;
+  flex: 0 1 auto;
   font-weight: 650;
   letter-spacing: -0.01em;
   text-overflow: ellipsis;
@@ -372,7 +374,8 @@ html[data-theme="light"] .theme-icon-moon {
 
 .player-meta {
   display: flex;
-  min-height: 15px;
+  min-height: 0;
+  flex: 0 0 auto;
   align-items: baseline;
   gap: 5px;
   color: var(--muted);
@@ -380,6 +383,7 @@ html[data-theme="light"] .theme-icon-moon {
   font-variant-numeric: tabular-nums;
   font-weight: 520;
   line-height: 1.2;
+  white-space: nowrap;
 }
 
 .player-meta abbr {
@@ -629,15 +633,15 @@ a.club-name:hover {
   .player-cell {
     grid-column: 2;
     grid-row: 1;
-    gap: 2px;
+    gap: 5px;
   }
 
   .player-link,
   .player-name {
-    overflow: visible;
+    overflow: hidden;
     font-size: 15px;
-    text-overflow: clip;
-    white-space: normal;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
 
   .player-meta {
