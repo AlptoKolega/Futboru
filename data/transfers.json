@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-15T12:42:29.032Z",
+  "generatedAt": "2026-07-15T14:17:57.989Z",
   "sources": [
     {
       "id": "wikipedia-england",
@@ -74,6 +74,60 @@
       "count": 3
     },
     {
+      "id": "transfermarkt-uk-rss",
+      "label": "Transfermarkt UK",
+      "url": "https://www.transfermarkt.co.uk/rss/news",
+      "market": "United Kingdom",
+      "kind": "news-rss",
+      "status": "ok",
+      "count": 1
+    },
+    {
+      "id": "transfermarkt-it-rss",
+      "label": "Transfermarkt IT",
+      "url": "https://www.transfermarkt.it/rss/news",
+      "market": "Italy",
+      "kind": "news-rss",
+      "status": "ok",
+      "count": 0
+    },
+    {
+      "id": "transfermarkt-es-rss",
+      "label": "Transfermarkt ES",
+      "url": "https://www.transfermarkt.es/rss/news",
+      "market": "Spain",
+      "kind": "news-rss",
+      "status": "ok",
+      "count": 2
+    },
+    {
+      "id": "transfermarkt-nl-rss",
+      "label": "Transfermarkt NL",
+      "url": "https://www.transfermarkt.nl/rss/news",
+      "market": "Netherlands",
+      "kind": "news-rss",
+      "status": "ok",
+      "count": 0
+    },
+    {
+      "id": "transfermarkt-pl-rss",
+      "label": "Transfermarkt PL",
+      "url": "https://www.transfermarkt.pl/rss/news",
+      "market": "Poland",
+      "kind": "news-rss",
+      "status": "ok",
+      "count": 1
+    },
+    {
+      "id": "transfermarkt-pt-rss",
+      "label": "Transfermarkt PT",
+      "url": "https://www.transfermarkt.pt/rss/news",
+      "market": "Portugal",
+      "kind": "news-rss",
+      "status": "ok",
+      "count": 1
+    },
+    {
       "id": "sportschau-rss",
       "label": "Sportschau",
       "url": "https://www.sportschau.de/fussball/bundesliga/index~rss2.xml",
@@ -89,7 +143,7 @@
       "market": "Italy",
       "kind": "news-rss",
       "status": "ok",
-      "count": 2
+      "count": 1
     },
     {
       "id": "marca-rss",
@@ -125,7 +179,7 @@
       "market": "Poland",
       "kind": "news-rss",
       "status": "ok",
-      "count": 1
+      "count": 0
     },
     {
       "id": "guardian-rss",
@@ -143,7 +197,7 @@
       "market": "Portugal",
       "kind": "news-rss",
       "status": "ok",
-      "count": 2
+      "count": 1
     },
     {
       "id": "ge-rss",
@@ -358,48 +412,48 @@
       ]
     },
     {
-      "id": "2c308b10034688",
+      "id": "d7baf99405191d",
       "date": "2026-07-15",
-      "time": "02:05",
-      "headline": "Botafogo negocia a contratação do atacante Danilo Pereira, que pertence ao Rangers",
-      "player": "Danilo Pereira",
+      "time": "14:29",
+      "headline": "SC Paderborn verleiht Martin Ens an MSV Duisburg in 3. Liga",
+      "player": "Martin Ens",
       "playerUrl": null,
       "age": null,
       "position": null,
       "nationality": null,
       "flagCode": null,
       "flag": "",
-      "fromClub": "Rangers",
+      "fromClub": "SC Paderborn",
       "fromClubUrl": null,
       "fromClubCrest": null,
-      "toClub": "Botafogo",
+      "toClub": "MSV Duisburg",
       "toClubUrl": null,
       "toClubCrest": null,
-      "fee": "—",
+      "fee": "Loan",
       "status": "rumour",
       "extractionStatus": "complete",
-      "market": "Brazil",
+      "market": "Germany",
       "markets": [
-        "Brazil"
+        "Germany"
       ],
       "competition": null,
       "competitionGender": "unknown",
       "competitionGenderSource": null,
-      "sourceAdapter": "ge-rss",
-      "sourceRole": "publication",
-      "sourceName": "ge",
-      "sourceUrl": "https://ge.globo.com/futebol/times/botafogo/noticia/2026/07/14/botafogo-negocia-a-contratacao-do-atacante-danilo-pereira-que-pertence-ao-rangers.ghtml",
+      "sourceAdapter": "transfermarkt-de-rss",
+      "sourceRole": "database",
+      "sourceName": "Transfermarkt DE",
+      "sourceUrl": "https://www.transfermarkt.de/sc-paderborn-verleiht-ruckkehrer-ens-an-duisburg-soll-den-nachsten-schritt-gehen-quot-/view/news/482997",
       "sources": [
         {
-          "name": "ge",
-          "url": "https://ge.globo.com/futebol/times/botafogo/noticia/2026/07/14/botafogo-negocia-a-contratacao-do-atacante-danilo-pereira-que-pertence-ao-rangers.ghtml",
-          "role": "publication"
+          "name": "Transfermarkt DE",
+          "url": "https://www.transfermarkt.de/sc-paderborn-verleiht-ruckkehrer-ens-an-duisburg-soll-den-nachsten-schritt-gehen-quot-/view/news/482997",
+          "role": "database"
         }
       ],
-      "firstSeenAt": "2026-07-15T00:05:02.000Z",
+      "firstSeenAt": "2026-07-15T12:29:11.000Z",
       "competitions": [],
       "sourceAdapters": [
-        "ge-rss"
+        "transfermarkt-de-rss"
       ]
     },
     {
@@ -784,7 +838,7 @@
       "market": "England",
       "markets": [
         "England",
-        "United Kingdom"
+        "Spain"
       ],
       "competition": "English leagues",
       "competitionGender": "men",
@@ -800,9 +854,9 @@
           "role": "publication"
         },
         {
-          "name": "The Guardian",
-          "url": "https://www.theguardian.com/football/2026/jul/14/youri-tielemans-signs-manchester-united-aston-villa",
-          "role": "publication"
+          "name": "Transfermarkt ES",
+          "url": "https://www.transfermarkt.es/youri-tielemans-se-muda-a-manchester-united-como-uno-de-los-belgas-mas-caros-de-siempre/view/news/482957",
+          "role": "database"
         }
       ],
       "firstSeenAt": "2026-07-14T12:00:00.000Z",
@@ -811,7 +865,7 @@
       ],
       "sourceAdapters": [
         "wikipedia-england",
-        "guardian-rss"
+        "transfermarkt-es-rss"
       ]
     },
     {
@@ -947,7 +1001,19 @@
       ],
       "sourceAdapters": [
         "wikipedia-germany"
-      ]
+      ],
+      "sourcePreview": {
+        "version": 1,
+        "sourceUrl": "https://www.fcaugsburg.de/article/fca-holt-junioren-nationaltorhueter-tom-wisbereit-23255",
+        "title": "FCA holt Junioren-Nationaltorhüter Tom Wisbereit | FC Augsburg",
+        "description": "Der FC Augsburg hat sich die Dienste von Junioren-Nationaltorhüter Tom Wisbereit gesichert.",
+        "imageUrl": "https://www.fcaugsburg.de/media/fca/article_stage/0002/25/thumb_124112_article_stage_hd.jpeg",
+        "siteName": "FC Augsburg",
+        "publishedAt": null,
+        "language": "de",
+        "fetchedAt": "2026-07-15T13:45:48.475Z"
+      },
+      "sourcePreviewCheckedAt": "2026-07-15T13:45:48.475Z"
     },
     {
       "id": "d7a3928cf006c5",
@@ -1006,7 +1072,19 @@
         "wikipedia-germany",
         "wikipedia-italy",
         "sportschau-rss"
-      ]
+      ],
+      "sourcePreview": {
+        "version": 1,
+        "sourceUrl": "https://www.sslazio.it/en/news/comunicati/danilho-doekhi-e-un-nuovo-calciatore-biancoceleste",
+        "title": "Danilho Doekhi è un nuovo calciatore biancoceleste",
+        "description": "La nota della Società",
+        "imageUrl": "https://mediaverse.sslazio.hiway.media/image/2026/07/14/6a55f989/WELCOME-2627-SITO-16-9-psd-copia.jpg.jpeg",
+        "siteName": "Lazio",
+        "publishedAt": null,
+        "language": "en",
+        "fetchedAt": "2026-07-15T13:45:48.475Z"
+      },
+      "sourcePreviewCheckedAt": "2026-07-15T13:45:48.475Z"
     },
     {
       "id": "6c54ab93a3122d",
@@ -1051,7 +1129,19 @@
       ],
       "sourceAdapters": [
         "wikipedia-germany"
-      ]
+      ],
+      "sourcePreview": {
+        "version": 1,
+        "sourceUrl": "https://schalke04.de/personal/luca-podlech-wird-an-norwegischen-erstligisten-verliehen/",
+        "title": "Luca Podlech wird an norwegischen Erstligisten verliehen",
+        "description": "Wechsel in die Eliteserien: Torhüter Luca Podlech wird mit sofortiger Wirkung an den norwegischen Erstligisten Aalesunds FK verliehen.",
+        "imageUrl": "https://storage.schalke04.de/sites/1/2026/07/260714_luca_podlech.jpg",
+        "siteName": "Fußball",
+        "publishedAt": "2026-07-14T08:02:07.000Z",
+        "language": "de-DE",
+        "fetchedAt": "2026-07-15T13:45:48.475Z"
+      },
+      "sourcePreviewCheckedAt": "2026-07-15T13:45:48.475Z"
     },
     {
       "id": "8a237d6c0ccece",
@@ -1096,7 +1186,19 @@
       ],
       "sourceAdapters": [
         "wikipedia-germany"
-      ]
+      ],
+      "sourcePreview": {
+        "version": 1,
+        "sourceUrl": "https://sv07elversberg.de/mohammad-mahmoud-schliesst-sich-dem-sv-austria-salzburg-an/",
+        "title": "Mohammad Mahmoud schließt sich dem SV Austria Salzburg an - SV 07 Elversberg",
+        "description": "Die SV Elversberg und Mohammad Mahmoud gehen ab sofort getrennte Wege. Der Vertrag des 21-jährigen Stürmers, der noch eine Saison lang Gültigkeit gehabt hätte, wurde in beiderseitigem Einvernehmen aufgelöst. Mahmoud schließt sich dem österreichischen Zweitligisten SV Austria Salzburg an. Mohammad Mahmoud war vor zwei Jahren von der U19 des VfL Bochum zur…",
+        "imageUrl": "https://sv07elversberg.de/wp-content/uploads/2026/07/DSC01629-hp-scaled.jpg",
+        "siteName": "SV 07 Elversberg",
+        "publishedAt": "2026-07-14T11:00:33.000Z",
+        "language": "de",
+        "fetchedAt": "2026-07-15T13:45:48.475Z"
+      },
+      "sourcePreviewCheckedAt": "2026-07-15T13:45:48.475Z"
     },
     {
       "id": "c503c846e3ad53",
@@ -1141,7 +1243,19 @@
       ],
       "sourceAdapters": [
         "wikipedia-germany"
-      ]
+      ],
+      "sourcePreview": {
+        "version": 1,
+        "sourceUrl": "https://www.dynamo-dresden.de/aktuelles/news/profis/dynamo-leiht-till-neininger/",
+        "title": "Dynamo leiht Till Neininger | Sportgemeinschaft Dynamo Dresden - Die offizielle Website",
+        "description": "Die SG Dynamo Dresden verstärkt ihre Defensive mit Till Neininger. Der 19-jährige Innenverteidiger wechselt auf Leihbasis vom VfL Wolfsburg an die Elbe und wi...",
+        "imageUrl": "https://www.dynamo-dresden.de/?eID=crop&width=1200&height=630&file=fileadmin/01_News/01_Newsbilder/Saison_2026_27/01_Juli/260714_Leihe_Neininger_NEWS.jpg",
+        "siteName": "Dynamo Dresden",
+        "publishedAt": null,
+        "language": "de-DE",
+        "fetchedAt": "2026-07-15T13:45:48.475Z"
+      },
+      "sourcePreviewCheckedAt": "2026-07-15T13:45:48.475Z"
     },
     {
       "id": "06237ebecaff3c",
@@ -1186,7 +1300,19 @@
       ],
       "sourceAdapters": [
         "wikipedia-italy"
-      ]
+      ],
+      "sourcePreview": {
+        "version": 1,
+        "sourceUrl": "https://uscremonese.it/leonardo-sernicola-ceduto-al-benevento/",
+        "title": "Leonardo Sernicola ceduto al Benevento – US Cremonese",
+        "description": null,
+        "imageUrl": "https://uscremonese.it/leonardo-sernicola-ceduto-al-benevento/null",
+        "siteName": "Cremonese",
+        "publishedAt": null,
+        "language": "it-IT",
+        "fetchedAt": "2026-07-15T13:45:48.475Z"
+      },
+      "sourcePreviewCheckedAt": "2026-07-15T13:45:48.475Z"
     },
     {
       "id": "882e3e897e0bce",
@@ -1231,7 +1357,19 @@
       ],
       "sourceAdapters": [
         "wikipedia-italy"
-      ]
+      ],
+      "sourcePreviewCheckedAt": "2026-07-15T14:18:24.730Z",
+      "sourcePreview": {
+        "version": 1,
+        "sourceUrl": "https://uscremonese.it/fellipe-jack-e-grigiorosso/",
+        "title": "Fellipe Jack è grigiorosso! – US Cremonese",
+        "description": null,
+        "imageUrl": "https://uscremonese.it/fellipe-jack-e-grigiorosso/null",
+        "siteName": "Cremonese",
+        "publishedAt": null,
+        "language": "it-IT",
+        "fetchedAt": "2026-07-15T14:18:24.730Z"
+      }
     },
     {
       "id": "737913aaf00346",
@@ -1276,7 +1414,19 @@
       ],
       "sourceAdapters": [
         "wikipedia-italy"
-      ]
+      ],
+      "sourcePreview": {
+        "version": 1,
+        "sourceUrl": "https://modenacalcio.com/calciomercato-il-modena-saluta-e-ringrazia-gerli/",
+        "title": "Calciomercato: il Modena saluta e ringrazia Gerli - Modena FC",
+        "description": "Il Modena FC comunica di aver ceduto a titolo definitivo all’US Cremonese i diritti alle prestazioni sportive del calciatore Fabio Gerli. Arrivato nell’estate del 2020, Fabio ha vissuto sei stagioni in gialloblù collezionando 209 presenze ufficiali, 6 gol e 15 assist. Punto fermo del centrocampo canarino, ha contribuito da protagonista alla promozione in…",
+        "imageUrl": "https://modenacalcio.com/wp-content/uploads/2026/02/Gerli-scaled.jpeg",
+        "siteName": "Modena FC",
+        "publishedAt": "2026-07-14T08:45:29.000Z",
+        "language": "it-IT",
+        "fetchedAt": "2026-07-15T13:45:48.475Z"
+      },
+      "sourcePreviewCheckedAt": "2026-07-15T13:45:48.475Z"
     },
     {
       "id": "56e4a155b450ba",
@@ -1321,7 +1471,19 @@
       ],
       "sourceAdapters": [
         "wikipedia-italy"
-      ]
+      ],
+      "sourcePreviewCheckedAt": "2026-07-15T14:18:24.730Z",
+      "sourcePreview": {
+        "version": 1,
+        "sourceUrl": "https://modenacalcio.com/calciomercato-stenio-zanetti-e-gialloblu/",
+        "title": "Calciomercato: Stenio Zanetti è gialloblù - Modena FC",
+        "description": "Il Modena FC comunica di aver acquisito a titolo definitivo dall’FC Karpaty Lviv le prestazioni sportive di Stenio Zanetti Toledo. Esterno brasiliano classe 2003, ha firmato un contratto che lo legherà ai colori gialloblù fino al 30 giugno 2029, con opzione per un’ulteriore stagione. Cresciuto nel settore giovanile del Cruzeiro, Stenio viene aggregato alla…",
+        "imageUrl": "https://modenacalcio.com/wp-content/uploads/2026/07/StenioWEB.jpeg",
+        "siteName": "Modena FC",
+        "publishedAt": "2026-07-14T13:00:17.000Z",
+        "language": "it-IT",
+        "fetchedAt": "2026-07-15T14:18:24.730Z"
+      }
     },
     {
       "id": "3b55991048811d",
@@ -1366,7 +1528,19 @@
       ],
       "sourceAdapters": [
         "wikipedia-italy"
-      ]
+      ],
+      "sourcePreview": {
+        "version": 1,
+        "sourceUrl": "https://www.acffiorentina.com/news/harder-al-basilea-14-07-2026",
+        "title": "ACF Fiorentina | Harder passa al Basilea",
+        "description": null,
+        "imageUrl": "https://www.acffiorentina.com/getContentAsset/39f52aad-cdb8-4e50-8cbc-612909eb4881/fdc2628b-8d67-425c-b6d0-a02576381c81/Logo-ACF.webp?language=it",
+        "siteName": "ACF Fiorentina",
+        "publishedAt": null,
+        "language": "it",
+        "fetchedAt": "2026-07-15T13:45:48.475Z"
+      },
+      "sourcePreviewCheckedAt": "2026-07-15T13:45:48.475Z"
     },
     {
       "id": "5b8aa0af66c434",
@@ -1411,7 +1585,19 @@
       ],
       "sourceAdapters": [
         "wikipedia-italy"
-      ]
+      ],
+      "sourcePreviewCheckedAt": "2026-07-15T14:18:24.730Z",
+      "sourcePreview": {
+        "version": 1,
+        "sourceUrl": "https://www.acffiorentina.com/news/caprini-ceduto-14-07-2026",
+        "title": "ACF Fiorentina | Caprini ceduto al Cesena",
+        "description": null,
+        "imageUrl": "https://www.acffiorentina.com/getContentAsset/dddc6c4f-c289-41c5-8a42-e68d005d1a6b/fdc2628b-8d67-425c-b6d0-a02576381c81/Logo-ACF.webp?language=it",
+        "siteName": "ACF Fiorentina",
+        "publishedAt": null,
+        "language": "it",
+        "fetchedAt": "2026-07-15T14:18:24.730Z"
+      }
     },
     {
       "id": "0980f3fa1a6391",
@@ -1456,7 +1642,19 @@
       ],
       "sourceAdapters": [
         "wikipedia-italy"
-      ]
+      ],
+      "sourcePreview": {
+        "version": 1,
+        "sourceUrl": "https://www.usavellino1912.com/luca-di-maggio-e-un-nuovo-giocatore-dellavellino/",
+        "title": "LUCA DI MAGGIO E’ UN NUOVO GIOCATORE DELL’AVELLINO",
+        "description": "L’U.S. Avellino 1912 comunica di aver acquisito dal F.C. Internazionale Milano, a titolo definitivo, il diritto alle prestazioni sportive del calciatore Luca Di Maggio. Nato a Segrate il 31 marzo 2005 il nuovo centrocampista biancoverde ha firmato con il club un contratto con scadenza al 30 giugno 2030. Cresciuto nel settore giovanile dell'Inter in…",
+        "imageUrl": "https://www.usavellino1912.com/wp-content/uploads/2026/07/DI-MAGGIO.png",
+        "siteName": "Avellino",
+        "publishedAt": null,
+        "language": "it-IT",
+        "fetchedAt": "2026-07-15T13:45:48.475Z"
+      },
+      "sourcePreviewCheckedAt": "2026-07-15T13:45:48.475Z"
     },
     {
       "id": "50adbeaa009ca0",
@@ -1501,7 +1699,19 @@
       ],
       "sourceAdapters": [
         "wikipedia-italy"
-      ]
+      ],
+      "sourcePreview": {
+        "version": 1,
+        "sourceUrl": "https://www.empolifc.it/edoardo-zanaga-al-milan",
+        "title": "Edoardo Zanaga al Milan",
+        "description": null,
+        "imageUrl": "https://lirp.cdn-website.com/35a0a172/dms3rep/multi/opt/PartitaGenoaEmpoliLW289-1920w.jpg",
+        "siteName": "Empoli",
+        "publishedAt": "2026-07-14T15:01:00.000Z",
+        "language": "it",
+        "fetchedAt": "2026-07-15T13:45:48.475Z"
+      },
+      "sourcePreviewCheckedAt": "2026-07-15T13:45:48.475Z"
     },
     {
       "id": "2ce310133642b9",
@@ -1546,7 +1756,19 @@
       ],
       "sourceAdapters": [
         "wikipedia-italy"
-      ]
+      ],
+      "sourcePreviewCheckedAt": "2026-07-15T14:18:24.730Z",
+      "sourcePreview": {
+        "version": 1,
+        "sourceUrl": "https://www.empolifc.it/lorenzo-ignacchiti-al-mantova",
+        "title": "Lorenzo Ignacchiti al Mantova",
+        "description": null,
+        "imageUrl": "https://lirp.cdn-website.com/35a0a172/dms3rep/multi/opt/PartitaEmpoliReggianaLW179-1920w.jpg",
+        "siteName": "Empoli",
+        "publishedAt": "2026-07-14T16:19:00.000Z",
+        "language": "it",
+        "fetchedAt": "2026-07-15T14:18:24.730Z"
+      }
     },
     {
       "id": "4b7322e29fa82b",
@@ -1591,7 +1813,19 @@
       ],
       "sourceAdapters": [
         "wikipedia-italy"
-      ]
+      ],
+      "sourcePreview": {
+        "version": 1,
+        "sourceUrl": "https://www.mantova1911.club/news/filippo-vesentini-a-titolo-definitivo-dallubrescia",
+        "title": "Filippo Vesentini a titolo definitivo dall'U.Brescia",
+        "description": null,
+        "imageUrl": "https://cdn.prod.website-files.com/687f92d2fe919fa87c95b980/6a55f9c4f72bd3bf15e8b272_vese.jpg",
+        "siteName": "Mantova",
+        "publishedAt": null,
+        "language": "it-IT",
+        "fetchedAt": "2026-07-15T13:45:48.475Z"
+      },
+      "sourcePreviewCheckedAt": "2026-07-15T13:45:48.475Z"
     },
     {
       "id": "ffc76786fe0025",
@@ -1636,7 +1870,19 @@
       ],
       "sourceAdapters": [
         "wikipedia-italy"
-      ]
+      ],
+      "sourcePreview": {
+        "version": 1,
+        "sourceUrl": "https://carraresecalcio1908.it/nota-ufficiale-128/",
+        "title": "Nota Ufficiale • Carrarese Calcio 1908",
+        "description": "• Carrarese Calcio 1908 comunica la cessione a titolo temporaneo del diritto alle prestazioni sportive del calciatore Federico Accornero alla Società A.C.",
+        "imageUrl": "https://carraresecalcio1908.it/wp-content/uploads/fallback_accessi.jpg",
+        "siteName": "Carrarese Calcio 1908",
+        "publishedAt": "2026-07-14T15:19:25.000Z",
+        "language": "it-IT",
+        "fetchedAt": "2026-07-15T13:45:48.475Z"
+      },
+      "sourcePreviewCheckedAt": "2026-07-15T13:45:48.475Z"
     },
     {
       "id": "2fd52d672dc67d",
@@ -1681,7 +1927,19 @@
       ],
       "sourceAdapters": [
         "wikipedia-italy"
-      ]
+      ],
+      "sourcePreviewCheckedAt": "2026-07-15T14:18:24.730Z",
+      "sourcePreview": {
+        "version": 1,
+        "sourceUrl": "https://carraresecalcio1908.it/nota-ufficiale-127/",
+        "title": "Nota Ufficiale • Carrarese Calcio 1908",
+        "description": "• Carrarese Calcio 1908 comunica la cessione a titolo definitivo del diritto alle prestazioni sportive del calciatore Mateo Scheffer Bracco alla Società",
+        "imageUrl": "https://carraresecalcio1908.it/wp-content/uploads/fallback_accessi.jpg",
+        "siteName": "Carrarese Calcio 1908",
+        "publishedAt": "2026-07-14T15:14:54.000Z",
+        "language": "it-IT",
+        "fetchedAt": "2026-07-15T14:18:24.730Z"
+      }
     },
     {
       "id": "91ddd6bdf59db7",
@@ -1726,7 +1984,19 @@
       ],
       "sourceAdapters": [
         "wikipedia-italy"
-      ]
+      ],
+      "sourcePreview": {
+        "version": 1,
+        "sourceUrl": "https://www.uscatanzaro1929.com/2026/07/14/nicolo-postiglione-in-giallorosso-contratto-fino-al-30-giugno-2030/",
+        "title": "Niccolò Postiglione in giallorosso: contratto fino al 30 giugno 2030 - Home Page - US Catanzaro 1929 - Sito ufficiale",
+        "description": null,
+        "imageUrl": "https://www.uscatanzaro1929.com/wp-content/uploads/2026/03/2-COMUNICATO-SITO-copia.jpg",
+        "siteName": "Home Page - US Catanzaro 1929 - Sito ufficiale",
+        "publishedAt": "2026-07-14T13:01:01.000Z",
+        "language": "it-IT",
+        "fetchedAt": "2026-07-15T13:45:48.475Z"
+      },
+      "sourcePreviewCheckedAt": "2026-07-15T13:45:48.475Z"
     },
     {
       "id": "e901d332c0ed1e",
@@ -1771,7 +2041,19 @@
       ],
       "sourceAdapters": [
         "wikipedia-italy"
-      ]
+      ],
+      "sourcePreview": {
+        "version": 1,
+        "sourceUrl": "https://www.palermofc.com/it/news/prolungamento-contrattuale-e-prestito-alla-virtus-entella-per-corona",
+        "title": "Prolungamento contrattuale e prestito alla Virtus Entella per Corona - Palermo F.C.",
+        "description": "Leggi \" Prolungamento contrattuale e prestito alla Virtus Entella per Corona\" nel sito ufficiale del Palermo F.C.",
+        "imageUrl": "https://assets.palermofc.com/wp-content/uploads/2026/07/TP2_5863-scaled.jpg",
+        "siteName": "Palermo F.C.",
+        "publishedAt": null,
+        "language": "it",
+        "fetchedAt": "2026-07-15T13:45:48.475Z"
+      },
+      "sourcePreviewCheckedAt": "2026-07-15T13:45:48.475Z"
     },
     {
       "id": "38b1f44bbc927c",
@@ -1816,6 +2098,63 @@
       ],
       "sourceAdapters": [
         "wikipedia-italy"
+      ],
+      "sourcePreview": {
+        "version": 1,
+        "sourceUrl": "https://cagliaricalcio.com/news/winks-al-cagliari-calcio-seriea/",
+        "title": "Winks al Cagliari",
+        "description": "Il centrocampista si trasferisce a titolo definitivo dal Leicester City e ha firmato un contratto sino al 30 giugno 2028",
+        "imageUrl": "https://cagliaricalcio.com/wp-content/uploads/2026/07/W43.jpeg",
+        "siteName": "Cagliari",
+        "publishedAt": null,
+        "language": "it-IT",
+        "fetchedAt": "2026-07-15T13:45:48.475Z"
+      },
+      "sourcePreviewCheckedAt": "2026-07-15T13:45:48.475Z"
+    },
+    {
+      "id": "f0008a6cfdfd52",
+      "date": "2026-07-14",
+      "time": "21:09",
+      "headline": "Tarik Muharemović set to join Leeds United from Sassuolo",
+      "player": "Tarik Muharemović",
+      "playerUrl": null,
+      "age": null,
+      "position": null,
+      "nationality": null,
+      "flagCode": null,
+      "flag": "",
+      "fromClub": "Sassuolo",
+      "fromClubUrl": null,
+      "fromClubCrest": null,
+      "toClub": "Leeds United",
+      "toClubUrl": null,
+      "toClubCrest": null,
+      "fee": "—",
+      "status": "rumour",
+      "extractionStatus": "complete",
+      "market": "United Kingdom",
+      "markets": [
+        "United Kingdom"
+      ],
+      "competition": null,
+      "competitionGender": "unknown",
+      "competitionGenderSource": null,
+      "sourceAdapter": "transfermarkt-uk-rss",
+      "sourceRole": "database",
+      "sourceName": "Transfermarkt UK",
+      "sourceUrl": "https://www.transfermarkt.co.uk/record-transfer-fee-tarik-muharemovic-set-to-join-leeds-united-from-sassuolo/view/news/482961",
+      "sources": [
+        {
+          "name": "Transfermarkt UK",
+          "url": "https://www.transfermarkt.co.uk/record-transfer-fee-tarik-muharemovic-set-to-join-leeds-united-from-sassuolo/view/news/482961",
+          "role": "database"
+        }
+      ],
+      "firstSeenAt": "2026-07-14T19:09:48.000Z",
+      "competitions": [],
+      "sourceAdapters": [
+        "transfermarkt-uk-rss"
       ]
     },
     {
@@ -2071,7 +2410,8 @@
       "status": "official",
       "market": "England",
       "markets": [
-        "England"
+        "England",
+        "Spain"
       ],
       "competition": "English leagues",
       "competitionGender": "men",
@@ -2085,6 +2425,11 @@
           "name": "BBC Sport",
           "url": "https://www.bbc.co.uk/sport/football/articles/cn07dpgkj4eo",
           "role": "publication"
+        },
+        {
+          "name": "Transfermarkt ES",
+          "url": "https://www.transfermarkt.es/andrey-santos-el-primer-gran-fichaje-de-manchester-united-en-la-temporada-26-27/view/news/482888",
+          "role": "database"
         }
       ],
       "firstSeenAt": "2026-07-13T12:00:00.000Z",
@@ -2092,7 +2437,8 @@
         "English leagues"
       ],
       "sourceAdapters": [
-        "wikipedia-england"
+        "wikipedia-england",
+        "transfermarkt-es-rss"
       ]
     },
     {
@@ -2273,7 +2619,19 @@
       ],
       "sourceAdapters": [
         "wikipedia-germany"
-      ]
+      ],
+      "sourcePreview": {
+        "version": 1,
+        "sourceUrl": "https://www.bvb.de/de/de/aktuelles/news/news.html/2026/7/13/Kjell-Waetjen-wechselt-zum-FC-Midtjylland.html",
+        "title": "Kjell Wätjen wechselt zum FC Midtjylland",
+        "description": "Mittelfeldspieler Kjell Wätjen verlässt Borussia Dortmund mit sofortiger Wirkung und wechselt in die erste dänische Liga zum dortigen Vizemeister FC Midtjylland.",
+        "imageUrl": "https://s7g10.scene7.com/is/image/BORUSSIADORTMUNDGMBHANDCOKGAA/Waetjen-10",
+        "siteName": "Borussia Dortmund",
+        "publishedAt": null,
+        "language": "de",
+        "fetchedAt": "2026-07-15T13:45:48.475Z"
+      },
+      "sourcePreviewCheckedAt": "2026-07-15T13:45:48.475Z"
     },
     {
       "id": "2f92049dfc39d4",
@@ -2318,7 +2676,19 @@
       ],
       "sourceAdapters": [
         "wikipedia-germany"
-      ]
+      ],
+      "sourcePreviewCheckedAt": "2026-07-15T14:18:24.730Z",
+      "sourcePreview": {
+        "version": 1,
+        "sourceUrl": "https://www.fcaugsburg.de/article/langfristiger-vertrag-fca-verstaerkt-sich-mit-hennes-behrens-23249",
+        "title": "Langfristiger Vertrag: FCA verstärkt sich mit Hennes Behrens | FC Augsburg",
+        "description": "Der FC Augsburg treibt seine Personalplanungen weiter voran und verstärkt sich mit Hennes Behrens.",
+        "imageUrl": "https://www.fcaugsburg.de/media/fca/article_stage/0002/25/thumb_124056_article_stage_hd.jpeg",
+        "siteName": "FC Augsburg",
+        "publishedAt": null,
+        "language": "de",
+        "fetchedAt": "2026-07-15T14:18:24.730Z"
+      }
     },
     {
       "id": "6b5fbd6bdb872e",
@@ -2364,7 +2734,19 @@
       ],
       "sourceAdapters": [
         "wikipedia-germany"
-      ]
+      ],
+      "sourcePreview": {
+        "version": 1,
+        "sourceUrl": "https://www.sgf1903.de/news/profis/kleeblatt-lotst-dal-nach-fuerth",
+        "title": "Kleeblatt lotst Dal nach Fürth | SpVgg Greuther Fürth",
+        "description": "SpVgg Greuther Fürth Website",
+        "imageUrl": "https://res.cloudinary.com/silbury/image/upload/h_480,f_auto,fl_lossy/v1783951891/DSC_2804_cebfe7a462.jpg",
+        "siteName": "Greuther Fürth",
+        "publishedAt": null,
+        "language": "de",
+        "fetchedAt": "2026-07-15T13:45:48.475Z"
+      },
+      "sourcePreviewCheckedAt": "2026-07-15T13:45:48.475Z"
     },
     {
       "id": "f2895ac18f1393",
@@ -2409,7 +2791,19 @@
       ],
       "sourceAdapters": [
         "wikipedia-germany"
-      ]
+      ],
+      "sourcePreview": {
+        "version": 1,
+        "sourceUrl": "https://www.hsv.de/news/martin-adeline-wechselt-zum-hsv",
+        "title": "Martin Adeline wechselt zum HSV",
+        "description": "Der 22-jährige Franzose verstärkt das Mittelfeld der Rothosen. Kathleen Krüger: „Martin bringt genau die Qualitäten mit, die unser Spiel bereichern.“",
+        "imageUrl": "https://www.hsv.de/fileadmin/_processed_/3/5/csm_Adeline_427_7e98301325.jpg",
+        "siteName": "HSV.de",
+        "publishedAt": null,
+        "language": "de-DE",
+        "fetchedAt": "2026-07-15T13:45:48.475Z"
+      },
+      "sourcePreviewCheckedAt": "2026-07-15T13:45:48.475Z"
     },
     {
       "id": "88dc9e06191516",
@@ -2499,7 +2893,19 @@
       ],
       "sourceAdapters": [
         "wikipedia-germany"
-      ]
+      ],
+      "sourcePreview": {
+        "version": 1,
+        "sourceUrl": "https://www.bvb.de/de/de/aktuelles/news/news.html/2026/7/13/Kjell-Waetjen-wechselt-zum-FC-Midtjylland.html",
+        "title": "Kjell Wätjen wechselt zum FC Midtjylland",
+        "description": "Mittelfeldspieler Kjell Wätjen verlässt Borussia Dortmund mit sofortiger Wirkung und wechselt in die erste dänische Liga zum dortigen Vizemeister FC Midtjylland.",
+        "imageUrl": "https://s7g10.scene7.com/is/image/BORUSSIADORTMUNDGMBHANDCOKGAA/Waetjen-10",
+        "siteName": "Borussia Dortmund",
+        "publishedAt": null,
+        "language": "de",
+        "fetchedAt": "2026-07-15T13:45:48.475Z"
+      },
+      "sourcePreviewCheckedAt": "2026-07-15T13:45:48.475Z"
     },
     {
       "id": "6ae3d15b4b67d1",
@@ -2544,7 +2950,19 @@
       ],
       "sourceAdapters": [
         "wikipedia-italy"
-      ]
+      ],
+      "sourcePreviewCheckedAt": "2026-07-15T14:18:24.730Z",
+      "sourcePreview": {
+        "version": 1,
+        "sourceUrl": "https://cagliaricalcio.com/news/fazzini-al-cagliari-seriea-craisportcenter/",
+        "title": "Fazzini al Cagliari",
+        "description": "Il giovane centrocampista, classe 2003, si trasferisce dall’ACF Fiorentina in prestito con diritto di riscatto",
+        "imageUrl": "https://cagliaricalcio.com/wp-content/uploads/2026/07/43.jpeg",
+        "siteName": "Cagliari",
+        "publishedAt": null,
+        "language": "it-IT",
+        "fetchedAt": "2026-07-15T14:18:24.730Z"
+      }
     },
     {
       "id": "1d759827df3415",
@@ -2589,7 +3007,19 @@
       ],
       "sourceAdapters": [
         "wikipedia-italy"
-      ]
+      ],
+      "sourcePreview": {
+        "version": 1,
+        "sourceUrl": "https://www.frosinonecalcio.com/el-azzouzi-e-giallazzurro/",
+        "title": "EL AZZOUZI È GIALLAZZURRO",
+        "description": "Frosinone Calcio comunica di essersi assicurata le presentazioni sportive del calciatore Anouar El Azzouzi. Il centrocampista, classe 2001, vestirà la maglia giallazzurra fino al 30 giugno 2029.",
+        "imageUrl": "https://www.frosinonecalcio.com/wp-content/uploads/2026/07/whatsapp-image-2026-07-10-at-15.49.18-1.jpeg",
+        "siteName": "Frosinone Calcio",
+        "publishedAt": null,
+        "language": "it-IT",
+        "fetchedAt": "2026-07-15T13:45:48.475Z"
+      },
+      "sourcePreviewCheckedAt": "2026-07-15T13:45:48.475Z"
     },
     {
       "id": "2bbbfacfebe6f5",
@@ -2634,7 +3064,19 @@
       ],
       "sourceAdapters": [
         "wikipedia-italy"
-      ]
+      ],
+      "sourcePreview": {
+        "version": 1,
+        "sourceUrl": "https://www.speziacalcio.com/it/news/ufficiale-kevin-cannav-un-nuovo-calciatore-dello-spezia.28419.html",
+        "title": "Ufficiale | Kevin Cannavò è un nuovo calciatore dello Spezia",
+        "description": null,
+        "imageUrl": "https://www.speziacalcio.com/media/images/1920x1080/07_2026/cannav.54376.jpg",
+        "siteName": "Spezia Calcio - Sito ufficiale",
+        "publishedAt": null,
+        "language": null,
+        "fetchedAt": "2026-07-15T13:45:48.475Z"
+      },
+      "sourcePreviewCheckedAt": "2026-07-15T13:45:48.475Z"
     },
     {
       "id": "4b00134439309e",
@@ -2679,7 +3121,19 @@
       ],
       "sourceAdapters": [
         "wikipedia-italy"
-      ]
+      ],
+      "sourcePreviewCheckedAt": "2026-07-15T14:18:24.730Z",
+      "sourcePreview": {
+        "version": 1,
+        "sourceUrl": "https://www.speziacalcio.com/it/news/ufficiale-alessandro-cardinali-un-nuovo-calciatore-dello-spezia.28418.html",
+        "title": "Ufficiale | Alessandro Cardinali è un nuovo calciatore dello Spezia",
+        "description": null,
+        "imageUrl": "https://www.speziacalcio.com/media/images/1920x1080/07_2026/cardinali.54370.jpeg",
+        "siteName": "Spezia Calcio - Sito ufficiale",
+        "publishedAt": null,
+        "language": null,
+        "fetchedAt": "2026-07-15T14:18:24.730Z"
+      }
     },
     {
       "id": "610a4f4ad3cc9a",
@@ -2859,7 +3313,19 @@
       ],
       "sourceAdapters": [
         "wikipedia-italy"
-      ]
+      ],
+      "sourcePreviewCheckedAt": "2026-07-15T14:18:24.730Z",
+      "sourcePreview": {
+        "version": 1,
+        "sourceUrl": "https://www.mantova1911.club/news/ufficiale-ismael-cajazzo-a-titolo-definitivo",
+        "title": "Ufficiale: Ismael Cajazzo a titolo definitivo",
+        "description": null,
+        "imageUrl": "https://cdn.prod.website-files.com/687f92d2fe919fa87c95b980/6a5520a0be191e867d04f64e_IMG-20260713-WA0099.jpg",
+        "siteName": "Mantova",
+        "publishedAt": null,
+        "language": "it-IT",
+        "fetchedAt": "2026-07-15T14:18:24.730Z"
+      }
     },
     {
       "id": "fbe2aae5a91a57",
@@ -2949,7 +3415,19 @@
       ],
       "sourceAdapters": [
         "wikipedia-italy"
-      ]
+      ],
+      "sourcePreview": {
+        "version": 1,
+        "sourceUrl": "https://www.ascolicalcio1898.it/ascoli-calcio-calciomercato-acampora-e-bianconero-accordo-fino-al-2028/",
+        "title": "Ascoli Calcio | Calciomercato | Acampora è bianconero: accordo fino al 2028 - Ascoli Calcio 1898 FC - Sito ufficiale | ascolicalcio1898.it",
+        "description": "Ascoli Calcio 1898 FC S.p.A. comunica di aver acquisito le prestazioni sportive del centrocampista Gennaro Acampora, che ha sottoscritto un contratto fino al 30 giugno 2028. Nato a Napoli il…",
+        "imageUrl": "https://www.ascolicalcio1898.it/wp-content/uploads/2026/07/acampora.jpg",
+        "siteName": "Ascoli Calcio 1898 FC - Sito ufficiale | ascolicalcio1898.it",
+        "publishedAt": "2026-07-13T15:54:53.000Z",
+        "language": "it-IT",
+        "fetchedAt": "2026-07-15T13:45:48.475Z"
+      },
+      "sourcePreviewCheckedAt": "2026-07-15T13:45:48.475Z"
     },
     {
       "id": "c60e90e12f5edc",
@@ -2994,7 +3472,8 @@
       ],
       "sourceAdapters": [
         "wikipedia-italy"
-      ]
+      ],
+      "sourcePreviewCheckedAt": "2026-07-15T13:45:48.475Z"
     },
     {
       "id": "9673ecda96f12e",
@@ -3084,7 +3563,19 @@
       ],
       "sourceAdapters": [
         "wikipedia-italy"
-      ]
+      ],
+      "sourcePreviewCheckedAt": "2026-07-15T14:18:24.730Z",
+      "sourcePreview": {
+        "version": 1,
+        "sourceUrl": "https://www.frosinonecalcio.com/cittadini-torna-in-giallazzurro/",
+        "title": "CITTADINI TORNA IN GIALLAZZURRO",
+        "description": "Frosinone Calcio comunica di aver raggiunto l’accordo con la società Atalanta Bergamasca Calcio per l’acquisizione delle prestazioni sportive del calciatore Giorgio Cittadini. Il difensore, classe 2002, arriva a titolo temporaneo.",
+        "imageUrl": "https://www.frosinonecalcio.com/wp-content/uploads/2026/07/whatsapp-image-2026-07-08-at-13.40.36.jpeg",
+        "siteName": "Frosinone Calcio",
+        "publishedAt": null,
+        "language": "it-IT",
+        "fetchedAt": "2026-07-15T14:18:24.730Z"
+      }
     },
     {
       "id": "53d7fd325c93d2",
@@ -3444,7 +3935,19 @@
       ],
       "sourceAdapters": [
         "wikipedia-england"
-      ]
+      ],
+      "sourcePreview": {
+        "version": 1,
+        "sourceUrl": "https://www.wolves.co.uk/news/mens-first-team/20260711-said-becomes-new-wolves-signing/",
+        "title": "Said becomes new Wolves signing",
+        "description": "Winger Rafiki Said has become the first Wolves signing of the Cesar Peixoto era, subject to visa and international clearance.",
+        "imageUrl": "https://www.wolves.co.uk/media/f0mlxqkq/said-signs.jpg",
+        "siteName": "Wolverhampton Wanderers FC",
+        "publishedAt": null,
+        "language": "en",
+        "fetchedAt": "2026-07-15T13:45:48.475Z"
+      },
+      "sourcePreviewCheckedAt": "2026-07-15T13:45:48.475Z"
     },
     {
       "id": "5f316d5dd4afb2",
@@ -3579,7 +4082,19 @@
       ],
       "sourceAdapters": [
         "wikipedia-germany"
-      ]
+      ],
+      "sourcePreview": {
+        "version": 1,
+        "sourceUrl": "https://www.tsg-hoffenheim.de/aktuelles/news/2026/07/haris-tabakovic-wechselt-zu-rb-salzburg",
+        "title": "Haris Tabaković wechselt zu RB Salzburg",
+        "description": "Fußball-Bundesligist TSG Hoffenheim und RB Salzburg haben sich auf einen Transfer von Haris Tabaković verständigt. Der 32 Jahre alte Mittelstürmer kam 2024 zur TSG und war in der vergangenen Spielzeit an Borussia Mönchengladbach verliehen.",
+        "imageUrl": "https://s3.tsg-hoffenheim.de/public/news/2026/20260711-sap-tsg-hoffenheim-tabakovic-header__ScaleWidthWzcyMF0.jpg",
+        "siteName": "TSG Hoffenheim",
+        "publishedAt": null,
+        "language": "de-DE",
+        "fetchedAt": "2026-07-15T13:45:48.475Z"
+      },
+      "sourcePreviewCheckedAt": "2026-07-15T13:45:48.475Z"
     },
     {
       "id": "e9db1c9b92ea51",
@@ -3624,7 +4139,19 @@
       ],
       "sourceAdapters": [
         "wikipedia-germany"
-      ]
+      ],
+      "sourcePreview": {
+        "version": 1,
+        "sourceUrl": "https://www.tsg-hoffenheim.de/aktuelles/news/2026/07/haris-tabakovic-wechselt-zu-rb-salzburg",
+        "title": "Haris Tabaković wechselt zu RB Salzburg",
+        "description": "Fußball-Bundesligist TSG Hoffenheim und RB Salzburg haben sich auf einen Transfer von Haris Tabaković verständigt. Der 32 Jahre alte Mittelstürmer kam 2024 zur TSG und war in der vergangenen Spielzeit an Borussia Mönchengladbach verliehen.",
+        "imageUrl": "https://s3.tsg-hoffenheim.de/public/news/2026/20260711-sap-tsg-hoffenheim-tabakovic-header__ScaleWidthWzcyMF0.jpg",
+        "siteName": "TSG Hoffenheim",
+        "publishedAt": null,
+        "language": "de-DE",
+        "fetchedAt": "2026-07-15T13:45:48.475Z"
+      },
+      "sourcePreviewCheckedAt": "2026-07-15T13:45:48.475Z"
     },
     {
       "id": "de36e20e332441",
@@ -3669,7 +4196,19 @@
       ],
       "sourceAdapters": [
         "wikipedia-germany"
-      ]
+      ],
+      "sourcePreviewCheckedAt": "2026-07-15T14:18:24.730Z",
+      "sourcePreview": {
+        "version": 1,
+        "sourceUrl": "https://fc.de/aktuelles/news/fc-verpflichtet-gideon-mensah",
+        "title": "FC verpflichtet Gideon Mensah | 1. FC Köln",
+        "description": null,
+        "imageUrl": "https://images.ctfassets.net/nurz7nsnha04/27FU4cbaKtZTKQlxyvA0Xd/71d4ebcb33e0a18bf7a559708d8276e4/20260711_Mensah.jpg",
+        "siteName": "1. FC Köln",
+        "publishedAt": null,
+        "language": null,
+        "fetchedAt": "2026-07-15T14:18:24.730Z"
+      }
     },
     {
       "id": "19b29708105c90",
@@ -3759,7 +4298,19 @@
       ],
       "sourceAdapters": [
         "wikipedia-italy"
-      ]
+      ],
+      "sourcePreviewCheckedAt": "2026-07-15T14:18:24.730Z",
+      "sourcePreview": {
+        "version": 1,
+        "sourceUrl": "https://www.hellasverona.it/news/salvatore-cerbone-e-un-nuovo-attaccante-gialloblu",
+        "title": "Salvatore Cerbone è un nuovo attaccante gialloblù! | Hellas Verona Official Website",
+        "description": null,
+        "imageUrl": "https://hellas.hqcdn.it/media/share?f=2026/07/banner-23.jpg",
+        "siteName": "Verona",
+        "publishedAt": null,
+        "language": "it",
+        "fetchedAt": "2026-07-15T14:18:24.730Z"
+      }
     },
     {
       "id": "6657301561f056",
@@ -3849,7 +4400,19 @@
       ],
       "sourceAdapters": [
         "wikipedia-italy"
-      ]
+      ],
+      "sourcePreviewCheckedAt": "2026-07-15T14:18:24.730Z",
+      "sourcePreview": {
+        "version": 1,
+        "sourceUrl": "https://www.veneziafc.it/news/seid-korac-all-hellas-verona",
+        "title": "Seid Korac all'Hellas Verona",
+        "description": "Le ultime notizie del Venezia FC — report delle partite, interviste e aggiornamenti dal club.",
+        "imageUrl": "https://images.veneziafc.it/image/private/t_ratio16_9-size60-f_webp-c_fill/prd/goaxv9dugi17jmcdhx2w",
+        "siteName": "Venezia FC",
+        "publishedAt": "2026-07-11T16:22:27.334Z",
+        "language": "it",
+        "fetchedAt": "2026-07-15T14:18:24.730Z"
+      }
     },
     {
       "id": "bc1da2d9f68706",
@@ -3984,7 +4547,8 @@
       ],
       "sourceAdapters": [
         "wikipedia-italy"
-      ]
+      ],
+      "sourcePreviewCheckedAt": "2026-07-15T14:18:24.730Z"
     },
     {
       "id": "a07a0cb104e583",
@@ -4029,7 +4593,19 @@
       ],
       "sourceAdapters": [
         "wikipedia-italy"
-      ]
+      ],
+      "sourcePreviewCheckedAt": "2026-07-15T14:18:24.730Z",
+      "sourcePreview": {
+        "version": 1,
+        "sourceUrl": "https://pisasportingclub.com/tommaso-marras-e-del-pisa/",
+        "title": "Tommaso Marras è del Pisa - Pisa Sporting Club",
+        "description": "Il Pisa Sporting Club è lieto di annunciare l’esito positivo della trattativa con la Società Mantova 1911 per l’acquisizione a titolo definitivo del diritto",
+        "imageUrl": "https://pisasportingclub.com/wp-content/uploads/2026/07/sito.png",
+        "siteName": "Pisa Sporting Club",
+        "publishedAt": "2026-07-11T17:05:47.000Z",
+        "language": "it-IT",
+        "fetchedAt": "2026-07-15T14:18:24.730Z"
+      }
     },
     {
       "id": "6dc7ef74e04818",
@@ -4074,7 +4650,19 @@
       ],
       "sourceAdapters": [
         "wikipedia-poland"
-      ]
+      ],
+      "sourcePreviewCheckedAt": "2026-07-15T14:18:24.730Z",
+      "sourcePreview": {
+        "version": 1,
+        "sourceUrl": "https://legia.com/michal-sevcik/90322",
+        "title": "Legia Warszawa - Strona Oficjalna - legia.com",
+        "description": "Legia Warszawa - oficjalna strona. Wideo, aktualności, bilety, zdjęcia, terminarz, transmisje, relacje na żywo i bramki z meczów Legii Warszawa!",
+        "imageUrl": "https://legia.com/michal-sevcik/null",
+        "siteName": "Legia Warszawa - Strona oficjalna",
+        "publishedAt": null,
+        "language": "pl-PL",
+        "fetchedAt": "2026-07-15T14:18:24.730Z"
+      }
     },
     {
       "id": "aa99478631f0e1",
@@ -4119,7 +4707,19 @@
       ],
       "sourceAdapters": [
         "wikipedia-poland"
-      ]
+      ],
+      "sourcePreviewCheckedAt": "2026-07-15T14:18:24.730Z",
+      "sourcePreview": {
+        "version": 1,
+        "sourceUrl": "https://piast-gliwice.eu/aktualnosci/newsy/marcel-mendes-dudzinski-dolacza-do-piasta",
+        "title": "Marcel Mendes-Dudziński dołącza do Piasta",
+        "description": "Marcel Mendes-Dudziński dołącza do Niebiesko-Czerwonych! 21-letni bramkarz, który zbierał doświadczenie w młodzieżowych drużynach Benfiki Lizbona oraz zanotował 15 występów w zespołach U15-U19 reprezentacji Polski podpisał trzyletni kontrakt z…",
+        "imageUrl": "https://piast-gliwice.eu/static/thumbnail/news/facebook/136866.jpg",
+        "siteName": "Piast Gliwice",
+        "publishedAt": null,
+        "language": "pl",
+        "fetchedAt": "2026-07-15T14:18:24.730Z"
+      }
     },
     {
       "id": "9be417fa9b5011",
@@ -4164,7 +4764,8 @@
       ],
       "sourceAdapters": [
         "wikipedia-poland"
-      ]
+      ],
+      "sourcePreviewCheckedAt": "2026-07-15T14:18:24.730Z"
     },
     {
       "id": "f2eb95c6b13726",
@@ -4209,6 +4810,51 @@
       ],
       "sourceAdapters": [
         "wikipedia-poland"
+      ]
+    },
+    {
+      "id": "6eee38dd3c9b4a",
+      "date": "2026-07-11",
+      "time": "20:13",
+      "headline": "Jesse Derry é reforço do Sporting: extremo inglês ruma a Alvalade por empréstimo do Chelsea",
+      "player": "Jesse Derry",
+      "playerUrl": null,
+      "age": null,
+      "position": null,
+      "nationality": null,
+      "flagCode": null,
+      "flag": "",
+      "fromClub": "Chelsea",
+      "fromClubUrl": null,
+      "fromClubCrest": null,
+      "toClub": "Sporting",
+      "toClubUrl": null,
+      "toClubCrest": null,
+      "fee": "Loan",
+      "status": "rumour",
+      "extractionStatus": "complete",
+      "market": "Portugal",
+      "markets": [
+        "Portugal"
+      ],
+      "competition": null,
+      "competitionGender": "unknown",
+      "competitionGenderSource": null,
+      "sourceAdapter": "transfermarkt-pt-rss",
+      "sourceRole": "database",
+      "sourceName": "Transfermarkt PT",
+      "sourceUrl": "https://www.transfermarkt.pt/jesse-derry-e-reforco-do-sporting-extremo-ingles-ruma-a-alvalade-por-emprestimo-do-chelsea/view/news/482701",
+      "sources": [
+        {
+          "name": "Transfermarkt PT",
+          "url": "https://www.transfermarkt.pt/jesse-derry-e-reforco-do-sporting-extremo-ingles-ruma-a-alvalade-por-emprestimo-do-chelsea/view/news/482701",
+          "role": "database"
+        }
+      ],
+      "firstSeenAt": "2026-07-11T18:13:58.000Z",
+      "competitions": [],
+      "sourceAdapters": [
+        "transfermarkt-pt-rss"
       ]
     },
     {
@@ -4794,7 +5440,19 @@
       ],
       "sourceAdapters": [
         "wikipedia-germany"
-      ]
+      ],
+      "sourcePreviewCheckedAt": "2026-07-15T14:18:24.730Z",
+      "sourcePreview": {
+        "version": 1,
+        "sourceUrl": "https://www.tsg-hoffenheim.de/aktuelles/news/2026/07/tsg-hoffenheim-verpflichtet-top-talent-nathan-de-cat",
+        "title": "TSG Hoffenheim verpflichtet Top-Talent Nathan De Cat",
+        "description": "Fußball-Bundesligist TSG Hoffenheim hat das belgische Top-Talent Nathan De Cat verpflichtet. Der 17 Jahre alte Mittelfeldspieler aus Flandern unterschreibt einen langfristigen Vertrag im Kraichgau.",
+        "imageUrl": "https://s3.tsg-hoffenheim.de/public/news/2026/20260710-sap-tsg-hoffenheim-decat-header__ScaleWidthWzcyMF0.jpg",
+        "siteName": "TSG Hoffenheim",
+        "publishedAt": null,
+        "language": "de-DE",
+        "fetchedAt": "2026-07-15T14:18:24.730Z"
+      }
     },
     {
       "id": "89b4c455e89557",
@@ -4929,7 +5587,19 @@
       ],
       "sourceAdapters": [
         "wikipedia-germany"
-      ]
+      ],
+      "sourcePreviewCheckedAt": "2026-07-15T14:18:24.730Z",
+      "sourcePreview": {
+        "version": 1,
+        "sourceUrl": "https://www.hsv.de/news/aboubaka-soumahoro-wird-zum-rcd-mallorca-verliehen",
+        "title": "Aboubaka Soumahoro wird zum RCD Mallorca verliehen",
+        "description": "Der 21-jährige Abwehrspieler verbringt die kommende Saison 2026/27 für mehr Spielpraxis in der zweiten spanischen Liga.",
+        "imageUrl": "https://www.hsv.de/fileadmin/_processed_/0/f/csm_Soumahoro_Leihe_427_57af82035d.jpg",
+        "siteName": "HSV.de",
+        "publishedAt": null,
+        "language": "de-DE",
+        "fetchedAt": "2026-07-15T14:18:24.730Z"
+      }
     },
     {
       "id": "9a4e6d1d336547",
@@ -4974,7 +5644,8 @@
       ],
       "sourceAdapters": [
         "wikipedia-germany"
-      ]
+      ],
+      "sourcePreviewCheckedAt": "2026-07-15T14:18:24.730Z"
     },
     {
       "id": "6da80ab92f7966",
@@ -5019,7 +5690,19 @@
       ],
       "sourceAdapters": [
         "wikipedia-germany"
-      ]
+      ],
+      "sourcePreviewCheckedAt": "2026-07-15T14:18:24.730Z",
+      "sourcePreview": {
+        "version": 1,
+        "sourceUrl": "https://www.dynamo-dresden.de/aktuelles/news/profis/die-sgd-verpflichtet-thomas-keller/",
+        "title": "Die SGD verpflichtet Thomas Keller | Sportgemeinschaft Dynamo Dresden - Die offizielle Website",
+        "description": "Die SG Dynamo Dresden hat Thomas Keller fest unter Vertrag genommen. Nach der erfolgreichen Leihe in der Rückrunde der Vorsaison kehrt der 26-jährige Innenver...",
+        "imageUrl": "https://www.dynamo-dresden.de/?eID=crop&width=1200&height=630&file=fileadmin/01_News/01_Newsbilder/Saison_2026_27/01_Juli/260710_Verpflichtung_Keller_News.jpg",
+        "siteName": "Dynamo Dresden",
+        "publishedAt": null,
+        "language": "de-DE",
+        "fetchedAt": "2026-07-15T14:18:24.730Z"
+      }
     },
     {
       "id": "834cac86abae4d",
@@ -5067,7 +5750,19 @@
       "sourceAdapters": [
         "wikipedia-germany",
         "wikipedia-italy"
-      ]
+      ],
+      "sourcePreviewCheckedAt": "2026-07-15T14:18:24.730Z",
+      "sourcePreview": {
+        "version": 1,
+        "sourceUrl": "https://www.sampdoria.it/news/club/2026/07/10/sinani-e-blucerchiato-contratto-fino-al-30-giugno-2028/",
+        "title": "Sinani è blucerchiato: contratto fino al 30 giugno 2028 - U.C. Sampdoria",
+        "description": "L’U.C. Sampdoria comunica di aver acquisito a titolo definitivo i diritti sportivi del calciatore Danel Sinani (nato a Belgrado, Serbia, il 5 aprile 1997). Il centrocampista offensivo ha firmato un contratto con i Blucerchiati fino al 30 giugno 2028. Sinani arriva alla Sampdoria portando qualità, imprevedibilità e una vasta esperienza internazionale…",
+        "imageUrl": "https://www.sampdoria.it/wp-content/uploads/2026/07/DSC_5836.jpg",
+        "siteName": "U.C. Sampdoria",
+        "publishedAt": "2026-07-10T16:00:07.000Z",
+        "language": "it-IT",
+        "fetchedAt": "2026-07-15T14:18:24.730Z"
+      }
     },
     {
       "id": "3e9e64cc7e5c4b",
@@ -5247,7 +5942,19 @@
       ],
       "sourceAdapters": [
         "wikipedia-italy"
-      ]
+      ],
+      "sourcePreviewCheckedAt": "2026-07-15T14:18:24.730Z",
+      "sourcePreview": {
+        "version": 1,
+        "sourceUrl": "https://www.usavellino1912.com/tommaso-martinelli-in-prestito-dalla-fiorentina/",
+        "title": "TOMMASO MARTINELLI IN PRESTITO DALLA FIORENTINA",
+        "description": "L’U.S. Avellino 1912 comunica di aver acquisito dalla A.C.F. Fiorentina , a titolo temporaneo, il diritto alle prestazioni sportive del calciatore Tommaso Martinelli. Nato a Bagno a Ripoli il 6 gennaio 2006, il portiere toscano è cresciuto nelle giovanili della Fiorentina con cui ha giocato in tutte le formazioni under esordendo in serie A e giocando 3…",
+        "imageUrl": "https://www.usavellino1912.com/wp-content/uploads/2026/07/MARTINELLI-POST.png",
+        "siteName": "Avellino",
+        "publishedAt": null,
+        "language": "it-IT",
+        "fetchedAt": "2026-07-15T14:18:24.730Z"
+      }
     },
     {
       "id": "40e04ef412f220",

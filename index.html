@@ -86,5 +86,59 @@
         </p>
       </main>
     </div>
+
+    <dialog
+      class="source-drawer"
+      id="source-drawer"
+      aria-labelledby="source-drawer-title"
+      aria-describedby="source-drawer-description"
+    >
+      <div class="source-drawer-shell">
+        <header class="source-drawer-header">
+          <a
+            class="source-drawer-link"
+            id="source-drawer-link"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <span id="source-drawer-source">Official source</span>
+            <svg viewBox="0 0 16 16" aria-hidden="true" focusable="false">
+              <path d="M6 3h7v7M13 3 7.25 8.75M11.5 8.5v3A1.5 1.5 0 0 1 10 13H4a1.5 1.5 0 0 1-1.5-1.5v-6A1.5 1.5 0 0 1 4 4h3"></path>
+            </svg>
+          </a>
+          <button
+            class="source-drawer-close"
+            id="source-drawer-close"
+            type="button"
+            aria-label="Close source preview"
+            autofocus
+          >
+            <svg viewBox="0 0 16 16" aria-hidden="true" focusable="false">
+              <path d="m4 4 8 8M12 4l-8 8"></path>
+            </svg>
+          </button>
+        </header>
+
+        <div class="source-drawer-body">
+          <figure class="source-preview-media" id="source-preview-media" hidden>
+            <img id="source-preview-image" alt="" referrerpolicy="no-referrer" />
+          </figure>
+
+          <div class="source-preview-copy">
+            <h2 id="source-drawer-title">Official announcement</h2>
+            <p id="source-drawer-description"></p>
+          </div>
+
+          <div class="source-preview-transfer" aria-label="Transfer summary">
+            <p class="source-preview-player" id="source-preview-player"></p>
+            <p class="source-preview-route">
+              <span id="source-preview-from"></span>
+              <span aria-hidden="true">→</span>
+              <span id="source-preview-to"></span>
+            </p>
+          </div>
+        </div>
+      </div>
+    </dialog>
   </body>
 </html>

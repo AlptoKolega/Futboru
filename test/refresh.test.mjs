@@ -1,10 +1,13 @@
 import test from "node:test";
 import assert from "node:assert/strict";
 import {
+  RSS_SOURCES,
   competitionGenderFromEntity,
   carryPreviousEnrichment,
+  carryPreviousSourcePreviews,
   deduplicateTransfers,
   enrichCompetitionGenders,
+  enrichOfficialSourcePreviews,
   extractRumourMovement,
   flagCodeFromName,
   hasStructuredRoute,
@@ -12,9 +15,11 @@ import {
   mergeRumourFragments,
   matchesOfficialWebsite,
   newestPreviousTransfers,
+  normaliseSourcePreview,
   normaliseStoredTransfer,
   parseBbcRumours,
   parseRssRumours,
+  parseSourcePreviewHtml,
   parseWikipediaClubTransfers,
   parseWikipediaDatedTransfers,
   parseWikipediaTransfers,
@@ -525,6 +530,245 @@ test("localized headlines become movement claims instead of player names", () =>
     assert.equal(claim.extractionStatus, "complete", headline);
     assert.equal(hasStructuredRoute(claim), true, headline);
   }
+});
+
+test("localized Transfermarkt feeds stay database rumours and merge the same structured claim", () => {
+  const transfermarktFeeds = RSS_SOURCES.filter((source) => source.id.startsWith("transfermarkt-"));
+  assert.deepEqual(
+    transfermarktFeeds.map((source) => source.id),
+    [
+      "transfermarkt-de-rss",
+      "transfermarkt-uk-rss",
+      "transfermarkt-it-rss",
+      "transfermarkt-es-rss",
+      "transfermarkt-nl-rss",
+      "transfermarkt-pl-rss",
+      "transfermarkt-pt-rss",
+    ],
+  );
+  assert.equal(transfermarktFeeds.every((source) => source.sourceRole === "database"), true);
+
+  const item = (title, link) => `<rss><channel><item><title>${title}</title><link>${link}</link><pubDate>Tue, 14 Jul 2026 08:00:00 GMT</pubDate></item></channel></rss>`;
+  const uk = RSS_SOURCES.find((source) => source.id === "transfermarkt-uk-rss");
+  const pl = RSS_SOURCES.find((source) => source.id === "transfermarkt-pl-rss");
+  const [englishClaim] = parseRssRumours(
+    item("Chelsea signs Jan Kowalski from Arsenal", "https://www.transfermarkt.co.uk/claim"),
+    uk,
+    new Date("2026-07-15T12:00:00Z"),
+  );
+  const [polishClaim] = parseRssRumours(
+    item("Jan Kowalski przechodzi z Arsenal do Chelsea", "https://www.transfermarkt.pl/claim"),
+    pl,
+    new Date("2026-07-15T12:00:00Z"),
+  );
+
+  assert.equal(englishClaim.status, "rumour");
+  assert.equal(polishClaim.status, "rumour");
+  assert.equal(englishClaim.sourceRole, "database");
+  assert.equal(polishClaim.sourceRole, "database");
+  const [merged] = deduplicateTransfers([englishClaim, polishClaim]);
+  assert.equal(merged.sources.length, 2);
+});
+
+test("localized Transfermarkt fixtures parse useful claims and reject locale-specific noise", () => {
+  const fixtures = [
+    {
+      id: "transfermarkt-de-rss",
+      useful: "SC Paderborn verleiht Martin Ens an MSV Duisburg in die 3. Liga",
+      noise: "WM-Blog: Bayern vor Transfer",
+      expected: { player: "Martin Ens", fromClub: "SC Paderborn", toClub: "MSV Duisburg", fee: "Loan", status: "complete" },
+    },
+    {
+      id: "transfermarkt-uk-rss",
+      useful: "Tarik Muharemović set to join Leeds United from Sassuolo in club record deal",
+      noise: "Transfer news LIVE: all the latest moves",
+      expected: { player: "Tarik Muharemović", fromClub: "Sassuolo", toClub: "Leeds United", fee: "—", status: "complete" },
+    },
+    {
+      id: "transfermarkt-it-rss",
+      useful: "UFFICIALE: Juventus acquista Mario Rossi dal Sassuolo",
+      noise: "Calciomercato: formazioni e convocati",
+      expected: { player: "Mario Rossi", fromClub: "Sassuolo", toClub: "Juventus", fee: "—", status: "complete" },
+    },
+    {
+      id: "transfermarkt-es-rss",
+      useful: "Youri Tielemans se muda a Manchester United",
+      noise: "Valores de mercado: transferencias y jugadores más valiosos",
+      expected: { player: "Youri Tielemans", fromClub: null, toClub: "Manchester United", fee: "—", status: "partial" },
+    },
+    {
+      id: "transfermarkt-nl-rss",
+      useful: "Jeremy Monga verruilt Leicester City voor Manchester City",
+      noise: "Transfers op Transfermarkt: ranglijst meest waardevolle spelers",
+      expected: { player: "Jeremy Monga", fromClub: "Leicester City", toClub: "Manchester City", fee: "—", status: "complete" },
+    },
+    {
+      id: "transfermarkt-pl-rss",
+      useful: "Mazurek za 7,5 miliona euro do Red Bull Salzburg",
+      noise: "Ranking Top 10 najdroższych transferów",
+      expected: { player: "Mazurek", fromClub: null, toClub: "Red Bull Salzburg", fee: "€7.5m", status: "partial" },
+    },
+    {
+      id: "transfermarkt-pt-rss",
+      useful: "Jesse Derry é reforço do Sporting: extremo chega por empréstimo do Chelsea",
+      noise: "Últimas do mercado: transferências e valores de mercado",
+      expected: { player: "Jesse Derry", fromClub: "Chelsea", toClub: "Sporting", fee: "Loan", status: "complete" },
+    },
+  ];
+  const now = new Date("2026-07-15T12:00:00Z");
+
+  for (const fixture of fixtures) {
+    const source = RSS_SOURCES.find((item) => item.id === fixture.id);
+    const xml = `<rss><channel>
+      <item><title>${fixture.useful}</title><link>https://example.test/${fixture.id}/claim</link><pubDate>Tue, 14 Jul 2026 08:00:00 GMT</pubDate></item>
+      <item><title>${fixture.noise}</title><link>https://example.test/${fixture.id}/noise</link><pubDate>Tue, 14 Jul 2026 09:00:00 GMT</pubDate></item>
+    </channel></rss>`;
+    const result = parseRssRumours(xml, source, now);
+
+    assert.equal(result.length, 1, fixture.id);
+    assert.deepEqual({
+      player: result[0].player,
+      fromClub: result[0].fromClub,
+      toClub: result[0].toClub,
+      fee: result[0].fee,
+      status: result[0].extractionStatus,
+    }, fixture.expected, fixture.id);
+    assert.equal(result[0].status, "rumour", fixture.id);
+    assert.equal(result[0].sourceRole, "database", fixture.id);
+    assert.equal(result[0].competitionGender, "unknown", fixture.id);
+  }
+});
+
+test("a complete UK Transfermarkt claim absorbs its matching Spanish partial signal", () => {
+  const item = (title, link) => `<rss><channel><item><title>${title}</title><link>${link}</link><pubDate>Tue, 14 Jul 2026 08:00:00 GMT</pubDate></item></channel></rss>`;
+  const now = new Date("2026-07-15T12:00:00Z");
+  const [ukClaim] = parseRssRumours(
+    item("Youri Tielemans set to join Manchester United from Aston Villa", "https://www.transfermarkt.co.uk/tielemans"),
+    RSS_SOURCES.find((source) => source.id === "transfermarkt-uk-rss"),
+    now,
+  );
+  const [spanishSignal] = parseRssRumours(
+    item("Youri Tielemans se muda a Manchester United", "https://www.transfermarkt.es/tielemans"),
+    RSS_SOURCES.find((source) => source.id === "transfermarkt-es-rss"),
+    now,
+  );
+
+  const [merged] = mergeRumourFragments([ukClaim, spanishSignal]);
+  assert.equal(merged.player, "Youri Tielemans");
+  assert.equal(merged.fromClub, "Aston Villa");
+  assert.equal(merged.toClub, "Manchester United");
+  assert.equal(merged.sources.length, 2);
+  assert.deepEqual(merged.sourceAdapters, ["transfermarkt-uk-rss", "transfermarkt-es-rss"]);
+});
+
+test("official source preview reads only capped head metadata and resolves a secure image", () => {
+  const longDescription = `A concise official announcement ${"with transfer details ".repeat(30)}`;
+  const preview = parseSourcePreviewHtml(`
+    <html lang="en-GB"><head>
+      <title>Fallback title</title>
+      <meta property="og:title" content="  Player joins Club  ">
+      <meta property="og:description" content="${longDescription}">
+      <meta property="og:image" content="/media/player.jpg">
+      <meta property="og:site_name" content="Club FC">
+      <meta property="article:published_time" content="2026-07-15T09:30:00+02:00">
+    </head><body><article>Full article body that must never be copied.</article></body></html>
+  `, {
+    sourceUrl: "https://club.example/news/player",
+    sourceName: "Club",
+    fetchedAt: "2026-07-15T10:00:00Z",
+  });
+
+  assert.equal(preview.title, "Player joins Club");
+  assert.equal(preview.description.length <= 360, true);
+  assert.equal(preview.description.endsWith("…"), true);
+  assert.equal(preview.description.includes("Full article body"), false);
+  assert.equal(preview.imageUrl, "https://club.example/media/player.jpg");
+  assert.equal(preview.siteName, "Club FC");
+  assert.equal(preview.publishedAt, "2026-07-15T07:30:00.000Z");
+  assert.equal(preview.language, "en-GB");
+});
+
+test("source preview normalization is bound to a verified HTTPS club source", () => {
+  const transfer = {
+    status: "official",
+    sourceRole: "primary_official",
+    sourceUrl: "https://club.example/news/player",
+  };
+  const normalized = normaliseSourcePreview({
+    version: 1,
+    sourceUrl: transfer.sourceUrl,
+    title: "Player signs",
+    description: "Official announcement.",
+    imageUrl: "javascript:alert(1)",
+    fetchedAt: "2026-07-15T10:00:00Z",
+    articleBody: "Do not keep this",
+  }, transfer);
+
+  assert.equal(normalized.title, "Player signs");
+  assert.equal(normalized.imageUrl, null);
+  assert.equal("articleBody" in normalized, false);
+  assert.equal(normaliseSourcePreview(normalized, { ...transfer, sourceUrl: "https://other.example/post" }), null);
+  assert.equal(normaliseSourcePreview(normalized, { ...transfer, sourceRole: "publication" }), null);
+});
+
+test("source previews carry by exact URL and enrichment fetches eligible URLs once", async () => {
+  const previous = [{
+    id: "old-id",
+    status: "official",
+    sourceRole: "primary_official",
+    sourceName: "Carried Club",
+    sourceUrl: "https://carried.example/news/player",
+    sourcePreviewCheckedAt: "2026-07-15T09:00:00Z",
+    sourcePreview: {
+      version: 1,
+      sourceUrl: "https://carried.example/news/player",
+      title: "Carried title",
+      description: "Carried description",
+      imageUrl: null,
+      siteName: "Carried Club",
+      publishedAt: null,
+      language: "en",
+      fetchedAt: "2026-07-15T09:00:00Z",
+    },
+  }];
+  const base = {
+    status: "official",
+    sourceRole: "primary_official",
+    sourceName: "Club",
+  };
+  const transfers = [
+    { ...base, id: "new-id", sourceUrl: "https://carried.example/news/player" },
+    { ...base, id: "one", sourceUrl: "https://fresh.example/news/player" },
+    { ...base, id: "two", sourceUrl: "https://fresh.example/news/player" },
+    { ...base, id: "failed", sourceUrl: "https://failed.example/news/player" },
+    { ...base, id: "rumour", status: "rumour", sourceUrl: "https://rumour.example/news/player" },
+    { ...base, id: "publication", sourceRole: "publication", sourceUrl: "https://publication.example/news/player" },
+  ];
+  carryPreviousSourcePreviews(transfers, previous);
+  assert.equal(transfers[0].sourcePreview.title, "Carried title");
+
+  const fetched = [];
+  await enrichOfficialSourcePreviews(transfers, previous, {
+    now: "2026-07-15T10:00:00Z",
+    maxItems: 10,
+    concurrency: 2,
+    fetchHtml: async (url) => {
+      fetched.push(url);
+      if (url.includes("failed.example")) throw new Error("blocked");
+      return `<html><head><meta property="og:title" content="Fresh title"><meta property="og:description" content="Fresh description"><meta property="og:image" content="https://cdn.example/player.jpg"></head></html>`;
+    },
+  });
+
+  assert.deepEqual(fetched.sort(), [
+    "https://failed.example/news/player",
+    "https://fresh.example/news/player",
+  ]);
+  assert.equal(transfers[1].sourcePreview.title, "Fresh title");
+  assert.equal(transfers[2].sourcePreview.title, "Fresh title");
+  assert.equal(transfers[3].sourcePreview, undefined);
+  assert.equal(transfers[3].sourcePreviewCheckedAt, "2026-07-15T10:00:00.000Z");
+  assert.equal(transfers[4].sourcePreview, undefined);
+  assert.equal(transfers[5].sourcePreview, undefined);
 });
 
 test("unresolved headlines never qualify as public transfer rows", () => {

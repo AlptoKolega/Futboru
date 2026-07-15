@@ -75,7 +75,69 @@ export const RSS_SOURCES = [
     url: "https://www.transfermarkt.de/rss/news",
     market: "Germany",
     sourceRole: "database",
-    pattern: /\b(transfer|wechsel|wechselt|verpflicht\w*|leihe|ausleih\w*|abgang|zugang|einig|interess\w*|deal)\b/i,
+    pattern: /\b(transfer|wechsel|wechselt|verpflicht\w*|leihe|ausleih\w*|verleih\w*|abgang|zugang|einig|interess\w*|deal)\b/i,
+    excludePattern: /WM-Blog|verstorben|gestorben/i,
+    maxItems: 3,
+  },
+  {
+    id: "transfermarkt-uk-rss",
+    label: "Transfermarkt UK",
+    url: "https://www.transfermarkt.co.uk/rss/news",
+    market: "United Kingdom",
+    sourceRole: "database",
+    pattern: /\b(rumou?r|transfers?|linked|target\w*|bid|interest(?:ed)?|talks|set to|close to|poised|agrees? (?:a )?deal|sign(?:s|ed|ing)|move)\b/i,
+    excludePattern: /transfer news live|transfer window .*all deals/i,
+    maxItems: 3,
+  },
+  {
+    id: "transfermarkt-it-rss",
+    label: "Transfermarkt IT",
+    url: "https://www.transfermarkt.it/rss/news",
+    market: "Italy",
+    sourceRole: "database",
+    pattern: /\b(calciomercato|trasfer\w*|ufficiale|prestito|acquist\w*|cedut\w*|accordo|trattativ\w*|firma\w*)\b/i,
+    excludePattern: /formazioni|convocati|talenti|profili/i,
+    maxItems: 3,
+  },
+  {
+    id: "transfermarkt-es-rss",
+    label: "Transfermarkt ES",
+    url: "https://www.transfermarkt.es/rss/news",
+    market: "Spain",
+    sourceRole: "database",
+    pattern: /\b(fichaje\w*|traspas\w*|cesi[oó]n|transfers?|transferencias?|acuerdo|firma\w*)\b|a un paso|se muda/i,
+    excludePattern: /valores? de mercado|m[aá]s valios|Mundial|Golden Boy/i,
+    maxItems: 3,
+  },
+  {
+    id: "transfermarkt-nl-rss",
+    label: "Transfermarkt NL",
+    url: "https://www.transfermarkt.nl/rss/news",
+    market: "Netherlands",
+    sourceRole: "database",
+    pattern: /\b(transfers?|vertrek\w*|vertrekt|tekent|huur\w*|aantrekken|versterk\w*|overstap|haalt|verruilt)\b/i,
+    excludePattern: /op Transfermarkt|meest waardevolle|WK|ranglijst/i,
+    maxItems: 3,
+  },
+  {
+    id: "transfermarkt-pl-rss",
+    label: "Transfermarkt PL",
+    url: "https://www.transfermarkt.pl/rss/news",
+    market: "Poland",
+    sourceRole: "database",
+    pattern: /\b(transfer(?:y|u|em|[oó]w|owy|owe|owa|ze|ach)?|przechod\w*|podpis\w*|wypo[zż]ycz\w*|zainteres\w*|oficjalnie|pozyska\w*|sprzed\w*|kup\w*)\b|ostatniej prostej|\bza \d+(?:[.,]\d+)? (?:mln|milion)/i,
+    excludePattern: /ranking|Top \d+|najdro[zż]szych/i,
+    maxItems: 3,
+  },
+  {
+    id: "transfermarkt-pt-rss",
+    label: "Transfermarkt PT",
+    url: "https://www.transfermarkt.pt/rss/news",
+    market: "Portugal",
+    sourceRole: "database",
+    pattern: /\b(transfer[eê]ncias?|contrata\w*|refor[cç]o\w*|empr[eé]stimo|acordo|assina\w*)\b/i,
+    excludePattern: /[uú]ltimas do mercado|valores? de mercado|Mundial|Golden Boy|vendas dos jogadores/i,
+    maxItems: 3,
   },
   {
     id: "sportschau-rss",
@@ -160,6 +222,11 @@ const MAX_OFFICIAL = Number(process.env.MAX_OFFICIAL || 300);
 const MAX_OFFICIAL_PER_MARKET = Number(process.env.MAX_OFFICIAL_PER_MARKET || 60);
 const MAX_RUMOURS = Number(process.env.MAX_RUMOURS || 48);
 const MAX_RUMOURS_PER_SOURCE = Number(process.env.MAX_RUMOURS_PER_SOURCE || 4);
+const MAX_SOURCE_PREVIEWS_PER_REFRESH = Number(process.env.MAX_SOURCE_PREVIEWS_PER_REFRESH || 24);
+const SOURCE_PREVIEW_CONCURRENCY = Number(process.env.SOURCE_PREVIEW_CONCURRENCY || 4);
+const SOURCE_PREVIEW_TIMEOUT_MS = Number(process.env.SOURCE_PREVIEW_TIMEOUT_MS || 8_000);
+const SOURCE_PREVIEW_HEAD_BYTES = Number(process.env.SOURCE_PREVIEW_HEAD_BYTES || 196_608);
+const SOURCE_PREVIEW_RETRY_HOURS = Number(process.env.SOURCE_PREVIEW_RETRY_HOURS || 24 * 7);
 const COMPETITION_GENDERS = new Set(["men", "women", "unknown"]);
 
 function normaliseCompetitionGender(value) {
@@ -686,12 +753,24 @@ function normaliseRumourFee(value, fallback = "—") {
   const euroMillions = fee.match(/(\d+(?:[.,]\d+)?)\s+milh[oõ]es?\s+de\s+euros?/i);
   if (euroMillions) return `€${euroMillions[1].replace(",", ".")}m`;
 
+  const polishEuroMillions = fee.match(/(\d+(?:[.,]\d+)?)\s+(?:mln|milion(?:a|[oó]w)?)\s+euro/i);
+  if (polishEuroMillions) return `€${polishEuroMillions[1].replace(",", ".")}m`;
+
   const compact = fee.match(/([£€$])\s*(\d+(?:[.,]\d+)?)\s*(?:million|m)\b/i);
   if (compact) return `${compact[1]}${compact[2].replace(",", ".")}m`;
   return fallback;
 }
 
 const RUMOUR_CLAIM_RULES = [
+  {
+    markets: ["Portugal"],
+    pattern: /^(?<player>[\p{L}\p{M}.'’ -]+?\s+[\p{L}\p{M}.'’ -]+?) [ée] refor[cç]o do (?<to>[^:]+):.*?por empr[eé]stimo do (?<from>.+)$/iu,
+    fee: "Loan",
+  },
+  {
+    markets: ["Portugal"],
+    pattern: /^(?<player>[\p{L}\p{M}.'’ -]+?\s+[\p{L}\p{M}.'’ -]+?) refor[cç]a (?<to>.+?)(?:\s+e\b.*)?$/iu,
+  },
   {
     markets: ["Brazil", "Portugal"],
     pattern: /^(?<from>.+?) negocia (?:o )?empr[eé]stimo de (?<player>.+?) para (?:o |a )?(?<to>.+)$/iu,
@@ -719,6 +798,11 @@ const RUMOUR_CLAIM_RULES = [
   },
   {
     markets: ["Germany"],
+    pattern: /^(?<from>.+?) verleiht (?<player>[\p{L}\p{M}.'’ -]+?\s+[\p{L}\p{M}.'’ -]+?) an (?<to>.+?)(?:\s+in (?:die )?\d+\. Liga)?(?:\s+[–—-].*)?$/iu,
+    fee: "Loan",
+  },
+  {
+    markets: ["Germany"],
     pattern: /^(?<to>.+?) meldet (?<player>.+?)-(?:Deal|Transfer|Wechsel)(?:\s*[–—-].*)?$/iu,
   },
   {
@@ -739,7 +823,19 @@ const RUMOUR_CLAIM_RULES = [
   },
   {
     markets: ["Netherlands"],
+    pattern: /^(?<player>[\p{L}\p{M}.'’ -]+?\s+[\p{L}\p{M}.'’ -]+?) verruilt (?<from>.+?) voor (?<to>.+?)(?:\s+[–—-]\s+.*)?$/iu,
+  },
+  {
+    markets: ["Netherlands"],
+    pattern: /^(?<to>.+?) haalt (?<player>[\p{L}\p{M}.'’ -]+?\s+[\p{L}\p{M}.'’ -]+?) binnen(?:\s+[–—-]\s+.*)?$/iu,
+  },
+  {
+    markets: ["Netherlands"],
     pattern: /^Transfers? (?<to>[^:]+):\s*['“]?(?<from>.+?) geeft groen licht voor transfer (?<player>.+?)['”]?$/iu,
+  },
+  {
+    markets: ["United Kingdom"],
+    pattern: /^(?<player>[\p{L}\p{M}.'’ -]+?\s+[\p{L}\p{M}.'’ -]+?) (?:is )?set to join (?<to>.+?) from (?<from>.+?)(?:\s+(?:in|for)\b.*)?(?:\s+[–—-]\s+.*)?$/iu,
   },
   {
     markets: ["United Kingdom"],
@@ -760,6 +856,10 @@ const RUMOUR_CLAIM_RULES = [
   {
     markets: ["United Kingdom"],
     pattern: /^(?<to>.+?) linked with (?<player>.+)$/iu,
+  },
+  {
+    markets: ["Spain"],
+    pattern: /^(?<player>[\p{L}\p{M}.'’ -]+?\s+[\p{L}\p{M}.'’ -]+?) se muda (?:a|al|a la) (?<to>.+?)(?:\s+como\b.*)?(?:\s+[–—-]\s+.*)?$/iu,
   },
   {
     markets: ["Spain"],
@@ -785,6 +885,10 @@ const RUMOUR_CLAIM_RULES = [
   {
     markets: ["Italy"],
     pattern: /^(?:UFFICIALE:?\s*)?(?<player>.+?) passa (?:dal|dalla) (?<from>.+?) (?:al|alla) (?<to>.+)$/iu,
+  },
+  {
+    markets: ["Poland"],
+    pattern: /^(?<player>[\p{L}\p{M}.'’ -]+?) za (?<fee>\d+(?:[.,]\d+)?\s+(?:mln|milion(?:a|[oó]w)?)\s+euro) do (?<to>.+?)(?:\s+[–—-]\s+.*)?$/iu,
   },
   {
     markets: ["Poland"],
@@ -922,6 +1026,296 @@ async function fetchText(url) {
   });
   if (!response.ok) throw new Error(`${url}: HTTP ${response.status}`);
   return response.text();
+}
+
+function safeHttpsUrl(value, baseUrl = undefined) {
+  try {
+    const url = new URL(value, baseUrl);
+    return url.protocol === "https:" ? url.href : null;
+  } catch {
+    return null;
+  }
+}
+
+function previewText(value, maximumLength) {
+  const text = cleanText(value)
+    .replace(/[\u0000-\u001f\u007f-\u009f\u200b-\u200d\ufeff]/g, "")
+    .trim();
+  if (!text || text.length <= maximumLength) return text || null;
+
+  const candidate = text.slice(0, maximumLength - 1);
+  const boundary = candidate.lastIndexOf(" ");
+  const clipped = boundary >= Math.floor(maximumLength * 0.65)
+    ? candidate.slice(0, boundary)
+    : candidate;
+  return `${clipped.trimEnd()}…`;
+}
+
+function normalisePreviewDate(value) {
+  if (!value) return null;
+  const date = new Date(value);
+  return Number.isNaN(date.getTime()) ? null : date.toISOString();
+}
+
+function normalisePreviewLanguage(value) {
+  const language = cleanText(value).replaceAll("_", "-").split("-").slice(0, 2).join("-");
+  return /^[a-z]{2,3}(?:-[A-Za-z]{2})?$/.test(language) ? language : null;
+}
+
+export function parseSourcePreviewHtml(html, context = {}) {
+  const sourceUrl = safeHttpsUrl(context.sourceUrl);
+  if (!sourceUrl) return null;
+
+  const $ = cheerio.load(String(html || ""));
+  const meta = (...selectors) => {
+    for (const selector of selectors) {
+      const content = $(selector).first().attr("content");
+      if (cleanText(content)) return content;
+    }
+    return null;
+  };
+
+  const title = previewText(
+    meta('meta[property="og:title"]', 'meta[name="twitter:title"]', 'meta[property="twitter:title"]')
+      || $("title").first().text(),
+    180,
+  );
+  if (!title) return null;
+
+  const description = previewText(
+    meta(
+      'meta[property="og:description"]',
+      'meta[name="twitter:description"]',
+      'meta[property="twitter:description"]',
+      'meta[name="description"]',
+    ),
+    360,
+  );
+  const rawImageUrl = meta(
+    'meta[property="og:image:secure_url"]',
+    'meta[property="og:image"]',
+    'meta[name="twitter:image"]',
+    'meta[property="twitter:image"]',
+  );
+  const imageUrl = rawImageUrl ? safeHttpsUrl(rawImageUrl, sourceUrl) : null;
+  const siteName = previewText(
+    meta('meta[property="og:site_name"]', 'meta[name="application-name"]') || context.sourceName,
+    80,
+  );
+  const publishedAt = normalisePreviewDate(meta(
+    'meta[property="article:published_time"]',
+    'meta[name="article:published_time"]',
+    'meta[name="date"]',
+  ));
+  const language = normalisePreviewLanguage(
+    $("html").first().attr("lang") || meta('meta[property="og:locale"]'),
+  );
+
+  return {
+    version: 1,
+    sourceUrl,
+    title,
+    description: description && description !== title ? description : null,
+    imageUrl,
+    siteName,
+    publishedAt,
+    language,
+    fetchedAt: normalisePreviewDate(context.fetchedAt || new Date()) || new Date().toISOString(),
+  };
+}
+
+function isOfficialPreviewEligible(transfer) {
+  return transfer?.status === "official"
+    && transfer?.sourceRole === "primary_official"
+    && Boolean(safeHttpsUrl(transfer?.sourceUrl));
+}
+
+export function normaliseSourcePreview(preview, transfer = {}) {
+  if (!preview || preview.version !== 1 || !isOfficialPreviewEligible(transfer)) return null;
+  const sourceUrl = safeHttpsUrl(preview.sourceUrl);
+  if (!sourceUrl || sourceUrl !== safeHttpsUrl(transfer.sourceUrl)) return null;
+
+  const title = previewText(preview.title, 180);
+  const fetchedAt = normalisePreviewDate(preview.fetchedAt);
+  if (!title || !fetchedAt) return null;
+
+  return {
+    version: 1,
+    sourceUrl,
+    title,
+    description: previewText(preview.description, 360),
+    imageUrl: safeHttpsUrl(preview.imageUrl, sourceUrl),
+    siteName: previewText(preview.siteName, 80),
+    publishedAt: normalisePreviewDate(preview.publishedAt),
+    language: normalisePreviewLanguage(preview.language),
+    fetchedAt,
+  };
+}
+
+async function fetchSourcePreviewHead(url) {
+  const response = await fetch(url, {
+    headers: {
+      Accept: "text/html,application/xhtml+xml;q=0.9",
+      "User-Agent": USER_AGENT,
+    },
+    redirect: "follow",
+    signal: AbortSignal.timeout(SOURCE_PREVIEW_TIMEOUT_MS),
+  });
+  if (!response.ok) throw new Error(`HTTP ${response.status}`);
+  if (!/\b(?:text\/html|application\/xhtml\+xml)\b/i.test(response.headers.get("content-type") || "")) {
+    throw new Error("non-HTML response");
+  }
+
+  const requestedRoot = new URL("/", url).href;
+  if (!matchesOfficialWebsite(response.url || url, requestedRoot)) throw new Error("redirected outside verified club domain");
+  if (!response.body) throw new Error("empty response");
+
+  const reader = response.body.getReader();
+  const decoder = new TextDecoder();
+  let bytesRead = 0;
+  let html = "";
+
+  try {
+    while (bytesRead < SOURCE_PREVIEW_HEAD_BYTES) {
+      const { done, value } = await reader.read();
+      if (done) break;
+      bytesRead += value.byteLength;
+      if (bytesRead > SOURCE_PREVIEW_HEAD_BYTES) throw new Error("HTML head exceeds preview limit");
+      html += decoder.decode(value, { stream: true });
+      const endOfHead = html.search(/<\/head\s*>/i);
+      if (endOfHead !== -1) {
+        html = html.slice(0, endOfHead + html.slice(endOfHead).match(/^<\/head\s*>/i)[0].length);
+        await reader.cancel();
+        break;
+      }
+    }
+  } finally {
+    try {
+      await reader.cancel();
+    } catch {}
+  }
+
+  return html;
+}
+
+export function carryPreviousSourcePreviews(transfers, previousTransfers) {
+  const previousByUrl = new Map();
+  for (const previous of previousTransfers || []) {
+    if (!isOfficialPreviewEligible(previous)) continue;
+    previousByUrl.set(safeHttpsUrl(previous.sourceUrl), previous);
+  }
+
+  for (const transfer of transfers) {
+    if (!isOfficialPreviewEligible(transfer)) {
+      delete transfer.sourcePreview;
+      delete transfer.sourcePreviewCheckedAt;
+      continue;
+    }
+    const previous = previousByUrl.get(safeHttpsUrl(transfer.sourceUrl));
+    if (!previous) continue;
+    const preview = normaliseSourcePreview(previous.sourcePreview, transfer);
+    if (preview) transfer.sourcePreview = preview;
+    const checkedAt = normalisePreviewDate(previous.sourcePreviewCheckedAt);
+    if (checkedAt) transfer.sourcePreviewCheckedAt = checkedAt;
+  }
+  return transfers;
+}
+
+function sourcePreviewHost(transfer) {
+  try {
+    return new URL(transfer.sourceUrl).hostname.toLowerCase();
+  } catch {
+    return "";
+  }
+}
+
+function roundRobinByHost(entries) {
+  const byHost = new Map();
+  for (const entry of entries) {
+    const hostEntries = byHost.get(entry.host) || [];
+    hostEntries.push(entry);
+    byHost.set(entry.host, hostEntries);
+  }
+
+  const ordered = [];
+  while (byHost.size) {
+    for (const [host, hostEntries] of byHost) {
+      ordered.push(hostEntries.shift());
+      if (!hostEntries.length) byHost.delete(host);
+    }
+  }
+  return ordered;
+}
+
+export async function enrichOfficialSourcePreviews(transfers, previousTransfers = [], options = {}) {
+  carryPreviousSourcePreviews(transfers, previousTransfers);
+  const now = normalisePreviewDate(options.now || new Date()) || new Date().toISOString();
+  const retryThreshold = Date.parse(now) - SOURCE_PREVIEW_RETRY_HOURS * 3_600_000;
+  const loadHtml = options.fetchHtml || fetchSourcePreviewHead;
+  const maxItems = Math.max(0, Number(options.maxItems ?? MAX_SOURCE_PREVIEWS_PER_REFRESH));
+  const concurrency = Math.max(1, Number(options.concurrency ?? SOURCE_PREVIEW_CONCURRENCY));
+
+  const byUrl = new Map();
+  for (const transfer of transfers) {
+    if (!isOfficialPreviewEligible(transfer)) continue;
+    const checkedAt = Date.parse(transfer.sourcePreviewCheckedAt || "");
+    if (Number.isFinite(checkedAt) && checkedAt >= retryThreshold) continue;
+    const sourceUrl = safeHttpsUrl(transfer.sourceUrl);
+    const entry = byUrl.get(sourceUrl) || {
+      sourceUrl,
+      sourceName: transfer.sourceName,
+      host: sourcePreviewHost(transfer),
+      transfers: [],
+    };
+    entry.transfers.push(transfer);
+    byUrl.set(sourceUrl, entry);
+  }
+
+  const queue = roundRobinByHost([...byUrl.values()]).slice(0, maxItems);
+  let ready = 0;
+  let unavailable = 0;
+  let failed = 0;
+
+  while (queue.length) {
+    const batch = [];
+    const hosts = new Set();
+    for (let index = 0; index < queue.length && batch.length < concurrency;) {
+      const entry = queue[index];
+      if (!hosts.has(entry.host)) {
+        hosts.add(entry.host);
+        batch.push(entry);
+        queue.splice(index, 1);
+      } else {
+        index += 1;
+      }
+    }
+    if (!batch.length) batch.push(queue.shift());
+
+    await Promise.all(batch.map(async (entry) => {
+      try {
+        const html = await loadHtml(entry.sourceUrl);
+        const preview = parseSourcePreviewHtml(html, {
+          sourceUrl: entry.sourceUrl,
+          sourceName: entry.sourceName,
+          fetchedAt: now,
+        });
+        for (const transfer of entry.transfers) {
+          transfer.sourcePreviewCheckedAt = now;
+          if (preview) transfer.sourcePreview = preview;
+        }
+        if (preview) ready += 1;
+        else unavailable += 1;
+      } catch {
+        for (const transfer of entry.transfers) transfer.sourcePreviewCheckedAt = now;
+        failed += 1;
+      }
+    }));
+  }
+
+  if (ready || unavailable || failed) {
+    console.log(`Source previews: ${ready} ready, ${unavailable} unavailable, ${failed} failed.`);
+  }
+  return transfers;
 }
 
 function batches(items, size = 45) {
@@ -1848,6 +2242,14 @@ export function normaliseStoredTransfer(transfer) {
       : (transfer.sourceAdapter ? [transfer.sourceAdapter] : []),
   };
   normalized.sources = transferSources(normalized);
+  const sourcePreview = normaliseSourcePreview(transfer.sourcePreview, normalized);
+  const sourcePreviewCheckedAt = isOfficialPreviewEligible(normalized)
+    ? normalisePreviewDate(transfer.sourcePreviewCheckedAt)
+    : null;
+  if (sourcePreview) normalized.sourcePreview = sourcePreview;
+  else delete normalized.sourcePreview;
+  if (sourcePreviewCheckedAt) normalized.sourcePreviewCheckedAt = sourcePreviewCheckedAt;
+  else delete normalized.sourcePreviewCheckedAt;
   if (!hasWikidataEvidence) {
     delete normalized.competitionGenderEvidence;
     delete normalized.playerQid;
@@ -2033,6 +2435,7 @@ export async function refresh() {
   } catch (error) {
     console.warn(`Official club source verification skipped: ${error.message}`);
   }
+  await enrichOfficialSourcePreviews(transfers, previousTransfers);
   transfers = transfers.map(normaliseStoredTransfer);
 
   if (!transfers.length) {

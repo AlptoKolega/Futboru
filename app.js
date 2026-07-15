@@ -4,6 +4,17 @@ const elements = {
   filterSummary: document.querySelector("#filter-summary"),
   themeColor: document.querySelector("#theme-color"),
   themeToggle: document.querySelector("#theme-toggle"),
+  sourceDrawer: document.querySelector("#source-drawer"),
+  sourceDrawerClose: document.querySelector("#source-drawer-close"),
+  sourceDrawerLink: document.querySelector("#source-drawer-link"),
+  sourceDrawerSource: document.querySelector("#source-drawer-source"),
+  sourceDrawerTitle: document.querySelector("#source-drawer-title"),
+  sourceDrawerDescription: document.querySelector("#source-drawer-description"),
+  sourcePreviewMedia: document.querySelector("#source-preview-media"),
+  sourcePreviewImage: document.querySelector("#source-preview-image"),
+  sourcePreviewPlayer: document.querySelector("#source-preview-player"),
+  sourcePreviewFrom: document.querySelector("#source-preview-from"),
+  sourcePreviewTo: document.querySelector("#source-preview-to"),
   statusFilters: [...document.querySelectorAll("[data-status-filter]")],
   genderFilters: [...document.querySelectorAll("[data-gender]")],
   counts: {
@@ -18,6 +29,8 @@ const state = {
   activeGenders: new Set(["men", "women"]),
   transfers: [],
 };
+
+let sourceDrawerInvoker = null;
 
 const COMPETITION_GENDERS = new Set(["men", "women", "unknown"]);
 
@@ -79,6 +92,7 @@ function competitionGender(transfer) {
 
 function includedByGender(transfer) {
   const category = competitionGender(transfer);
+  if (category === "unknown") return state.activeGenders.has("men") && state.activeGenders.has("women");
   return state.activeGenders.has(category);
 }
 
@@ -131,6 +145,61 @@ function feeTier(amount) {
 function safeText(value, fallback = "—") {
   const normalized = String(value ?? "").trim();
   return normalized || fallback;
+}
+
+function safeHttpsLink(value) {
+  try {
+    const url = new URL(value);
+    return url.protocol === "https:" ? url.href : null;
+  } catch {
+    return null;
+  }
+}
+
+function primaryOfficialSource(transfer) {
+  const url = safeHttpsLink(transfer?.sourceUrl);
+  if (transfer?.status !== "official" || transfer?.sourceRole !== "primary_official" || !url) return null;
+  return {
+    name: safeText(transfer.sourceName, "Official source"),
+    url,
+    preview: transfer.sourcePreview && typeof transfer.sourcePreview === "object"
+      ? transfer.sourcePreview
+      : null,
+  };
+}
+
+function closeSourceDrawer() {
+  if (elements.sourceDrawer.open) elements.sourceDrawer.close();
+}
+
+function openSourceDrawer(transfer, source, trigger) {
+  sourceDrawerInvoker = trigger;
+  const preview = source.preview;
+  const previewImage = safeHttpsLink(preview?.imageUrl);
+  const fallbackTitle = `${safeText(transfer.player)}: ${safeText(transfer.fromClub)} → ${safeText(transfer.toClub)}`;
+
+  elements.sourceDrawerLink.href = source.url;
+  elements.sourceDrawerLink.setAttribute("aria-label", `Open the official announcement from ${source.name} in a new tab`);
+  elements.sourceDrawerSource.textContent = `Official source · ${source.name}`;
+  elements.sourceDrawerTitle.textContent = safeText(preview?.title, fallbackTitle);
+  elements.sourceDrawerDescription.textContent = safeText(
+    preview?.description,
+    "A short preview is not available yet. Read the complete official announcement at the source above.",
+  );
+  if (preview?.language) elements.sourceDrawerDescription.lang = preview.language;
+  else elements.sourceDrawerDescription.removeAttribute("lang");
+
+  elements.sourcePreviewPlayer.textContent = safeText(transfer.player);
+  elements.sourcePreviewFrom.textContent = safeText(transfer.fromClub);
+  elements.sourcePreviewTo.textContent = safeText(transfer.toClub);
+
+  elements.sourcePreviewImage.removeAttribute("src");
+  elements.sourcePreviewMedia.hidden = !previewImage;
+  if (previewImage) elements.sourcePreviewImage.src = previewImage;
+
+  document.documentElement.classList.add("drawer-open");
+  if (!elements.sourceDrawer.open) elements.sourceDrawer.showModal();
+  elements.sourceDrawerClose.focus({ preventScroll: true });
 }
 
 function entityKey(value) {
@@ -391,6 +460,26 @@ function transferRow(transfer) {
   item.dataset.status = transfer.status;
   item.dataset.competitionGender = competitionGender(transfer);
 
+  const officialSource = primaryOfficialSource(transfer);
+  if (officialSource) {
+    item.classList.add("is-previewable");
+    const trigger = document.createElement("button");
+    trigger.className = "row-preview-trigger";
+    trigger.type = "button";
+    trigger.setAttribute("aria-haspopup", "dialog");
+    trigger.setAttribute("aria-controls", "source-drawer");
+    trigger.setAttribute(
+      "aria-label",
+      `Preview official source for ${safeText(transfer.player)}: ${safeText(transfer.fromClub)} to ${safeText(transfer.toClub)}`,
+    );
+    trigger.addEventListener("click", () => openSourceDrawer(transfer, officialSource, trigger));
+    item.addEventListener("click", (event) => {
+      if (event.target.closest("a, button")) return;
+      openSourceDrawer(transfer, officialSource, trigger);
+    });
+    item.append(trigger);
+  }
+
   item.append(flagElement(transfer));
 
   item.append(playerElement(transfer));
@@ -550,7 +639,9 @@ function setTheme(theme, persist = false) {
 
 async function loadFeed() {
   const cacheWindow = Math.floor(Date.now() / 300_000);
-  const response = await fetch(`./data/transfers.json?v=${cacheWindow}`, { cache: "no-store" });
+  const release = new URL(window.location.href).searchParams.get("release") || "live";
+  const cacheKey = encodeURIComponent(`${release}-${cacheWindow}`);
+  const response = await fetch(`./data/transfers.json?v=${cacheKey}`, { cache: "no-store" });
   if (!response.ok) throw new Error(`HTTP ${response.status}`);
   const payload = await response.json();
   if (!Array.isArray(payload.transfers)) throw new Error("Invalid data format");
@@ -574,6 +665,38 @@ for (const filter of elements.genderFilters) {
 
 elements.themeToggle.addEventListener("click", () => {
   setTheme(document.documentElement.dataset.theme === "dark" ? "light" : "dark", true);
+});
+
+elements.sourceDrawerClose.addEventListener("click", closeSourceDrawer);
+
+elements.sourceDrawer.addEventListener("keydown", (event) => {
+  if (event.key !== "Escape") return;
+  event.preventDefault();
+  closeSourceDrawer();
+});
+
+elements.sourceDrawer.addEventListener("pointerdown", (event) => {
+  if (event.target !== elements.sourceDrawer) return;
+  const bounds = elements.sourceDrawer.getBoundingClientRect();
+  const outside = event.clientX < bounds.left
+    || event.clientX > bounds.right
+    || event.clientY < bounds.top
+    || event.clientY > bounds.bottom;
+  if (outside) closeSourceDrawer();
+});
+
+elements.sourceDrawer.addEventListener("close", () => {
+  document.documentElement.classList.remove("drawer-open");
+  const target = sourceDrawerInvoker;
+  sourceDrawerInvoker = null;
+  requestAnimationFrame(() => {
+    if (target?.isConnected) target.focus({ preventScroll: true });
+  });
+});
+
+elements.sourcePreviewImage.addEventListener("error", () => {
+  elements.sourcePreviewMedia.hidden = true;
+  elements.sourcePreviewImage.removeAttribute("src");
 });
 
 window.addEventListener("storage", (event) => {

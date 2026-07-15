@@ -1,6 +1,6 @@
 # Futboru
 
-A minimalist, source-backed football transfer feed. The site does not reproduce articles: it shows a structured transfer record, its status, and a direct link to the source.
+A minimalist, source-backed football transfer feed. The site does not reproduce full articles: it shows a structured transfer record and, for verified club announcements, a short publisher-provided link preview with a direct link to the original source.
 
 ## What the PoC includes
 
@@ -9,11 +9,11 @@ A minimalist, source-backed football transfer feed. The site does not reproduce 
 - age, nationality, compact locally hosted SVG flags, and Football Manager-style position codes enriched from Wikidata where available;
 - club crests and club links sourced from English Wikipedia page metadata;
 - cautiously filtered transfer signals from national football RSS feeds in the United Kingdom, Germany, Italy, Spain, France, the Netherlands, Poland, Portugal, and Brazil, always marked as a `Rumour`; headlines are parsed into player, selling club, and buying club, and incomplete claims are not published as table rows;
-- Transfermarkt DE news through its published RSS feed, never by scraping or copying its transfer database;
+- localized Transfermarkt news through the published German, UK, Italian, Spanish, Dutch, Polish, and Portuguese RSS feeds, never by scraping or copying its transfer database;
 - manually curated, source-backed rumours in `data/manual-rumours.json`;
 - claim-level deduplication that retains multiple source links when two markets report the same move;
 - independent source health reports, stale-data fallback, validation, and a GitHub Actions refresh every 30 minutes;
-- an accessible, responsive interface with no menu, cards, photography, or visual effects.
+- an accessible, responsive interface with no menu or cards, plus a restrained source-preview drawer on verified official rows.
 
 `Official` means the move appears in one of the completed-transfer registers. The source link in each row points to the cited club statement or publication. Newsroom, database, journalist, and community reports remain `Rumours` until the move appears in a completed register.
 
@@ -32,17 +32,19 @@ Confirmed-transfer registers:
 
 Rumour and discovery feeds:
 
-- United Kingdom: [BBC Sport](https://feeds.bbci.co.uk/sport/football/rss.xml), [The Guardian](https://www.theguardian.com/football/rss)
+- United Kingdom: [BBC Sport](https://feeds.bbci.co.uk/sport/football/rss.xml), [The Guardian](https://www.theguardian.com/football/rss), [Transfermarkt UK](https://www.transfermarkt.co.uk/rss/news)
 - Germany: [Sportschau](https://www.sportschau.de/fussball/bundesliga/index~rss2.xml), [Transfermarkt DE](https://www.transfermarkt.de/rss/news)
-- Italy: [TuttomercatoWeb](https://www.tuttomercatoweb.com/rss/)
-- Spain: [Marca](https://e00-marca.uecdn.es/rss/futbol/primera-division.xml)
+- Italy: [TuttomercatoWeb](https://www.tuttomercatoweb.com/rss/), [Transfermarkt IT](https://www.transfermarkt.it/rss/news)
+- Spain: [Marca](https://e00-marca.uecdn.es/rss/futbol/primera-division.xml), [Transfermarkt ES](https://www.transfermarkt.es/rss/news)
 - France: [RMC Sport](https://rmcsport.bfmtv.com/rss/football/)
-- Netherlands: [Voetbal International](https://www.vi.nl/feed/news.xml)
-- Poland: [Weszło](https://weszlo.com/feed/)
-- Portugal: [MaisFutebol](https://maisfutebol.iol.pt/rss)
+- Netherlands: [Voetbal International](https://www.vi.nl/feed/news.xml), [Transfermarkt NL](https://www.transfermarkt.nl/rss/news)
+- Poland: [Weszło](https://weszlo.com/feed/), [Transfermarkt PL](https://www.transfermarkt.pl/rss/news)
+- Portugal: [MaisFutebol](https://maisfutebol.iol.pt/rss), [Transfermarkt PT](https://www.transfermarkt.pt/rss/news)
 - Brazil: [ge](https://ge.globo.com/rss/ge/)
 
 The registers are used as structured indexes, but Futboru does not send the reader to a generic index when a direct citation exists. The row links to the underlying club announcement or local/national publication. A citation receives the highest `primary_official` priority only when its hostname matches the official website (`P856`) of the selling or buying club in Wikidata. An unknown domain remains a publication source; source quality never changes an already confirmed transfer back into a rumour. Transfermarkt is used only as a news signal through the RSS interface listed in its [official RSS guide](https://www.transfermarkt.us/intern/rssguide); its HTML database is not scraped.
+
+Clicking a row opens the preview only when its preferred link is a verified `primary_official` club source. The refresh job reads at most the first 192 KiB of the page and stops at the end of `<head>`; it stores only capped Open Graph/Twitter title, description, image URL, site/language/date metadata, and never reads or republishes the article body. Preview requests are deduplicated, limited to 24 new URLs per refresh, serialized per host, cached for seven days, and isolated so a blocked club page cannot break the transfer feed.
 
 The next direct-discovery layer will use official club sitemaps or clearly separated team news listings rather than undocumented app APIs. The first adapter candidates are Manchester City's news sitemap, Manchester United's separate men's and women's listings, Liverpool's `Transfer` category (excluding `Media watch`), Barcelona's detailed article sitemap, and Juventus' separate men's and women's sitemaps. Initially these adapters should only replace or corroborate the source of an already structured transfer. Publishing a brand-new row from a club article will require explicit completion language plus an unambiguous player and route.
 
