@@ -271,10 +271,13 @@ html[data-theme="light"] .theme-icon-moon {
   margin: 0;
   padding: 0 0 8px;
   border-bottom: 1px solid var(--rule-strong);
-  font-size: 13px;
-  font-weight: 650;
-  letter-spacing: -0.005em;
+  color: var(--muted);
+  font-size: 11.5px;
+  font-variant-numeric: tabular-nums;
+  font-weight: 560;
+  letter-spacing: 0.045em;
   line-height: 1.25;
+  text-transform: uppercase;
 }
 
 .transfer-list {
@@ -292,6 +295,10 @@ html[data-theme="light"] .theme-icon-moon {
   border-bottom: 1px solid var(--rule);
   font-size: 14px;
   line-height: 1.25;
+}
+
+.date-group:not(:last-child) > .transfer-list > .transfer-row:last-child {
+  border-bottom-color: transparent;
 }
 
 .transfer-row > * {
@@ -597,7 +604,7 @@ a.club-name:hover {
 
   .date-heading {
     padding-bottom: 9px;
-    font-size: 12.5px;
+    font-size: 11.5px;
   }
 
   .transfer-row {
