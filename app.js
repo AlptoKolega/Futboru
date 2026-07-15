@@ -355,6 +355,20 @@ function svgNode(name, attributes) {
   return node;
 }
 
+function externalLinkIcon() {
+  const icon = svgNode("svg", {
+    class: "external-link-icon",
+    viewBox: "0 0 12 12",
+    "aria-hidden": "true",
+    focusable: "false",
+  });
+  icon.append(
+    svgNode("path", { d: "M5 2H2.75a.75.75 0 0 0-.75.75v6.5c0 .41.34.75.75.75h6.5c.41 0 .75-.34.75-.75V7" }),
+    svgNode("path", { d: "M7 2h3v3M10 2 5.5 6.5" }),
+  );
+  return icon;
+}
+
 function statusElement(status) {
   const kind = status === "official" || status === "rumour" ? status : "unknown";
   const label = statusLabel(status);
@@ -394,26 +408,29 @@ function feeElement(value) {
   const accessibleLabel = document.createElement("span");
   accessibleLabel.className = "sr-only";
 
+  let shorthand = null;
   if (/^free(?: transfer)?$/i.test(rawValue) || /^0(?:[.,]0+)?$/.test(rawValue)) {
-    wrapper.classList.add("fee-free");
-    wrapper.title = "Free transfer";
-    accessibleLabel.textContent = "Fee: Free transfer";
-
-    const visibleValue = document.createElement("span");
-    visibleValue.textContent = "Free";
-    visibleValue.setAttribute("aria-hidden", "true");
-    wrapper.append(accessibleLabel, visibleValue);
-    return wrapper;
+    shorthand = { kind: "free", title: "Free transfer", label: "Fee: Free transfer", code: "FREE" };
+  } else if (/^loan(?: return)?$/i.test(rawValue)) {
+    const isReturn = /return/i.test(rawValue);
+    shorthand = {
+      kind: "loan",
+      title: isReturn ? "Loan return" : "Loan",
+      label: isReturn ? "Fee: Loan return" : "Fee: Loan",
+      code: isReturn ? "LOAN RETURN" : "LOAN",
+    };
+  } else if (/^undisclosed$/i.test(rawValue)) {
+    shorthand = { kind: "undisclosed", title: "Undisclosed fee", label: "Fee: Undisclosed", code: "UND" };
   }
 
-  if (/^undisclosed$/i.test(rawValue)) {
-    wrapper.classList.add("fee-undisclosed");
-    wrapper.title = "Undisclosed fee";
-    accessibleLabel.textContent = "Fee: Undisclosed";
+  if (shorthand) {
+    wrapper.classList.add("fee-code-value", `fee-${shorthand.kind}`);
+    wrapper.title = shorthand.title;
+    accessibleLabel.textContent = shorthand.label;
 
     const code = document.createElement("span");
     code.className = "fee-code";
-    code.textContent = "UND";
+    code.textContent = shorthand.code;
     code.setAttribute("aria-hidden", "true");
 
     wrapper.append(accessibleLabel, code);
@@ -444,12 +461,16 @@ function detailsElement(transfer) {
 
   const source = transfer.sourceUrl ? document.createElement("a") : document.createElement("span");
   source.className = "source-link";
-  source.textContent = safeText(transfer.sourceName, "Source");
+  const sourceLabel = document.createElement("span");
+  sourceLabel.className = "source-link-label";
+  sourceLabel.textContent = safeText(transfer.sourceName, "Source");
+  source.append(sourceLabel);
   if (transfer.sourceUrl) {
     source.href = transfer.sourceUrl;
     source.target = "_blank";
-    source.rel = "noreferrer";
+    source.rel = "noopener noreferrer";
     source.setAttribute("aria-label", `${safeText(transfer.sourceName, "Source")} — opens in a new tab`);
+    source.append(externalLinkIcon());
   }
   sourceCell.append(source);
 
