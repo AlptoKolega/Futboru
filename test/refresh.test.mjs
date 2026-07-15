@@ -1,12 +1,17 @@
 import test from "node:test";
 import assert from "node:assert/strict";
 import {
+  competitionGenderFromEntity,
+  carryPreviousEnrichment,
   deduplicateTransfers,
+  enrichCompetitionGenders,
   extractRumourMovement,
   flagCodeFromName,
   hasStructuredRoute,
   mergeHeadlineEvidence,
   mergeRumourFragments,
+  newestPreviousTransfers,
+  normaliseStoredTransfer,
   parseBbcRumours,
   parseRssRumours,
   parseWikipediaClubTransfers,
@@ -45,7 +50,244 @@ test("Wikipedia parser inherits a rowspan date and keeps source and club links",
   assert.equal(result[0].sourceUrl, "https://www.bbc.co.uk/sport/example");
   assert.equal(result[0].flagCode, "hr");
   assert.equal(result[0].flag, "🇭🇷");
+  assert.equal(result[0].competitionGender, "men");
   assert.equal(result[1].fee, "Undisclosed");
+});
+
+test("Wikidata P21 maps only unambiguous supported competition categories", () => {
+  const claim = (qid, rank = "normal", referenceProperty = "P4656") => ({
+    rank,
+    mainsnak: { datavalue: { value: { id: qid } } },
+    references: referenceProperty ? [{
+      snaks: {
+        [referenceProperty]: [{
+          snaktype: "value", datavalue: { value: "https://example.test/reference" },
+        }],
+      },
+    }] : [],
+  });
+
+  assert.equal(competitionGenderFromEntity({ claims: { P21: [claim("Q6581097")] } }), "men");
+  assert.equal(competitionGenderFromEntity({ claims: { P21: [claim("Q6581072")] } }), "women");
+  assert.equal(competitionGenderFromEntity({ claims: { P21: [] } }), "unknown");
+  assert.equal(competitionGenderFromEntity({ claims: { P21: [claim("Q999999")] } }), "unknown");
+  assert.equal(competitionGenderFromEntity({ claims: { P21: [claim("Q6581097"), claim("Q6581072")] } }), "unknown");
+  assert.equal(competitionGenderFromEntity({
+    claims: { P21: [claim("Q6581097"), claim("Q6581072", "preferred")] },
+  }), "women");
+  assert.equal(competitionGenderFromEntity({
+    claims: { P21: [claim("Q6581097"), claim("Q6581072", "deprecated")] },
+  }), "men");
+  assert.equal(competitionGenderFromEntity({
+    claims: { P21: [claim("Q6581097", "normal", "P887")] },
+  }), "unknown");
+  assert.equal(competitionGenderFromEntity({
+    claims: { P21: [claim("Q6581097", "normal", null)] },
+  }), "unknown");
+  const emptyReferenceClaim = claim("Q6581097");
+  emptyReferenceClaim.references = [{ snaks: { P4656: [] } }];
+  assert.equal(competitionGenderFromEntity({ claims: { P21: [emptyReferenceClaim] } }), "unknown");
+});
+
+test("name-only rumours use an exact footballer entity and keep uncertain matches unknown", async () => {
+  const transfers = [
+    {
+      player: "Melvine Malard", playerUrl: null, fromClub: "Manchester United", toClub: "Chelsea",
+      competitionGender: "unknown",
+    },
+    {
+      player: "Alex Example", playerUrl: null, fromClub: "Old Club", toClub: "New Club",
+      competitionGender: "unknown",
+    },
+    {
+      player: "Danilo Pereira", playerUrl: null, fromClub: "Rangers", toClub: "Botafogo",
+      competitionGender: "unknown",
+    },
+    { player: "Known Player", playerUrl: null, competitionGender: "men" },
+  ];
+  const claim = (qid) => ({
+    rank: "normal",
+    mainsnak: { datavalue: { value: { id: qid } } },
+    references: [{
+      snaks: { P4656: [{ snaktype: "value", datavalue: { value: "https://example.test/reference" } }] },
+    }],
+  });
+
+  await enrichCompetitionGenders(transfers, {
+    wikipediaPageMetadata: async () => new Map([
+      ["melvine malard", { qid: "Q1" }],
+      ["alex example", { qid: "Q2" }],
+      ["danilo pereira", { qid: "Q3" }],
+    ]),
+    wikidataEntities: async (_ids, props) => props === "labels"
+      ? {
+        Q4: { labels: { en: { value: "Manchester United W.F.C." } } },
+        Q5: { labels: { en: { value: "Berwick Rangers F.C." } } },
+      }
+      : {
+        Q1: {
+          descriptions: { en: { value: "French footballer" } },
+          claims: {
+            P21: [claim("Q6581072")], P31: [claim("Q5")], P106: [claim("Q937857")], P54: [claim("Q4")],
+          },
+        },
+        Q2: {
+          descriptions: { en: { value: "British actor" } },
+          claims: { P21: [claim("Q6581097")], P31: [claim("Q5")] },
+        },
+        Q3: {
+          descriptions: { en: { value: "Portuguese footballer" } },
+          claims: {
+            P21: [claim("Q6581097")], P31: [claim("Q5")], P106: [claim("Q937857")], P54: [claim("Q5")],
+          },
+        },
+      },
+  });
+
+  assert.equal(transfers[0].competitionGender, "women");
+  assert.equal(transfers[0].competitionGenderSource, "wikidata-p21");
+  assert.deepEqual(transfers[0].competitionGenderEvidence, {
+    property: "P21", valueId: "Q6581072", referenceProperty: "P4656",
+    referenceValue: "https://example.test/reference",
+  });
+  assert.equal(transfers[0].playerQid, "Q1");
+  assert.equal(transfers[1].competitionGender, "unknown");
+  assert.equal(transfers[2].competitionGender, "unknown");
+  assert.equal(transfers[3].competitionGender, "men");
+});
+
+test("previous Wikidata categories are reused only with stable entity evidence", () => {
+  const current = [
+    { id: "one", player: "Ambiguous Name", competitionGender: "unknown" },
+    { id: "two", player: "Verified Name", competitionGender: "unknown" },
+    { id: "three", player: "Register Player", competitionGender: "unknown" },
+    { id: "four", player: "Verified Name", competitionGender: "unknown" },
+  ];
+  const previous = [
+    {
+      id: "one", player: "Ambiguous Name", competitionGender: "men",
+      competitionGenderSource: "wikidata-p21", playerQid: null,
+    },
+    {
+      id: "two", player: "Verified Name", competitionGender: "women",
+      competitionGenderSource: "wikidata-p21", playerQid: "Q2",
+      competitionGenderEvidence: {
+        property: "P21", valueId: "Q6581072", referenceProperty: "P4656",
+        referenceValue: "https://example.test/reference",
+      },
+    },
+    {
+      id: "three", player: "Register Player", competitionGender: "men",
+      competitionGenderSource: "source-register", sourceAdapter: "wikipedia-england", playerQid: null,
+    },
+  ];
+
+  carryPreviousEnrichment(current, previous);
+  assert.equal(current[0].competitionGender, "unknown");
+  assert.equal(current[1].competitionGender, "women");
+  assert.equal(current[1].playerQid, "Q2");
+  assert.equal(current[1].competitionGenderEvidence.valueId, "Q6581072");
+  assert.equal(current[2].competitionGender, "men");
+  assert.equal(current[3].competitionGender, "unknown");
+});
+
+test("normalisation preserves an explicit category conflict and only migrates a missing legacy field", () => {
+  const conflict = normaliseStoredTransfer({
+    id: "conflict", player: "Example", competitionGender: "unknown",
+    competitionGenderSource: "conflict", sourceAdapter: "wikipedia-england",
+  });
+  const legacy = normaliseStoredTransfer({
+    id: "legacy", player: "Example", sourceAdapter: "wikipedia-england",
+  });
+  const unproven = normaliseStoredTransfer({
+    id: "unproven", player: "Example", competitionGender: "women",
+    competitionGenderSource: "wikidata-p21", playerQid: "Q1",
+  });
+  const falseScoped = normaliseStoredTransfer({
+    id: "false-scoped", player: "Example", competitionGender: "women",
+    competitionGenderSource: "source-feed", sourceAdapter: "ge-rss",
+  });
+  const scoped = normaliseStoredTransfer({
+    id: "scoped", player: "Example", competitionGender: "men",
+    competitionGenderSource: "source-feed", sourceAdapter: "marca-rss",
+  });
+
+  assert.equal(conflict.competitionGender, "unknown");
+  assert.equal(conflict.competitionGenderSource, "conflict");
+  assert.equal(legacy.competitionGender, "men");
+  assert.equal(legacy.competitionGenderSource, "source-register");
+  assert.equal(unproven.competitionGender, "unknown");
+  assert.equal(unproven.competitionGenderSource, null);
+  assert.equal(falseScoped.competitionGender, "unknown");
+  assert.equal(falseScoped.competitionGenderSource, null);
+  assert.equal(scoped.competitionGender, "men");
+  assert.equal(scoped.competitionGenderSource, "source-feed");
+});
+
+test("the newest deployed snapshot wins over an older repository fallback", () => {
+  const [latest] = newestPreviousTransfers([
+    {
+      generatedAt: "2026-07-15T08:00:00.000Z",
+      transfers: [{ id: "old", player: "Old", sourceAdapter: "wikipedia-england" }],
+    },
+    {
+      generatedAt: "2026-07-15T09:00:00.000Z",
+      transfers: [{ id: "new", player: "New", sourceAdapter: "wikipedia-england" }],
+    },
+  ]);
+
+  assert.equal(latest.id, "new");
+  assert.equal(latest.competitionGender, "men");
+});
+
+test("deduplication carries Wikidata identity evidence with an adopted category", () => {
+  const evidence = {
+    property: "P21", valueId: "Q6581072", referenceProperty: "P4656",
+    referenceValue: "https://example.test/reference",
+  };
+  const records = [
+    {
+      id: "same", date: "2026-07-14", player: "Player", fromClub: "Club A", toClub: "Club B",
+      competitionGender: "unknown", status: "rumour",
+    },
+    {
+      id: "same", date: "2026-07-14", player: "Player", fromClub: "Club A", toClub: "Club B",
+      competitionGender: "women", competitionGenderSource: "wikidata-p21",
+      competitionGenderEvidence: evidence, playerQid: "Q1", status: "rumour",
+    },
+  ];
+
+  const [merged] = deduplicateTransfers(records);
+  assert.equal(merged.competitionGender, "women");
+  assert.equal(merged.playerQid, "Q1");
+  assert.deepEqual(merged.competitionGenderEvidence, evidence);
+});
+
+test("a category conflict stays unknown while retaining both audit records", () => {
+  const evidence = {
+    property: "P21", valueId: "Q6581072", referenceProperty: "P4656",
+    referenceValue: "https://example.test/reference",
+  };
+  const records = [
+    {
+      id: "same", date: "2026-07-14", player: "Player", fromClub: "Club A", toClub: "Club B",
+      competitionGender: "men", competitionGenderSource: "source-register",
+      sourceAdapter: "wikipedia-england", status: "rumour",
+    },
+    {
+      id: "same", date: "2026-07-14", player: "Player", fromClub: "Club A", toClub: "Club B",
+      competitionGender: "women", competitionGenderSource: "wikidata-p21",
+      competitionGenderEvidence: evidence, playerQid: "Q1", sourceAdapter: "guardian-rss", status: "rumour",
+    },
+  ];
+
+  const [merged] = deduplicateTransfers(records);
+  assert.equal(merged.competitionGender, "unknown");
+  assert.equal(merged.competitionGenderSource, "conflict");
+  assert.equal(merged.playerQid, null);
+  assert.deepEqual(merged.competitionGenderConflicts.map((entry) => entry.competitionGender), ["men", "women"]);
+  assert.equal(merged.competitionGenderConflicts[1].playerQid, "Q1");
+  assert.deepEqual(merged.competitionGenderConflicts[1].evidence, evidence);
 });
 
 test("country aliases map to local 4:3 SVG assets", () => {
@@ -108,6 +350,7 @@ test("dated market parser supports Name headers and skips a citation without a s
   assert.equal(result[0].sourceUrl, "https://club.it/signing");
   assert.equal(result[0].market, "Italy");
   assert.equal(result[0].nationality, null);
+  assert.equal(result[0].competitionGender, "unknown");
   assert.equal(result[1].date, "2026-07-14");
   assert.equal(result[1].nationality, "Italy");
   assert.equal(result[1].flagCode, "it");
@@ -161,6 +404,7 @@ test("club market parser reads direction, competition, source date, nationality 
     { from: "PSV", to: "Bayern Munich", position: "ST" },
   );
   assert.equal(result[0].competition, "Bundesliga");
+  assert.equal(result[0].competitionGender, "unknown");
   assert.equal(result[0].nationality, "Morocco");
   assert.equal(result[0].flagCode, "ma");
   assert.equal(result[0].sourceName, "fcbayern.com");
@@ -193,6 +437,7 @@ test("BBC parser accepts only transfer-rumour signals", () => {
   assert.equal(result[0].toClub, "Arsenal");
   assert.equal(result[0].extractionStatus, "partial");
   assert.equal(result[0].sourceName, "BBC Sport");
+  assert.equal(result[0].competitionGender, "unknown");
 });
 
 test("generic RSS parser supports a localized publication without promoting it to official", () => {
@@ -205,6 +450,7 @@ test("generic RSS parser supports a localized publication without promoting it t
     id: "sportschau-rss",
     label: "Sportschau",
     market: "Germany",
+    competitionGender: "men",
     pattern: /\bwechsel\b/i,
   };
 
@@ -212,6 +458,8 @@ test("generic RSS parser supports a localized publication without promoting it t
   assert.equal(result.status, "rumour");
   assert.equal(result.market, "Germany");
   assert.equal(result.sourceRole, "publication");
+  assert.equal(result.competitionGender, "men");
+  assert.equal(result.competitionGenderSource, "source-feed");
   assert.equal(result.player, "Karim Adeyemi");
   assert.equal(result.toClub, "Barcelona");
   assert.equal(result.headline, "Barca bestätigt Adeyemi-Wechsel");

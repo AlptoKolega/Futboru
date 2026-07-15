@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-15T08:16:31.169Z",
+  "generatedAt": "2026-07-15T10:49:57.031Z",
   "sources": [
     {
       "id": "wikipedia-england",
@@ -62,7 +62,7 @@
       "market": "United Kingdom",
       "kind": "news-rss",
       "status": "ok",
-      "count": 1
+      "count": 2
     },
     {
       "id": "transfermarkt-de-rss",
@@ -71,7 +71,7 @@
       "market": "Germany",
       "kind": "news-rss",
       "status": "ok",
-      "count": 2
+      "count": 4
     },
     {
       "id": "sportschau-rss",
@@ -89,7 +89,7 @@
       "market": "Italy",
       "kind": "news-rss",
       "status": "ok",
-      "count": 1
+      "count": 0
     },
     {
       "id": "marca-rss",
@@ -107,7 +107,7 @@
       "market": "France",
       "kind": "news-rss",
       "status": "ok",
-      "count": 0
+      "count": 4
     },
     {
       "id": "vi-rss",
@@ -116,7 +116,7 @@
       "market": "Netherlands",
       "kind": "news-rss",
       "status": "ok",
-      "count": 0
+      "count": 2
     },
     {
       "id": "weszlo-rss",
@@ -125,7 +125,7 @@
       "market": "Poland",
       "kind": "news-rss",
       "status": "ok",
-      "count": 1
+      "count": 0
     },
     {
       "id": "guardian-rss",
@@ -143,7 +143,7 @@
       "market": "Portugal",
       "kind": "news-rss",
       "status": "ok",
-      "count": 1
+      "count": 2
     },
     {
       "id": "ge-rss",
@@ -156,6 +156,96 @@
     }
   ],
   "transfers": [
+    {
+      "id": "e9502db8556c94",
+      "date": "2026-07-15",
+      "time": "—",
+      "player": "Lewis Dobbin",
+      "playerUrl": "https://en.wikipedia.org/wiki/Lewis_Dobbin",
+      "age": 23,
+      "position": null,
+      "nationality": "United Kingdom",
+      "flagCode": "gb",
+      "flag": "🇬🇧",
+      "fromClub": "Aston Villa",
+      "fromClubUrl": "https://en.wikipedia.org/wiki/Aston_Villa_F.C.",
+      "fromClubCrest": "https://upload.wikimedia.org/wikipedia/en/thumb/9/9a/Aston_Villa_FC_new_crest.svg/120px-Aston_Villa_FC_new_crest.svg.png",
+      "toClub": "Southampton",
+      "toClubUrl": "https://en.wikipedia.org/wiki/Southampton_F.C.",
+      "toClubCrest": "https://upload.wikimedia.org/wikipedia/en/thumb/c/c9/FC_Southampton.svg/120px-FC_Southampton.svg.png",
+      "fee": "£9m",
+      "status": "official",
+      "market": "England",
+      "markets": [
+        "England"
+      ],
+      "competition": "English leagues",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
+      "sourceAdapter": "wikipedia-england",
+      "sourceRole": "publication",
+      "sourceName": "BBC Sport",
+      "sourceUrl": "https://www.bbc.co.uk/sport/football/articles/c30y085ey17o",
+      "sources": [
+        {
+          "name": "BBC Sport",
+          "url": "https://www.bbc.co.uk/sport/football/articles/c30y085ey17o",
+          "role": "publication"
+        }
+      ],
+      "firstSeenAt": "2026-07-15T12:00:00.000Z",
+      "competitions": [
+        "English leagues"
+      ],
+      "sourceAdapters": [
+        "wikipedia-england"
+      ]
+    },
+    {
+      "id": "99f7a5744422d1",
+      "date": "2026-07-15",
+      "time": "—",
+      "player": "Harry Winks",
+      "playerUrl": "https://en.wikipedia.org/wiki/Harry_Winks",
+      "age": 30,
+      "position": "DM",
+      "nationality": "United Kingdom",
+      "flagCode": "gb",
+      "flag": "🇬🇧",
+      "fromClub": "Leicester City",
+      "fromClubUrl": "https://en.wikipedia.org/wiki/Leicester_City_F.C.",
+      "fromClubCrest": "https://upload.wikimedia.org/wikipedia/en/thumb/2/2d/Leicester_City_crest.svg/120px-Leicester_City_crest.svg.png",
+      "toClub": "Cagliari",
+      "toClubUrl": "https://en.wikipedia.org/wiki/Cagliari_Calcio",
+      "toClubCrest": "https://upload.wikimedia.org/wikipedia/en/thumb/6/61/Cagliari_Calcio_1920.svg/120px-Cagliari_Calcio_1920.svg.png",
+      "fee": "Undisclosed",
+      "status": "official",
+      "market": "England",
+      "markets": [
+        "England"
+      ],
+      "competition": "English leagues",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
+      "sourceAdapter": "wikipedia-england",
+      "sourceRole": "publication",
+      "sourceName": "BBC Sport",
+      "sourceUrl": "https://www.bbc.co.uk/sport/football/articles/cy494z870vyo",
+      "sources": [
+        {
+          "name": "BBC Sport",
+          "url": "https://www.bbc.co.uk/sport/football/articles/cy494z870vyo",
+          "role": "publication"
+        }
+      ],
+      "firstSeenAt": "2026-07-15T12:00:00.000Z",
+      "competitions": [
+        "English leagues"
+      ],
+      "sourceAdapters": [
+        "wikipedia-england"
+      ]
+    },
     {
       "id": "2c308b10034688",
       "date": "2026-07-15",
@@ -182,6 +272,8 @@
         "Brazil"
       ],
       "competition": null,
+      "competitionGender": "unknown",
+      "competitionGenderSource": null,
       "sourceAdapter": "ge-rss",
       "sourceRole": "publication",
       "sourceName": "ge",
@@ -223,6 +315,8 @@
         "England"
       ],
       "competition": "English leagues",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-england",
       "sourceRole": "publication",
       "sourceName": "BBC Sport",
@@ -266,6 +360,8 @@
         "England"
       ],
       "competition": "English leagues",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-england",
       "sourceRole": "publication",
       "sourceName": "BBC Sport",
@@ -309,6 +405,8 @@
         "England"
       ],
       "competition": "English leagues",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-england",
       "sourceRole": "publication",
       "sourceName": "BBC Sport",
@@ -352,6 +450,8 @@
         "England"
       ],
       "competition": "English leagues",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-england",
       "sourceRole": "publication",
       "sourceName": "BBC Sport",
@@ -395,6 +495,8 @@
         "England"
       ],
       "competition": "English leagues",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-england",
       "sourceRole": "publication",
       "sourceName": "BBC Sport",
@@ -438,6 +540,8 @@
         "England"
       ],
       "competition": "English leagues",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-england",
       "sourceRole": "publication",
       "sourceName": "BBC Sport",
@@ -481,6 +585,8 @@
         "England"
       ],
       "competition": "English leagues",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-england",
       "sourceRole": "publication",
       "sourceName": "BBC Sport",
@@ -524,6 +630,8 @@
         "England"
       ],
       "competition": "English leagues",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-england",
       "sourceRole": "publication",
       "sourceName": "BBC Sport",
@@ -568,6 +676,8 @@
         "United Kingdom"
       ],
       "competition": "English leagues",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-england",
       "sourceRole": "publication",
       "sourceName": "BBC Sport",
@@ -617,6 +727,8 @@
         "England"
       ],
       "competition": "English leagues",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-england",
       "sourceRole": "publication",
       "sourceName": "BBC Sport",
@@ -660,6 +772,8 @@
         "England"
       ],
       "competition": "English leagues",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-england",
       "sourceRole": "publication",
       "sourceName": "BBC Sport",
@@ -703,6 +817,8 @@
         "Germany"
       ],
       "competition": "Bundesliga",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-germany",
       "sourceRole": "primary_official",
       "sourceName": "fcaugsburg.de",
@@ -747,6 +863,8 @@
         "Italy"
       ],
       "competition": "Bundesliga",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-germany",
       "sourceRole": "primary_official",
       "sourceName": "sslazio.it",
@@ -803,6 +921,8 @@
         "Germany"
       ],
       "competition": "Bundesliga",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-germany",
       "sourceRole": "primary_official",
       "sourceName": "schalke04.de",
@@ -846,6 +966,8 @@
         "Germany"
       ],
       "competition": "Bundesliga",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-germany",
       "sourceRole": "primary_official",
       "sourceName": "sv07elversberg.de",
@@ -860,6 +982,51 @@
       "firstSeenAt": "2026-07-14T12:00:00.000Z",
       "competitions": [
         "Bundesliga"
+      ],
+      "sourceAdapters": [
+        "wikipedia-germany"
+      ]
+    },
+    {
+      "id": "c503c846e3ad53",
+      "date": "2026-07-14",
+      "time": "—",
+      "player": "Till Neininger",
+      "playerUrl": null,
+      "age": null,
+      "position": "DC",
+      "nationality": "Germany",
+      "flagCode": "de",
+      "flag": "🇩🇪",
+      "fromClub": "VfL Wolfsburg",
+      "fromClubUrl": "https://en.wikipedia.org/wiki/VfL_Wolfsburg",
+      "fromClubCrest": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/VfL_Wolfsburg_logo_2026.svg/120px-VfL_Wolfsburg_logo_2026.svg.png",
+      "toClub": "Dynamo Dresden",
+      "toClubUrl": "https://en.wikipedia.org/wiki/Dynamo_Dresden",
+      "toClubCrest": "https://upload.wikimedia.org/wikipedia/en/thumb/d/df/Dynamo_Dresden_crest.svg/120px-Dynamo_Dresden_crest.svg.png",
+      "fee": "Loan",
+      "status": "official",
+      "market": "Germany",
+      "markets": [
+        "Germany"
+      ],
+      "competition": "2. Bundesliga",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
+      "sourceAdapter": "wikipedia-germany",
+      "sourceRole": "primary_official",
+      "sourceName": "dynamo-dresden.de",
+      "sourceUrl": "https://www.dynamo-dresden.de/aktuelles/news/profis/dynamo-leiht-till-neininger/",
+      "sources": [
+        {
+          "name": "dynamo-dresden.de",
+          "url": "https://www.dynamo-dresden.de/aktuelles/news/profis/dynamo-leiht-till-neininger/",
+          "role": "primary_official"
+        }
+      ],
+      "firstSeenAt": "2026-07-14T12:00:00.000Z",
+      "competitions": [
+        "2. Bundesliga"
       ],
       "sourceAdapters": [
         "wikipedia-germany"
@@ -889,6 +1056,8 @@
         "Italy"
       ],
       "competition": "Serie A / Serie B",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-italy",
       "sourceRole": "primary_official",
       "sourceName": "uscremonese.it",
@@ -932,6 +1101,8 @@
         "Italy"
       ],
       "competition": "Serie A / Serie B",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-italy",
       "sourceRole": "primary_official",
       "sourceName": "uscremonese.it",
@@ -975,6 +1146,8 @@
         "Italy"
       ],
       "competition": "Serie A / Serie B",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-italy",
       "sourceRole": "primary_official",
       "sourceName": "modenacalcio.com",
@@ -1018,6 +1191,8 @@
         "Italy"
       ],
       "competition": "Serie A / Serie B",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-italy",
       "sourceRole": "primary_official",
       "sourceName": "modenacalcio.com",
@@ -1026,6 +1201,501 @@
         {
           "name": "modenacalcio.com",
           "url": "https://modenacalcio.com/calciomercato-stenio-zanetti-e-gialloblu/",
+          "role": "primary_official"
+        }
+      ],
+      "firstSeenAt": "2026-07-14T12:00:00.000Z",
+      "competitions": [
+        "Serie A / Serie B"
+      ],
+      "sourceAdapters": [
+        "wikipedia-italy"
+      ]
+    },
+    {
+      "id": "3b55991048811d",
+      "date": "2026-07-14",
+      "time": "—",
+      "player": "Jonas Harder",
+      "playerUrl": "https://en.wikipedia.org/wiki/Jonas_Harder",
+      "age": 20,
+      "position": null,
+      "nationality": "Italy",
+      "flagCode": "it",
+      "flag": "🇮🇹",
+      "fromClub": "Fiorentina",
+      "fromClubUrl": "https://en.wikipedia.org/wiki/ACF_Fiorentina",
+      "fromClubCrest": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/ACF_Fiorentina_-_logo_%28Italy%2C_2022%29.svg/120px-ACF_Fiorentina_-_logo_%28Italy%2C_2022%29.svg.png",
+      "toClub": "Basel",
+      "toClubUrl": "https://en.wikipedia.org/wiki/FC_Basel",
+      "toClubCrest": "https://upload.wikimedia.org/wikipedia/en/thumb/c/c1/FC_Basel_crest.svg/120px-FC_Basel_crest.svg.png",
+      "fee": "Undisclosed",
+      "status": "official",
+      "market": "Italy",
+      "markets": [
+        "Italy"
+      ],
+      "competition": "Serie A / Serie B",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
+      "sourceAdapter": "wikipedia-italy",
+      "sourceRole": "primary_official",
+      "sourceName": "acffiorentina.com",
+      "sourceUrl": "https://www.acffiorentina.com/news/harder-al-basilea-14-07-2026",
+      "sources": [
+        {
+          "name": "acffiorentina.com",
+          "url": "https://www.acffiorentina.com/news/harder-al-basilea-14-07-2026",
+          "role": "primary_official"
+        }
+      ],
+      "firstSeenAt": "2026-07-14T12:00:00.000Z",
+      "competitions": [
+        "Serie A / Serie B"
+      ],
+      "sourceAdapters": [
+        "wikipedia-italy"
+      ]
+    },
+    {
+      "id": "5b8aa0af66c434",
+      "date": "2026-07-14",
+      "time": "—",
+      "player": "Maat Daniel Caprini",
+      "playerUrl": "https://en.wikipedia.org/wiki/Maat_Daniel_Caprini",
+      "age": 20,
+      "position": null,
+      "nationality": "Italy",
+      "flagCode": "it",
+      "flag": "🇮🇹",
+      "fromClub": "Fiorentina",
+      "fromClubUrl": "https://en.wikipedia.org/wiki/ACF_Fiorentina",
+      "fromClubCrest": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/ACF_Fiorentina_-_logo_%28Italy%2C_2022%29.svg/120px-ACF_Fiorentina_-_logo_%28Italy%2C_2022%29.svg.png",
+      "toClub": "Cesena",
+      "toClubUrl": "https://en.wikipedia.org/wiki/Cesena_FC",
+      "toClubCrest": "https://upload.wikimedia.org/wikipedia/en/thumb/5/5a/Cesena_FC_crest.svg/120px-Cesena_FC_crest.svg.png",
+      "fee": "Loan",
+      "status": "official",
+      "market": "Italy",
+      "markets": [
+        "Italy"
+      ],
+      "competition": "Serie A / Serie B",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
+      "sourceAdapter": "wikipedia-italy",
+      "sourceRole": "primary_official",
+      "sourceName": "acffiorentina.com",
+      "sourceUrl": "https://www.acffiorentina.com/news/caprini-ceduto-14-07-2026",
+      "sources": [
+        {
+          "name": "acffiorentina.com",
+          "url": "https://www.acffiorentina.com/news/caprini-ceduto-14-07-2026",
+          "role": "primary_official"
+        }
+      ],
+      "firstSeenAt": "2026-07-14T12:00:00.000Z",
+      "competitions": [
+        "Serie A / Serie B"
+      ],
+      "sourceAdapters": [
+        "wikipedia-italy"
+      ]
+    },
+    {
+      "id": "0980f3fa1a6391",
+      "date": "2026-07-14",
+      "time": "—",
+      "player": "Luca Di Maggio",
+      "playerUrl": "https://en.wikipedia.org/wiki/Luca_Di_Maggio",
+      "age": 21,
+      "position": null,
+      "nationality": "Italy",
+      "flagCode": "it",
+      "flag": "🇮🇹",
+      "fromClub": "Inter",
+      "fromClubUrl": "https://en.wikipedia.org/wiki/Inter_Milan",
+      "fromClubCrest": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/FC_Internazionale_Milano_2021.svg/120px-FC_Internazionale_Milano_2021.svg.png",
+      "toClub": "Avellino",
+      "toClubUrl": "https://en.wikipedia.org/wiki/US_Avellino_1912",
+      "toClubCrest": "https://upload.wikimedia.org/wikipedia/en/thumb/8/86/US_Avellino.svg/120px-US_Avellino.svg.png",
+      "fee": "Undisclosed",
+      "status": "official",
+      "market": "Italy",
+      "markets": [
+        "Italy"
+      ],
+      "competition": "Serie A / Serie B",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
+      "sourceAdapter": "wikipedia-italy",
+      "sourceRole": "primary_official",
+      "sourceName": "usavellino1912.com",
+      "sourceUrl": "https://www.usavellino1912.com/luca-di-maggio-e-un-nuovo-giocatore-dellavellino/",
+      "sources": [
+        {
+          "name": "usavellino1912.com",
+          "url": "https://www.usavellino1912.com/luca-di-maggio-e-un-nuovo-giocatore-dellavellino/",
+          "role": "primary_official"
+        }
+      ],
+      "firstSeenAt": "2026-07-14T12:00:00.000Z",
+      "competitions": [
+        "Serie A / Serie B"
+      ],
+      "sourceAdapters": [
+        "wikipedia-italy"
+      ]
+    },
+    {
+      "id": "50adbeaa009ca0",
+      "date": "2026-07-14",
+      "time": "—",
+      "player": "Edoardo Zanaga",
+      "playerUrl": null,
+      "age": null,
+      "position": null,
+      "nationality": "Italy",
+      "flagCode": "it",
+      "flag": "🇮🇹",
+      "fromClub": "Empoli",
+      "fromClubUrl": "https://en.wikipedia.org/wiki/Empoli_FC",
+      "fromClubCrest": "https://upload.wikimedia.org/wikipedia/en/thumb/f/fb/Empoli_FC_crest.svg/120px-Empoli_FC_crest.svg.png",
+      "toClub": "Milan Futuro",
+      "toClubUrl": "https://en.wikipedia.org/wiki/Milan_Futuro",
+      "toClubCrest": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/Logo_of_AC_Milan.svg/120px-Logo_of_AC_Milan.svg.png",
+      "fee": "Undisclosed",
+      "status": "official",
+      "market": "Italy",
+      "markets": [
+        "Italy"
+      ],
+      "competition": "Serie A / Serie B",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
+      "sourceAdapter": "wikipedia-italy",
+      "sourceRole": "primary_official",
+      "sourceName": "empolifc.it",
+      "sourceUrl": "https://www.empolifc.it/edoardo-zanaga-al-milan",
+      "sources": [
+        {
+          "name": "empolifc.it",
+          "url": "https://www.empolifc.it/edoardo-zanaga-al-milan",
+          "role": "primary_official"
+        }
+      ],
+      "firstSeenAt": "2026-07-14T12:00:00.000Z",
+      "competitions": [
+        "Serie A / Serie B"
+      ],
+      "sourceAdapters": [
+        "wikipedia-italy"
+      ]
+    },
+    {
+      "id": "2ce310133642b9",
+      "date": "2026-07-14",
+      "time": "—",
+      "player": "Lorenzo Ignacchiti",
+      "playerUrl": null,
+      "age": null,
+      "position": null,
+      "nationality": "Italy",
+      "flagCode": "it",
+      "flag": "🇮🇹",
+      "fromClub": "Empoli",
+      "fromClubUrl": "https://en.wikipedia.org/wiki/Empoli_FC",
+      "fromClubCrest": "https://upload.wikimedia.org/wikipedia/en/thumb/f/fb/Empoli_FC_crest.svg/120px-Empoli_FC_crest.svg.png",
+      "toClub": "Mantova",
+      "toClubUrl": "https://en.wikipedia.org/wiki/Mantova_1911",
+      "toClubCrest": "https://upload.wikimedia.org/wikipedia/en/thumb/4/45/Mantova_1911_crest.svg/120px-Mantova_1911_crest.svg.png",
+      "fee": "Undisclosed",
+      "status": "official",
+      "market": "Italy",
+      "markets": [
+        "Italy"
+      ],
+      "competition": "Serie A / Serie B",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
+      "sourceAdapter": "wikipedia-italy",
+      "sourceRole": "primary_official",
+      "sourceName": "empolifc.it",
+      "sourceUrl": "https://www.empolifc.it/lorenzo-ignacchiti-al-mantova",
+      "sources": [
+        {
+          "name": "empolifc.it",
+          "url": "https://www.empolifc.it/lorenzo-ignacchiti-al-mantova",
+          "role": "primary_official"
+        }
+      ],
+      "firstSeenAt": "2026-07-14T12:00:00.000Z",
+      "competitions": [
+        "Serie A / Serie B"
+      ],
+      "sourceAdapters": [
+        "wikipedia-italy"
+      ]
+    },
+    {
+      "id": "4b7322e29fa82b",
+      "date": "2026-07-14",
+      "time": "—",
+      "player": "Filippo Vesentini",
+      "playerUrl": null,
+      "age": null,
+      "position": null,
+      "nationality": "Italy",
+      "flagCode": "it",
+      "flag": "🇮🇹",
+      "fromClub": "Union Brescia",
+      "fromClubUrl": "https://en.wikipedia.org/wiki/Union_Brescia",
+      "fromClubCrest": "https://upload.wikimedia.org/wikipedia/en/thumb/c/c9/Union_Brescia_crest.svg/120px-Union_Brescia_crest.svg.png",
+      "toClub": "Mantova",
+      "toClubUrl": "https://en.wikipedia.org/wiki/Mantova_1911",
+      "toClubCrest": "https://upload.wikimedia.org/wikipedia/en/thumb/4/45/Mantova_1911_crest.svg/120px-Mantova_1911_crest.svg.png",
+      "fee": "Undisclosed",
+      "status": "official",
+      "market": "Italy",
+      "markets": [
+        "Italy"
+      ],
+      "competition": "Serie A / Serie B",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
+      "sourceAdapter": "wikipedia-italy",
+      "sourceRole": "primary_official",
+      "sourceName": "mantova1911.club",
+      "sourceUrl": "https://www.mantova1911.club/news/filippo-vesentini-a-titolo-definitivo-dallubrescia",
+      "sources": [
+        {
+          "name": "mantova1911.club",
+          "url": "https://www.mantova1911.club/news/filippo-vesentini-a-titolo-definitivo-dallubrescia",
+          "role": "primary_official"
+        }
+      ],
+      "firstSeenAt": "2026-07-14T12:00:00.000Z",
+      "competitions": [
+        "Serie A / Serie B"
+      ],
+      "sourceAdapters": [
+        "wikipedia-italy"
+      ]
+    },
+    {
+      "id": "ffc76786fe0025",
+      "date": "2026-07-14",
+      "time": "—",
+      "player": "Federico Accornero",
+      "playerUrl": "https://en.wikipedia.org/wiki/Federico_Accornero",
+      "age": 22,
+      "position": null,
+      "nationality": "Italy",
+      "flagCode": "it",
+      "flag": "🇮🇹",
+      "fromClub": "Carrarese",
+      "fromClubUrl": "https://en.wikipedia.org/wiki/Carrarese_Calcio_1908",
+      "fromClubCrest": "https://upload.wikimedia.org/wikipedia/en/thumb/2/28/Carrarese_Calcio_1908_crest.svg/120px-Carrarese_Calcio_1908_crest.svg.png",
+      "toClub": "Trento",
+      "toClubUrl": "https://en.wikipedia.org/wiki/AC_Trento_1921",
+      "toClubCrest": "https://upload.wikimedia.org/wikipedia/en/thumb/c/c4/AC_Trento_1921_crest.svg/120px-AC_Trento_1921_crest.svg.png",
+      "fee": "Loan",
+      "status": "official",
+      "market": "Italy",
+      "markets": [
+        "Italy"
+      ],
+      "competition": "Serie A / Serie B",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
+      "sourceAdapter": "wikipedia-italy",
+      "sourceRole": "primary_official",
+      "sourceName": "carraresecalcio1908.it",
+      "sourceUrl": "https://carraresecalcio1908.it/nota-ufficiale-128/",
+      "sources": [
+        {
+          "name": "carraresecalcio1908.it",
+          "url": "https://carraresecalcio1908.it/nota-ufficiale-128/",
+          "role": "primary_official"
+        }
+      ],
+      "firstSeenAt": "2026-07-14T12:00:00.000Z",
+      "competitions": [
+        "Serie A / Serie B"
+      ],
+      "sourceAdapters": [
+        "wikipedia-italy"
+      ]
+    },
+    {
+      "id": "2fd52d672dc67d",
+      "date": "2026-07-14",
+      "time": "—",
+      "player": "Mateo Scheffer Bracco",
+      "playerUrl": null,
+      "age": null,
+      "position": null,
+      "nationality": "Argentina",
+      "flagCode": "ar",
+      "flag": "🇦🇷",
+      "fromClub": "Carrarese",
+      "fromClubUrl": "https://en.wikipedia.org/wiki/Carrarese_Calcio_1908",
+      "fromClubCrest": "https://upload.wikimedia.org/wikipedia/en/thumb/2/28/Carrarese_Calcio_1908_crest.svg/120px-Carrarese_Calcio_1908_crest.svg.png",
+      "toClub": "Pineto",
+      "toClubUrl": "https://en.wikipedia.org/wiki/AS_Pineto_Calcio",
+      "toClubCrest": "https://upload.wikimedia.org/wikipedia/en/thumb/8/85/AS_Pineto_Calcio_crest.svg/120px-AS_Pineto_Calcio_crest.svg.png",
+      "fee": "Loan",
+      "status": "official",
+      "market": "Italy",
+      "markets": [
+        "Italy"
+      ],
+      "competition": "Serie A / Serie B",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
+      "sourceAdapter": "wikipedia-italy",
+      "sourceRole": "primary_official",
+      "sourceName": "carraresecalcio1908.it",
+      "sourceUrl": "https://carraresecalcio1908.it/nota-ufficiale-127/",
+      "sources": [
+        {
+          "name": "carraresecalcio1908.it",
+          "url": "https://carraresecalcio1908.it/nota-ufficiale-127/",
+          "role": "primary_official"
+        }
+      ],
+      "firstSeenAt": "2026-07-14T12:00:00.000Z",
+      "competitions": [
+        "Serie A / Serie B"
+      ],
+      "sourceAdapters": [
+        "wikipedia-italy"
+      ]
+    },
+    {
+      "id": "91ddd6bdf59db7",
+      "date": "2026-07-14",
+      "time": "—",
+      "player": "Nicolò Postiglione",
+      "playerUrl": null,
+      "age": null,
+      "position": null,
+      "nationality": "Italy",
+      "flagCode": "it",
+      "flag": "🇮🇹",
+      "fromClub": "Pineto",
+      "fromClubUrl": "https://en.wikipedia.org/wiki/AS_Pineto_Calcio",
+      "fromClubCrest": "https://upload.wikimedia.org/wikipedia/en/thumb/8/85/AS_Pineto_Calcio_crest.svg/120px-AS_Pineto_Calcio_crest.svg.png",
+      "toClub": "Catanzaro",
+      "toClubUrl": "https://en.wikipedia.org/wiki/US_Catanzaro_1929",
+      "toClubCrest": "https://upload.wikimedia.org/wikipedia/en/thumb/4/40/US_Catanzaro_1929_crest.svg/120px-US_Catanzaro_1929_crest.svg.png",
+      "fee": "Undisclosed",
+      "status": "official",
+      "market": "Italy",
+      "markets": [
+        "Italy"
+      ],
+      "competition": "Serie A / Serie B",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
+      "sourceAdapter": "wikipedia-italy",
+      "sourceRole": "primary_official",
+      "sourceName": "uscatanzaro1929.com",
+      "sourceUrl": "https://www.uscatanzaro1929.com/2026/07/14/nicolo-postiglione-in-giallorosso-contratto-fino-al-30-giugno-2030/",
+      "sources": [
+        {
+          "name": "uscatanzaro1929.com",
+          "url": "https://www.uscatanzaro1929.com/2026/07/14/nicolo-postiglione-in-giallorosso-contratto-fino-al-30-giugno-2030/",
+          "role": "primary_official"
+        }
+      ],
+      "firstSeenAt": "2026-07-14T12:00:00.000Z",
+      "competitions": [
+        "Serie A / Serie B"
+      ],
+      "sourceAdapters": [
+        "wikipedia-italy"
+      ]
+    },
+    {
+      "id": "e901d332c0ed1e",
+      "date": "2026-07-14",
+      "time": "—",
+      "player": "Giacomo Corona",
+      "playerUrl": "https://en.wikipedia.org/wiki/Giacomo_Corona",
+      "age": 22,
+      "position": null,
+      "nationality": null,
+      "flagCode": null,
+      "flag": "",
+      "fromClub": "Palermo",
+      "fromClubUrl": "https://en.wikipedia.org/wiki/Palermo_FC",
+      "fromClubCrest": "https://upload.wikimedia.org/wikipedia/en/thumb/d/df/Palermo_Calcio_logo_%282019%29.svg/120px-Palermo_Calcio_logo_%282019%29.svg.png",
+      "toClub": "Virtus Entella",
+      "toClubUrl": "https://en.wikipedia.org/wiki/Virtus_Entella",
+      "toClubCrest": "https://upload.wikimedia.org/wikipedia/en/thumb/a/a8/Virtus_Entella_logo.svg/120px-Virtus_Entella_logo.svg.png",
+      "fee": "Loan",
+      "status": "official",
+      "market": "Italy",
+      "markets": [
+        "Italy"
+      ],
+      "competition": "Serie A / Serie B",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
+      "sourceAdapter": "wikipedia-italy",
+      "sourceRole": "primary_official",
+      "sourceName": "palermofc.com",
+      "sourceUrl": "https://www.palermofc.com/it/news/prolungamento-contrattuale-e-prestito-alla-virtus-entella-per-corona",
+      "sources": [
+        {
+          "name": "palermofc.com",
+          "url": "https://www.palermofc.com/it/news/prolungamento-contrattuale-e-prestito-alla-virtus-entella-per-corona",
+          "role": "primary_official"
+        }
+      ],
+      "firstSeenAt": "2026-07-14T12:00:00.000Z",
+      "competitions": [
+        "Serie A / Serie B"
+      ],
+      "sourceAdapters": [
+        "wikipedia-italy"
+      ]
+    },
+    {
+      "id": "38b1f44bbc927c",
+      "date": "2026-07-14",
+      "time": "—",
+      "player": "Harry Winks",
+      "playerUrl": "https://en.wikipedia.org/wiki/Harry_Winks",
+      "age": 30,
+      "position": "DM",
+      "nationality": "England",
+      "flagCode": "gb-eng",
+      "flag": "🇬🇧",
+      "fromClub": "Leicester",
+      "fromClubUrl": "https://en.wikipedia.org/wiki/Leicester_City_F.C.",
+      "fromClubCrest": "https://upload.wikimedia.org/wikipedia/en/thumb/2/2d/Leicester_City_crest.svg/120px-Leicester_City_crest.svg.png",
+      "toClub": "Cagliari",
+      "toClubUrl": "https://en.wikipedia.org/wiki/Cagliari_Calcio",
+      "toClubCrest": "https://upload.wikimedia.org/wikipedia/en/thumb/6/61/Cagliari_Calcio_1920.svg/120px-Cagliari_Calcio_1920.svg.png",
+      "fee": "Undisclosed",
+      "status": "official",
+      "market": "Italy",
+      "markets": [
+        "Italy"
+      ],
+      "competition": "Serie A / Serie B",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
+      "sourceAdapter": "wikipedia-italy",
+      "sourceRole": "primary_official",
+      "sourceName": "cagliaricalcio.com",
+      "sourceUrl": "https://cagliaricalcio.com/news/winks-al-cagliari-calcio-seriea/",
+      "sources": [
+        {
+          "name": "cagliaricalcio.com",
+          "url": "https://cagliaricalcio.com/news/winks-al-cagliari-calcio-seriea/",
           "role": "primary_official"
         }
       ],
@@ -1063,6 +1733,8 @@
         "Brazil"
       ],
       "competition": null,
+      "competitionGender": "unknown",
+      "competitionGenderSource": null,
       "sourceAdapter": "ge-rss",
       "sourceRole": "publication",
       "sourceName": "ge",
@@ -1106,6 +1778,8 @@
         "United Kingdom"
       ],
       "competition": null,
+      "competitionGender": "women",
+      "competitionGenderSource": "wikidata-p21",
       "sourceAdapter": "guardian-rss",
       "sourceRole": "publication",
       "sourceName": "The Guardian",
@@ -1121,7 +1795,14 @@
       "competitions": [],
       "sourceAdapters": [
         "guardian-rss"
-      ]
+      ],
+      "competitionGenderEvidence": {
+        "property": "P21",
+        "valueId": "Q6581072",
+        "referenceProperty": "P4656",
+        "referenceValue": "https://en.wikipedia.org/wiki/Melvine_Malard"
+      },
+      "playerQid": "Q64068571"
     },
     {
       "id": "cb12d9f0adbaeb",
@@ -1149,6 +1830,8 @@
         "Spain"
       ],
       "competition": null,
+      "competitionGender": "men",
+      "competitionGenderSource": "source-feed",
       "sourceAdapter": "marca-rss",
       "sourceRole": "publication",
       "sourceName": "Marca",
@@ -1164,56 +1847,6 @@
       "competitions": [],
       "sourceAdapters": [
         "marca-rss"
-      ]
-    },
-    {
-      "id": "769f2ed7a5262f",
-      "date": "2026-07-14",
-      "time": "—",
-      "player": "Leandro Trossard",
-      "playerUrl": "https://en.wikipedia.org/wiki/Leandro_Trossard",
-      "age": 31,
-      "position": "ST",
-      "nationality": "England",
-      "flagCode": "gb-eng",
-      "flag": "🇬🇧",
-      "fromClub": "Arsenal",
-      "fromClubUrl": "https://en.wikipedia.org/wiki/Arsenal_F.C.",
-      "fromClubCrest": "https://upload.wikimedia.org/wikipedia/en/thumb/5/53/Arsenal_FC.svg/120px-Arsenal_FC.svg.png",
-      "toClub": "Besiktas",
-      "toClubUrl": "https://en.wikipedia.org/wiki/Be%C5%9Fikta%C5%9F_J.K.",
-      "toClubCrest": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/BesiktasJK-Logo.svg/120px-BesiktasJK-Logo.svg.png",
-      "fee": "£17m",
-      "status": "rumour",
-      "market": "England",
-      "markets": [
-        "England",
-        "United Kingdom"
-      ],
-      "competition": "English leagues",
-      "sourceAdapter": "wikipedia-england",
-      "sourceRole": "publication",
-      "sourceName": "BBC Sport",
-      "sourceUrl": "https://www.bbc.co.uk/sport/football/articles/cddldzme6g1o",
-      "sources": [
-        {
-          "name": "BBC Sport",
-          "url": "https://www.bbc.co.uk/sport/football/articles/cddldzme6g1o",
-          "role": "publication"
-        },
-        {
-          "name": "The Guardian",
-          "url": "https://www.theguardian.com/football/2026/jul/14/leandro-trossard-set-for-besiktas-move-after-arsenal-agree-deal-with-turkish-side",
-          "role": "publication"
-        }
-      ],
-      "firstSeenAt": "2026-07-14T12:00:00.000Z",
-      "competitions": [
-        "English leagues"
-      ],
-      "sourceAdapters": [
-        "wikipedia-england",
-        "guardian-rss"
       ]
     },
     {
@@ -1240,6 +1873,8 @@
         "England"
       ],
       "competition": "English leagues",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-england",
       "sourceRole": "publication",
       "sourceName": "BBC Sport",
@@ -1283,6 +1918,8 @@
         "England"
       ],
       "competition": "English leagues",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-england",
       "sourceRole": "publication",
       "sourceName": "BBC Sport",
@@ -1326,6 +1963,8 @@
         "England"
       ],
       "competition": "English leagues",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-england",
       "sourceRole": "publication",
       "sourceName": "BBC Sport",
@@ -1369,6 +2008,8 @@
         "England"
       ],
       "competition": "English leagues",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-england",
       "sourceRole": "publication",
       "sourceName": "BBC Sport",
@@ -1412,6 +2053,8 @@
         "England"
       ],
       "competition": "English leagues",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-england",
       "sourceRole": "publication",
       "sourceName": "BBC Sport",
@@ -1455,6 +2098,8 @@
         "England"
       ],
       "competition": "English leagues",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-england",
       "sourceRole": "publication",
       "sourceName": "BBC Sport",
@@ -1498,6 +2143,8 @@
         "England"
       ],
       "competition": "English leagues",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-england",
       "sourceRole": "publication",
       "sourceName": "BBC Sport",
@@ -1541,6 +2188,8 @@
         "Germany"
       ],
       "competition": "Bundesliga",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-germany",
       "sourceRole": "primary_official",
       "sourceName": "bvb.de",
@@ -1584,6 +2233,8 @@
         "Germany"
       ],
       "competition": "Bundesliga",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-germany",
       "sourceRole": "primary_official",
       "sourceName": "fcaugsburg.de",
@@ -1627,6 +2278,8 @@
         "Germany"
       ],
       "competition": "Bundesliga",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-germany",
       "sourceRole": "primary_official",
       "sourceName": "sgf1903.de",
@@ -1671,6 +2324,8 @@
         "Germany"
       ],
       "competition": "Bundesliga",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-germany",
       "sourceRole": "primary_official",
       "sourceName": "hsv.de",
@@ -1714,6 +2369,8 @@
         "Germany"
       ],
       "competition": "2. Bundesliga",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-germany",
       "sourceRole": "primary_official",
       "sourceName": "fcaugsburg.de",
@@ -1757,6 +2414,8 @@
         "Germany"
       ],
       "competition": "2. Bundesliga",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-germany",
       "sourceRole": "primary_official",
       "sourceName": "bvb.de",
@@ -1800,6 +2459,8 @@
         "Italy"
       ],
       "competition": "Serie A / Serie B",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-italy",
       "sourceRole": "primary_official",
       "sourceName": "cagliaricalcio.com",
@@ -1843,6 +2504,8 @@
         "Italy"
       ],
       "competition": "Serie A / Serie B",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-italy",
       "sourceRole": "primary_official",
       "sourceName": "frosinonecalcio.com",
@@ -1886,6 +2549,8 @@
         "Italy"
       ],
       "competition": "Serie A / Serie B",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-italy",
       "sourceRole": "primary_official",
       "sourceName": "speziacalcio.com",
@@ -1929,6 +2594,8 @@
         "Italy"
       ],
       "competition": "Serie A / Serie B",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-italy",
       "sourceRole": "primary_official",
       "sourceName": "speziacalcio.com",
@@ -1972,6 +2639,8 @@
         "Italy"
       ],
       "competition": "Serie A / Serie B",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-italy",
       "sourceRole": "primary_official",
       "sourceName": "speziacalcio.com",
@@ -2015,6 +2684,8 @@
         "Italy"
       ],
       "competition": "Serie A / Serie B",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-italy",
       "sourceRole": "primary_official",
       "sourceName": "modenacalcio.com",
@@ -2023,6 +2694,231 @@
         {
           "name": "modenacalcio.com",
           "url": "https://modenacalcio.com/calciomercato-gaston-brugman-e-del-modena-fc/",
+          "role": "primary_official"
+        }
+      ],
+      "firstSeenAt": "2026-07-13T12:00:00.000Z",
+      "competitions": [
+        "Serie A / Serie B"
+      ],
+      "sourceAdapters": [
+        "wikipedia-italy"
+      ]
+    },
+    {
+      "id": "17fb566f943512",
+      "date": "2026-07-13",
+      "time": "—",
+      "player": "Moustapha Cissé",
+      "playerUrl": "https://en.wikipedia.org/wiki/Moustapha_Ciss%C3%A9",
+      "age": 22,
+      "position": "ST",
+      "nationality": "Guinea",
+      "flagCode": "gn",
+      "flag": "🇬🇳",
+      "fromClub": "Atalanta U23",
+      "fromClubUrl": "https://en.wikipedia.org/wiki/Atalanta_BC_Under-23",
+      "fromClubCrest": "https://upload.wikimedia.org/wikipedia/en/thumb/6/66/AtalantaBC.svg/120px-AtalantaBC.svg.png",
+      "toClub": "Carrarese",
+      "toClubUrl": "https://en.wikipedia.org/wiki/Carrarese_Calcio_1908",
+      "toClubCrest": "https://upload.wikimedia.org/wikipedia/en/thumb/2/28/Carrarese_Calcio_1908_crest.svg/120px-Carrarese_Calcio_1908_crest.svg.png",
+      "fee": "Loan",
+      "status": "official",
+      "market": "Italy",
+      "markets": [
+        "Italy"
+      ],
+      "competition": "Serie A / Serie B",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
+      "sourceAdapter": "wikipedia-italy",
+      "sourceRole": "primary_official",
+      "sourceName": "carraresecalcio1908.it",
+      "sourceUrl": "https://carraresecalcio1908.it/cisse-si-unisce-alla-squadra-di-mister-cioffi/",
+      "sources": [
+        {
+          "name": "carraresecalcio1908.it",
+          "url": "https://carraresecalcio1908.it/cisse-si-unisce-alla-squadra-di-mister-cioffi/",
+          "role": "primary_official"
+        }
+      ],
+      "firstSeenAt": "2026-07-13T12:00:00.000Z",
+      "competitions": [
+        "Serie A / Serie B"
+      ],
+      "sourceAdapters": [
+        "wikipedia-italy"
+      ]
+    },
+    {
+      "id": "d14fc52b8fe5ba",
+      "date": "2026-07-13",
+      "time": "—",
+      "player": "Ismael Cajazzo",
+      "playerUrl": null,
+      "age": null,
+      "position": null,
+      "nationality": "Canada",
+      "flagCode": "ca",
+      "flag": "🇨🇦",
+      "fromClub": "Casarano",
+      "fromClubUrl": "https://en.wikipedia.org/wiki/Casarano_Calcio",
+      "fromClubCrest": "https://upload.wikimedia.org/wikipedia/en/thumb/c/cd/Casarano_Calcio_logo.svg/120px-Casarano_Calcio_logo.svg.png",
+      "toClub": "Mantova",
+      "toClubUrl": "https://en.wikipedia.org/wiki/Mantova_1911",
+      "toClubCrest": "https://upload.wikimedia.org/wikipedia/en/thumb/4/45/Mantova_1911_crest.svg/120px-Mantova_1911_crest.svg.png",
+      "fee": "Undisclosed",
+      "status": "official",
+      "market": "Italy",
+      "markets": [
+        "Italy"
+      ],
+      "competition": "Serie A / Serie B",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
+      "sourceAdapter": "wikipedia-italy",
+      "sourceRole": "primary_official",
+      "sourceName": "mantova1911.club",
+      "sourceUrl": "https://www.mantova1911.club/news/ufficiale-ismael-cajazzo-a-titolo-definitivo",
+      "sources": [
+        {
+          "name": "mantova1911.club",
+          "url": "https://www.mantova1911.club/news/ufficiale-ismael-cajazzo-a-titolo-definitivo",
+          "role": "primary_official"
+        }
+      ],
+      "firstSeenAt": "2026-07-13T12:00:00.000Z",
+      "competitions": [
+        "Serie A / Serie B"
+      ],
+      "sourceAdapters": [
+        "wikipedia-italy"
+      ]
+    },
+    {
+      "id": "fbe2aae5a91a57",
+      "date": "2026-07-13",
+      "time": "—",
+      "player": "Matteo Spinaccè",
+      "playerUrl": "https://en.wikipedia.org/wiki/Matteo_Spinacc%C3%A8",
+      "age": 20,
+      "position": null,
+      "nationality": null,
+      "flagCode": null,
+      "flag": "",
+      "fromClub": "Inter U23",
+      "fromClubUrl": "https://en.wikipedia.org/wiki/Inter_Milan_Under-23",
+      "fromClubCrest": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/FC_Internazionale_Milano_2021.svg/120px-FC_Internazionale_Milano_2021.svg.png",
+      "toClub": "Mantova",
+      "toClubUrl": "https://en.wikipedia.org/wiki/Mantova_1911",
+      "toClubCrest": "https://upload.wikimedia.org/wikipedia/en/thumb/4/45/Mantova_1911_crest.svg/120px-Mantova_1911_crest.svg.png",
+      "fee": "Loan",
+      "status": "official",
+      "market": "Italy",
+      "markets": [
+        "Italy"
+      ],
+      "competition": "Serie A / Serie B",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
+      "sourceAdapter": "wikipedia-italy",
+      "sourceRole": "primary_official",
+      "sourceName": "mantova1911.club",
+      "sourceUrl": "https://www.mantova1911.club/news/ufficiale-inter-arriva-attacante-spinacce",
+      "sources": [
+        {
+          "name": "mantova1911.club",
+          "url": "https://www.mantova1911.club/news/ufficiale-inter-arriva-attacante-spinacce",
+          "role": "primary_official"
+        }
+      ],
+      "firstSeenAt": "2026-07-13T12:00:00.000Z",
+      "competitions": [
+        "Serie A / Serie B"
+      ],
+      "sourceAdapters": [
+        "wikipedia-italy"
+      ]
+    },
+    {
+      "id": "dad454883950a2",
+      "date": "2026-07-13",
+      "time": "—",
+      "player": "Gennaro Acampora",
+      "playerUrl": "https://en.wikipedia.org/wiki/Gennaro_Acampora",
+      "age": 32,
+      "position": "MC",
+      "nationality": "Italy",
+      "flagCode": "it",
+      "flag": "🇮🇹",
+      "fromClub": "Pescara",
+      "fromClubUrl": "https://en.wikipedia.org/wiki/Delfino_Pescara_1936",
+      "fromClubCrest": "https://upload.wikimedia.org/wikipedia/en/thumb/0/06/Delfino_Pescara_logo.svg/120px-Delfino_Pescara_logo.svg.png",
+      "toClub": "Ascoli",
+      "toClubUrl": "https://en.wikipedia.org/wiki/Ascoli_Calcio_1898_FC",
+      "toClubCrest": "https://upload.wikimedia.org/wikipedia/en/thumb/2/23/Ascoli_Calcio_1898_logo.svg/120px-Ascoli_Calcio_1898_logo.svg.png",
+      "fee": "Undisclosed",
+      "status": "official",
+      "market": "Italy",
+      "markets": [
+        "Italy"
+      ],
+      "competition": "Serie A / Serie B",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
+      "sourceAdapter": "wikipedia-italy",
+      "sourceRole": "primary_official",
+      "sourceName": "ascolicalcio1898.it",
+      "sourceUrl": "https://www.ascolicalcio1898.it/ascoli-calcio-calciomercato-acampora-e-bianconero-accordo-fino-al-2028/",
+      "sources": [
+        {
+          "name": "ascolicalcio1898.it",
+          "url": "https://www.ascolicalcio1898.it/ascoli-calcio-calciomercato-acampora-e-bianconero-accordo-fino-al-2028/",
+          "role": "primary_official"
+        }
+      ],
+      "firstSeenAt": "2026-07-13T12:00:00.000Z",
+      "competitions": [
+        "Serie A / Serie B"
+      ],
+      "sourceAdapters": [
+        "wikipedia-italy"
+      ]
+    },
+    {
+      "id": "c60e90e12f5edc",
+      "date": "2026-07-13",
+      "time": "—",
+      "player": "Alessandro Mallamo",
+      "playerUrl": "https://en.wikipedia.org/wiki/Alessandro_Mallamo",
+      "age": 27,
+      "position": "MC",
+      "nationality": "Italy",
+      "flagCode": "it",
+      "flag": "🇮🇹",
+      "fromClub": "Südtirol",
+      "fromClubUrl": "https://en.wikipedia.org/wiki/FC_S%C3%BCdtirol",
+      "fromClubCrest": "https://upload.wikimedia.org/wikipedia/en/thumb/7/7a/FC_Sudtirol_crest.svg/120px-FC_Sudtirol_crest.svg.png",
+      "toClub": "Union Brescia",
+      "toClubUrl": "https://en.wikipedia.org/wiki/Union_Brescia",
+      "toClubCrest": "https://upload.wikimedia.org/wikipedia/en/thumb/c/c9/Union_Brescia_crest.svg/120px-Union_Brescia_crest.svg.png",
+      "fee": "Undisclosed",
+      "status": "official",
+      "market": "Italy",
+      "markets": [
+        "Italy"
+      ],
+      "competition": "Serie A / Serie B",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
+      "sourceAdapter": "wikipedia-italy",
+      "sourceRole": "primary_official",
+      "sourceName": "fc-suedtirol.com",
+      "sourceUrl": "https://www.fc-suedtirol.com/it/news/alessandro-mallamo-lascia-l-fc-s%C3%BCdtirol/24-10766.html",
+      "sources": [
+        {
+          "name": "fc-suedtirol.com",
+          "url": "https://www.fc-suedtirol.com/it/news/alessandro-mallamo-lascia-l-fc-s%C3%BCdtirol/24-10766.html",
           "role": "primary_official"
         }
       ],
@@ -2058,6 +2954,8 @@
         "England"
       ],
       "competition": "English leagues",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-england",
       "sourceRole": "publication",
       "sourceName": "BBC Sport",
@@ -2101,6 +2999,8 @@
         "Italy"
       ],
       "competition": "Serie A / Serie B",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-italy",
       "sourceRole": "primary_official",
       "sourceName": "frosinonecalcio.com",
@@ -2144,6 +3044,8 @@
         "Italy"
       ],
       "competition": "Serie A / Serie B",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-italy",
       "sourceRole": "primary_official",
       "sourceName": "frosinonecalcio.com",
@@ -2187,6 +3089,8 @@
         "Italy"
       ],
       "competition": "Serie A / Serie B",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-italy",
       "sourceRole": "primary_official",
       "sourceName": "frosinonecalcio.com",
@@ -2230,6 +3134,8 @@
         "Italy"
       ],
       "competition": "Serie A / Serie B",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-italy",
       "sourceRole": "primary_official",
       "sourceName": "speziacalcio.com",
@@ -2273,6 +3179,8 @@
         "England"
       ],
       "competition": "English leagues",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-england",
       "sourceRole": "publication",
       "sourceName": "BBC Sport",
@@ -2316,6 +3224,8 @@
         "England"
       ],
       "competition": "English leagues",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-england",
       "sourceRole": "publication",
       "sourceName": "BBC Sport",
@@ -2359,6 +3269,8 @@
         "England"
       ],
       "competition": "English leagues",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-england",
       "sourceRole": "publication",
       "sourceName": "BBC Sport",
@@ -2402,6 +3314,8 @@
         "England"
       ],
       "competition": "English leagues",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-england",
       "sourceRole": "publication",
       "sourceName": "BBC Sport",
@@ -2445,6 +3359,8 @@
         "England"
       ],
       "competition": "English leagues",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-england",
       "sourceRole": "primary_official",
       "sourceName": "wolves.co.uk",
@@ -2488,6 +3404,8 @@
         "England"
       ],
       "competition": "English leagues",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-england",
       "sourceRole": "publication",
       "sourceName": "BBC Sport",
@@ -2531,6 +3449,8 @@
         "England"
       ],
       "competition": "English leagues",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-england",
       "sourceRole": "publication",
       "sourceName": "BBC Sport",
@@ -2574,6 +3494,8 @@
         "Germany"
       ],
       "competition": "Bundesliga",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-germany",
       "sourceRole": "primary_official",
       "sourceName": "tsg-hoffenheim.de",
@@ -2617,6 +3539,8 @@
         "Germany"
       ],
       "competition": "Bundesliga",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-germany",
       "sourceRole": "primary_official",
       "sourceName": "tsg-hoffenheim.de",
@@ -2660,6 +3584,8 @@
         "Germany"
       ],
       "competition": "Bundesliga",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-germany",
       "sourceRole": "primary_official",
       "sourceName": "fc.de",
@@ -2703,6 +3629,8 @@
         "Italy"
       ],
       "competition": "Serie A / Serie B",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-italy",
       "sourceRole": "primary_official",
       "sourceName": "acffiorentina.com",
@@ -2746,6 +3674,8 @@
         "Italy"
       ],
       "competition": "Serie A / Serie B",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-italy",
       "sourceRole": "primary_official",
       "sourceName": "hellasverona.it",
@@ -2789,6 +3719,8 @@
         "Italy"
       ],
       "competition": "Serie A / Serie B",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-italy",
       "sourceRole": "primary_official",
       "sourceName": "hellasverona.it",
@@ -2832,6 +3764,8 @@
         "Italy"
       ],
       "competition": "Serie A / Serie B",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-italy",
       "sourceRole": "primary_official",
       "sourceName": "veneziafc.it",
@@ -2875,6 +3809,8 @@
         "Italy"
       ],
       "competition": "Serie A / Serie B",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-italy",
       "sourceRole": "primary_official",
       "sourceName": "veneziafc.it",
@@ -2918,6 +3854,8 @@
         "Italy"
       ],
       "competition": "Serie A / Serie B",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-italy",
       "sourceRole": "primary_official",
       "sourceName": "modenacalcio.com",
@@ -2961,6 +3899,8 @@
         "Italy"
       ],
       "competition": "Serie A / Serie B",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-italy",
       "sourceRole": "primary_official",
       "sourceName": "cesenafc.com",
@@ -2969,49 +3909,6 @@
         {
           "name": "cesenafc.com",
           "url": "https://www.cesenafc.com/it/society/news/mark-natta-e-un-nuovo-calciatore-del-cesena-fc-2026-07-11",
-          "role": "primary_official"
-        }
-      ],
-      "firstSeenAt": "2026-07-11T12:00:00.000Z",
-      "competitions": [
-        "Serie A / Serie B"
-      ],
-      "sourceAdapters": [
-        "wikipedia-italy"
-      ]
-    },
-    {
-      "id": "69599e5042100a",
-      "date": "2026-07-11",
-      "time": "—",
-      "player": "Danel Sinani",
-      "playerUrl": "https://en.wikipedia.org/wiki/Danel_Sinani",
-      "age": 29,
-      "position": "MC",
-      "nationality": "Luxembourg",
-      "flagCode": "lu",
-      "flag": "🇱🇺",
-      "fromClub": "St. Pauli",
-      "fromClubUrl": "https://en.wikipedia.org/wiki/FC_St._Pauli",
-      "fromClubCrest": "https://upload.wikimedia.org/wikipedia/en/thumb/8/8f/FC_St._Pauli_logo_%282018%29.svg/120px-FC_St._Pauli_logo_%282018%29.svg.png",
-      "toClub": "Sampdoria",
-      "toClubUrl": "https://en.wikipedia.org/wiki/UC_Sampdoria",
-      "toClubCrest": "https://upload.wikimedia.org/wikipedia/en/thumb/d/d2/U.C._Sampdoria_logo.svg/120px-U.C._Sampdoria_logo.svg.png",
-      "fee": "Free",
-      "status": "official",
-      "market": "Italy",
-      "markets": [
-        "Italy"
-      ],
-      "competition": "Serie A / Serie B",
-      "sourceAdapter": "wikipedia-italy",
-      "sourceRole": "primary_official",
-      "sourceName": "sampdoria.it",
-      "sourceUrl": "https://www.sampdoria.it/news/club/2026/07/10/sinani-e-blucerchiato-contratto-fino-al-30-giugno-2028/",
-      "sources": [
-        {
-          "name": "sampdoria.it",
-          "url": "https://www.sampdoria.it/news/club/2026/07/10/sinani-e-blucerchiato-contratto-fino-al-30-giugno-2028/",
           "role": "primary_official"
         }
       ],
@@ -3047,6 +3944,8 @@
         "Italy"
       ],
       "competition": "Serie A / Serie B",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-italy",
       "sourceRole": "primary_official",
       "sourceName": "pisasportingclub.com",
@@ -3090,6 +3989,8 @@
         "Poland"
       ],
       "competition": "Ekstraklasa",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-poland",
       "sourceRole": "primary_official",
       "sourceName": "legia.com",
@@ -3133,6 +4034,8 @@
         "Poland"
       ],
       "competition": "Ekstraklasa",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-poland",
       "sourceRole": "primary_official",
       "sourceName": "piast-gliwice.eu",
@@ -3176,6 +4079,8 @@
         "Poland"
       ],
       "competition": "Ekstraklasa",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-poland",
       "sourceRole": "primary_official",
       "sourceName": "motorlublin.eu",
@@ -3219,6 +4124,8 @@
         "Poland"
       ],
       "competition": "Ekstraklasa",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-poland",
       "sourceRole": "primary_official",
       "sourceName": "motorlublin.eu",
@@ -3262,6 +4169,8 @@
         "England"
       ],
       "competition": "English leagues",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-england",
       "sourceRole": "publication",
       "sourceName": "BBC Sport",
@@ -3305,6 +4214,8 @@
         "England"
       ],
       "competition": "English leagues",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-england",
       "sourceRole": "publication",
       "sourceName": "BBC Sport",
@@ -3348,6 +4259,8 @@
         "England"
       ],
       "competition": "English leagues",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-england",
       "sourceRole": "publication",
       "sourceName": "BBC Sport",
@@ -3391,6 +4304,8 @@
         "England"
       ],
       "competition": "English leagues",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-england",
       "sourceRole": "publication",
       "sourceName": "BBC Sport",
@@ -3434,6 +4349,8 @@
         "England"
       ],
       "competition": "English leagues",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-england",
       "sourceRole": "publication",
       "sourceName": "BBC Sport",
@@ -3477,6 +4394,8 @@
         "England"
       ],
       "competition": "English leagues",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-england",
       "sourceRole": "publication",
       "sourceName": "BBC Sport",
@@ -3520,6 +4439,8 @@
         "England"
       ],
       "competition": "English leagues",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-england",
       "sourceRole": "publication",
       "sourceName": "BBC Sport",
@@ -3563,6 +4484,8 @@
         "England"
       ],
       "competition": "English leagues",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-england",
       "sourceRole": "publication",
       "sourceName": "BBC Sport",
@@ -3606,6 +4529,8 @@
         "England"
       ],
       "competition": "English leagues",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-england",
       "sourceRole": "publication",
       "sourceName": "BBC Sport",
@@ -3649,6 +4574,8 @@
         "England"
       ],
       "competition": "English leagues",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-england",
       "sourceRole": "publication",
       "sourceName": "BBC Sport",
@@ -3692,6 +4619,8 @@
         "England"
       ],
       "competition": "English leagues",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-england",
       "sourceRole": "publication",
       "sourceName": "BBC Sport",
@@ -3735,6 +4664,8 @@
         "England"
       ],
       "competition": "English leagues",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-england",
       "sourceRole": "publication",
       "sourceName": "BBC Sport",
@@ -3778,6 +4709,8 @@
         "Germany"
       ],
       "competition": "Bundesliga",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-germany",
       "sourceRole": "primary_official",
       "sourceName": "fcaugsburg.de",
@@ -3821,6 +4754,8 @@
         "Germany"
       ],
       "competition": "Bundesliga",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-germany",
       "sourceRole": "primary_official",
       "sourceName": "fcaugsburg.de",
@@ -3864,6 +4799,8 @@
         "Germany"
       ],
       "competition": "Bundesliga",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-germany",
       "sourceRole": "primary_official",
       "sourceName": "hsv.de",
@@ -3907,6 +4844,8 @@
         "Germany"
       ],
       "competition": "Bundesliga",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-germany",
       "sourceRole": "primary_official",
       "sourceName": "werder.de",
@@ -3924,6 +4863,99 @@
       ],
       "sourceAdapters": [
         "wikipedia-germany"
+      ]
+    },
+    {
+      "id": "6da80ab92f7966",
+      "date": "2026-07-10",
+      "time": "—",
+      "player": "Thomas Keller",
+      "playerUrl": "https://en.wikipedia.org/wiki/Thomas_Keller_(footballer)",
+      "age": 27,
+      "position": "DC",
+      "nationality": "Germany",
+      "flagCode": "de",
+      "flag": "🇩🇪",
+      "fromClub": "1. FC Heidenheim",
+      "fromClubUrl": "https://en.wikipedia.org/wiki/1._FC_Heidenheim",
+      "fromClubCrest": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/1._FC_Heidenheim_1846.svg/120px-1._FC_Heidenheim_1846.svg.png",
+      "toClub": "Dynamo Dresden",
+      "toClubUrl": "https://en.wikipedia.org/wiki/Dynamo_Dresden",
+      "toClubCrest": "https://upload.wikimedia.org/wikipedia/en/thumb/d/df/Dynamo_Dresden_crest.svg/120px-Dynamo_Dresden_crest.svg.png",
+      "fee": "Undisclosed",
+      "status": "official",
+      "market": "Germany",
+      "markets": [
+        "Germany"
+      ],
+      "competition": "2. Bundesliga",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
+      "sourceAdapter": "wikipedia-germany",
+      "sourceRole": "primary_official",
+      "sourceName": "dynamo-dresden.de",
+      "sourceUrl": "https://www.dynamo-dresden.de/aktuelles/news/profis/die-sgd-verpflichtet-thomas-keller/",
+      "sources": [
+        {
+          "name": "dynamo-dresden.de",
+          "url": "https://www.dynamo-dresden.de/aktuelles/news/profis/die-sgd-verpflichtet-thomas-keller/",
+          "role": "primary_official"
+        }
+      ],
+      "firstSeenAt": "2026-07-10T12:00:00.000Z",
+      "competitions": [
+        "2. Bundesliga"
+      ],
+      "sourceAdapters": [
+        "wikipedia-germany"
+      ]
+    },
+    {
+      "id": "834cac86abae4d",
+      "date": "2026-07-10",
+      "time": "—",
+      "player": "Danel Sinani",
+      "playerUrl": "https://en.wikipedia.org/wiki/Danel_Sinani",
+      "age": 29,
+      "position": "MC",
+      "nationality": "Luxembourg",
+      "flagCode": "lu",
+      "flag": "🇱🇺",
+      "fromClub": "FC St. Pauli",
+      "fromClubUrl": "https://en.wikipedia.org/wiki/FC_St._Pauli",
+      "fromClubCrest": "https://upload.wikimedia.org/wikipedia/en/thumb/8/8f/FC_St._Pauli_logo_%282018%29.svg/120px-FC_St._Pauli_logo_%282018%29.svg.png",
+      "toClub": "Sampdoria",
+      "toClubUrl": "https://en.wikipedia.org/wiki/UC_Sampdoria",
+      "toClubCrest": "https://upload.wikimedia.org/wikipedia/en/thumb/d/d2/U.C._Sampdoria_logo.svg/120px-U.C._Sampdoria_logo.svg.png",
+      "fee": "Free",
+      "status": "official",
+      "market": "Germany",
+      "markets": [
+        "Germany",
+        "Italy"
+      ],
+      "competition": "2. Bundesliga",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
+      "sourceAdapter": "wikipedia-germany",
+      "sourceRole": "primary_official",
+      "sourceName": "sampdoria.it",
+      "sourceUrl": "https://www.sampdoria.it/news/club/2026/07/10/sinani-e-blucerchiato-contratto-fino-al-30-giugno-2028/",
+      "sources": [
+        {
+          "name": "sampdoria.it",
+          "url": "https://www.sampdoria.it/news/club/2026/07/10/sinani-e-blucerchiato-contratto-fino-al-30-giugno-2028/",
+          "role": "primary_official"
+        }
+      ],
+      "firstSeenAt": "2026-07-10T12:00:00.000Z",
+      "competitions": [
+        "2. Bundesliga",
+        "Serie A / Serie B"
+      ],
+      "sourceAdapters": [
+        "wikipedia-germany",
+        "wikipedia-italy"
       ]
     },
     {
@@ -3950,6 +4982,8 @@
         "Italy"
       ],
       "competition": "Serie A / Serie B",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-italy",
       "sourceRole": "primary_official",
       "sourceName": "sampdoria.it",
@@ -3993,6 +5027,8 @@
         "Italy"
       ],
       "competition": "Serie A / Serie B",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-italy",
       "sourceRole": "primary_official",
       "sourceName": "uscremonese.it",
@@ -4036,6 +5072,8 @@
         "Italy"
       ],
       "competition": "Serie A / Serie B",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-italy",
       "sourceRole": "primary_official",
       "sourceName": "veneziafc.it",
@@ -4079,6 +5117,8 @@
         "Italy"
       ],
       "competition": "Serie A / Serie B",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-italy",
       "sourceRole": "primary_official",
       "sourceName": "usavellino1912.com",
@@ -4122,6 +5162,8 @@
         "Italy"
       ],
       "competition": "Serie A / Serie B",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-italy",
       "sourceRole": "primary_official",
       "sourceName": "usavellino1912.com",
@@ -4165,6 +5207,8 @@
         "Italy"
       ],
       "competition": "Serie A / Serie B",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-italy",
       "sourceRole": "primary_official",
       "sourceName": "usavellino1912.com",
@@ -4208,6 +5252,8 @@
         "Italy"
       ],
       "competition": "Serie A / Serie B",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-italy",
       "sourceRole": "primary_official",
       "sourceName": "genoacfc.it",
@@ -4251,6 +5297,8 @@
         "Italy"
       ],
       "competition": "Serie A / Serie B",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-italy",
       "sourceRole": "primary_official",
       "sourceName": "acmilan.com",
@@ -4294,6 +5342,8 @@
         "Italy"
       ],
       "competition": "Serie A / Serie B",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-italy",
       "sourceRole": "primary_official",
       "sourceName": "pisasportingclub.com",
@@ -4337,6 +5387,8 @@
         "Italy"
       ],
       "competition": "Serie A / Serie B",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-italy",
       "sourceRole": "primary_official",
       "sourceName": "cesenafc.com",
@@ -4380,6 +5432,8 @@
         "Poland"
       ],
       "competition": "Ekstraklasa",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-poland",
       "sourceRole": "primary_official",
       "sourceName": "wisla-plock.pl",
@@ -4423,6 +5477,8 @@
         "Poland"
       ],
       "competition": "Ekstraklasa",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-poland",
       "sourceRole": "primary_official",
       "sourceName": "widzew.com",
@@ -4466,6 +5522,8 @@
         "Poland"
       ],
       "competition": "Ekstraklasa",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-poland",
       "sourceRole": "primary_official",
       "sourceName": "wislakrakow.com",
@@ -4509,6 +5567,8 @@
         "Germany"
       ],
       "competition": "Bundesliga",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-germany",
       "sourceRole": "primary_official",
       "sourceName": "tsg-hoffenheim.de",
@@ -4558,6 +5618,8 @@
         "England"
       ],
       "competition": "English leagues",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-england",
       "sourceRole": "publication",
       "sourceName": "BBC Sport",
@@ -4601,6 +5663,8 @@
         "England"
       ],
       "competition": "English leagues",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-england",
       "sourceRole": "publication",
       "sourceName": "BBC Sport",
@@ -4644,6 +5708,8 @@
         "England"
       ],
       "competition": "English leagues",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-england",
       "sourceRole": "publication",
       "sourceName": "BBC Sport",
@@ -4687,6 +5753,8 @@
         "England"
       ],
       "competition": "English leagues",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-england",
       "sourceRole": "publication",
       "sourceName": "BBC Sport",
@@ -4730,6 +5798,8 @@
         "England"
       ],
       "competition": "English leagues",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-england",
       "sourceRole": "publication",
       "sourceName": "BBC Sport",
@@ -4773,6 +5843,8 @@
         "England"
       ],
       "competition": "English leagues",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-england",
       "sourceRole": "publication",
       "sourceName": "BBC Sport",
@@ -4816,6 +5888,8 @@
         "England"
       ],
       "competition": "English leagues",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-england",
       "sourceRole": "publication",
       "sourceName": "BBC Sport",
@@ -4859,6 +5933,8 @@
         "England"
       ],
       "competition": "English leagues",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-england",
       "sourceRole": "publication",
       "sourceName": "BBC Sport",
@@ -4902,6 +5978,8 @@
         "England"
       ],
       "competition": "English leagues",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-england",
       "sourceRole": "publication",
       "sourceName": "BBC Sport",
@@ -4945,6 +6023,8 @@
         "England"
       ],
       "competition": "English leagues",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-england",
       "sourceRole": "publication",
       "sourceName": "BBC Sport",
@@ -4988,6 +6068,8 @@
         "England"
       ],
       "competition": "English leagues",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-england",
       "sourceRole": "publication",
       "sourceName": "BBC Sport",
@@ -5031,6 +6113,8 @@
         "England"
       ],
       "competition": "English leagues",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-england",
       "sourceRole": "publication",
       "sourceName": "BBC Sport",
@@ -5074,6 +6158,8 @@
         "Germany"
       ],
       "competition": "Bundesliga",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-germany",
       "sourceRole": "primary_official",
       "sourceName": "bjk.com.tr",
@@ -5117,6 +6203,8 @@
         "Germany"
       ],
       "competition": "Bundesliga",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-germany",
       "sourceRole": "primary_official",
       "sourceName": "sv07elversberg.de",
@@ -5160,6 +6248,8 @@
         "Germany"
       ],
       "competition": "Bundesliga",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-germany",
       "sourceRole": "primary_official",
       "sourceName": "sv07elversberg.de",
@@ -5203,6 +6293,8 @@
         "Germany"
       ],
       "competition": "Bundesliga",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-germany",
       "sourceRole": "primary_official",
       "sourceName": "pogonszczecin.pl",
@@ -5247,6 +6339,8 @@
         "Poland"
       ],
       "competition": "Bundesliga",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-germany",
       "sourceRole": "primary_official",
       "sourceName": "werder.de",
@@ -5297,6 +6391,8 @@
         "Germany"
       ],
       "competition": "2. Bundesliga",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-germany",
       "sourceRole": "primary_official",
       "sourceName": "hannover96.de",
@@ -5340,6 +6436,8 @@
         "Italy"
       ],
       "competition": "Serie A / Serie B",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-italy",
       "sourceRole": "primary_official",
       "sourceName": "torinofc.it",
@@ -5383,6 +6481,8 @@
         "Italy"
       ],
       "competition": "Serie A / Serie B",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-italy",
       "sourceRole": "primary_official",
       "sourceName": "acffiorentina.com",
@@ -5426,6 +6526,8 @@
         "Italy"
       ],
       "competition": "Serie A / Serie B",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-italy",
       "sourceRole": "primary_official",
       "sourceName": "veneziafc.it",
@@ -5469,6 +6571,8 @@
         "Italy"
       ],
       "competition": "Serie A / Serie B",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-italy",
       "sourceRole": "primary_official",
       "sourceName": "fc-suedtirol.com",
@@ -5512,6 +6616,8 @@
         "Italy"
       ],
       "competition": "Serie A / Serie B",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-italy",
       "sourceRole": "primary_official",
       "sourceName": "fc-suedtirol.com",
@@ -5555,6 +6661,8 @@
         "Italy"
       ],
       "competition": "Serie A / Serie B",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-italy",
       "sourceRole": "primary_official",
       "sourceName": "veneziafc.it",
@@ -5598,6 +6706,8 @@
         "Italy"
       ],
       "competition": "Serie A / Serie B",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-italy",
       "sourceRole": "primary_official",
       "sourceName": "torinofc.it",
@@ -5641,6 +6751,8 @@
         "Italy"
       ],
       "competition": "Serie A / Serie B",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-italy",
       "sourceRole": "primary_official",
       "sourceName": "atalanta.it",
@@ -5650,11 +6762,6 @@
           "name": "atalanta.it",
           "url": "https://www.atalanta.it/news/nuovo-innesto-a-centrocampo-benvenuto-gianluca-gaetano",
           "role": "primary_official"
-        },
-        {
-          "name": "TuttomercatoWeb",
-          "url": "https://www.tuttomercatoweb.com/fantacalcio/fantacalcio-analisi-acquisto-atalanta-gianluca-gaetano-2253049",
-          "role": "publication"
         }
       ],
       "firstSeenAt": "2026-07-09T12:00:00.000Z",
@@ -5662,8 +6769,7 @@
         "Serie A / Serie B"
       ],
       "sourceAdapters": [
-        "wikipedia-italy",
-        "tmw-rss"
+        "wikipedia-italy"
       ]
     },
     {
@@ -5690,6 +6796,8 @@
         "Italy"
       ],
       "competition": "Serie A / Serie B",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-italy",
       "sourceRole": "primary_official",
       "sourceName": "carraresecalcio1908.it",
@@ -5733,6 +6841,8 @@
         "Italy"
       ],
       "competition": "Serie A / Serie B",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-italy",
       "sourceRole": "primary_official",
       "sourceName": "carraresecalcio1908.it",
@@ -5741,135 +6851,6 @@
         {
           "name": "carraresecalcio1908.it",
           "url": "https://carraresecalcio1908.it/pinelli-e-ufficialmente-azzurro/",
-          "role": "primary_official"
-        }
-      ],
-      "firstSeenAt": "2026-07-09T12:00:00.000Z",
-      "competitions": [
-        "Serie A / Serie B"
-      ],
-      "sourceAdapters": [
-        "wikipedia-italy"
-      ]
-    },
-    {
-      "id": "7cfd33af6d4443",
-      "date": "2026-07-09",
-      "time": "—",
-      "player": "Junior Ajayi",
-      "playerUrl": null,
-      "age": null,
-      "position": null,
-      "nationality": "Ivory Coast",
-      "flagCode": "ci",
-      "flag": "🇨🇮",
-      "fromClub": "Verona",
-      "fromClubUrl": "https://en.wikipedia.org/wiki/Hellas_Verona_FC",
-      "fromClubCrest": "https://upload.wikimedia.org/wikipedia/en/thumb/9/92/Hellas_Verona_FC_logo_%282020%29.svg/120px-Hellas_Verona_FC_logo_%282020%29.svg.png",
-      "toClub": "Casertana",
-      "toClubUrl": "https://en.wikipedia.org/wiki/Casertana_FC",
-      "toClubCrest": "https://upload.wikimedia.org/wikipedia/en/thumb/e/e5/Casertana_FC_logo.svg/120px-Casertana_FC_logo.svg.png",
-      "fee": "Loan",
-      "status": "official",
-      "market": "Italy",
-      "markets": [
-        "Italy"
-      ],
-      "competition": "Serie A / Serie B",
-      "sourceAdapter": "wikipedia-italy",
-      "sourceRole": "primary_official",
-      "sourceName": "hellasverona.it",
-      "sourceUrl": "https://www.hellasverona.it/news/junior-ajayi-e-federico-magro-in-prestito-alla-casertana",
-      "sources": [
-        {
-          "name": "hellasverona.it",
-          "url": "https://www.hellasverona.it/news/junior-ajayi-e-federico-magro-in-prestito-alla-casertana",
-          "role": "primary_official"
-        }
-      ],
-      "firstSeenAt": "2026-07-09T12:00:00.000Z",
-      "competitions": [
-        "Serie A / Serie B"
-      ],
-      "sourceAdapters": [
-        "wikipedia-italy"
-      ]
-    },
-    {
-      "id": "441e12f531dd3c",
-      "date": "2026-07-09",
-      "time": "—",
-      "player": "Federico Magro",
-      "playerUrl": null,
-      "age": null,
-      "position": null,
-      "nationality": "Italy",
-      "flagCode": "it",
-      "flag": "🇮🇹",
-      "fromClub": "Verona",
-      "fromClubUrl": "https://en.wikipedia.org/wiki/Hellas_Verona_FC",
-      "fromClubCrest": "https://upload.wikimedia.org/wikipedia/en/thumb/9/92/Hellas_Verona_FC_logo_%282020%29.svg/120px-Hellas_Verona_FC_logo_%282020%29.svg.png",
-      "toClub": "Casertana",
-      "toClubUrl": "https://en.wikipedia.org/wiki/Casertana_FC",
-      "toClubCrest": "https://upload.wikimedia.org/wikipedia/en/thumb/e/e5/Casertana_FC_logo.svg/120px-Casertana_FC_logo.svg.png",
-      "fee": "Loan",
-      "status": "official",
-      "market": "Italy",
-      "markets": [
-        "Italy"
-      ],
-      "competition": "Serie A / Serie B",
-      "sourceAdapter": "wikipedia-italy",
-      "sourceRole": "primary_official",
-      "sourceName": "hellasverona.it",
-      "sourceUrl": "https://www.hellasverona.it/news/junior-ajayi-e-federico-magro-in-prestito-alla-casertana",
-      "sources": [
-        {
-          "name": "hellasverona.it",
-          "url": "https://www.hellasverona.it/news/junior-ajayi-e-federico-magro-in-prestito-alla-casertana",
-          "role": "primary_official"
-        }
-      ],
-      "firstSeenAt": "2026-07-09T12:00:00.000Z",
-      "competitions": [
-        "Serie A / Serie B"
-      ],
-      "sourceAdapters": [
-        "wikipedia-italy"
-      ]
-    },
-    {
-      "id": "9ee1e3272fd0f6",
-      "date": "2026-07-09",
-      "time": "—",
-      "player": "Giacomo Olzer",
-      "playerUrl": "https://en.wikipedia.org/wiki/Giacomo_Olzer",
-      "age": 25,
-      "position": "MC",
-      "nationality": "Italy",
-      "flagCode": "it",
-      "flag": "🇮🇹",
-      "fromClub": "Pescara",
-      "fromClubUrl": "https://en.wikipedia.org/wiki/Delfino_Pescara_1936",
-      "fromClubCrest": "https://upload.wikimedia.org/wikipedia/en/thumb/0/06/Delfino_Pescara_logo.svg/120px-Delfino_Pescara_logo.svg.png",
-      "toClub": "Modena",
-      "toClubUrl": "https://en.wikipedia.org/wiki/Modena_FC_2018",
-      "toClubCrest": "https://upload.wikimedia.org/wikipedia/en/thumb/d/d8/Modena_FC_2018_crest.svg/120px-Modena_FC_2018_crest.svg.png",
-      "fee": "Undisclosed",
-      "status": "official",
-      "market": "Italy",
-      "markets": [
-        "Italy"
-      ],
-      "competition": "Serie A / Serie B",
-      "sourceAdapter": "wikipedia-italy",
-      "sourceRole": "primary_official",
-      "sourceName": "modenacalcio.com",
-      "sourceUrl": "https://modenacalcio.com/calciomercato-ufficiale-lingaggio-di-giacomo-olzer/",
-      "sources": [
-        {
-          "name": "modenacalcio.com",
-          "url": "https://modenacalcio.com/calciomercato-ufficiale-lingaggio-di-giacomo-olzer/",
           "role": "primary_official"
         }
       ],
@@ -5905,6 +6886,8 @@
         "Poland"
       ],
       "competition": "Ekstraklasa",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-poland",
       "sourceRole": "primary_official",
       "sourceName": "zaglebie.com",
@@ -5948,6 +6931,8 @@
         "Poland"
       ],
       "competition": "Ekstraklasa",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-poland",
       "sourceRole": "primary_official",
       "sourceName": "pogonszczecin.pl",
@@ -5991,6 +6976,8 @@
         "Poland"
       ],
       "competition": "Ekstraklasa",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-poland",
       "sourceRole": "primary_official",
       "sourceName": "rksradomiak.pl",
@@ -6034,6 +7021,8 @@
         "England"
       ],
       "competition": "English leagues",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-england",
       "sourceRole": "publication",
       "sourceName": "BBC Sport",
@@ -6077,6 +7066,8 @@
         "England"
       ],
       "competition": "English leagues",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-england",
       "sourceRole": "publication",
       "sourceName": "BBC Sport",
@@ -6121,6 +7112,8 @@
         "France"
       ],
       "competition": "English leagues",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-england",
       "sourceRole": "primary_official",
       "sourceName": "toulousefc.com",
@@ -6171,6 +7164,8 @@
         "England"
       ],
       "competition": "English leagues",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-england",
       "sourceRole": "publication",
       "sourceName": "BBC Sport",
@@ -6214,6 +7209,8 @@
         "England"
       ],
       "competition": "English leagues",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-england",
       "sourceRole": "publication",
       "sourceName": "BBC Sport",
@@ -6257,6 +7254,8 @@
         "England"
       ],
       "competition": "English leagues",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-england",
       "sourceRole": "publication",
       "sourceName": "BBC Sport",
@@ -6300,6 +7299,8 @@
         "England"
       ],
       "competition": "English leagues",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-england",
       "sourceRole": "publication",
       "sourceName": "BBC Sport",
@@ -6343,6 +7344,8 @@
         "England"
       ],
       "competition": "English leagues",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-england",
       "sourceRole": "publication",
       "sourceName": "BBC Sport",
@@ -6386,6 +7389,8 @@
         "Germany"
       ],
       "competition": "Bundesliga",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-germany",
       "sourceRole": "primary_official",
       "sourceName": "fcbayern.com",
@@ -6429,6 +7434,8 @@
         "Germany"
       ],
       "competition": "Bundesliga",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-germany",
       "sourceRole": "primary_official",
       "sourceName": "fcbayern.com",
@@ -6472,6 +7479,8 @@
         "Germany"
       ],
       "competition": "Bundesliga",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-germany",
       "sourceRole": "primary_official",
       "sourceName": "fc.de",
@@ -6515,6 +7524,8 @@
         "Germany"
       ],
       "competition": "Bundesliga",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-germany",
       "sourceRole": "primary_official",
       "sourceName": "schalke04.de",
@@ -6533,565 +7544,6 @@
       ],
       "sourceAdapters": [
         "wikipedia-germany"
-      ]
-    },
-    {
-      "id": "bb8d96afbc6548",
-      "date": "2026-07-08",
-      "time": "—",
-      "player": "Giulio Patrignani",
-      "playerUrl": null,
-      "age": null,
-      "position": null,
-      "nationality": "Italy",
-      "flagCode": "it",
-      "flag": "🇮🇹",
-      "fromClub": "Cremonese",
-      "fromClubUrl": "https://en.wikipedia.org/wiki/US_Cremonese",
-      "fromClubCrest": "https://upload.wikimedia.org/wikipedia/en/thumb/e/e1/US_Cremonese_logo.svg/120px-US_Cremonese_logo.svg.png",
-      "toClub": "Savona",
-      "toClubUrl": "https://en.wikipedia.org/wiki/Savona_FBC",
-      "toClubCrest": "https://upload.wikimedia.org/wikipedia/en/thumb/4/40/Savona_1907_FBC.png/120px-Savona_1907_FBC.png",
-      "fee": "Loan",
-      "status": "official",
-      "market": "Italy",
-      "markets": [
-        "Italy"
-      ],
-      "competition": "Serie A / Serie B",
-      "sourceAdapter": "wikipedia-italy",
-      "sourceRole": "primary_official",
-      "sourceName": "uscremonese.it",
-      "sourceUrl": "https://uscremonese.it/giulio-patrignani-in-prestito-al-savoia/",
-      "sources": [
-        {
-          "name": "uscremonese.it",
-          "url": "https://uscremonese.it/giulio-patrignani-in-prestito-al-savoia/",
-          "role": "primary_official"
-        }
-      ],
-      "firstSeenAt": "2026-07-08T12:00:00.000Z",
-      "competitions": [
-        "Serie A / Serie B"
-      ],
-      "sourceAdapters": [
-        "wikipedia-italy"
-      ]
-    },
-    {
-      "id": "18147ffb5ec77f",
-      "date": "2026-07-08",
-      "time": "—",
-      "player": "Unai Gómez",
-      "playerUrl": "https://en.wikipedia.org/wiki/Unai_G%C3%B3mez",
-      "age": 23,
-      "position": "ST / AM",
-      "nationality": "Spain",
-      "flagCode": "es",
-      "flag": "🇪🇸",
-      "fromClub": "Athletic Bilbao",
-      "fromClubUrl": "https://en.wikipedia.org/wiki/Athletic_Bilbao",
-      "fromClubCrest": "https://upload.wikimedia.org/wikipedia/en/thumb/9/98/Club_Athletic_Bilbao_logo.svg/120px-Club_Athletic_Bilbao_logo.svg.png",
-      "toClub": "Udinese",
-      "toClubUrl": "https://en.wikipedia.org/wiki/Udinese_Calcio",
-      "toClubCrest": "https://upload.wikimedia.org/wikipedia/en/thumb/c/ce/Udinese_Calcio_logo.svg/120px-Udinese_Calcio_logo.svg.png",
-      "fee": "Undisclosed",
-      "status": "official",
-      "market": "Italy",
-      "markets": [
-        "Italy"
-      ],
-      "competition": "Serie A / Serie B",
-      "sourceAdapter": "wikipedia-italy",
-      "sourceRole": "primary_official",
-      "sourceName": "udinese.it",
-      "sourceUrl": "https://www.udinese.it/news/squadra/benvenuto-unai",
-      "sources": [
-        {
-          "name": "udinese.it",
-          "url": "https://www.udinese.it/news/squadra/benvenuto-unai",
-          "role": "primary_official"
-        }
-      ],
-      "firstSeenAt": "2026-07-08T12:00:00.000Z",
-      "competitions": [
-        "Serie A / Serie B"
-      ],
-      "sourceAdapters": [
-        "wikipedia-italy"
-      ]
-    },
-    {
-      "id": "7b599973f5c565",
-      "date": "2026-07-08",
-      "time": "—",
-      "player": "Radu Drăgușin",
-      "playerUrl": "https://en.wikipedia.org/wiki/Radu_Dr%C4%83gu%C8%99in",
-      "age": 24,
-      "position": "DC",
-      "nationality": "Romania",
-      "flagCode": "ro",
-      "flag": "🇷🇴",
-      "fromClub": "Tottenham",
-      "fromClubUrl": "https://en.wikipedia.org/wiki/Tottenham_Hotspur_F.C.",
-      "fromClubCrest": "https://upload.wikimedia.org/wikipedia/en/thumb/b/b4/Tottenham_Hotspur.svg/120px-Tottenham_Hotspur.svg.png",
-      "toClub": "Fiorentina",
-      "toClubUrl": "https://en.wikipedia.org/wiki/ACF_Fiorentina",
-      "toClubCrest": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/ACF_Fiorentina_-_logo_%28Italy%2C_2022%29.svg/120px-ACF_Fiorentina_-_logo_%28Italy%2C_2022%29.svg.png",
-      "fee": "Loan",
-      "status": "official",
-      "market": "Italy",
-      "markets": [
-        "Italy"
-      ],
-      "competition": "Serie A / Serie B",
-      "sourceAdapter": "wikipedia-italy",
-      "sourceRole": "primary_official",
-      "sourceName": "acffiorentina.com",
-      "sourceUrl": "https://www.acffiorentina.com/news/firma-dragusin-070726",
-      "sources": [
-        {
-          "name": "acffiorentina.com",
-          "url": "https://www.acffiorentina.com/news/firma-dragusin-070726",
-          "role": "primary_official"
-        }
-      ],
-      "firstSeenAt": "2026-07-08T12:00:00.000Z",
-      "competitions": [
-        "Serie A / Serie B"
-      ],
-      "sourceAdapters": [
-        "wikipedia-italy"
-      ]
-    },
-    {
-      "id": "11edf468b757aa",
-      "date": "2026-07-08",
-      "time": "—",
-      "player": "Eddy Kouadio",
-      "playerUrl": "https://en.wikipedia.org/wiki/Eddy_Kouadio",
-      "age": 20,
-      "position": "DC",
-      "nationality": "Italy",
-      "flagCode": "it",
-      "flag": "🇮🇹",
-      "fromClub": "Fiorentina",
-      "fromClubUrl": "https://en.wikipedia.org/wiki/ACF_Fiorentina",
-      "fromClubCrest": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/ACF_Fiorentina_-_logo_%28Italy%2C_2022%29.svg/120px-ACF_Fiorentina_-_logo_%28Italy%2C_2022%29.svg.png",
-      "toClub": "Monza",
-      "toClubUrl": "https://en.wikipedia.org/wiki/AC_Monza",
-      "toClubCrest": "https://upload.wikimedia.org/wikipedia/en/thumb/a/a7/AC_Monza_logo_%282021%29.svg/120px-AC_Monza_logo_%282021%29.svg.png",
-      "fee": "Loan",
-      "status": "official",
-      "market": "Italy",
-      "markets": [
-        "Italy"
-      ],
-      "competition": "Serie A / Serie B",
-      "sourceAdapter": "wikipedia-italy",
-      "sourceRole": "primary_official",
-      "sourceName": "acffiorentina.com",
-      "sourceUrl": "https://www.acffiorentina.com/news/kouadio-080726",
-      "sources": [
-        {
-          "name": "acffiorentina.com",
-          "url": "https://www.acffiorentina.com/news/kouadio-080726",
-          "role": "primary_official"
-        }
-      ],
-      "firstSeenAt": "2026-07-08T12:00:00.000Z",
-      "competitions": [
-        "Serie A / Serie B"
-      ],
-      "sourceAdapters": [
-        "wikipedia-italy"
-      ]
-    },
-    {
-      "id": "3c0abdafaf15ef",
-      "date": "2026-07-08",
-      "time": "—",
-      "player": "Riccardo Marchizza",
-      "playerUrl": "https://en.wikipedia.org/wiki/Riccardo_Marchizza",
-      "age": 28,
-      "position": "DC",
-      "nationality": "Italy",
-      "flagCode": "it",
-      "flag": "🇮🇹",
-      "fromClub": "Frosinone",
-      "fromClubUrl": "https://en.wikipedia.org/wiki/Frosinone_Calcio",
-      "fromClubCrest": "https://upload.wikimedia.org/wikipedia/en/thumb/0/0b/Frosinone_Calcio_logo.svg/120px-Frosinone_Calcio_logo.svg.png",
-      "toClub": "Vicenza",
-      "toClubUrl": "https://en.wikipedia.org/wiki/LR_Vicenza",
-      "toClubCrest": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/LR_Vicenza_Virtus_%28logo%29.svg/120px-LR_Vicenza_Virtus_%28logo%29.svg.png",
-      "fee": "Undisclosed",
-      "status": "official",
-      "market": "Italy",
-      "markets": [
-        "Italy"
-      ],
-      "competition": "Serie A / Serie B",
-      "sourceAdapter": "wikipedia-italy",
-      "sourceRole": "primary_official",
-      "sourceName": "lrvicenza.net",
-      "sourceUrl": "https://www.lrvicenza.net/ufficiale-riccardo-marchizza-in-biancorosso/",
-      "sources": [
-        {
-          "name": "lrvicenza.net",
-          "url": "https://www.lrvicenza.net/ufficiale-riccardo-marchizza-in-biancorosso/",
-          "role": "primary_official"
-        }
-      ],
-      "firstSeenAt": "2026-07-08T12:00:00.000Z",
-      "competitions": [
-        "Serie A / Serie B"
-      ],
-      "sourceAdapters": [
-        "wikipedia-italy"
-      ]
-    },
-    {
-      "id": "717fa474039113",
-      "date": "2026-07-08",
-      "time": "—",
-      "player": "Ivan Provedel",
-      "playerUrl": "https://en.wikipedia.org/wiki/Ivan_Provedel",
-      "age": 32,
-      "position": "GK",
-      "nationality": "Italy",
-      "flagCode": "it",
-      "flag": "🇮🇹",
-      "fromClub": "Lazio",
-      "fromClubUrl": "https://en.wikipedia.org/wiki/SS_Lazio",
-      "fromClubCrest": "https://upload.wikimedia.org/wikipedia/en/thumb/c/ce/S.S._Lazio_badge.svg/120px-S.S._Lazio_badge.svg.png",
-      "toClub": "Inter",
-      "toClubUrl": "https://en.wikipedia.org/wiki/Inter_Milan",
-      "toClubCrest": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/FC_Internazionale_Milano_2021.svg/120px-FC_Internazionale_Milano_2021.svg.png",
-      "fee": "Undisclosed",
-      "status": "official",
-      "market": "Italy",
-      "markets": [
-        "Italy"
-      ],
-      "competition": "Serie A / Serie B",
-      "sourceAdapter": "wikipedia-italy",
-      "sourceRole": "primary_official",
-      "sourceName": "inter.it",
-      "sourceUrl": "https://www.inter.it/it/notizie/ivan-provedel-annuncio-nuovo-giocatore-inter",
-      "sources": [
-        {
-          "name": "inter.it",
-          "url": "https://www.inter.it/it/notizie/ivan-provedel-annuncio-nuovo-giocatore-inter",
-          "role": "primary_official"
-        }
-      ],
-      "firstSeenAt": "2026-07-08T12:00:00.000Z",
-      "competitions": [
-        "Serie A / Serie B"
-      ],
-      "sourceAdapters": [
-        "wikipedia-italy"
-      ]
-    },
-    {
-      "id": "bdc960e7e9ec1d",
-      "date": "2026-07-08",
-      "time": "—",
-      "player": "Christos Alexiou",
-      "playerUrl": "https://en.wikipedia.org/wiki/Christos_Alexiou",
-      "age": 21,
-      "position": null,
-      "nationality": "Greece",
-      "flagCode": "gr",
-      "flag": "🇬🇷",
-      "fromClub": "Inter",
-      "fromClubUrl": "https://en.wikipedia.org/wiki/Inter_Milan",
-      "fromClubCrest": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/FC_Internazionale_Milano_2021.svg/120px-FC_Internazionale_Milano_2021.svg.png",
-      "toClub": "AEK Athens",
-      "toClubUrl": "https://en.wikipedia.org/wiki/AEK_Athens_F.C.",
-      "toClubCrest": "https://upload.wikimedia.org/wikipedia/en/thumb/0/04/AEK_Athens_FC_logo.svg/120px-AEK_Athens_FC_logo.svg.png",
-      "fee": "Loan",
-      "status": "official",
-      "market": "Italy",
-      "markets": [
-        "Italy"
-      ],
-      "competition": "Serie A / Serie B",
-      "sourceAdapter": "wikipedia-italy",
-      "sourceRole": "primary_official",
-      "sourceName": "inter.it",
-      "sourceUrl": "https://www.inter.it/it/notizie/inter-christos-alexiou-aek-atene",
-      "sources": [
-        {
-          "name": "inter.it",
-          "url": "https://www.inter.it/it/notizie/inter-christos-alexiou-aek-atene",
-          "role": "primary_official"
-        }
-      ],
-      "firstSeenAt": "2026-07-08T12:00:00.000Z",
-      "competitions": [
-        "Serie A / Serie B"
-      ],
-      "sourceAdapters": [
-        "wikipedia-italy"
-      ]
-    },
-    {
-      "id": "c60dd6e7c8c2ab",
-      "date": "2026-07-08",
-      "time": "—",
-      "player": "Michele D'Ausilio",
-      "playerUrl": "https://en.wikipedia.org/wiki/Michele_D'Ausilio",
-      "age": 26,
-      "position": "MC",
-      "nationality": "Italy",
-      "flagCode": "it",
-      "flag": "🇮🇹",
-      "fromClub": "Avellino",
-      "fromClubUrl": "https://en.wikipedia.org/wiki/US_Avellino_1912",
-      "fromClubCrest": "https://upload.wikimedia.org/wikipedia/en/thumb/8/86/US_Avellino.svg/120px-US_Avellino.svg.png",
-      "toClub": "Iraklis",
-      "toClubUrl": "https://en.wikipedia.org/wiki/Iraklis_F.C._(Thessaloniki)",
-      "toClubCrest": "https://upload.wikimedia.org/wikipedia/en/thumb/a/ac/Logo_Iraklis.png/120px-Logo_Iraklis.png",
-      "fee": "Loan",
-      "status": "official",
-      "market": "Italy",
-      "markets": [
-        "Italy"
-      ],
-      "competition": "Serie A / Serie B",
-      "sourceAdapter": "wikipedia-italy",
-      "sourceRole": "primary_official",
-      "sourceName": "usavellino1912.com",
-      "sourceUrl": "https://www.usavellino1912.com/michele-dausilio-in-prestito-alliraklis-salonicco-1908/",
-      "sources": [
-        {
-          "name": "usavellino1912.com",
-          "url": "https://www.usavellino1912.com/michele-dausilio-in-prestito-alliraklis-salonicco-1908/",
-          "role": "primary_official"
-        }
-      ],
-      "firstSeenAt": "2026-07-08T12:00:00.000Z",
-      "competitions": [
-        "Serie A / Serie B"
-      ],
-      "sourceAdapters": [
-        "wikipedia-italy"
-      ]
-    },
-    {
-      "id": "05a888104b87b6",
-      "date": "2026-07-08",
-      "time": "—",
-      "player": "Antonio De Cristofaro",
-      "playerUrl": null,
-      "age": null,
-      "position": null,
-      "nationality": "Italy",
-      "flagCode": "it",
-      "flag": "🇮🇹",
-      "fromClub": "Avellino",
-      "fromClubUrl": "https://en.wikipedia.org/wiki/US_Avellino_1912",
-      "fromClubCrest": "https://upload.wikimedia.org/wikipedia/en/thumb/8/86/US_Avellino.svg/120px-US_Avellino.svg.png",
-      "toClub": "Latina",
-      "toClubUrl": "https://en.wikipedia.org/wiki/Latina_Calcio_1932",
-      "toClubCrest": "https://upload.wikimedia.org/wikipedia/en/thumb/b/b3/Latina_Calcio_1932_crest.svg/120px-Latina_Calcio_1932_crest.svg.png",
-      "fee": "Loan",
-      "status": "official",
-      "market": "Italy",
-      "markets": [
-        "Italy"
-      ],
-      "competition": "Serie A / Serie B",
-      "sourceAdapter": "wikipedia-italy",
-      "sourceRole": "primary_official",
-      "sourceName": "usavellino1912.com",
-      "sourceUrl": "https://www.usavellino1912.com/antonio-de-cristofaro-in-prestito-al-latina-2/",
-      "sources": [
-        {
-          "name": "usavellino1912.com",
-          "url": "https://www.usavellino1912.com/antonio-de-cristofaro-in-prestito-al-latina-2/",
-          "role": "primary_official"
-        }
-      ],
-      "firstSeenAt": "2026-07-08T12:00:00.000Z",
-      "competitions": [
-        "Serie A / Serie B"
-      ],
-      "sourceAdapters": [
-        "wikipedia-italy"
-      ]
-    },
-    {
-      "id": "6183937157760d",
-      "date": "2026-07-08",
-      "time": "—",
-      "player": "Marco Ladisa",
-      "playerUrl": null,
-      "age": null,
-      "position": null,
-      "nationality": "Italy",
-      "flagCode": "it",
-      "flag": "🇮🇹",
-      "fromClub": "Venezia",
-      "fromClubUrl": "https://en.wikipedia.org/wiki/Venezia_FC",
-      "fromClubCrest": "https://upload.wikimedia.org/wikipedia/en/thumb/3/39/Venezia_FC_crest.svg/120px-Venezia_FC_crest.svg.png",
-      "toClub": "Trento",
-      "toClubUrl": "https://en.wikipedia.org/wiki/AC_Trento_1921",
-      "toClubCrest": "https://upload.wikimedia.org/wikipedia/en/thumb/c/c4/AC_Trento_1921_crest.svg/120px-AC_Trento_1921_crest.svg.png",
-      "fee": "Loan",
-      "status": "official",
-      "market": "Italy",
-      "markets": [
-        "Italy"
-      ],
-      "competition": "Serie A / Serie B",
-      "sourceAdapter": "wikipedia-italy",
-      "sourceRole": "primary_official",
-      "sourceName": "veneziafc.it",
-      "sourceUrl": "https://www.veneziafc.it/news/marco-ladisa-in-prestito-all-ac-trento-x8239",
-      "sources": [
-        {
-          "name": "veneziafc.it",
-          "url": "https://www.veneziafc.it/news/marco-ladisa-in-prestito-all-ac-trento-x8239",
-          "role": "primary_official"
-        }
-      ],
-      "firstSeenAt": "2026-07-08T12:00:00.000Z",
-      "competitions": [
-        "Serie A / Serie B"
-      ],
-      "sourceAdapters": [
-        "wikipedia-italy"
-      ]
-    },
-    {
-      "id": "0e3d71af006cc0",
-      "date": "2026-07-08",
-      "time": "—",
-      "player": "Sambaly Keita",
-      "playerUrl": null,
-      "age": null,
-      "position": null,
-      "nationality": "France",
-      "flagCode": "fr",
-      "flag": "🇫🇷",
-      "fromClub": "Villefranche",
-      "fromClubUrl": "https://en.wikipedia.org/wiki/FC_Villefranche_Beaujolais",
-      "fromClubCrest": "https://upload.wikimedia.org/wikipedia/en/thumb/2/2f/FC_Villefranche_Beaujolais_logo.svg/120px-FC_Villefranche_Beaujolais_logo.svg.png",
-      "toClub": "Mantova",
-      "toClubUrl": "https://en.wikipedia.org/wiki/Mantova_1911",
-      "toClubCrest": "https://upload.wikimedia.org/wikipedia/en/thumb/4/45/Mantova_1911_crest.svg/120px-Mantova_1911_crest.svg.png",
-      "fee": "Undisclosed",
-      "status": "official",
-      "market": "Italy",
-      "markets": [
-        "Italy"
-      ],
-      "competition": "Serie A / Serie B",
-      "sourceAdapter": "wikipedia-italy",
-      "sourceRole": "primary_official",
-      "sourceName": "mantova1911.club",
-      "sourceUrl": "https://www.mantova1911.club/news/ufficiale-sambaly-keita-a-titolo-definitivo",
-      "sources": [
-        {
-          "name": "mantova1911.club",
-          "url": "https://www.mantova1911.club/news/ufficiale-sambaly-keita-a-titolo-definitivo",
-          "role": "primary_official"
-        }
-      ],
-      "firstSeenAt": "2026-07-08T12:00:00.000Z",
-      "competitions": [
-        "Serie A / Serie B"
-      ],
-      "sourceAdapters": [
-        "wikipedia-italy"
-      ]
-    },
-    {
-      "id": "122ce3a0e928eb",
-      "date": "2026-07-08",
-      "time": "—",
-      "player": "Alioune Sylla",
-      "playerUrl": null,
-      "age": null,
-      "position": null,
-      "nationality": "Senegal",
-      "flagCode": "sn",
-      "flag": "🇸🇳",
-      "fromClub": "Siracusa",
-      "fromClubUrl": "https://en.wikipedia.org/wiki/Siracusa_Calcio_1924",
-      "fromClubCrest": "https://upload.wikimedia.org/wikipedia/en/thumb/8/87/Siracusa_Calcio_1924_crest.svg/120px-Siracusa_Calcio_1924_crest.svg.png",
-      "toClub": "Benevento",
-      "toClubUrl": "https://en.wikipedia.org/wiki/Benevento_Calcio",
-      "toClubCrest": "https://upload.wikimedia.org/wikipedia/en/thumb/6/61/Benevento_Calcio_logo.svg/120px-Benevento_Calcio_logo.svg.png",
-      "fee": "Undisclosed",
-      "status": "official",
-      "market": "Italy",
-      "markets": [
-        "Italy"
-      ],
-      "competition": "Serie A / Serie B",
-      "sourceAdapter": "wikipedia-italy",
-      "sourceRole": "primary_official",
-      "sourceName": "beneventocalcio.club",
-      "sourceUrl": "https://www.beneventocalcio.club/news/comunicatistampa/7385/alioune-sylla-e-un-nuovo-portiere-del-benevento.shtml",
-      "sources": [
-        {
-          "name": "beneventocalcio.club",
-          "url": "https://www.beneventocalcio.club/news/comunicatistampa/7385/alioune-sylla-e-un-nuovo-portiere-del-benevento.shtml",
-          "role": "primary_official"
-        }
-      ],
-      "firstSeenAt": "2026-07-08T12:00:00.000Z",
-      "competitions": [
-        "Serie A / Serie B"
-      ],
-      "sourceAdapters": [
-        "wikipedia-italy"
-      ]
-    },
-    {
-      "id": "0aac5654f00cac",
-      "date": "2026-07-08",
-      "time": "—",
-      "player": "Lorenzo Insigne",
-      "playerUrl": "https://en.wikipedia.org/wiki/Lorenzo_Insigne",
-      "age": 35,
-      "position": "MC",
-      "nationality": "Italy",
-      "flagCode": "it",
-      "flag": "🇮🇹",
-      "fromClub": "Pescara",
-      "fromClubUrl": "https://en.wikipedia.org/wiki/Delfino_Pescara_1936",
-      "fromClubCrest": "https://upload.wikimedia.org/wikipedia/en/thumb/0/06/Delfino_Pescara_logo.svg/120px-Delfino_Pescara_logo.svg.png",
-      "toClub": "Sampdoria",
-      "toClubUrl": "https://en.wikipedia.org/wiki/UC_Sampdoria",
-      "toClubCrest": "https://upload.wikimedia.org/wikipedia/en/thumb/d/d2/U.C._Sampdoria_logo.svg/120px-U.C._Sampdoria_logo.svg.png",
-      "fee": "Free",
-      "status": "official",
-      "market": "Italy",
-      "markets": [
-        "Italy"
-      ],
-      "competition": "Serie A / Serie B",
-      "sourceAdapter": "wikipedia-italy",
-      "sourceRole": "primary_official",
-      "sourceName": "sampdoria.it",
-      "sourceUrl": "https://www.sampdoria.it/news/club/2026/07/08/insigne-e-blucerchiato-contratto-fino-al-30-giugno-2027/",
-      "sources": [
-        {
-          "name": "sampdoria.it",
-          "url": "https://www.sampdoria.it/news/club/2026/07/08/insigne-e-blucerchiato-contratto-fino-al-30-giugno-2027/",
-          "role": "primary_official"
-        }
-      ],
-      "firstSeenAt": "2026-07-08T12:00:00.000Z",
-      "competitions": [
-        "Serie A / Serie B"
-      ],
-      "sourceAdapters": [
-        "wikipedia-italy"
       ]
     },
     {
@@ -7118,6 +7570,8 @@
         "France"
       ],
       "competition": "Ligue 1",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-france",
       "sourceRole": "primary_official",
       "sourceName": "psg.fr",
@@ -7161,6 +7615,8 @@
         "France"
       ],
       "competition": "Ligue 1",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-france",
       "sourceRole": "primary_official",
       "sourceName": "rcstrasbourgalsace.fr",
@@ -7204,6 +7660,8 @@
         "Poland"
       ],
       "competition": "Ekstraklasa",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-poland",
       "sourceRole": "primary_official",
       "sourceName": "lechpoznan.pl",
@@ -7247,6 +7705,8 @@
         "Poland"
       ],
       "competition": "Ekstraklasa",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-poland",
       "sourceRole": "primary_official",
       "sourceName": "gornikzabrze.pl",
@@ -7290,6 +7750,8 @@
         "Poland"
       ],
       "competition": "Ekstraklasa",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-poland",
       "sourceRole": "primary_official",
       "sourceName": "rakow.com",
@@ -7333,6 +7795,8 @@
         "Poland"
       ],
       "competition": "Ekstraklasa",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-poland",
       "sourceRole": "primary_official",
       "sourceName": "wisla-plock.pl",
@@ -7376,6 +7840,8 @@
         "Poland"
       ],
       "competition": "Ekstraklasa",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-poland",
       "sourceRole": "primary_official",
       "sourceName": "rksradomiak.pl",
@@ -7393,49 +7859,6 @@
       ],
       "sourceAdapters": [
         "wikipedia-poland"
-      ]
-    },
-    {
-      "id": "9c7a58bbdfc364",
-      "date": "2026-07-07",
-      "time": "—",
-      "player": "Jaidon Anthony",
-      "playerUrl": "https://en.wikipedia.org/wiki/Jaidon_Anthony",
-      "age": 26,
-      "position": "MC",
-      "nationality": "England",
-      "flagCode": "gb-eng",
-      "flag": "🇬🇧",
-      "fromClub": "Burnley",
-      "fromClubUrl": "https://en.wikipedia.org/wiki/Burnley_F.C.",
-      "fromClubCrest": "https://upload.wikimedia.org/wikipedia/en/thumb/6/6d/Burnley_FC_Logo.svg/120px-Burnley_FC_Logo.svg.png",
-      "toClub": "Brentford",
-      "toClubUrl": "https://en.wikipedia.org/wiki/Brentford_F.C.",
-      "toClubCrest": "https://upload.wikimedia.org/wikipedia/en/thumb/2/2a/Brentford_FC_crest.svg/120px-Brentford_FC_crest.svg.png",
-      "fee": "£15m",
-      "status": "official",
-      "market": "England",
-      "markets": [
-        "England"
-      ],
-      "competition": "English leagues",
-      "sourceAdapter": "wikipedia-england",
-      "sourceRole": "publication",
-      "sourceName": "BBC Sport",
-      "sourceUrl": "https://www.bbc.co.uk/sport/football/articles/c77yd4yxzlno",
-      "sources": [
-        {
-          "name": "BBC Sport",
-          "url": "https://www.bbc.co.uk/sport/football/articles/c77yd4yxzlno",
-          "role": "publication"
-        }
-      ],
-      "firstSeenAt": "2026-07-07T12:00:00.000Z",
-      "competitions": [
-        "English leagues"
-      ],
-      "sourceAdapters": [
-        "wikipedia-england"
       ]
     },
     {
@@ -7462,6 +7885,8 @@
         "Germany"
       ],
       "competition": "Bundesliga",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-germany",
       "sourceRole": "primary_official",
       "sourceName": "fck.de",
@@ -7506,6 +7931,8 @@
         "Germany"
       ],
       "competition": "Bundesliga",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-germany",
       "sourceRole": "primary_official",
       "sourceName": "fcaugsburg.de",
@@ -7549,6 +7976,8 @@
         "Germany"
       ],
       "competition": "Bundesliga",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-germany",
       "sourceRole": "primary_official",
       "sourceName": "fc.de",
@@ -7592,6 +8021,8 @@
         "Germany"
       ],
       "competition": "Bundesliga",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-germany",
       "sourceRole": "primary_official",
       "sourceName": "scp07.de",
@@ -7606,6 +8037,96 @@
       "firstSeenAt": "2026-07-07T12:00:00.000Z",
       "competitions": [
         "Bundesliga"
+      ],
+      "sourceAdapters": [
+        "wikipedia-germany"
+      ]
+    },
+    {
+      "id": "b97416f654a5a8",
+      "date": "2026-07-07",
+      "time": "—",
+      "player": "Stefan Schimmer",
+      "playerUrl": "https://en.wikipedia.org/wiki/Stefan_Schimmer",
+      "age": 32,
+      "position": "ST",
+      "nationality": "Germany",
+      "flagCode": "de",
+      "flag": "🇩🇪",
+      "fromClub": "1. FC Heidenheim",
+      "fromClubUrl": "https://en.wikipedia.org/wiki/1._FC_Heidenheim",
+      "fromClubCrest": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/1._FC_Heidenheim_1846.svg/120px-1._FC_Heidenheim_1846.svg.png",
+      "toClub": "Buriram United",
+      "toClubUrl": "https://en.wikipedia.org/wiki/Buriram_United_F.C.",
+      "toClubCrest": "https://upload.wikimedia.org/wikipedia/en/thumb/9/93/Buriram_United_logo.svg/120px-Buriram_United_logo.svg.png",
+      "fee": "Undisclosed",
+      "status": "official",
+      "market": "Germany",
+      "markets": [
+        "Germany"
+      ],
+      "competition": "2. Bundesliga",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
+      "sourceAdapter": "wikipedia-germany",
+      "sourceRole": "community",
+      "sourceName": "instagram.com",
+      "sourceUrl": "https://www.instagram.com/p/DafM-lXATfk/",
+      "sources": [
+        {
+          "name": "instagram.com",
+          "url": "https://www.instagram.com/p/DafM-lXATfk/",
+          "role": "community"
+        }
+      ],
+      "firstSeenAt": "2026-07-07T12:00:00.000Z",
+      "competitions": [
+        "2. Bundesliga"
+      ],
+      "sourceAdapters": [
+        "wikipedia-germany"
+      ]
+    },
+    {
+      "id": "1ca9791c62215c",
+      "date": "2026-07-07",
+      "time": "—",
+      "player": "Nick Rothweiler",
+      "playerUrl": null,
+      "age": null,
+      "position": "MC",
+      "nationality": "Germany",
+      "flagCode": "de",
+      "flag": "🇩🇪",
+      "fromClub": "1. FC Heidenheim",
+      "fromClubUrl": "https://en.wikipedia.org/wiki/1._FC_Heidenheim",
+      "fromClubCrest": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/1._FC_Heidenheim_1846.svg/120px-1._FC_Heidenheim_1846.svg.png",
+      "toClub": "Hessen Kassel",
+      "toClubUrl": "https://en.wikipedia.org/wiki/KSV_Hessen_Kassel",
+      "toClubCrest": "https://upload.wikimedia.org/wikipedia/en/thumb/5/58/KSV_Hessen_Kassel_logo.svg/120px-KSV_Hessen_Kassel_logo.svg.png",
+      "fee": "Loan",
+      "status": "official",
+      "market": "Germany",
+      "markets": [
+        "Germany"
+      ],
+      "competition": "2. Bundesliga",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
+      "sourceAdapter": "wikipedia-germany",
+      "sourceRole": "primary_official",
+      "sourceName": "fc-heidenheim.de",
+      "sourceUrl": "https://www.fc-heidenheim.de/news/detail/nick-rothweiler-wechselt-auf-leihbasis-zum-ksv-hessen-kassel",
+      "sources": [
+        {
+          "name": "fc-heidenheim.de",
+          "url": "https://www.fc-heidenheim.de/news/detail/nick-rothweiler-wechselt-auf-leihbasis-zum-ksv-hessen-kassel",
+          "role": "primary_official"
+        }
+      ],
+      "firstSeenAt": "2026-07-07T12:00:00.000Z",
+      "competitions": [
+        "2. Bundesliga"
       ],
       "sourceAdapters": [
         "wikipedia-germany"
@@ -7635,6 +8156,8 @@
         "Germany"
       ],
       "competition": "2. Bundesliga",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-germany",
       "sourceRole": "primary_official",
       "sourceName": "fcstpauli.com",
@@ -7678,6 +8201,8 @@
         "France"
       ],
       "competition": "Ligue 1",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-france",
       "sourceRole": "primary_official",
       "sourceName": "asmonaco.com",
@@ -7722,6 +8247,8 @@
         "France"
       ],
       "competition": "Ligue 1",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-france",
       "sourceRole": "primary_official",
       "sourceName": "sdponferradina.com",
@@ -7765,6 +8292,8 @@
         "France"
       ],
       "competition": "Ligue 1",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-france",
       "sourceRole": "primary_official",
       "sourceName": "stade-de-reims.com",
@@ -7809,6 +8338,8 @@
         "Poland"
       ],
       "competition": "Ekstraklasa",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-poland",
       "sourceRole": "primary_official",
       "sourceName": "zaglebie.com",
@@ -7852,6 +8383,8 @@
         "Poland"
       ],
       "competition": "Ekstraklasa",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-poland",
       "sourceRole": "primary_official",
       "sourceName": "lkslodz.pl",
@@ -7895,6 +8428,8 @@
         "Poland"
       ],
       "competition": "Ekstraklasa",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-poland",
       "sourceRole": "primary_official",
       "sourceName": "motorlublin.eu",
@@ -7938,6 +8473,8 @@
         "Poland"
       ],
       "competition": "Ekstraklasa",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-poland",
       "sourceRole": "primary_official",
       "sourceName": "motorlublin.eu",
@@ -7981,6 +8518,8 @@
         "Poland"
       ],
       "competition": "Ekstraklasa",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-poland",
       "sourceRole": "community",
       "sourceName": "instagram.com",
@@ -8024,6 +8563,8 @@
         "Poland"
       ],
       "competition": "Ekstraklasa",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-poland",
       "sourceRole": "primary_official",
       "sourceName": "slaskwroclaw.pl",
@@ -8067,6 +8608,8 @@
         "Germany"
       ],
       "competition": "Bundesliga",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-germany",
       "sourceRole": "primary_official",
       "sourceName": "bayer04.de",
@@ -8110,6 +8653,8 @@
         "Germany"
       ],
       "competition": "Bundesliga",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-germany",
       "sourceRole": "primary_official",
       "sourceName": "scfreiburg.com",
@@ -8153,6 +8698,8 @@
         "Germany"
       ],
       "competition": "Bundesliga",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-germany",
       "sourceRole": "primary_official",
       "sourceName": "fcaugsburg.de",
@@ -8196,6 +8743,8 @@
         "Germany"
       ],
       "competition": "Bundesliga",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-germany",
       "sourceRole": "primary_official",
       "sourceName": "mainz05.de",
@@ -8239,6 +8788,8 @@
         "Germany"
       ],
       "competition": "2. Bundesliga",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-germany",
       "sourceRole": "primary_official",
       "sourceName": "zelvia.co.jp",
@@ -8282,6 +8833,8 @@
         "France"
       ],
       "competition": "Ligue 1",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-france",
       "sourceRole": "primary_official",
       "sourceName": "psg.fr",
@@ -8325,6 +8878,8 @@
         "France"
       ],
       "competition": "Ligue 1",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-france",
       "sourceRole": "primary_official",
       "sourceName": "psg.fr",
@@ -8368,6 +8923,8 @@
         "France"
       ],
       "competition": "Ligue 1",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-france",
       "sourceRole": "primary_official",
       "sourceName": "losc.fr",
@@ -8412,6 +8969,8 @@
         "Poland"
       ],
       "competition": "Ligue 1",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-france",
       "sourceRole": "primary_official",
       "sourceName": "rcstrasbourgalsace.fr",
@@ -8457,6 +9016,8 @@
         "Netherlands"
       ],
       "competition": "Eredivisie",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-netherlands",
       "sourceRole": "primary_official",
       "sourceName": "psv.nl",
@@ -8500,6 +9061,8 @@
         "Netherlands"
       ],
       "competition": "Eredivisie",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-netherlands",
       "sourceRole": "primary_official",
       "sourceName": "sanfrecce.co.jp",
@@ -8543,6 +9106,8 @@
         "Netherlands"
       ],
       "competition": "Eredivisie",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-netherlands",
       "sourceRole": "primary_official",
       "sourceName": "realzaragoza.com",
@@ -8586,6 +9151,8 @@
         "Netherlands"
       ],
       "competition": "Eredivisie",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-netherlands",
       "sourceRole": "primary_official",
       "sourceName": "az.nl",
@@ -8629,6 +9196,8 @@
         "Netherlands"
       ],
       "competition": "Eredivisie",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-netherlands",
       "sourceRole": "primary_official",
       "sourceName": "az.nl",
@@ -8672,6 +9241,8 @@
         "Poland"
       ],
       "competition": "Ekstraklasa",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-poland",
       "sourceRole": "primary_official",
       "sourceName": "nkmaribor.com",
@@ -8715,6 +9286,8 @@
         "Poland"
       ],
       "competition": "Ekstraklasa",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-poland",
       "sourceRole": "primary_official",
       "sourceName": "korona-kielce.pl",
@@ -8758,6 +9331,8 @@
         "Poland"
       ],
       "competition": "Ekstraklasa",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-poland",
       "sourceRole": "primary_official",
       "sourceName": "sandecja.pl",
@@ -8801,6 +9376,8 @@
         "Germany"
       ],
       "competition": "Bundesliga",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-germany",
       "sourceRole": "community",
       "sourceName": "instagram.com",
@@ -8844,6 +9421,8 @@
         "Germany"
       ],
       "competition": "Bundesliga",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-germany",
       "sourceRole": "primary_official",
       "sourceName": "tsg-hoffenheim.de",
@@ -8887,6 +9466,8 @@
         "Germany"
       ],
       "competition": "Bundesliga",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-germany",
       "sourceRole": "primary_official",
       "sourceName": "schalke04.de",
@@ -8930,6 +9511,8 @@
         "Germany"
       ],
       "competition": "2. Bundesliga",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-germany",
       "sourceRole": "primary_official",
       "sourceName": "1.fc-magdeburg.de",
@@ -8973,6 +9556,8 @@
         "France"
       ],
       "competition": "Ligue 1",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-france",
       "sourceRole": "primary_official",
       "sourceName": "staderennais.com",
@@ -9016,6 +9601,8 @@
         "Netherlands"
       ],
       "competition": "Eredivisie",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-netherlands",
       "sourceRole": "primary_official",
       "sourceName": "baliutd.com",
@@ -9059,6 +9646,8 @@
         "Poland"
       ],
       "competition": "Ekstraklasa",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-poland",
       "sourceRole": "primary_official",
       "sourceName": "korona-kielce.pl",
@@ -9102,6 +9691,8 @@
         "Poland"
       ],
       "competition": "Ekstraklasa",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-poland",
       "sourceRole": "primary_official",
       "sourceName": "rksradomiak.pl",
@@ -9145,6 +9736,8 @@
         "Germany"
       ],
       "competition": "Bundesliga",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-germany",
       "sourceRole": "primary_official",
       "sourceName": "hsv.de",
@@ -9188,6 +9781,8 @@
         "Germany"
       ],
       "competition": "2. Bundesliga",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-germany",
       "sourceRole": "primary_official",
       "sourceName": "fussball.vsg-altglienicke.de",
@@ -9231,6 +9826,8 @@
         "Germany"
       ],
       "competition": "2. Bundesliga",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-germany",
       "sourceRole": "primary_official",
       "sourceName": "ksc.de",
@@ -9274,6 +9871,8 @@
         "Germany"
       ],
       "competition": "2. Bundesliga",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-germany",
       "sourceRole": "primary_official",
       "sourceName": "holstein-kiel.de",
@@ -9317,6 +9916,8 @@
         "France"
       ],
       "competition": "Ligue 1",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-france",
       "sourceRole": "primary_official",
       "sourceName": "rcstrasbourgalsace.fr",
@@ -9360,6 +9961,8 @@
         "Poland"
       ],
       "competition": "Ekstraklasa",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-poland",
       "sourceRole": "primary_official",
       "sourceName": "rakow.com",
@@ -9403,6 +10006,8 @@
         "Poland"
       ],
       "competition": "Ekstraklasa",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-poland",
       "sourceRole": "primary_official",
       "sourceName": "pogongrodzisk.pl",
@@ -9446,6 +10051,8 @@
         "Poland"
       ],
       "competition": "Ekstraklasa",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-poland",
       "sourceRole": "primary_official",
       "sourceName": "korona-kielce.pl",
@@ -9489,6 +10096,8 @@
         "Poland"
       ],
       "competition": "Ekstraklasa",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-poland",
       "sourceRole": "primary_official",
       "sourceName": "motorlublin.eu",
@@ -9532,6 +10141,8 @@
         "Poland"
       ],
       "competition": "Ekstraklasa",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-poland",
       "sourceRole": "primary_official",
       "sourceName": "slaskwroclaw.pl",
@@ -9575,6 +10186,8 @@
         "Germany"
       ],
       "competition": "Bundesliga",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-germany",
       "sourceRole": "primary_official",
       "sourceName": "fcbayern.com",
@@ -9583,280 +10196,6 @@
         {
           "name": "fcbayern.com",
           "url": "https://fcbayern.com/de/news/2026/07/neuzugang-aus-frankfurt-fc-bayern-holt-nathaniel-brown",
-          "role": "primary_official"
-        }
-      ],
-      "firstSeenAt": "2026-07-03T12:00:00.000Z",
-      "competitions": [
-        "Bundesliga"
-      ],
-      "sourceAdapters": [
-        "wikipedia-germany"
-      ]
-    },
-    {
-      "id": "46888d81093420",
-      "date": "2026-07-03",
-      "time": "—",
-      "player": "Timo Schlieck",
-      "playerUrl": null,
-      "age": null,
-      "position": "GK",
-      "nationality": "Germany",
-      "flagCode": "de",
-      "flag": "🇩🇪",
-      "fromClub": "RB Leipzig",
-      "fromClubUrl": "https://en.wikipedia.org/wiki/RB_Leipzig",
-      "fromClubCrest": "https://upload.wikimedia.org/wikipedia/en/thumb/0/04/RB_Leipzig_2014_logo.svg/120px-RB_Leipzig_2014_logo.svg.png",
-      "toClub": "SC Verl",
-      "toClubUrl": "https://en.wikipedia.org/wiki/SC_Verl",
-      "toClubCrest": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/SC_Verl_Logo.svg/120px-SC_Verl_Logo.svg.png",
-      "fee": "Loan",
-      "status": "official",
-      "market": "Germany",
-      "markets": [
-        "Germany"
-      ],
-      "competition": "Bundesliga",
-      "sourceAdapter": "wikipedia-germany",
-      "sourceRole": "primary_official",
-      "sourceName": "rbleipzig.com",
-      "sourceUrl": "https://rbleipzig.com/de/news/leihe-timo-schlieck-von-rb-leipzig-zum-sc-verl",
-      "sources": [
-        {
-          "name": "rbleipzig.com",
-          "url": "https://rbleipzig.com/de/news/leihe-timo-schlieck-von-rb-leipzig-zum-sc-verl",
-          "role": "primary_official"
-        }
-      ],
-      "firstSeenAt": "2026-07-03T12:00:00.000Z",
-      "competitions": [
-        "Bundesliga"
-      ],
-      "sourceAdapters": [
-        "wikipedia-germany"
-      ]
-    },
-    {
-      "id": "a7cbc00c931401",
-      "date": "2026-07-03",
-      "time": "—",
-      "player": "Cédric Zesiger",
-      "playerUrl": "https://en.wikipedia.org/wiki/C%C3%A9dric_Zesiger",
-      "age": 28,
-      "position": "DC",
-      "nationality": "Switzerland",
-      "flagCode": "ch",
-      "flag": "🇨🇭",
-      "fromClub": "FC Augsburg",
-      "fromClubUrl": "https://en.wikipedia.org/wiki/FC_Augsburg",
-      "fromClubCrest": "https://upload.wikimedia.org/wikipedia/en/thumb/c/c5/FC_Augsburg_logo.svg/120px-FC_Augsburg_logo.svg.png",
-      "toClub": "Young Boys",
-      "toClubUrl": "https://en.wikipedia.org/wiki/BSC_Young_Boys",
-      "toClubCrest": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/BSC_Young_Boys.svg/120px-BSC_Young_Boys.svg.png",
-      "fee": "Undisclosed",
-      "status": "official",
-      "market": "Germany",
-      "markets": [
-        "Germany"
-      ],
-      "competition": "Bundesliga",
-      "sourceAdapter": "wikipedia-germany",
-      "sourceRole": "primary_official",
-      "sourceName": "fcaugsburg.de",
-      "sourceUrl": "https://www.fcaugsburg.de/article/cedric-zesiger-verlaesst-den-fca-und-wechselt-zurueck-nach-bern-23223",
-      "sources": [
-        {
-          "name": "fcaugsburg.de",
-          "url": "https://www.fcaugsburg.de/article/cedric-zesiger-verlaesst-den-fca-und-wechselt-zurueck-nach-bern-23223",
-          "role": "primary_official"
-        }
-      ],
-      "firstSeenAt": "2026-07-03T12:00:00.000Z",
-      "competitions": [
-        "Bundesliga"
-      ],
-      "sourceAdapters": [
-        "wikipedia-germany"
-      ]
-    },
-    {
-      "id": "320b526c8e9660",
-      "date": "2026-07-03",
-      "time": "—",
-      "player": "David Čolina",
-      "playerUrl": "https://en.wikipedia.org/wiki/David_%C4%8Colina",
-      "age": 25,
-      "position": "DC",
-      "nationality": "Croatia",
-      "flagCode": "hr",
-      "flag": "🇭🇷",
-      "fromClub": "FC Augsburg",
-      "fromClubUrl": "https://en.wikipedia.org/wiki/FC_Augsburg",
-      "fromClubCrest": "https://upload.wikimedia.org/wikipedia/en/thumb/c/c5/FC_Augsburg_logo.svg/120px-FC_Augsburg_logo.svg.png",
-      "toClub": "Zagłębie Lubin",
-      "toClubUrl": "https://en.wikipedia.org/wiki/Zag%C5%82%C4%99bie_Lubin",
-      "toClubCrest": "https://upload.wikimedia.org/wikipedia/en/thumb/2/20/Zag%C5%82%C4%99bie_Lubin_crest.svg/120px-Zag%C5%82%C4%99bie_Lubin_crest.svg.png",
-      "fee": "Undisclosed",
-      "status": "official",
-      "market": "Germany",
-      "markets": [
-        "Germany",
-        "Poland"
-      ],
-      "competition": "Bundesliga",
-      "sourceAdapter": "wikipedia-germany",
-      "sourceRole": "primary_official",
-      "sourceName": "fcaugsburg.de",
-      "sourceUrl": "https://www.fcaugsburg.de/article/fca-gibt-david-olina-zu-zag-bie-lubin-ab-23224",
-      "sources": [
-        {
-          "name": "fcaugsburg.de",
-          "url": "https://www.fcaugsburg.de/article/fca-gibt-david-olina-zu-zag-bie-lubin-ab-23224",
-          "role": "primary_official"
-        },
-        {
-          "name": "zaglebie.com",
-          "url": "https://www.zaglebie.com/Aktualnosci/Pierwszy-zespol/david-colina-wzmacnia-zespol-miedziowych_n19960",
-          "role": "primary_official"
-        }
-      ],
-      "firstSeenAt": "2026-07-03T12:00:00.000Z",
-      "competitions": [
-        "Bundesliga",
-        "Ekstraklasa"
-      ],
-      "sourceAdapters": [
-        "wikipedia-germany",
-        "wikipedia-poland"
-      ]
-    },
-    {
-      "id": "6a3dfa526f26ad",
-      "date": "2026-07-03",
-      "time": "—",
-      "player": "Jan Leszczyński",
-      "playerUrl": "https://en.wikipedia.org/wiki/Jan_Leszczy%C5%84ski_(footballer,_born_2007)",
-      "age": 19,
-      "position": "DC",
-      "nationality": "Poland",
-      "flagCode": "pl",
-      "flag": "🇵🇱",
-      "fromClub": "Legia Warsaw",
-      "fromClubUrl": "https://en.wikipedia.org/wiki/Legia_Warsaw",
-      "fromClubCrest": "https://upload.wikimedia.org/wikipedia/en/thumb/6/6d/Legia_Warsaw_logo.svg/120px-Legia_Warsaw_logo.svg.png",
-      "toClub": "Borussia Mönchengladbach",
-      "toClubUrl": "https://en.wikipedia.org/wiki/Borussia_M%C3%B6nchengladbach",
-      "toClubCrest": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/Borussia_M%C3%B6nchengladbach_logo.svg/120px-Borussia_M%C3%B6nchengladbach_logo.svg.png",
-      "fee": "Undisclosed",
-      "status": "official",
-      "market": "Germany",
-      "markets": [
-        "Germany",
-        "Poland"
-      ],
-      "competition": "Bundesliga",
-      "sourceAdapter": "wikipedia-germany",
-      "sourceRole": "primary_official",
-      "sourceName": "borussia.de",
-      "sourceUrl": "https://www.borussia.de/news/borussia-verpflichtet-jan-leszczynski",
-      "sources": [
-        {
-          "name": "borussia.de",
-          "url": "https://www.borussia.de/news/borussia-verpflichtet-jan-leszczynski",
-          "role": "primary_official"
-        },
-        {
-          "name": "legia.com",
-          "url": "https://legia.com/pilka-nozna/leszczu/89497",
-          "role": "primary_official"
-        }
-      ],
-      "firstSeenAt": "2026-07-03T12:00:00.000Z",
-      "competitions": [
-        "Bundesliga",
-        "Ekstraklasa"
-      ],
-      "sourceAdapters": [
-        "wikipedia-germany",
-        "wikipedia-poland"
-      ]
-    },
-    {
-      "id": "01e2c6ad62e2fc",
-      "date": "2026-07-03",
-      "time": "—",
-      "player": "Noah Pesch",
-      "playerUrl": "https://en.wikipedia.org/wiki/Noah_Pesch",
-      "age": 21,
-      "position": "MC",
-      "nationality": "Croatia",
-      "flagCode": "hr",
-      "flag": "🇭🇷",
-      "fromClub": "Borussia Mönchengladbach",
-      "fromClubUrl": "https://en.wikipedia.org/wiki/Borussia_M%C3%B6nchengladbach",
-      "fromClubCrest": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/Borussia_M%C3%B6nchengladbach_logo.svg/120px-Borussia_M%C3%B6nchengladbach_logo.svg.png",
-      "toClub": "Rot-Weiss Essen",
-      "toClubUrl": "https://en.wikipedia.org/wiki/Rot-Weiss_Essen",
-      "toClubCrest": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/Logo_of_Rot-Weiss_Essen.svg/120px-Logo_of_Rot-Weiss_Essen.svg.png",
-      "fee": "Undisclosed",
-      "status": "official",
-      "market": "Germany",
-      "markets": [
-        "Germany"
-      ],
-      "competition": "Bundesliga",
-      "sourceAdapter": "wikipedia-germany",
-      "sourceRole": "primary_official",
-      "sourceName": "borussia.de",
-      "sourceUrl": "https://www.borussia.de/news/noah-pesch-wechselt-zu-rot-weiss-essen",
-      "sources": [
-        {
-          "name": "borussia.de",
-          "url": "https://www.borussia.de/news/noah-pesch-wechselt-zu-rot-weiss-essen",
-          "role": "primary_official"
-        }
-      ],
-      "firstSeenAt": "2026-07-03T12:00:00.000Z",
-      "competitions": [
-        "Bundesliga"
-      ],
-      "sourceAdapters": [
-        "wikipedia-germany"
-      ]
-    },
-    {
-      "id": "e43b1547a7d2ba",
-      "date": "2026-07-03",
-      "time": "—",
-      "player": "Bennit Bröger",
-      "playerUrl": null,
-      "age": null,
-      "position": "MC",
-      "nationality": "Germany",
-      "flagCode": "de",
-      "flag": "🇩🇪",
-      "fromClub": "SC Paderborn",
-      "fromClubUrl": "https://en.wikipedia.org/wiki/SC_Paderborn",
-      "fromClubCrest": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/SC_Paderborn_07_Logo_new.svg/120px-SC_Paderborn_07_Logo_new.svg.png",
-      "toClub": "Fortuna Köln",
-      "toClubUrl": "https://en.wikipedia.org/wiki/SC_Fortuna_K%C3%B6ln",
-      "toClubCrest": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/SC_Fortuna_Koeln_Logo_2019%E2%80%9306-2026.svg/120px-SC_Fortuna_Koeln_Logo_2019%E2%80%9306-2026.svg.png",
-      "fee": "Loan",
-      "status": "official",
-      "market": "Germany",
-      "markets": [
-        "Germany"
-      ],
-      "competition": "Bundesliga",
-      "sourceAdapter": "wikipedia-germany",
-      "sourceRole": "primary_official",
-      "sourceName": "scp07.de",
-      "sourceUrl": "https://www.scp07.de/Newsarchiv/Broeger-zu-Fortuna-Koeln-1.html",
-      "sources": [
-        {
-          "name": "scp07.de",
-          "url": "https://www.scp07.de/Newsarchiv/Broeger-zu-Fortuna-Koeln-1.html",
           "role": "primary_official"
         }
       ],
@@ -9892,6 +10231,8 @@
         "France"
       ],
       "competition": "Ligue 1",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-france",
       "sourceRole": "primary_official",
       "sourceName": "ol.fr",
@@ -9935,6 +10276,8 @@
         "France"
       ],
       "competition": "Ligue 1",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-france",
       "sourceRole": "primary_official",
       "sourceName": "staderennais.com",
@@ -9978,6 +10321,8 @@
         "Netherlands"
       ],
       "competition": "Eredivisie",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-netherlands",
       "sourceRole": "primary_official",
       "sourceName": "sc-heerenveen.nl",
@@ -10021,6 +10366,8 @@
         "Netherlands"
       ],
       "competition": "Eredivisie",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-netherlands",
       "sourceRole": "primary_official",
       "sourceName": "ga-eagles.nl",
@@ -10064,6 +10411,8 @@
         "Netherlands"
       ],
       "competition": "Eredivisie",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-netherlands",
       "sourceRole": "primary_official",
       "sourceName": "htafc.com",
@@ -10107,6 +10456,8 @@
         "Netherlands"
       ],
       "competition": "Eredivisie",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-netherlands",
       "sourceRole": "primary_official",
       "sourceName": "realvalladolid.es",
@@ -10150,6 +10501,8 @@
         "Netherlands"
       ],
       "competition": "Eredivisie",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-netherlands",
       "sourceRole": "primary_official",
       "sourceName": "fc.tps.fi",
@@ -10193,6 +10546,8 @@
         "Poland"
       ],
       "competition": "Ekstraklasa",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-poland",
       "sourceRole": "primary_official",
       "sourceName": "gornikzabrze.pl",
@@ -10236,6 +10591,8 @@
         "Poland"
       ],
       "competition": "Ekstraklasa",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-poland",
       "sourceRole": "primary_official",
       "sourceName": "rakow.com",
@@ -10244,6 +10601,96 @@
         {
           "name": "rakow.com",
           "url": "https://rakow.com/aktualnosci/jakub-jendryka-nowym-pilkarzem-rakowa-16406",
+          "role": "primary_official"
+        }
+      ],
+      "firstSeenAt": "2026-07-03T12:00:00.000Z",
+      "competitions": [
+        "Ekstraklasa"
+      ],
+      "sourceAdapters": [
+        "wikipedia-poland"
+      ]
+    },
+    {
+      "id": "6a3dfa526f26ad",
+      "date": "2026-07-03",
+      "time": "—",
+      "player": "Jan Leszczyński",
+      "playerUrl": "https://en.wikipedia.org/wiki/Jan_Leszczy%C5%84ski_(footballer,_born_2007)",
+      "age": 19,
+      "position": "DC",
+      "nationality": "Poland",
+      "flagCode": "pl",
+      "flag": "🇵🇱",
+      "fromClub": "Legia Warsaw",
+      "fromClubUrl": "https://en.wikipedia.org/wiki/Legia_Warsaw",
+      "fromClubCrest": "https://upload.wikimedia.org/wikipedia/en/thumb/6/6d/Legia_Warsaw_logo.svg/120px-Legia_Warsaw_logo.svg.png",
+      "toClub": "Borussia Mönchengladbach",
+      "toClubUrl": "https://en.wikipedia.org/wiki/Borussia_M%C3%B6nchengladbach",
+      "toClubCrest": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/Borussia_M%C3%B6nchengladbach_logo.svg/120px-Borussia_M%C3%B6nchengladbach_logo.svg.png",
+      "fee": "Undisclosed",
+      "status": "official",
+      "market": "Poland",
+      "markets": [
+        "Poland"
+      ],
+      "competition": "Ekstraklasa",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
+      "sourceAdapter": "wikipedia-poland",
+      "sourceRole": "primary_official",
+      "sourceName": "legia.com",
+      "sourceUrl": "https://legia.com/pilka-nozna/leszczu/89497",
+      "sources": [
+        {
+          "name": "legia.com",
+          "url": "https://legia.com/pilka-nozna/leszczu/89497",
+          "role": "primary_official"
+        }
+      ],
+      "firstSeenAt": "2026-07-03T12:00:00.000Z",
+      "competitions": [
+        "Ekstraklasa"
+      ],
+      "sourceAdapters": [
+        "wikipedia-poland"
+      ]
+    },
+    {
+      "id": "aa75a61c0c0b87",
+      "date": "2026-07-03",
+      "time": "—",
+      "player": "David Čolina",
+      "playerUrl": "https://en.wikipedia.org/wiki/David_%C4%8Colina",
+      "age": 25,
+      "position": "DC",
+      "nationality": "Croatia",
+      "flagCode": "hr",
+      "flag": "🇭🇷",
+      "fromClub": "Augsburg",
+      "fromClubUrl": "https://en.wikipedia.org/wiki/FC_Augsburg",
+      "fromClubCrest": "https://upload.wikimedia.org/wikipedia/en/thumb/c/c5/FC_Augsburg_logo.svg/120px-FC_Augsburg_logo.svg.png",
+      "toClub": "Zagłębie Lubin",
+      "toClubUrl": "https://en.wikipedia.org/wiki/Zag%C5%82%C4%99bie_Lubin",
+      "toClubCrest": "https://upload.wikimedia.org/wikipedia/en/thumb/2/20/Zag%C5%82%C4%99bie_Lubin_crest.svg/120px-Zag%C5%82%C4%99bie_Lubin_crest.svg.png",
+      "fee": "Undisclosed",
+      "status": "official",
+      "market": "Poland",
+      "markets": [
+        "Poland"
+      ],
+      "competition": "Ekstraklasa",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
+      "sourceAdapter": "wikipedia-poland",
+      "sourceRole": "primary_official",
+      "sourceName": "zaglebie.com",
+      "sourceUrl": "https://www.zaglebie.com/Aktualnosci/Pierwszy-zespol/david-colina-wzmacnia-zespol-miedziowych_n19960",
+      "sources": [
+        {
+          "name": "zaglebie.com",
+          "url": "https://www.zaglebie.com/Aktualnosci/Pierwszy-zespol/david-colina-wzmacnia-zespol-miedziowych_n19960",
           "role": "primary_official"
         }
       ],
@@ -10279,6 +10726,8 @@
         "Poland"
       ],
       "competition": "Ekstraklasa",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-poland",
       "sourceRole": "primary_official",
       "sourceName": "wisla-plock.pl",
@@ -10322,6 +10771,8 @@
         "Poland"
       ],
       "competition": "Ekstraklasa",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-poland",
       "sourceRole": "primary_official",
       "sourceName": "motorlublin.eu",
@@ -10365,6 +10816,8 @@
         "Poland"
       ],
       "competition": "Ekstraklasa",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-poland",
       "sourceRole": "primary_official",
       "sourceName": "cfintercity.com",
@@ -10408,6 +10861,8 @@
         "France"
       ],
       "competition": "Ligue 1",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-france",
       "sourceRole": "primary_official",
       "sourceName": "losc.fr",
@@ -10451,6 +10906,8 @@
         "France"
       ],
       "competition": "Ligue 1",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-france",
       "sourceRole": "primary_official",
       "sourceName": "ol.fr",
@@ -10494,6 +10951,8 @@
         "France"
       ],
       "competition": "Ligue 1",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-france",
       "sourceRole": "primary_official",
       "sourceName": "asmonaco.com",
@@ -10537,6 +10996,8 @@
         "France"
       ],
       "competition": "Ligue 1",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-france",
       "sourceRole": "primary_official",
       "sourceName": "asmonaco.com",
@@ -10580,6 +11041,8 @@
         "France"
       ],
       "competition": "Ligue 1",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-france",
       "sourceRole": "primary_official",
       "sourceName": "ogcnice.com",
@@ -10623,6 +11086,8 @@
         "Netherlands"
       ],
       "competition": "Eredivisie",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-netherlands",
       "sourceRole": "primary_official",
       "sourceName": "fctwente.nl",
@@ -10666,6 +11131,8 @@
         "Netherlands"
       ],
       "competition": "Eredivisie",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-netherlands",
       "sourceRole": "primary_official",
       "sourceName": "fcgroningen.nl",
@@ -10709,6 +11176,8 @@
         "Poland"
       ],
       "competition": "Ekstraklasa",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-poland",
       "sourceRole": "primary_official",
       "sourceName": "slaskwroclaw.pl",
@@ -10752,6 +11221,8 @@
         "Poland"
       ],
       "competition": "Ekstraklasa",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-poland",
       "sourceRole": "primary_official",
       "sourceName": "kspolonia.pl",
@@ -10795,6 +11266,8 @@
         "Poland"
       ],
       "competition": "Ekstraklasa",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-poland",
       "sourceRole": "primary_official",
       "sourceName": "pogonszczecin.pl",
@@ -10838,6 +11311,8 @@
         "Poland"
       ],
       "competition": "Ekstraklasa",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-poland",
       "sourceRole": "primary_official",
       "sourceName": "pogongrodzisk.pl",
@@ -10881,6 +11356,8 @@
         "Poland"
       ],
       "competition": "Ekstraklasa",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-poland",
       "sourceRole": "primary_official",
       "sourceName": "wartasieradz.com",
@@ -10924,6 +11401,8 @@
         "France"
       ],
       "competition": "Ligue 1",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-france",
       "sourceRole": "primary_official",
       "sourceName": "rclens.fr",
@@ -10967,6 +11446,8 @@
         "France"
       ],
       "competition": "Ligue 1",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-france",
       "sourceRole": "primary_official",
       "sourceName": "ol.fr",
@@ -11010,6 +11491,8 @@
         "France"
       ],
       "competition": "Ligue 1",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-france",
       "sourceRole": "primary_official",
       "sourceName": "staderennais.com",
@@ -11053,6 +11536,8 @@
         "Netherlands"
       ],
       "competition": "Eredivisie",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-netherlands",
       "sourceRole": "primary_official",
       "sourceName": "psv.nl",
@@ -11096,6 +11581,8 @@
         "Netherlands"
       ],
       "competition": "Eredivisie",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-netherlands",
       "sourceRole": "primary_official",
       "sourceName": "psv.nl",
@@ -11139,6 +11626,8 @@
         "Netherlands"
       ],
       "competition": "Eredivisie",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-netherlands",
       "sourceRole": "primary_official",
       "sourceName": "sc-heerenveen.nl",
@@ -11182,6 +11671,8 @@
         "Netherlands"
       ],
       "competition": "Eredivisie",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-netherlands",
       "sourceRole": "primary_official",
       "sourceName": "excelsiorrotterdam.nl",
@@ -11225,6 +11716,8 @@
         "Netherlands"
       ],
       "competition": "Eredivisie",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-netherlands",
       "sourceRole": "primary_official",
       "sourceName": "cambuur.nl",
@@ -11268,6 +11761,8 @@
         "Poland"
       ],
       "competition": "Ekstraklasa",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-poland",
       "sourceRole": "primary_official",
       "sourceName": "jagiellonia.pl",
@@ -11311,6 +11806,8 @@
         "Poland"
       ],
       "competition": "Ekstraklasa",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-poland",
       "sourceRole": "primary_official",
       "sourceName": "wisla-plock.pl",
@@ -11354,6 +11851,8 @@
         "Poland"
       ],
       "competition": "Ekstraklasa",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-poland",
       "sourceRole": "primary_official",
       "sourceName": "wisla-plock.pl",
@@ -11397,6 +11896,8 @@
         "Poland"
       ],
       "competition": "Ekstraklasa",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-poland",
       "sourceRole": "primary_official",
       "sourceName": "wisla-plock.pl",
@@ -11440,6 +11941,8 @@
         "Poland"
       ],
       "competition": "Ekstraklasa",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-poland",
       "sourceRole": "primary_official",
       "sourceName": "nk-celje.si",
@@ -11483,6 +11986,8 @@
         "Poland"
       ],
       "competition": "Ekstraklasa",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-poland",
       "sourceRole": "primary_official",
       "sourceName": "cwks-resovia.pl",
@@ -11526,6 +12031,8 @@
         "Poland"
       ],
       "competition": "Ekstraklasa",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-poland",
       "sourceRole": "primary_official",
       "sourceName": "gwangjufc.com",
@@ -11569,6 +12076,8 @@
         "Poland"
       ],
       "competition": "Ekstraklasa",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-poland",
       "sourceRole": "primary_official",
       "sourceName": "korona-kielce.pl",
@@ -11612,6 +12121,8 @@
         "Poland"
       ],
       "competition": "Ekstraklasa",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
       "sourceAdapter": "wikipedia-poland",
       "sourceRole": "primary_official",
       "sourceName": "cracovia.pl",

@@ -10,6 +10,7 @@ export const WIKIPEDIA_SOURCES = [
     url: "https://en.wikipedia.org/wiki/List_of_English_football_transfers_summer_2026",
     country: "England",
     competition: "English leagues",
+    competitionGender: "men",
     parser: "dated",
   },
   {
@@ -17,6 +18,7 @@ export const WIKIPEDIA_SOURCES = [
     label: "Germany transfer register",
     url: "https://en.wikipedia.org/wiki/List_of_German_football_transfers_summer_2026",
     country: "Germany",
+    competitionGender: "men",
     parser: "clubs",
   },
   {
@@ -25,6 +27,7 @@ export const WIKIPEDIA_SOURCES = [
     url: "https://en.wikipedia.org/wiki/List_of_Italian_football_transfers_summer_2026",
     country: "Italy",
     competition: "Serie A / Serie B",
+    competitionGender: "men",
     parser: "dated",
   },
   {
@@ -32,6 +35,7 @@ export const WIKIPEDIA_SOURCES = [
     label: "France transfer register",
     url: "https://en.wikipedia.org/wiki/List_of_French_football_transfers_summer_2026",
     country: "France",
+    competitionGender: "men",
     parser: "clubs",
   },
   {
@@ -39,6 +43,7 @@ export const WIKIPEDIA_SOURCES = [
     label: "Netherlands transfer register",
     url: "https://en.wikipedia.org/wiki/List_of_Dutch_football_transfers_summer_2026",
     country: "Netherlands",
+    competitionGender: "men",
     parser: "clubs",
   },
   {
@@ -46,6 +51,7 @@ export const WIKIPEDIA_SOURCES = [
     label: "Poland transfer register",
     url: "https://en.wikipedia.org/wiki/List_of_Polish_football_transfers_summer_2026",
     country: "Poland",
+    competitionGender: "men",
     parser: "clubs",
   },
 ];
@@ -76,6 +82,7 @@ export const RSS_SOURCES = [
     label: "Sportschau",
     url: "https://www.sportschau.de/fussball/bundesliga/index~rss2.xml",
     market: "Germany",
+    competitionGender: "men",
     pattern: /\b(transfer\w*|wechsel\w*|verpflicht\w*|leihe|ausleih\w*|abgang|zugang|einig|interess\w*)\b/i,
     excludePattern: /wechselb[oö]rse|[uü]bersicht der sommertransfers|transfer-ziele .* noch/i,
   },
@@ -92,6 +99,7 @@ export const RSS_SOURCES = [
     label: "Marca",
     url: "https://e00-marca.uecdn.es/rss/futbol/primera-division.xml",
     market: "Spain",
+    competitionGender: "men",
     pattern: /\b(fichaje\w*|traspas\w*|cesi[oó]n|transfer\w*|acuerdo|firma\w*)\b|a un paso/i,
     excludePattern: /tres fichajes .* van a venir/i,
   },
@@ -145,12 +153,18 @@ export const RSS_SOURCES = [
 
 const OUTPUT_URL = new URL("../data/transfers.json", import.meta.url);
 const MANUAL_RUMOURS_URL = new URL("../data/manual-rumours.json", import.meta.url);
+const PREVIOUS_DEPLOYED_DATA_URL = process.env.PREVIOUS_DEPLOYED_DATA_URL || "";
 const USER_AGENT = "Futboru/0.1 (+https://github.com/AlptoKolega/Futboru; public transfer-feed PoC)";
 const LOOKBACK_DAYS = Number(process.env.LOOKBACK_DAYS || 14);
 const MAX_OFFICIAL = Number(process.env.MAX_OFFICIAL || 300);
 const MAX_OFFICIAL_PER_MARKET = Number(process.env.MAX_OFFICIAL_PER_MARKET || 60);
 const MAX_RUMOURS = Number(process.env.MAX_RUMOURS || 48);
 const MAX_RUMOURS_PER_SOURCE = Number(process.env.MAX_RUMOURS_PER_SOURCE || 4);
+const COMPETITION_GENDERS = new Set(["men", "women", "unknown"]);
+
+function normaliseCompetitionGender(value) {
+  return COMPETITION_GENDERS.has(value) ? value : "unknown";
+}
 
 const COUNTRY_FLAG_CODES = new Map([
   ["albania", "al"], ["algeria", "dz"], ["argentina", "ar"], ["australia", "au"],
@@ -466,6 +480,8 @@ export function parseWikipediaDatedTransfers(html, config = WIKIPEDIA_SOURCES[0]
       market: config.country,
       markets: [config.country],
       competition: config.competition || null,
+      competitionGender: normaliseCompetitionGender(config.competitionGender),
+      competitionGenderSource: normaliseCompetitionGender(config.competitionGender) !== "unknown" ? "source-register" : null,
       sourceAdapter: config.id,
       sourceRole: role,
       sourceName,
@@ -579,6 +595,8 @@ export function parseWikipediaClubTransfers(html, config, now = new Date()) {
           market: config.country,
           markets: [config.country],
           competition,
+          competitionGender: normaliseCompetitionGender(config.competitionGender),
+          competitionGenderSource: normaliseCompetitionGender(config.competitionGender) !== "unknown" ? "source-register" : null,
           sourceAdapter: config.id,
           sourceRole: role,
           sourceName,
@@ -870,6 +888,8 @@ export function parseRssRumours(xml, config = RSS_SOURCES[0], now = new Date()) 
       market: config.market || null,
       markets: config.market ? [config.market] : [],
       competition: config.competition || null,
+      competitionGender: normaliseCompetitionGender(config.competitionGender),
+      competitionGenderSource: normaliseCompetitionGender(config.competitionGender) !== "unknown" ? "source-feed" : null,
       sourceAdapter: config.id,
       sourceRole: config.sourceRole || "publication",
       sourceName: config.label,
@@ -1028,6 +1048,138 @@ function claimIds(entity, property) {
     .filter(Boolean);
 }
 
+function activeClaims(entity, property) {
+  const claims = (entity?.claims?.[property] || []).filter((claim) => claim?.rank !== "deprecated");
+  const preferred = claims.filter((claim) => claim?.rank === "preferred");
+  return preferred.length ? preferred : claims;
+}
+
+const COMPETITION_GENDER_BY_P21 = new Map([
+  ["Q6581097", "men"],
+  ["Q6581072", "women"],
+]);
+
+const TRUSTED_REFERENCE_PROPERTIES = new Set(["P143", "P248", "P4656", "P854"]);
+
+function isValidCompetitionGenderEvidence(evidence, competitionGender) {
+  return evidence?.property === "P21"
+    && COMPETITION_GENDER_BY_P21.get(evidence?.valueId) === competitionGender
+    && TRUSTED_REFERENCE_PROPERTIES.has(evidence?.referenceProperty)
+    && meaningful(evidence?.referenceValue);
+}
+
+function trustedReference(claim) {
+  for (const reference of claim?.references || []) {
+    for (const [property, snaks] of Object.entries(reference?.snaks || {})) {
+      if (!TRUSTED_REFERENCE_PROPERTIES.has(property)) continue;
+      const snak = (snaks || []).find((item) => (
+        item?.snaktype === "value" && item?.datavalue?.value !== undefined && item?.datavalue?.value !== null
+      ));
+      if (!snak) continue;
+      const rawValue = snak.datavalue.value;
+      const value = typeof rawValue === "object" ? (rawValue.id || JSON.stringify(rawValue)) : String(rawValue);
+      if (meaningful(value)) return { property, value };
+    }
+  }
+  return null;
+}
+
+function competitionGenderResultFromEntity(entity) {
+  const claims = activeClaims(entity, "P21");
+  if (!claims.length) return { competitionGender: "unknown", evidence: null };
+
+  const values = claims.map((claim) => {
+    const valueId = claim?.mainsnak?.datavalue?.value?.id;
+    const reference = trustedReference(claim);
+    return {
+      competitionGender: COMPETITION_GENDER_BY_P21.get(valueId) || "unknown",
+      valueId,
+      reference,
+    };
+  });
+  if (values.some((value) => value.competitionGender === "unknown" || !value.reference)) {
+    return { competitionGender: "unknown", evidence: null };
+  }
+
+  const categories = new Set(values.map((value) => value.competitionGender));
+  if (categories.size !== 1) return { competitionGender: "unknown", evidence: null };
+  return {
+    competitionGender: values[0].competitionGender,
+    evidence: {
+      property: "P21",
+      valueId: values[0].valueId,
+      referenceProperty: values[0].reference.property,
+      referenceValue: values[0].reference.value,
+    },
+  };
+}
+
+export function competitionGenderFromEntity(entity) {
+  return competitionGenderResultFromEntity(entity).competitionGender;
+}
+
+function isFootballPlayerEntity(entity) {
+  const description = entity?.descriptions?.en?.value || "";
+  return claimIds(entity, "P31").includes("Q5")
+    && claimIds(entity, "P106").includes("Q937857")
+    && /\bfootballer\b|\b(?:association )?football player\b|\bsoccer player\b/i.test(description);
+}
+
+function footballClubKey(value) {
+  return canonicalIdentity(value)
+    .replace(/\b(?:women|women s|ladies|feminine|feminin|femenino|femenina|femminile|frauen|w f c)\b/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+function clubNamesMatch(left, right) {
+  const leftKey = footballClubKey(left);
+  const rightKey = footballClubKey(right);
+  return Boolean(leftKey && rightKey && leftKey === rightKey);
+}
+
+function entityMatchesTransferClub(transfer, entity, clubEntities) {
+  const transferClubs = [transfer.fromClub, transfer.toClub].filter(Boolean);
+  return claimIds(entity, "P54").some((clubId) => {
+    const label = clubEntities[clubId]?.labels?.en?.value;
+    return label && transferClubs.some((club) => clubNamesMatch(label, club));
+  });
+}
+
+export async function enrichCompetitionGenders(transfers, loaders = {}) {
+  const unresolved = transfers.filter((transfer) => (
+    normaliseCompetitionGender(transfer.competitionGender) === "unknown" && cleanText(transfer.player)
+  ));
+  if (!unresolved.length) return transfers;
+
+  const titles = unresolved.map((transfer) => wikipediaTitle(transfer.playerUrl) || cleanText(transfer.player));
+  const loadPageMetadata = loaders.wikipediaPageMetadata || wikipediaPageMetadata;
+  const loadEntities = loaders.wikidataEntities || wikidataEntities;
+  const pageMetadata = await loadPageMetadata(titles);
+  const qids = [...new Set([...pageMetadata.values()].map((page) => page?.qid).filter(Boolean))];
+  if (!qids.length) return transfers;
+  const entities = await loadEntities(qids);
+  const clubIds = [...new Set(qids.flatMap((qid) => claimIds(entities[qid], "P54")))];
+  const clubEntities = clubIds.length ? await loadEntities(clubIds, "labels") : {};
+
+  unresolved.forEach((transfer, index) => {
+    const qid = pageMetadata.get(titles[index]?.toLowerCase())?.qid;
+    const entity = entities[qid];
+    if (!entity) return;
+    if (!transfer.playerUrl && (
+      !isFootballPlayerEntity(entity) || !entityMatchesTransferClub(transfer, entity, clubEntities)
+    )) return;
+    const { competitionGender, evidence } = competitionGenderResultFromEntity(entity);
+    if (competitionGender === "unknown") return;
+    transfer.competitionGender = competitionGender;
+    transfer.competitionGenderSource = "wikidata-p21";
+    transfer.competitionGenderEvidence = evidence;
+    transfer.playerQid = qid;
+  });
+
+  return transfers;
+}
+
 const POSITION_CODES_BY_QID = new Map([
   ["Q201330", "GK"],
   ["Q268258", "DC"],
@@ -1174,6 +1326,8 @@ async function readManualRumours() {
         toClubCrest: null,
         fee: "—",
         status: "rumour",
+        competitionGender: "unknown",
+        competitionGenderSource: null,
         sourceAdapter: "manual",
         sourceRole: item.sourceRole || (item.platform === "facebook" ? "community" : "reporter"),
         time: "—",
@@ -1182,6 +1336,10 @@ async function readManualRumours() {
       };
       record.flagCode ||= flagCodeFromName(record.nationality);
       record.flag ||= flagFromName(record.nationality);
+      record.competitionGender = normaliseCompetitionGender(record.competitionGender);
+      record.competitionGenderSource = record.competitionGender !== "unknown" ? "manual" : null;
+      record.competitionGenderEvidence = null;
+      record.playerQid = null;
       record.market ||= null;
       record.markets = Array.isArray(record.markets) ? record.markets : (record.market ? [record.market] : []);
       record.sources = Array.isArray(record.sources) && record.sources.length
@@ -1262,6 +1420,55 @@ function transferSources(transfer) {
   return [...byUrl.values()];
 }
 
+function competitionGenderAuditRecord(transfer) {
+  const competitionGender = normaliseCompetitionGender(transfer.competitionGender);
+  if (competitionGender === "unknown") return null;
+  return {
+    competitionGender,
+    competitionGenderSource: transfer.competitionGenderSource || null,
+    sourceAdapter: transfer.sourceAdapter || null,
+    playerQid: transfer.playerQid || null,
+    evidence: transfer.competitionGenderEvidence || null,
+  };
+}
+
+function appendCompetitionGenderConflicts(target, ...transfers) {
+  const entries = [
+    ...(Array.isArray(target.competitionGenderConflicts) ? target.competitionGenderConflicts : []),
+    ...transfers.map(competitionGenderAuditRecord).filter(Boolean),
+  ];
+  target.competitionGenderConflicts = [...new Map(entries.map((entry) => [JSON.stringify(entry), entry])).values()];
+}
+
+function mergeCompetitionGender(target, incoming) {
+  const current = normaliseCompetitionGender(target.competitionGender);
+  const next = normaliseCompetitionGender(incoming.competitionGender);
+  if (target.competitionGenderSource === "conflict") {
+    if (next !== "unknown") appendCompetitionGenderConflicts(target, incoming);
+    return;
+  }
+  if (next === "unknown") return;
+  if (current === "unknown") {
+    target.competitionGender = next;
+    target.competitionGenderSource = incoming.competitionGenderSource || null;
+    target.competitionGenderEvidence = incoming.competitionGenderEvidence || null;
+    target.playerQid = incoming.playerQid || null;
+    return;
+  }
+  if (current === next) {
+    target.competitionGenderEvidence ||= incoming.competitionGenderEvidence || null;
+    target.playerQid ||= incoming.playerQid || null;
+    return;
+  }
+  if (current !== next) {
+    appendCompetitionGenderConflicts(target, target, incoming);
+    target.competitionGender = "unknown";
+    target.competitionGenderSource = "conflict";
+    target.competitionGenderEvidence = null;
+    target.playerQid = null;
+  }
+}
+
 function mergeTransfer(target, incoming) {
   const targetSources = transferSources(target);
   const incomingSources = transferSources(incoming);
@@ -1275,6 +1482,7 @@ function mergeTransfer(target, incoming) {
   }
 
   if (incoming.status === "official") target.status = "official";
+  mergeCompetitionGender(target, incoming);
   for (const field of [
     "playerUrl", "age", "position", "nationality", "flagCode", "flag",
     "fromClubUrl", "fromClubCrest", "toClubUrl", "toClubCrest",
@@ -1431,9 +1639,54 @@ const LEGACY_NATIONALITIES = new Map([
   ["Wybrzeże Kości Słoniowej", "Ivory Coast"],
 ]);
 
-function normaliseStoredTransfer(transfer) {
+function configuredCompetitionGenderSource(transfer) {
+  const adapters = new Set([...(transfer.sourceAdapters || []), transfer.sourceAdapter].filter(Boolean));
+  if (adapters.has("wikipedia")) return WIKIPEDIA_SOURCES[0];
+  return [...WIKIPEDIA_SOURCES, ...RSS_SOURCES].find((source) => adapters.has(source.id));
+}
+
+function configuredCompetitionGenderProvenance(transfer, competitionGender) {
+  if (competitionGender === "unknown") return null;
+  const source = configuredCompetitionGenderSource(transfer);
+  if (normaliseCompetitionGender(source?.competitionGender) !== competitionGender) return null;
+  return WIKIPEDIA_SOURCES.includes(source) ? "source-register" : "source-feed";
+}
+
+function hasAdapter(transfer, adapterId) {
+  return [transfer.sourceAdapter, ...(transfer.sourceAdapters || [])].includes(adapterId);
+}
+
+function hasVerifiableCompetitionGender(transfer, competitionGender, competitionGenderSource) {
+  if (competitionGender === "unknown") return false;
+  if (competitionGenderSource === "source-register" || competitionGenderSource === "source-feed") {
+    return configuredCompetitionGenderProvenance(transfer, competitionGender) === competitionGenderSource;
+  }
+  if (competitionGenderSource === "manual") return hasAdapter(transfer, "manual");
+  if (competitionGenderSource === "wikidata-p21") {
+    return /^Q\d+$/.test(transfer.playerQid || "")
+      && isValidCompetitionGenderEvidence(transfer.competitionGenderEvidence, competitionGender);
+  }
+  return false;
+}
+
+export function normaliseStoredTransfer(transfer) {
   const position = LEGACY_POSITIONS.has(transfer.position) ? LEGACY_POSITIONS.get(transfer.position) : transfer.position;
   const nationality = LEGACY_NATIONALITIES.get(transfer.nationality) || transfer.nationality || null;
+  const configuredGenderSource = configuredCompetitionGenderSource(transfer);
+  const storedGender = normaliseCompetitionGender(transfer.competitionGender);
+  const hasStoredGender = Object.prototype.hasOwnProperty.call(transfer, "competitionGender");
+  let competitionGender = hasStoredGender
+    ? storedGender
+    : normaliseCompetitionGender(configuredGenderSource?.competitionGender);
+  let competitionGenderSource = transfer.competitionGenderSource
+    || configuredCompetitionGenderProvenance(transfer, competitionGender);
+  if (competitionGenderSource === "conflict") {
+    competitionGender = "unknown";
+  } else if (!hasVerifiableCompetitionGender(transfer, competitionGender, competitionGenderSource)) {
+    competitionGender = "unknown";
+    competitionGenderSource = null;
+  }
+  const hasWikidataEvidence = competitionGenderSource === "wikidata-p21";
   const fee = String(transfer.fee ?? "")
     .replace(/^nieujawniona$/i, "Undisclosed")
     .replace(/^bez odstępnego$/i, "Free")
@@ -1453,37 +1706,86 @@ function normaliseStoredTransfer(transfer) {
     markets: Array.isArray(transfer.markets) ? transfer.markets : (transfer.market ? [transfer.market] : []),
     competition: transfer.competition || null,
     competitions: Array.isArray(transfer.competitions) ? transfer.competitions : (transfer.competition ? [transfer.competition] : []),
+    competitionGender,
+    competitionGenderSource,
+    competitionGenderEvidence: hasWikidataEvidence ? transfer.competitionGenderEvidence : null,
+    playerQid: hasWikidataEvidence ? transfer.playerQid : null,
     sourceRole: transfer.sourceRole || sourceRole(transfer.sourceUrl),
     sourceAdapters: Array.isArray(transfer.sourceAdapters)
       ? transfer.sourceAdapters
       : (transfer.sourceAdapter ? [transfer.sourceAdapter] : []),
   };
   normalized.sources = transferSources(normalized);
+  if (!hasWikidataEvidence) {
+    delete normalized.competitionGenderEvidence;
+    delete normalized.playerQid;
+  }
+  if (!Array.isArray(normalized.competitionGenderConflicts) || !normalized.competitionGenderConflicts.length) {
+    delete normalized.competitionGenderConflicts;
+  }
   return normalized;
 }
 
-function carryPreviousEnrichment(transfers, previousTransfers) {
+export function carryPreviousEnrichment(transfers, previousTransfers) {
   const previousById = new Map(previousTransfers.map((transfer) => [transfer.id, transfer]));
   for (const transfer of transfers) {
     const previous = previousById.get(transfer.id);
-    if (!previous) continue;
-    for (const field of ["age", "position", "nationality", "flagCode", "flag", "fromClubCrest", "toClubCrest"]) {
-      if (!transfer[field] && previous[field]) transfer[field] = previous[field];
+    if (previous) {
+      for (const field of ["age", "position", "nationality", "flagCode", "flag", "fromClubCrest", "toClubCrest"]) {
+        if (!transfer[field] && previous[field]) transfer[field] = previous[field];
+      }
+    }
+    const previousCategory = previous;
+    const previousCompetitionGender = normaliseCompetitionGender(previousCategory?.competitionGender);
+    const categoryIsVerifiable = hasVerifiableCompetitionGender(
+      previousCategory || {},
+      previousCompetitionGender,
+      previousCategory?.competitionGenderSource,
+    );
+    if (
+      normaliseCompetitionGender(transfer.competitionGender) === "unknown"
+      && previousCompetitionGender !== "unknown"
+      && categoryIsVerifiable
+    ) {
+      transfer.competitionGender = previousCategory.competitionGender;
+      transfer.competitionGenderSource = previousCategory.competitionGenderSource || "previous-snapshot";
+      transfer.competitionGenderEvidence = previousCategory.competitionGenderEvidence || null;
+      transfer.playerQid ||= previousCategory.playerQid || null;
     }
   }
   return transfers;
 }
 
+export function newestPreviousTransfers(payloads) {
+  const latest = payloads
+    .filter((payload) => Array.isArray(payload?.transfers))
+    .sort((left, right) => (
+      (Date.parse(right.generatedAt || "") || 0) - (Date.parse(left.generatedAt || "") || 0)
+    ))[0];
+  return latest ? latest.transfers.map(normaliseStoredTransfer) : [];
+}
+
+async function readPreviousTransfers() {
+  const snapshots = [];
+  try {
+    snapshots.push(JSON.parse(await readFile(OUTPUT_URL, "utf8")));
+  } catch {}
+
+  if (PREVIOUS_DEPLOYED_DATA_URL) {
+    try {
+      snapshots.push(JSON.parse(await fetchText(PREVIOUS_DEPLOYED_DATA_URL)));
+    } catch (error) {
+      console.warn(`Previous deployment snapshot unavailable: ${error.message}`);
+    }
+  }
+
+  return newestPreviousTransfers(snapshots);
+}
+
 export async function refresh() {
   const generatedAt = new Date().toISOString();
   const sourceReports = [];
-  let previousTransfers = [];
-  try {
-    const previous = JSON.parse(await readFile(OUTPUT_URL, "utf8"));
-    previousTransfers = Array.isArray(previous.transfers) ? previous.transfers.map(normaliseStoredTransfer) : [];
-  } catch {
-    previousTransfers = [];
-  }
+  const previousTransfers = await readPreviousTransfers();
 
   const allSources = [...WIKIPEDIA_SOURCES, ...RSS_SOURCES];
   const results = await Promise.allSettled(allSources.map((source) => fetchText(source.url)));
@@ -1575,8 +1877,16 @@ export async function refresh() {
   rumours = mergeRumourFragments(rumours)
     .filter(hasStructuredRoute)
     .slice(0, MAX_RUMOURS);
+  carryPreviousEnrichment(rumours, previousTransfers);
 
   const manualRumours = await readManualRumours();
+  carryPreviousEnrichment(manualRumours, previousTransfers);
+  try {
+    await enrichCompetitionGenders([...official, ...rumours, ...manualRumours]);
+  } catch (error) {
+    console.warn(`Competition category enrichment skipped: ${error.message}`);
+  }
+
   const transfers = deduplicateTransfers([...official, ...rumours, ...manualRumours])
     .filter(hasStructuredRoute)
     .sort((a, b) => {
@@ -1584,7 +1894,8 @@ export async function refresh() {
       if (dateOrder !== 0) return dateOrder;
       if (a.status !== b.status) return a.status === "official" ? -1 : 1;
       return (b.firstSeenAt || "").localeCompare(a.firstSeenAt || "");
-    });
+    })
+    .map(normaliseStoredTransfer);
 
   if (!transfers.length) {
     throw new Error("No source returned entries; the previous data file was left unchanged");

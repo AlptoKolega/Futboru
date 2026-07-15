@@ -187,13 +187,33 @@ html[data-theme="light"] .theme-icon-moon {
   display: block;
 }
 
+.header-controls {
+  display: flex;
+  min-width: 0;
+  align-self: stretch;
+  align-items: center;
+  justify-content: center;
+  justify-self: center;
+  gap: 18px;
+}
+
 .filters {
   display: flex;
   align-self: stretch;
   align-items: center;
-  justify-self: center;
   gap: 24px;
   margin: 0;
+}
+
+.gender-filters {
+  gap: 16px;
+}
+
+.filter-separator {
+  width: 1px;
+  height: 16px;
+  flex: 0 0 1px;
+  background: var(--rule-strong);
 }
 
 .filter {
@@ -733,13 +753,28 @@ a.club-name:hover {
     justify-self: end;
   }
 
-  .filters {
+  .header-controls {
     grid-area: filters;
     width: 100%;
     height: 40px;
     justify-content: space-between;
     justify-self: stretch;
+    gap: 14px;
+  }
+
+  .filters {
+    height: 40px;
+  }
+
+  .status-filters {
+    flex: 1 1 auto;
+    justify-content: space-between;
     gap: 8px;
+  }
+
+  .gender-filters {
+    flex: 0 0 auto;
+    gap: 12px;
   }
 
   .filter {
@@ -754,6 +789,34 @@ a.club-name:hover {
 
   .header-meta {
     gap: 8px;
+  }
+
+  .header-controls {
+    height: auto;
+    flex-wrap: wrap;
+    gap: 0;
+  }
+
+  .status-filters,
+  .gender-filters {
+    width: 100%;
+  }
+
+  .status-filters {
+    flex-basis: 100%;
+  }
+
+  .gender-filters {
+    height: 34px;
+    justify-content: flex-end;
+  }
+
+  .gender-filters .filter {
+    height: 34px;
+  }
+
+  .filter-separator {
+    display: none;
   }
 
   .filter {

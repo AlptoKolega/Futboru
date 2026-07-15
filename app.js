@@ -1,9 +1,11 @@
 const elements = {
   freshness: document.querySelector("#freshness"),
   feed: document.querySelector("#feed"),
+  filterSummary: document.querySelector("#filter-summary"),
   themeColor: document.querySelector("#theme-color"),
   themeToggle: document.querySelector("#theme-toggle"),
-  filters: [...document.querySelectorAll("[data-filter]")],
+  statusFilters: [...document.querySelectorAll("[data-status-filter]")],
+  genderFilters: [...document.querySelectorAll("[data-gender]")],
   counts: {
     all: document.querySelector("#count-all"),
     official: document.querySelector("#count-official"),
@@ -13,8 +15,11 @@ const elements = {
 
 const state = {
   activeFilter: "all",
+  activeGenders: new Set(["men", "women"]),
   transfers: [],
 };
+
+const COMPETITION_GENDERS = new Set(["men", "women", "unknown"]);
 
 const fullDate = new Intl.DateTimeFormat("en-GB", {
   day: "numeric",
@@ -66,6 +71,38 @@ function statusLabel(status) {
   if (status === "official") return "Official";
   if (status === "rumour") return "Rumour";
   return "Unknown status";
+}
+
+function competitionGender(transfer) {
+  return COMPETITION_GENDERS.has(transfer?.competitionGender) ? transfer.competitionGender : "unknown";
+}
+
+function includedByGender(transfer) {
+  const category = competitionGender(transfer);
+  return state.activeGenders.has(category);
+}
+
+function genderFilteredTransfers() {
+  return state.transfers.filter(includedByGender);
+}
+
+function visibleTransfers() {
+  const transfers = genderFilteredTransfers();
+  return state.activeFilter === "all"
+    ? transfers
+    : transfers.filter((transfer) => transfer.status === state.activeFilter);
+}
+
+function activeGenderLabel() {
+  if (state.activeGenders.size === 0) return "the selected categories";
+  if (state.activeGenders.size === 2) return "men's and women's football";
+  return state.activeGenders.has("women") ? "women's football" : "men's football";
+}
+
+function resultLabel(count) {
+  if (state.activeFilter === "official") return count === 1 ? "official transfer" : "official transfers";
+  if (state.activeFilter === "rumour") return count === 1 ? "rumour" : "rumours";
+  return count === 1 ? "transfer" : "transfers";
 }
 
 function parseFeeMillions(value) {
@@ -360,6 +397,7 @@ function transferRow(transfer) {
   const item = document.createElement("li");
   item.className = "transfer-row";
   item.dataset.status = transfer.status;
+  item.dataset.competitionGender = competitionGender(transfer);
 
   item.append(flagElement(transfer));
 
@@ -422,19 +460,26 @@ function groupTransfers(transfers) {
 }
 
 function render() {
-  const visible = state.activeFilter === "all"
-    ? state.transfers
-    : state.transfers.filter((transfer) => transfer.status === state.activeFilter);
+  const visible = visibleTransfers();
 
   elements.feed.replaceChildren();
 
-  if (!visible.length) {
+  if (state.activeGenders.size === 0) {
     const empty = document.createElement("p");
     empty.className = "empty";
-    empty.textContent = state.activeFilter === "all"
-      ? "No entries in the current window. Check again after the next update."
-      : "There are no entries in this filter yet.";
+    empty.textContent = "Select Men or Women to show transfers.";
     elements.feed.append(empty);
+    elements.filterSummary.textContent = "No competition category selected. Select Men or Women to show transfers.";
+    return;
+  }
+
+  if (!visible.length) {
+    const status = resultLabel(0);
+    const empty = document.createElement("p");
+    empty.className = "empty";
+    empty.textContent = `There are no ${status} in ${activeGenderLabel()} yet.`;
+    elements.feed.append(empty);
+    elements.filterSummary.textContent = `Showing 0 ${status} in ${activeGenderLabel()}.`;
     return;
   }
 
@@ -457,23 +502,41 @@ function render() {
     section.append(list);
     elements.feed.append(section);
   }
+
+  const status = resultLabel(visible.length);
+  elements.filterSummary.textContent = `Showing ${visible.length} ${status} in ${activeGenderLabel()}.`;
 }
 
 function updateCounts() {
-  const official = state.transfers.filter((transfer) => transfer.status === "official").length;
-  const rumour = state.transfers.filter((transfer) => transfer.status === "rumour").length;
-  elements.counts.all.textContent = String(state.transfers.length);
+  const transfers = genderFilteredTransfers();
+  const official = transfers.filter((transfer) => transfer.status === "official").length;
+  const rumour = transfers.filter((transfer) => transfer.status === "rumour").length;
+  elements.counts.all.textContent = String(transfers.length);
   elements.counts.official.textContent = String(official);
   elements.counts.rumour.textContent = String(rumour);
 }
 
 function setFilter(filter) {
   state.activeFilter = filter;
-  for (const button of elements.filters) {
-    const active = button.dataset.filter === filter;
+  for (const button of elements.statusFilters) {
+    const active = button.dataset.statusFilter === filter;
     button.classList.toggle("is-active", active);
     button.setAttribute("aria-pressed", String(active));
   }
+  render();
+}
+
+function toggleGender(gender) {
+  const active = state.activeGenders.has(gender);
+  if (active) state.activeGenders.delete(gender);
+  else state.activeGenders.add(gender);
+
+  for (const button of elements.genderFilters) {
+    const pressed = state.activeGenders.has(button.dataset.gender);
+    button.classList.toggle("is-active", pressed);
+    button.setAttribute("aria-pressed", String(pressed));
+  }
+  updateCounts();
   render();
 }
 
@@ -500,15 +563,21 @@ async function loadFeed() {
   const payload = await response.json();
   if (!Array.isArray(payload.transfers)) throw new Error("Invalid data format");
 
-  state.transfers = payload.transfers.filter(isStructuredMovement);
+  state.transfers = payload.transfers
+    .filter(isStructuredMovement)
+    .map((transfer) => ({ ...transfer, competitionGender: competitionGender(transfer) }));
   elements.freshness.textContent = formatFreshness(payload.generatedAt);
   updateCounts();
   render();
   elements.feed.setAttribute("aria-busy", "false");
 }
 
-for (const filter of elements.filters) {
-  filter.addEventListener("click", () => setFilter(filter.dataset.filter));
+for (const filter of elements.statusFilters) {
+  filter.addEventListener("click", () => setFilter(filter.dataset.statusFilter));
+}
+
+for (const filter of elements.genderFilters) {
+  filter.addEventListener("click", () => toggleGender(filter.dataset.gender));
 }
 
 elements.themeToggle.addEventListener("click", () => {
@@ -530,5 +599,6 @@ loadFeed().catch((error) => {
   message.className = "error";
   appendText(message, "The latest update could not be loaded. Refresh the page in a moment.");
   elements.feed.append(message);
+  elements.filterSummary.textContent = message.textContent;
   elements.freshness.textContent = "Update temporarily unavailable";
 });

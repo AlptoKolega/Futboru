@@ -37,6 +37,8 @@ jobs:
 
       - name: Refresh transfer data
         run: npm run refresh
+        env:
+          PREVIOUS_DEPLOYED_DATA_URL: https://alptokolega.github.io/Futboru/data/transfers.json
 
       - name: Build static site
         run: npm run build

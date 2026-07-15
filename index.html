@@ -29,16 +29,27 @@
     <div class="page-shell">
       <header class="site-header">
         <a class="wordmark" href="./" aria-label="Futboru home">Futboru</a>
-        <div class="filters" role="group" aria-label="Filter transfers by status">
-          <button class="filter is-active" type="button" data-filter="all" aria-pressed="true">
-            All <span class="filter-count" id="count-all">0</span>
-          </button>
-          <button class="filter" type="button" data-filter="official" aria-pressed="false">
-            Official <span class="filter-count" id="count-official">0</span>
-          </button>
-          <button class="filter" type="button" data-filter="rumour" aria-pressed="false">
-            Rumours <span class="filter-count" id="count-rumour">0</span>
-          </button>
+        <div class="header-controls">
+          <div class="filters status-filters" role="group" aria-label="Filter transfers by status">
+            <button class="filter is-active" type="button" data-status-filter="all" aria-pressed="true" aria-controls="feed">
+              All <span class="filter-count" id="count-all">0</span>
+            </button>
+            <button class="filter" type="button" data-status-filter="official" aria-pressed="false" aria-controls="feed">
+              Official <span class="filter-count" id="count-official">0</span>
+            </button>
+            <button class="filter" type="button" data-status-filter="rumour" aria-pressed="false" aria-controls="feed">
+              Rumours <span class="filter-count" id="count-rumour">0</span>
+            </button>
+          </div>
+          <span class="filter-separator" aria-hidden="true"></span>
+          <div class="filters gender-filters" role="group" aria-label="Include transfers by competition category">
+            <button class="filter gender-filter is-active" type="button" data-gender="men" aria-pressed="true" aria-controls="feed">
+              Men
+            </button>
+            <button class="filter gender-filter is-active" type="button" data-gender="women" aria-pressed="true" aria-controls="feed">
+              Women
+            </button>
+          </div>
         </div>
         <div class="header-meta">
           <p class="freshness" id="freshness">Checking for updates…</p>
@@ -62,8 +73,9 @@
 
       <main>
         <h1 class="sr-only">Football transfers</h1>
+        <p class="sr-only" id="filter-summary" aria-live="polite" aria-atomic="true"></p>
 
-        <div class="feed" id="feed" aria-live="polite" aria-busy="true">
+        <div class="feed" id="feed" aria-busy="true">
           <p class="loading">Loading the latest moves…</p>
         </div>
 
