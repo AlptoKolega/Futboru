@@ -30,6 +30,11 @@
   --control-hover: #191c1f;
   --crest-background: #eef0f2;
   --flag-outline: rgb(255 255 255 / 14%);
+  --fee-special: #858b91;
+  --fee-standard: #b8bdc2;
+  --fee-notable: #dadddf;
+  --fee-major: #f0f2f3;
+  --fee-blockbuster: #ffffff;
   --page-width: 1240px;
   --page-gutter: clamp(18px, 3.7vw, 50px);
   --font: "Instrument Sans Variable", Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
@@ -49,6 +54,11 @@ html[data-theme="light"] {
   --control-hover: #f4f5f6;
   --crest-background: transparent;
   --flag-outline: rgb(17 19 21 / 10%);
+  --fee-special: #6f7479;
+  --fee-standard: #555a5f;
+  --fee-notable: #303438;
+  --fee-major: #151719;
+  --fee-blockbuster: #050607;
 }
 
 * {
@@ -439,7 +449,51 @@ a.club-name:hover {
 }
 
 .fee {
+  color: var(--fee-special);
   font-variant-numeric: tabular-nums;
+  font-weight: 500;
+  line-height: 1;
+}
+
+.fee-tier-standard {
+  color: var(--fee-standard);
+  font-weight: 500;
+}
+
+.fee-tier-notable {
+  color: var(--fee-notable);
+  font-weight: 590;
+}
+
+.fee-tier-major {
+  color: var(--fee-major);
+  font-weight: 650;
+  letter-spacing: -0.008em;
+}
+
+.fee-tier-blockbuster {
+  color: var(--fee-blockbuster);
+  font-size: 1.04em;
+  font-weight: 700;
+  letter-spacing: -0.015em;
+}
+
+.fee-undisclosed {
+  display: inline-flex;
+  width: max-content;
+  align-items: center;
+  justify-self: start;
+}
+
+.fee-icon {
+  display: block;
+  width: 15px;
+  height: 15px;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.5;
 }
 
 .fee,

@@ -68,6 +68,29 @@ function statusLabel(status) {
   return "Unknown status";
 }
 
+function parseFeeMillions(value) {
+  const normalized = String(value ?? "").trim().replaceAll("\u00a0", " ");
+  const match = normalized.match(
+    /(?:[£€$]\s*)?(\d+(?:[.,]\d+)?)\s*(billion|million|thousand|bn|m|k|b)\b/i,
+  );
+  if (!match) return null;
+
+  const amount = Number(match[1].replace(",", "."));
+  if (!Number.isFinite(amount)) return null;
+
+  const unit = match[2].toLowerCase();
+  if (unit === "bn" || unit === "b" || unit === "billion") return amount * 1000;
+  if (unit === "k" || unit === "thousand") return amount / 1000;
+  return amount;
+}
+
+function feeTier(amount) {
+  if (amount >= 70) return "blockbuster";
+  if (amount >= 40) return "major";
+  if (amount >= 20) return "notable";
+  return "standard";
+}
+
 function safeText(value, fallback = "—") {
   const normalized = String(value ?? "").trim();
   return normalized || fallback;
@@ -228,11 +251,65 @@ function statusElement(status) {
   return wrapper;
 }
 
+function feeElement(value) {
+  const rawValue = safeText(value);
+  const wrapper = document.createElement("span");
+  wrapper.className = "fee";
+
+  const accessibleLabel = document.createElement("span");
+  accessibleLabel.className = "sr-only";
+
+  if (/^free(?: transfer)?$/i.test(rawValue)) {
+    wrapper.classList.add("fee-free");
+    wrapper.title = "Free transfer";
+    accessibleLabel.textContent = "Fee: Free transfer";
+
+    const visibleValue = document.createElement("span");
+    visibleValue.textContent = "0";
+    visibleValue.setAttribute("aria-hidden", "true");
+    wrapper.append(accessibleLabel, visibleValue);
+    return wrapper;
+  }
+
+  if (/^undisclosed$/i.test(rawValue)) {
+    wrapper.classList.add("fee-undisclosed");
+    wrapper.title = "Undisclosed fee";
+    accessibleLabel.textContent = "Fee: Undisclosed";
+
+    const icon = svgNode("svg", {
+      class: "fee-icon",
+      viewBox: "0 0 24 24",
+      "aria-hidden": "true",
+      focusable: "false",
+    });
+    icon.append(
+      svgNode("path", { d: "m2 2 20 20" }),
+      svgNode("path", { d: "M6.71 6.71C4.5 8.04 3 10 2 12c1.73 3.45 5.33 6 10 6 1.41 0 2.69-.23 3.84-.65" }),
+      svgNode("path", { d: "M10.73 5.08A10.85 10.85 0 0 1 12 5c4.67 0 8.27 2.55 10 7a11.6 11.6 0 0 1-1.55 2.47" }),
+      svgNode("path", { d: "M14.12 14.12A3 3 0 0 1 9.88 9.88" }),
+    );
+
+    wrapper.append(accessibleLabel, icon);
+    return wrapper;
+  }
+
+  const amount = parseFeeMillions(rawValue);
+  if (amount !== null) {
+    const tier = feeTier(amount);
+    wrapper.classList.add(`fee-tier-${tier}`);
+    wrapper.dataset.feeTier = tier;
+  }
+
+  accessibleLabel.textContent = "Fee: ";
+  wrapper.append(accessibleLabel, document.createTextNode(rawValue));
+  return wrapper;
+}
+
 function detailsElement(transfer) {
   const details = document.createElement("span");
   details.className = "row-details";
 
-  details.append(textCell("fee", transfer.fee));
+  details.append(feeElement(transfer.fee));
   details.append(statusElement(transfer.status));
 
   const sourceCell = document.createElement("span");
