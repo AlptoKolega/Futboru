@@ -1,6 +1,8 @@
 const elements = {
   freshness: document.querySelector("#freshness"),
   feed: document.querySelector("#feed"),
+  themeColor: document.querySelector("#theme-color"),
+  themeToggle: document.querySelector("#theme-toggle"),
   filters: [...document.querySelectorAll("[data-filter]")],
   counts: {
     all: document.querySelector("#count-all"),
@@ -24,13 +26,6 @@ const fullDate = new Intl.DateTimeFormat("en-GB", {
 const updateDate = new Intl.DateTimeFormat("en-GB", {
   day: "numeric",
   month: "long",
-  timeZone: "Europe/Warsaw",
-});
-
-const updateTime = new Intl.DateTimeFormat("en-GB", {
-  hour: "2-digit",
-  minute: "2-digit",
-  hour12: false,
   timeZone: "Europe/Warsaw",
 });
 
@@ -64,11 +59,13 @@ function dateHeading(dateKey) {
 function formatFreshness(timestamp) {
   const date = new Date(timestamp);
   if (Number.isNaN(date.getTime())) return "Update pending";
-  return `Updated ${updateDate.format(date)}, ${updateTime.format(date)}`;
+  return `Updated ${updateDate.format(date)}`;
 }
 
 function statusLabel(status) {
-  return status === "official" ? "Official" : "Rumour";
+  if (status === "official") return "Official";
+  if (status === "rumour") return "Rumour";
+  return "Unknown status";
 }
 
 function safeText(value, fallback = "—") {
@@ -160,6 +157,7 @@ function clubElement(transfer, direction) {
   crestSlot.className = "club-crest-slot";
   crestSlot.setAttribute("aria-hidden", "true");
   if (crestUrl) {
+    crestSlot.classList.add("has-crest");
     const crest = document.createElement("img");
     crest.className = "club-crest";
     crest.src = crestUrl;
@@ -193,12 +191,49 @@ function textCell(className, value) {
   return cell;
 }
 
+function svgNode(name, attributes) {
+  const node = document.createElementNS("http://www.w3.org/2000/svg", name);
+  for (const [attribute, value] of Object.entries(attributes)) node.setAttribute(attribute, value);
+  return node;
+}
+
+function statusElement(status) {
+  const kind = status === "official" || status === "rumour" ? status : "unknown";
+  const label = statusLabel(status);
+  const wrapper = document.createElement("span");
+  wrapper.className = `status status-${kind}`;
+  wrapper.title = label;
+
+  const icon = svgNode("svg", {
+    class: "status-icon",
+    viewBox: "0 0 16 16",
+    "aria-hidden": "true",
+    focusable: "false",
+  });
+  icon.append(svgNode("circle", { cx: "8", cy: "8", r: "6.25" }));
+
+  if (kind === "official") {
+    icon.append(svgNode("path", { d: "m5.15 8.15 1.75 1.75 4-4.15" }));
+  } else {
+    icon.append(
+      svgNode("path", { d: "M6.25 6.15a1.9 1.9 0 1 1 2.2 2.75c-.3.15-.45.4-.45.75v.15" }),
+      svgNode("circle", { cx: "8", cy: "11.35", r: ".7", fill: "currentColor", stroke: "none" }),
+    );
+  }
+
+  const accessibleLabel = document.createElement("span");
+  accessibleLabel.className = "sr-only";
+  accessibleLabel.textContent = `Status: ${label}`;
+  wrapper.append(icon, accessibleLabel);
+  return wrapper;
+}
+
 function detailsElement(transfer) {
   const details = document.createElement("span");
   details.className = "row-details";
 
   details.append(textCell("fee", transfer.fee));
-  details.append(textCell(`status status-${transfer.status}`, statusLabel(transfer.status)));
+  details.append(statusElement(transfer.status));
 
   const sourceCell = document.createElement("span");
   sourceCell.className = "source-cell";
@@ -213,14 +248,6 @@ function detailsElement(transfer) {
     source.setAttribute("aria-label", `${safeText(transfer.sourceName, "Source")} — opens in a new tab`);
   }
   sourceCell.append(source);
-
-  if (transfer.time && transfer.time !== "—") {
-    const divider = document.createElement("span");
-    divider.className = "source-divider";
-    divider.textContent = "·";
-    divider.setAttribute("aria-hidden", "true");
-    sourceCell.append(divider, textCell("time", transfer.time));
-  }
 
   details.append(sourceCell);
   return details;
@@ -347,6 +374,22 @@ function setFilter(filter) {
   render();
 }
 
+function setTheme(theme, persist = false) {
+  const nextTheme = theme === "light" ? "light" : "dark";
+  const nextLabel = nextTheme === "dark" ? "Switch to light theme" : "Switch to dark theme";
+  document.documentElement.dataset.theme = nextTheme;
+  document.documentElement.style.colorScheme = nextTheme;
+  elements.themeColor.content = nextTheme === "dark" ? "#101214" : "#ffffff";
+  elements.themeToggle.setAttribute("aria-label", nextLabel);
+  elements.themeToggle.title = nextLabel;
+
+  if (persist) {
+    try {
+      localStorage.setItem("futboru-theme", nextTheme);
+    } catch {}
+  }
+}
+
 async function loadFeed() {
   const cacheWindow = Math.floor(Date.now() / 300_000);
   const response = await fetch(`./data/transfers.json?v=${cacheWindow}`, { cache: "no-store" });
@@ -364,6 +407,17 @@ async function loadFeed() {
 for (const filter of elements.filters) {
   filter.addEventListener("click", () => setFilter(filter.dataset.filter));
 }
+
+elements.themeToggle.addEventListener("click", () => {
+  setTheme(document.documentElement.dataset.theme === "dark" ? "light" : "dark", true);
+});
+
+window.addEventListener("storage", (event) => {
+  if (event.key !== "futboru-theme") return;
+  setTheme(event.newValue === "light" ? "light" : "dark");
+});
+
+setTheme(document.documentElement.dataset.theme);
 
 loadFeed().catch((error) => {
   console.error(error);

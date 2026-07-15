@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="dark">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -7,9 +7,21 @@
       name="description"
       content="A source-backed feed of official football transfers and credible rumours."
     />
-    <meta name="color-scheme" content="light" />
-    <meta name="theme-color" content="#ffffff" />
+    <meta name="color-scheme" content="dark light" />
+    <meta id="theme-color" name="theme-color" content="#101214" />
     <title>Futboru — football transfer feed</title>
+    <script>
+      (() => {
+        let theme = "dark";
+        try {
+          const savedTheme = localStorage.getItem("futboru-theme");
+          if (savedTheme === "light" || savedTheme === "dark") theme = savedTheme;
+        } catch {}
+        document.documentElement.dataset.theme = theme;
+        document.documentElement.style.colorScheme = theme;
+        document.querySelector("#theme-color").content = theme === "dark" ? "#101214" : "#ffffff";
+      })();
+    </script>
     <link rel="stylesheet" href="./styles.css" />
     <script type="module" src="./app.js"></script>
   </head>
@@ -17,13 +29,7 @@
     <div class="page-shell">
       <header class="site-header">
         <a class="wordmark" href="./" aria-label="Futboru home">Futboru</a>
-        <p class="freshness" id="freshness">Checking for updates…</p>
-      </header>
-
-      <main>
-        <h1 class="sr-only">Football transfers</h1>
-
-        <nav class="filters" aria-label="Filter transfers by status">
+        <div class="filters" role="group" aria-label="Filter transfers by status">
           <button class="filter is-active" type="button" data-filter="all" aria-pressed="true">
             All <span class="filter-count" id="count-all">0</span>
           </button>
@@ -33,7 +39,29 @@
           <button class="filter" type="button" data-filter="rumour" aria-pressed="false">
             Rumours <span class="filter-count" id="count-rumour">0</span>
           </button>
-        </nav>
+        </div>
+        <div class="header-meta">
+          <p class="freshness" id="freshness">Checking for updates…</p>
+          <button
+            class="theme-toggle"
+            id="theme-toggle"
+            type="button"
+            aria-label="Switch to light theme"
+            title="Switch to light theme"
+          >
+            <svg class="theme-icon theme-icon-sun" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <circle cx="12" cy="12" r="3.5"></circle>
+              <path d="M12 2v2M12 20v2M4.93 4.93l1.42 1.42M17.65 17.65l1.42 1.42M2 12h2M20 12h2M4.93 19.07l1.42-1.42M17.65 6.35l1.42-1.42"></path>
+            </svg>
+            <svg class="theme-icon theme-icon-moon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path d="M20.7 15.1A8.5 8.5 0 1 1 8.9 3.3a6.8 6.8 0 0 0 11.8 11.8Z"></path>
+            </svg>
+          </button>
+        </div>
+      </header>
+
+      <main>
+        <h1 class="sr-only">Football transfers</h1>
 
         <div class="feed" id="feed" aria-live="polite" aria-busy="true">
           <p class="loading">Loading the latest moves…</p>
