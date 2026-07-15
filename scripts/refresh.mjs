@@ -75,9 +75,9 @@ export const RSS_SOURCES = [
     url: "https://www.transfermarkt.de/rss/news",
     market: "Germany",
     sourceRole: "database",
-    pattern: /\b(transfer|wechsel|wechselt|verpflicht\w*|leihe|ausleih\w*|verleih\w*|abgang|zugang|einig|interess\w*|deal)\b/i,
+    pattern: /\b(transfer|wechsel|wechselt|verpflicht\w*|leihe|ausleih\w*|verleih\w*|abgang|zugang|einig|interess\w*|deal|unterschrift)\b/i,
     excludePattern: /WM-Blog|verstorben|gestorben/i,
-    maxItems: 3,
+    maxItems: 6,
   },
   {
     id: "transfermarkt-uk-rss",
@@ -85,9 +85,10 @@ export const RSS_SOURCES = [
     url: "https://www.transfermarkt.co.uk/rss/news",
     market: "United Kingdom",
     sourceRole: "database",
-    pattern: /\b(rumou?r|transfers?|linked|target\w*|bid|interest(?:ed)?|talks|set to|close to|poised|agrees? (?:a )?deal|sign(?:s|ed|ing)|move)\b/i,
+    pattern: /\b(rumou?r|transfers?|linked|target\w*|bid|interest(?:ed)?|talks|set to|close to|poised|agrees? (?:a )?deal|sign(?:s|ed|ing)?|join(?:s|ed|ing)?|move)\b/i,
     excludePattern: /transfer news live|transfer window .*all deals/i,
-    maxItems: 3,
+    descriptionFallback: "uk-completed-move",
+    maxItems: 6,
   },
   {
     id: "transfermarkt-it-rss",
@@ -97,7 +98,7 @@ export const RSS_SOURCES = [
     sourceRole: "database",
     pattern: /\b(calciomercato|trasfer\w*|ufficiale|prestito|acquist\w*|cedut\w*|accordo|trattativ\w*|firma\w*)\b/i,
     excludePattern: /formazioni|convocati|talenti|profili/i,
-    maxItems: 3,
+    maxItems: 6,
   },
   {
     id: "transfermarkt-es-rss",
@@ -107,7 +108,7 @@ export const RSS_SOURCES = [
     sourceRole: "database",
     pattern: /\b(fichaje\w*|traspas\w*|cesi[oó]n|transfers?|transferencias?|acuerdo|firma\w*)\b|a un paso|se muda/i,
     excludePattern: /valores? de mercado|m[aá]s valios|Mundial|Golden Boy/i,
-    maxItems: 3,
+    maxItems: 6,
   },
   {
     id: "transfermarkt-nl-rss",
@@ -117,7 +118,8 @@ export const RSS_SOURCES = [
     sourceRole: "database",
     pattern: /\b(transfers?|vertrek\w*|vertrekt|tekent|huur\w*|aantrekken|versterk\w*|overstap|haalt|verruilt)\b/i,
     excludePattern: /op Transfermarkt|meest waardevolle|WK|ranglijst/i,
-    maxItems: 3,
+    excludeOverridePattern: /\bhaalt\b.+\bbinnen\b/i,
+    maxItems: 6,
   },
   {
     id: "transfermarkt-pl-rss",
@@ -127,7 +129,7 @@ export const RSS_SOURCES = [
     sourceRole: "database",
     pattern: /\b(transfer(?:y|u|em|[oó]w|owy|owe|owa|ze|ach)?|przechod\w*|podpis\w*|wypo[zż]ycz\w*|zainteres\w*|oficjalnie|pozyska\w*|sprzed\w*|kup\w*)\b|ostatniej prostej|\bza \d+(?:[.,]\d+)? (?:mln|milion)/i,
     excludePattern: /ranking|Top \d+|najdro[zż]szych/i,
-    maxItems: 3,
+    maxItems: 6,
   },
   {
     id: "transfermarkt-pt-rss",
@@ -135,9 +137,9 @@ export const RSS_SOURCES = [
     url: "https://www.transfermarkt.pt/rss/news",
     market: "Portugal",
     sourceRole: "database",
-    pattern: /\b(transfer[eê]ncias?|contrata\w*|refor[cç]o\w*|empr[eé]stimo|acordo|assina\w*)\b/i,
+    pattern: /\b(transfer[eê]ncias?|contrata\w*|refor[cç](?:o\w*|a)|empr[eé]stimo|acordo|assina\w*)\b/i,
     excludePattern: /[uú]ltimas do mercado|valores? de mercado|Mundial|Golden Boy|vendas dos jogadores/i,
-    maxItems: 3,
+    maxItems: 6,
   },
   {
     id: "sportschau-rss",
@@ -685,6 +687,8 @@ export function parseWikipediaTransfers(html, now = new Date()) {
 const RUMOUR_CLUB_ALIASES = new Map([
   ["barca", "Barcelona"],
   ["barcelona", "Barcelona"],
+  ["besiktas", "Beşiktaş"],
+  ["besitkas", "Beşiktaş"],
   ["celta", "Celta Vigo"],
   ["fenerbahce", "Fenerbahçe"],
   ["lazio rom", "Lazio"],
@@ -772,6 +776,10 @@ const RUMOUR_CLAIM_RULES = [
     pattern: /^(?<player>[\p{L}\p{M}.'’ -]+?\s+[\p{L}\p{M}.'’ -]+?) refor[cç]a (?<to>.+?)(?:\s+e\b.*)?$/iu,
   },
   {
+    markets: ["Portugal"],
+    pattern: /^(?<player>[\p{L}\p{M}.'’-]+) refor[cç]a (?<to>.+?)(?:\s+e\b.*)?$/iu,
+  },
+  {
     markets: ["Brazil", "Portugal"],
     pattern: /^(?<from>.+?) negocia (?:o )?empr[eé]stimo de (?<player>.+?) para (?:o |a )?(?<to>.+)$/iu,
     fee: "Loan",
@@ -795,6 +803,19 @@ const RUMOUR_CLAIM_RULES = [
   {
     markets: ["France"],
     pattern: /^(?:Mercato:\s*)?(?:c['’]est officiel,\s*)?(?<from>(?:l['’])?.+?) vend (?<player>.+?)(?: (?:à|au) (?<to>.+?))?(?: et .*)?$/iu,
+  },
+  {
+    markets: ["Germany"],
+    pattern: /^(?![^:]+:\s*Ex-Profi\b)(?<from>[^:]+):\s*(?<player>[\p{L}\p{M}.'’ -]+?\s+[\p{L}\p{M}.'’ -]+?) wechselt(?:\s+nach\s+.+?)?\s+zu (?<to>.+)$/iu,
+  },
+  {
+    markets: ["Germany"],
+    pattern: /^(?<to>[^:]+):\s*(?<player>[\p{L}\p{M}.'’ -]+?\s+[\p{L}\p{M}.'’ -]+?) vom (?<from>.+?) vor Unterschrift(?:\s+[–—-].*)?$/iu,
+  },
+  {
+    markets: ["Germany"],
+    pattern: /^(?<to>.+?) arbeitet an (?:einer\s+)?Leihe von (?<from>[\p{L}\p{M}.'’ &-]+?)-(?:Innenverteidiger|Verteidiger|St[uü]rmer|Torh[uü]ter|Mittelfeldspieler) (?<player>[\p{L}\p{M}.'’ -]+?\s+[\p{L}\p{M}.'’ -]+)$/iu,
+    fee: "Loan",
   },
   {
     markets: ["Germany"],
@@ -843,11 +864,23 @@ const RUMOUR_CLAIM_RULES = [
   },
   {
     markets: ["United Kingdom"],
-    pattern: /^(?<to>.+?) (?:signs|agrees to sign) (?<player>.+?) from (?<from>.+)$/iu,
+    pattern: /^(?<fee>[£€$]\s*\d+(?:[.,]\d+)?m)\s+package\s+[–—-]\s+(?<to>.+?)\s+signs?\s+(?<player>.+?)\s+from\s+(?<from>.+)$/iu,
+  },
+  {
+    markets: ["United Kingdom"],
+    pattern: /^(?<to>.+?) (?:signs?|agrees to sign) (?<player>.+?) from (?<from>.+)$/iu,
   },
   {
     markets: ["United Kingdom"],
     pattern: /^(?<player>.+?) joins (?<to>.+?) from (?<from>.+)$/iu,
+  },
+  {
+    markets: ["United Kingdom"],
+    pattern: /^(?<player>[\p{L}\p{M}.'’ -]+?\s+[\p{L}\p{M}.'’ -]+?) joins (?<to>.+?)(?: for (?<fee>[£€$]\s*\d+(?:[.,]\d+)?m)(?:\s+package)?)?(?:\s+as\b.*)?$/iu,
+  },
+  {
+    markets: ["United Kingdom"],
+    pattern: /^(?<player>[\p{L}\p{M}.'’ -]+?\s+[\p{L}\p{M}.'’ -]+?) has completed (?:his|her|their) move to (?<to>.+?) from (?<from>.+?)(?:\s+(?:with|after)\b|[.!?]|$)/iu,
   },
   {
     markets: ["United Kingdom"],
@@ -944,7 +977,51 @@ export function extractRumourMovement(headline, config = {}) {
   };
 }
 
+function mergeMovementDetails(primary, fallback) {
+  const compatible = ["player", "fromClub", "toClub"].every((field) => (
+    !meaningful(primary[field])
+    || !meaningful(fallback[field])
+    || canonicalIdentity(primary[field]) === canonicalIdentity(fallback[field])
+  ));
+  if (!compatible) return primary;
+
+  const player = primary.player || fallback.player;
+  const fromClub = primary.fromClub || fallback.fromClub;
+  const toClub = primary.toClub || fallback.toClub;
+  return {
+    player,
+    fromClub,
+    toClub,
+    fee: meaningful(primary.fee) ? primary.fee : fallback.fee,
+    extractionStatus: extractionStatus(player, fromClub, toClub),
+  };
+}
+
+export function inspectRssPayload(xml) {
+  const $ = cheerio.load(typeof xml === "string" ? xml : "", { xmlMode: true });
+  const documentRoot = $.root().children().toArray().find((node) => node.type === "tag");
+  const qualifiedRootName = String(documentRoot?.name || "").toLowerCase();
+  const rootName = qualifiedRootName.split(":").at(-1) || null;
+  return {
+    rootName,
+    isFeedRoot: rootName === "rss" || rootName === "feed",
+    observedCount: $("item, entry").length,
+  };
+}
+
+export function validateRssPayload(xml, config = {}) {
+  const inspection = inspectRssPayload(xml);
+  if (!inspection.isFeedRoot) {
+    throw new Error(`${config.label || config.id || "RSS source"}: response is not an RSS or Atom feed`);
+  }
+  if (String(config.id || "").startsWith("transfermarkt-") && inspection.observedCount === 0) {
+    throw new Error(`${config.label || config.id}: feed contained no items`);
+  }
+  return inspection;
+}
+
 export function parseRssRumours(xml, config = RSS_SOURCES[0], now = new Date()) {
+  validateRssPayload(xml, config);
   const $ = cheerio.load(xml, { xmlMode: true });
   const rumours = [];
   const maxItems = Number(config.maxItems || MAX_RUMOURS_PER_SOURCE);
@@ -956,11 +1033,18 @@ export function parseRssRumours(xml, config = RSS_SOURCES[0], now = new Date()) 
     const publishedText = cleanText($(item).find("pubDate, published, updated, dc\\:date").first().text());
     const published = new Date(publishedText);
     if (!title || !link || Number.isNaN(published.getTime()) || !config.pattern.test(title)) return;
-    if (config.excludePattern?.test(title) || (config.linkPattern && !config.linkPattern.test(link))) return;
+    const excluded = config.excludePattern?.test(title) && !config.excludeOverridePattern?.test(title);
+    if (excluded || (config.linkPattern && !config.linkPattern.test(link))) return;
     if (now.getTime() - published.getTime() > LOOKBACK_DAYS * 86_400_000) return;
 
     const displayTitle = cleanText(title.replace(config.stripPrefix || /^$/, ""));
-    const movement = extractRumourMovement(displayTitle, config);
+    let movement = extractRumourMovement(displayTitle, config);
+    if (config.descriptionFallback && movement.extractionStatus === "partial") {
+      const description = cleanText($(item).find("description, summary, content").first().text());
+      if (description) {
+        movement = mergeMovementDetails(movement, extractRumourMovement(description, config));
+      }
+    }
     const date = published.toISOString().slice(0, 10);
     const time = new Intl.DateTimeFormat("en-GB", {
       hour: "2-digit",
@@ -2299,7 +2383,37 @@ export function newestPreviousTransfers(payloads) {
   return latest ? latest.transfers.map(normaliseStoredTransfer) : [];
 }
 
-async function readPreviousTransfers() {
+function transferUsesSource(transfer, sourceId) {
+  const adapters = new Set([transfer.sourceAdapter, ...(transfer.sourceAdapters || [])].filter(Boolean));
+  return adapters.has(sourceId) || (sourceId === "wikipedia-england" && adapters.has("wikipedia"));
+}
+
+export function previousTransfersForSource(payloads, sourceId) {
+  const snapshots = payloads
+    .filter((payload) => Array.isArray(payload?.transfers))
+    .sort((left, right) => (
+      (Date.parse(right.generatedAt || "") || 0) - (Date.parse(left.generatedAt || "") || 0)
+    ));
+
+  for (const payload of snapshots) {
+    const report = Array.isArray(payload.sources)
+      ? payload.sources.find((source) => source?.id === sourceId)
+      : null;
+    const observedCount = Number.isFinite(report?.observedCount) ? report.observedCount : null;
+    const entries = payload.transfers
+      .map(normaliseStoredTransfer)
+      .filter((transfer) => transferUsesSource(transfer, sourceId));
+
+    if (observedCount !== null && observedCount > 0) {
+      return Number(report?.count || 0) === 0 ? [] : entries;
+    }
+    if (entries.length) return entries;
+  }
+
+  return [];
+}
+
+async function readPreviousPayloads() {
   const snapshots = [];
   try {
     snapshots.push(JSON.parse(await readFile(OUTPUT_URL, "utf8")));
@@ -2313,25 +2427,20 @@ async function readPreviousTransfers() {
     }
   }
 
-  return newestPreviousTransfers(snapshots);
+  return snapshots;
 }
 
 export async function refresh() {
   const generatedAt = new Date().toISOString();
   const sourceReports = [];
-  const previousTransfers = await readPreviousTransfers();
+  const previousPayloads = await readPreviousPayloads();
+  const previousTransfers = newestPreviousTransfers(previousPayloads);
 
   const allSources = [...WIKIPEDIA_SOURCES, ...RSS_SOURCES];
   const results = await Promise.allSettled(allSources.map((source) => fetchText(source.url)));
   const resultById = new Map(allSources.map((source, index) => [source.id, results[index]]));
-  const previousForSource = (source) => previousTransfers.filter((transfer) => (
-    inLookback(transfer.date)
-    && (
-      transfer.sourceAdapter === source.id
-      || transfer.sourceAdapters?.includes(source.id)
-      || (source.id === "wikipedia-england" && transfer.sourceAdapter === "wikipedia")
-    )
-  ));
+  const previousForSource = (source) => previousTransfersForSource(previousPayloads, source.id)
+    .filter((transfer) => inLookback(transfer.date));
 
   let official = [];
   for (const source of WIKIPEDIA_SOURCES) {
@@ -2385,8 +2494,10 @@ export async function refresh() {
     const result = resultById.get(source.id);
     let entries = [];
     let status = "ok";
+    let observedCount = null;
     try {
       if (result.status === "rejected") throw result.reason;
+      observedCount = inspectRssPayload(result.value).observedCount;
       entries = parseRssRumours(result.value, source);
     } catch (error) {
       status = "stale";
@@ -2402,6 +2513,7 @@ export async function refresh() {
       kind: "news-rss",
       status,
       count: entries.length,
+      observedCount,
     });
   }
 

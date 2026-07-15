@@ -15,6 +15,8 @@ const elements = {
   sourcePreviewPlayer: document.querySelector("#source-preview-player"),
   sourcePreviewFrom: document.querySelector("#source-preview-from"),
   sourcePreviewTo: document.querySelector("#source-preview-to"),
+  sourcePreviewSources: document.querySelector("#source-preview-sources"),
+  sourcePreviewSourcesList: document.querySelector("#source-preview-sources-list"),
   statusFilters: [...document.querySelectorAll("[data-status-filter]")],
   genderFilters: [...document.querySelectorAll("[data-gender]")],
   counts: {
@@ -170,6 +172,25 @@ function previewSourceFor(transfer) {
   };
 }
 
+function additionalSourcesFor(transfer, preferredUrl) {
+  const preferred = safeHttpsLink(preferredUrl);
+  const seen = new Set(preferred ? [preferred] : []);
+  const sources = Array.isArray(transfer?.sources) ? transfer.sources : [];
+  const additional = [];
+
+  for (const source of sources) {
+    const url = safeHttpsLink(source?.url);
+    if (!url || seen.has(url)) continue;
+    seen.add(url);
+    additional.push({
+      name: safeText(source?.name, "Source"),
+      url,
+    });
+  }
+
+  return additional;
+}
+
 function closeSourceDrawer() {
   if (elements.sourceDrawer.open) elements.sourceDrawer.close();
 }
@@ -195,6 +216,24 @@ function openSourceDrawer(transfer, source, trigger) {
   elements.sourcePreviewPlayer.textContent = safeText(transfer.player);
   elements.sourcePreviewFrom.textContent = safeText(transfer.fromClub);
   elements.sourcePreviewTo.textContent = safeText(transfer.toClub);
+
+  const additionalSources = additionalSourcesFor(transfer, source.url);
+  elements.sourcePreviewSourcesList.replaceChildren();
+  for (const additionalSource of additionalSources) {
+    const item = document.createElement("li");
+    const link = document.createElement("a");
+    const label = document.createElement("span");
+    link.className = "source-preview-source-link";
+    link.href = additionalSource.url;
+    link.target = "_blank";
+    link.rel = "noopener noreferrer";
+    link.setAttribute("aria-label", `${additionalSource.name} — opens in a new tab`);
+    label.textContent = additionalSource.name;
+    link.append(label, externalLinkIcon());
+    item.append(link);
+    elements.sourcePreviewSourcesList.append(item);
+  }
+  elements.sourcePreviewSources.hidden = additionalSources.length === 0;
 
   elements.sourcePreviewImage.removeAttribute("src");
   elements.sourcePreviewMedia.hidden = !previewImage;
@@ -474,7 +513,21 @@ function detailsElement(transfer) {
   }
   sourceCell.append(source);
 
-  if (previewSourceFor(transfer)) {
+  const previewSource = previewSourceFor(transfer);
+  if (previewSource) {
+    const additionalSourceCount = additionalSourcesFor(transfer, previewSource.url).length;
+    if (additionalSourceCount) {
+      const count = document.createElement("span");
+      count.className = "source-count";
+      count.textContent = `+${additionalSourceCount}`;
+      count.title = `${additionalSourceCount} additional ${additionalSourceCount === 1 ? "source" : "sources"} in details`;
+      count.setAttribute(
+        "aria-label",
+        `${additionalSourceCount} additional ${additionalSourceCount === 1 ? "source" : "sources"} available in source details`,
+      );
+      sourceCell.append(count);
+    }
+
     const indicator = document.createElement("span");
     indicator.className = "row-preview-indicator";
     indicator.title = "Open source details";

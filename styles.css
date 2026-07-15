@@ -640,6 +640,15 @@ a.source-link:focus-visible {
   text-decoration-thickness: 1.5px;
 }
 
+.source-count {
+  flex: 0 0 auto;
+  color: var(--faint);
+  font-size: 10px;
+  font-variant-numeric: tabular-nums;
+  font-weight: 600;
+  letter-spacing: 0.025em;
+}
+
 .row-preview-indicator {
   display: inline-flex;
   width: 17px;
@@ -847,6 +856,53 @@ a.source-link:focus-visible {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+
+.source-preview-sources {
+  margin-top: 20px;
+  padding-top: 17px;
+  border-top: 1px solid var(--rule);
+}
+
+.source-preview-sources > p {
+  margin: 0 0 9px;
+  color: var(--faint);
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: 0.045em;
+  line-height: 1.3;
+  text-transform: uppercase;
+}
+
+.source-preview-sources ul {
+  display: grid;
+  gap: 7px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.source-preview-source-link {
+  display: inline-flex;
+  max-width: 100%;
+  align-items: center;
+  gap: 5px;
+  color: var(--muted);
+  font-size: 12.5px;
+  line-height: 1.4;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.source-preview-source-link span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.source-preview-source-link:hover,
+.source-preview-source-link:focus-visible {
+  color: var(--text);
 }
 
 @media (max-width: 1040px) {
@@ -1125,7 +1181,9 @@ a.source-link:focus-visible {
   }
 
   a.source-link:hover .external-link-icon,
-  a.source-link:focus-visible .external-link-icon {
+  a.source-link:focus-visible .external-link-icon,
+  .source-preview-source-link:hover .external-link-icon,
+  .source-preview-source-link:focus-visible .external-link-icon {
     transform: translate(1px, -1px);
   }
 

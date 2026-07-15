@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-15T14:17:57.989Z",
+  "generatedAt": "2026-07-15T23:40:21.735Z",
   "sources": [
     {
       "id": "wikipedia-england",
@@ -62,7 +62,8 @@
       "market": "United Kingdom",
       "kind": "news-rss",
       "status": "ok",
-      "count": 2
+      "count": 5,
+      "observedCount": 87
     },
     {
       "id": "transfermarkt-de-rss",
@@ -71,7 +72,8 @@
       "market": "Germany",
       "kind": "news-rss",
       "status": "ok",
-      "count": 3
+      "count": 4,
+      "observedCount": 10
     },
     {
       "id": "transfermarkt-uk-rss",
@@ -80,7 +82,8 @@
       "market": "United Kingdom",
       "kind": "news-rss",
       "status": "ok",
-      "count": 1
+      "count": 4,
+      "observedCount": 10
     },
     {
       "id": "transfermarkt-it-rss",
@@ -89,7 +92,8 @@
       "market": "Italy",
       "kind": "news-rss",
       "status": "ok",
-      "count": 0
+      "count": 0,
+      "observedCount": 10
     },
     {
       "id": "transfermarkt-es-rss",
@@ -98,7 +102,8 @@
       "market": "Spain",
       "kind": "news-rss",
       "status": "ok",
-      "count": 2
+      "count": 2,
+      "observedCount": 10
     },
     {
       "id": "transfermarkt-nl-rss",
@@ -107,7 +112,8 @@
       "market": "Netherlands",
       "kind": "news-rss",
       "status": "ok",
-      "count": 0
+      "count": 1,
+      "observedCount": 10
     },
     {
       "id": "transfermarkt-pl-rss",
@@ -116,7 +122,8 @@
       "market": "Poland",
       "kind": "news-rss",
       "status": "ok",
-      "count": 1
+      "count": 0,
+      "observedCount": 4
     },
     {
       "id": "transfermarkt-pt-rss",
@@ -125,7 +132,8 @@
       "market": "Portugal",
       "kind": "news-rss",
       "status": "ok",
-      "count": 1
+      "count": 2,
+      "observedCount": 10
     },
     {
       "id": "sportschau-rss",
@@ -134,7 +142,8 @@
       "market": "Germany",
       "kind": "news-rss",
       "status": "ok",
-      "count": 4
+      "count": 4,
+      "observedCount": 38
     },
     {
       "id": "tmw-rss",
@@ -143,7 +152,8 @@
       "market": "Italy",
       "kind": "news-rss",
       "status": "ok",
-      "count": 1
+      "count": 1,
+      "observedCount": 20
     },
     {
       "id": "marca-rss",
@@ -152,7 +162,8 @@
       "market": "Spain",
       "kind": "news-rss",
       "status": "ok",
-      "count": 4
+      "count": 4,
+      "observedCount": 50
     },
     {
       "id": "rmc-rss",
@@ -161,7 +172,8 @@
       "market": "France",
       "kind": "news-rss",
       "status": "ok",
-      "count": 4
+      "count": 4,
+      "observedCount": 30
     },
     {
       "id": "vi-rss",
@@ -170,7 +182,8 @@
       "market": "Netherlands",
       "kind": "news-rss",
       "status": "ok",
-      "count": 2
+      "count": 2,
+      "observedCount": 24
     },
     {
       "id": "weszlo-rss",
@@ -179,7 +192,8 @@
       "market": "Poland",
       "kind": "news-rss",
       "status": "ok",
-      "count": 0
+      "count": 3,
+      "observedCount": 10
     },
     {
       "id": "guardian-rss",
@@ -188,7 +202,8 @@
       "market": "United Kingdom",
       "kind": "news-rss",
       "status": "ok",
-      "count": 4
+      "count": 4,
+      "observedCount": 68
     },
     {
       "id": "maisfutebol-rss",
@@ -197,7 +212,8 @@
       "market": "Portugal",
       "kind": "news-rss",
       "status": "ok",
-      "count": 1
+      "count": 0,
+      "observedCount": 20
     },
     {
       "id": "ge-rss",
@@ -206,10 +222,56 @@
       "market": "Brazil",
       "kind": "news-rss",
       "status": "ok",
-      "count": 4
+      "count": 4,
+      "observedCount": 100
     }
   ],
   "transfers": [
+    {
+      "id": "646a95395e0323",
+      "date": "2026-07-15",
+      "time": "—",
+      "player": "Elkan Baggott",
+      "playerUrl": "https://en.wikipedia.org/wiki/Elkan_Baggott",
+      "age": 23,
+      "position": "DC",
+      "nationality": "Indonesia",
+      "flagCode": null,
+      "flag": "",
+      "fromClub": "Ipswich Town",
+      "fromClubUrl": "https://en.wikipedia.org/wiki/Ipswich_Town_F.C.",
+      "fromClubCrest": "https://upload.wikimedia.org/wikipedia/en/thumb/4/43/Ipswich_Town.svg/120px-Ipswich_Town.svg.png",
+      "toClub": "Millwall",
+      "toClubUrl": "https://en.wikipedia.org/wiki/Millwall_F.C.",
+      "toClubCrest": "https://upload.wikimedia.org/wikipedia/en/thumb/9/98/Millwall_FC_crest.svg/120px-Millwall_FC_crest.svg.png",
+      "fee": "Undisclosed",
+      "status": "official",
+      "market": "England",
+      "markets": [
+        "England"
+      ],
+      "competition": "English leagues",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
+      "sourceAdapter": "wikipedia-england",
+      "sourceRole": "publication",
+      "sourceName": "BBC Sport",
+      "sourceUrl": "https://www.bbc.co.uk/sport/football/articles/cd0x5zg01gzo",
+      "sources": [
+        {
+          "name": "BBC Sport",
+          "url": "https://www.bbc.co.uk/sport/football/articles/cd0x5zg01gzo",
+          "role": "publication"
+        }
+      ],
+      "firstSeenAt": "2026-07-15T12:00:00.000Z",
+      "competitions": [
+        "English leagues"
+      ],
+      "sourceAdapters": [
+        "wikipedia-england"
+      ]
+    },
     {
       "id": "e9502db8556c94",
       "date": "2026-07-15",
@@ -244,6 +306,51 @@
         {
           "name": "BBC Sport",
           "url": "https://www.bbc.co.uk/sport/football/articles/c30y085ey17o",
+          "role": "publication"
+        }
+      ],
+      "firstSeenAt": "2026-07-15T12:00:00.000Z",
+      "competitions": [
+        "English leagues"
+      ],
+      "sourceAdapters": [
+        "wikipedia-england"
+      ]
+    },
+    {
+      "id": "435bd25351c9a7",
+      "date": "2026-07-15",
+      "time": "—",
+      "player": "Thomas Meunier",
+      "playerUrl": "https://en.wikipedia.org/wiki/Thomas_Meunier",
+      "age": 34,
+      "position": "FB",
+      "nationality": "Belgium",
+      "flagCode": "be",
+      "flag": "🇧🇪",
+      "fromClub": "Lille",
+      "fromClubUrl": "https://en.wikipedia.org/wiki/Lille_OSC",
+      "fromClubCrest": "https://upload.wikimedia.org/wikipedia/en/thumb/3/3f/Lille_OSC_2018_logo.svg/120px-Lille_OSC_2018_logo.svg.png",
+      "toClub": "Sunderland",
+      "toClubUrl": "https://en.wikipedia.org/wiki/Sunderland_A.F.C.",
+      "toClubCrest": "https://upload.wikimedia.org/wikipedia/en/thumb/7/77/Logo_Sunderland.svg/120px-Logo_Sunderland.svg.png",
+      "fee": "Free",
+      "status": "official",
+      "market": "England",
+      "markets": [
+        "England"
+      ],
+      "competition": "English leagues",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
+      "sourceAdapter": "wikipedia-england",
+      "sourceRole": "publication",
+      "sourceName": "BBC Sport",
+      "sourceUrl": "https://www.bbc.co.uk/sport/football/articles/cgjxjqpgq4xo",
+      "sources": [
+        {
+          "name": "BBC Sport",
+          "url": "https://www.bbc.co.uk/sport/football/articles/cgjxjqpgq4xo",
           "role": "publication"
         }
       ],
@@ -301,6 +408,51 @@
       ]
     },
     {
+      "id": "e994840b7b7374",
+      "date": "2026-07-15",
+      "time": "—",
+      "player": "Silko Thomas",
+      "playerUrl": "https://en.wikipedia.org/wiki/Silko_Thomas",
+      "age": 22,
+      "position": null,
+      "nationality": "United Kingdom",
+      "flagCode": "gb",
+      "flag": "🇬🇧",
+      "fromClub": "Leicester City",
+      "fromClubUrl": "https://en.wikipedia.org/wiki/Leicester_City_F.C.",
+      "fromClubCrest": "https://upload.wikimedia.org/wikipedia/en/thumb/2/2d/Leicester_City_crest.svg/120px-Leicester_City_crest.svg.png",
+      "toClub": "Wycombe Wanderers",
+      "toClubUrl": "https://en.wikipedia.org/wiki/Wycombe_Wanderers_F.C.",
+      "toClubCrest": "https://upload.wikimedia.org/wikipedia/en/thumb/f/fb/Wycombe_Wanderers_FC_logo.svg/120px-Wycombe_Wanderers_FC_logo.svg.png",
+      "fee": "Free",
+      "status": "official",
+      "market": "England",
+      "markets": [
+        "England"
+      ],
+      "competition": "English leagues",
+      "competitionGender": "men",
+      "competitionGenderSource": "source-register",
+      "sourceAdapter": "wikipedia-england",
+      "sourceRole": "publication",
+      "sourceName": "BBC Sport",
+      "sourceUrl": "https://www.bbc.co.uk/sport/football/articles/c3eyegk3747o",
+      "sources": [
+        {
+          "name": "BBC Sport",
+          "url": "https://www.bbc.co.uk/sport/football/articles/c3eyegk3747o",
+          "role": "publication"
+        }
+      ],
+      "firstSeenAt": "2026-07-15T12:00:00.000Z",
+      "competitions": [
+        "English leagues"
+      ],
+      "sourceAdapters": [
+        "wikipedia-england"
+      ]
+    },
+    {
       "id": "99f7a5744422d1",
       "date": "2026-07-15",
       "time": "—",
@@ -346,30 +498,28 @@
       ]
     },
     {
-      "id": "435bd25351c9a7",
+      "id": "7cb2047927b034",
       "date": "2026-07-15",
       "time": "—",
-      "player": "Thomas Meunier",
-      "playerUrl": "https://en.wikipedia.org/wiki/Thomas_Meunier",
-      "age": 34,
-      "position": "FB",
+      "player": "Leandro Trossard",
+      "playerUrl": "https://en.wikipedia.org/wiki/Leandro_Trossard",
+      "age": 31,
+      "position": "ST",
       "nationality": "Belgium",
       "flagCode": "be",
       "flag": "🇧🇪",
-      "fromClub": "Lille",
-      "fromClubUrl": "https://en.wikipedia.org/wiki/Lille_OSC",
-      "fromClubCrest": "https://upload.wikimedia.org/wikipedia/en/thumb/3/3f/Lille_OSC_2018_logo.svg/120px-Lille_OSC_2018_logo.svg.png",
-      "toClub": "Sunderland",
-      "toClubUrl": "https://en.wikipedia.org/wiki/Sunderland_A.F.C.",
-      "toClubCrest": "https://upload.wikimedia.org/wikipedia/en/thumb/7/77/Logo_Sunderland.svg/120px-Logo_Sunderland.svg.png",
-      "fee": "Free",
+      "fromClub": "Arsenal",
+      "fromClubUrl": "https://en.wikipedia.org/wiki/Arsenal_F.C.",
+      "fromClubCrest": "https://upload.wikimedia.org/wikipedia/en/thumb/5/53/Arsenal_FC.svg/120px-Arsenal_FC.svg.png",
+      "toClub": "Beşiktaş",
+      "toClubUrl": "https://en.wikipedia.org/wiki/Be%C5%9Fikta%C5%9F_J.K.",
+      "toClubCrest": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/BesiktasJK-Logo.svg/120px-BesiktasJK-Logo.svg.png",
+      "fee": "£15.3m",
       "status": "official",
       "market": "England",
       "markets": [
         "England",
-        "Brazil",
-        "United Kingdom",
-        "Portugal"
+        "United Kingdom"
       ],
       "competition": "English leagues",
       "competitionGender": "men",
@@ -377,59 +527,92 @@
       "sourceAdapter": "wikipedia-england",
       "sourceRole": "publication",
       "sourceName": "BBC Sport",
-      "sourceUrl": "https://www.bbc.co.uk/sport/football/articles/cgjxjqpgq4xo",
+      "sourceUrl": "https://www.bbc.co.uk/sport/football/articles/cddldzme6g1o",
       "sources": [
         {
           "name": "BBC Sport",
-          "url": "https://www.bbc.co.uk/sport/football/articles/cgjxjqpgq4xo",
+          "url": "https://www.bbc.co.uk/sport/football/articles/cddldzme6g1o",
           "role": "publication"
         },
         {
-          "name": "ge",
-          "url": "https://ge.globo.com/futebol/futebol-internacional/noticia/2026/07/15/sunderland-contrata-meunier-defensor-da-belgica-na-copa-do-mundo.ghtml",
-          "role": "publication"
-        },
-        {
-          "name": "The Guardian",
-          "url": "https://www.theguardian.com/football/2026/jul/15/thomas-meunier-sunderland-transfer-window",
-          "role": "publication"
-        },
-        {
-          "name": "MaisFutebol",
-          "url": "https://maisfutebol.iol.pt/internacional/inglaterra/oficial-thomas-meunier-e-reforco-do-sunderland",
-          "role": "publication"
+          "name": "Transfermarkt UK",
+          "url": "https://www.transfermarkt.co.uk/leandro-trossard-joins-besiktas-for-euro-20m-package-as-arsenal-turn-attention-to-rogers/view/news/482395",
+          "role": "database"
         }
       ],
-      "firstSeenAt": "2026-07-15T09:39:00.000Z",
+      "firstSeenAt": "2026-07-14T12:52:31.000Z",
       "competitions": [
         "English leagues"
       ],
       "sourceAdapters": [
         "wikipedia-england",
-        "ge-rss",
-        "guardian-rss",
-        "maisfutebol-rss"
+        "transfermarkt-uk-rss"
       ]
     },
     {
-      "id": "d7baf99405191d",
+      "id": "42b044c027ef6e",
       "date": "2026-07-15",
-      "time": "14:29",
-      "headline": "SC Paderborn verleiht Martin Ens an MSV Duisburg in 3. Liga",
-      "player": "Martin Ens",
+      "time": "21:24",
+      "headline": "€30m package - Galatasaray sign Lesley Ugochukwu from Burnley",
+      "player": "Lesley Ugochukwu",
       "playerUrl": null,
       "age": null,
       "position": null,
       "nationality": null,
       "flagCode": null,
       "flag": "",
-      "fromClub": "SC Paderborn",
+      "fromClub": "Burnley",
       "fromClubUrl": null,
       "fromClubCrest": null,
-      "toClub": "MSV Duisburg",
+      "toClub": "Galatasaray",
       "toClubUrl": null,
       "toClubCrest": null,
-      "fee": "Loan",
+      "fee": "€30m",
+      "status": "rumour",
+      "extractionStatus": "complete",
+      "market": "United Kingdom",
+      "markets": [
+        "United Kingdom"
+      ],
+      "competition": null,
+      "competitionGender": "unknown",
+      "competitionGenderSource": null,
+      "sourceAdapter": "transfermarkt-uk-rss",
+      "sourceRole": "database",
+      "sourceName": "Transfermarkt UK",
+      "sourceUrl": "https://www.transfermarkt.co.uk/-euro-30m-package-galatasaray-sign-lesley-ugochukwu-from-burnley/view/news/483017",
+      "sources": [
+        {
+          "name": "Transfermarkt UK",
+          "url": "https://www.transfermarkt.co.uk/-euro-30m-package-galatasaray-sign-lesley-ugochukwu-from-burnley/view/news/483017",
+          "role": "database"
+        }
+      ],
+      "firstSeenAt": "2026-07-15T19:24:30.000Z",
+      "competitions": [],
+      "sourceAdapters": [
+        "transfermarkt-uk-rss"
+      ]
+    },
+    {
+      "id": "65b265c037cfca",
+      "date": "2026-07-15",
+      "time": "16:42",
+      "headline": "1860 München: Thomas Dähne wechselt zu Heidenheim",
+      "player": "Thomas Dähne",
+      "playerUrl": null,
+      "age": null,
+      "position": null,
+      "nationality": null,
+      "flagCode": null,
+      "flag": "",
+      "fromClub": "1860 München",
+      "fromClubUrl": null,
+      "fromClubCrest": null,
+      "toClub": "Heidenheim",
+      "toClubUrl": null,
+      "toClubCrest": null,
+      "fee": "—",
       "status": "rumour",
       "extractionStatus": "complete",
       "market": "Germany",
@@ -442,15 +625,15 @@
       "sourceAdapter": "transfermarkt-de-rss",
       "sourceRole": "database",
       "sourceName": "Transfermarkt DE",
-      "sourceUrl": "https://www.transfermarkt.de/sc-paderborn-verleiht-ruckkehrer-ens-an-duisburg-soll-den-nachsten-schritt-gehen-quot-/view/news/482997",
+      "sourceUrl": "https://www.transfermarkt.de/routinier-dahne-verstarkt-heidenheims-torhuterteam-ein-ganz-besonderer-verein-quot-/view/news/483006",
       "sources": [
         {
           "name": "Transfermarkt DE",
-          "url": "https://www.transfermarkt.de/sc-paderborn-verleiht-ruckkehrer-ens-an-duisburg-soll-den-nachsten-schritt-gehen-quot-/view/news/482997",
+          "url": "https://www.transfermarkt.de/routinier-dahne-verstarkt-heidenheims-torhuterteam-ein-ganz-besonderer-verein-quot-/view/news/483006",
           "role": "database"
         }
       ],
-      "firstSeenAt": "2026-07-15T12:29:11.000Z",
+      "firstSeenAt": "2026-07-15T14:42:57.000Z",
       "competitions": [],
       "sourceAdapters": [
         "transfermarkt-de-rss"
@@ -838,6 +1021,7 @@
       "market": "England",
       "markets": [
         "England",
+        "United Kingdom",
         "Spain"
       ],
       "competition": "English leagues",
@@ -854,8 +1038,18 @@
           "role": "publication"
         },
         {
+          "name": "The Guardian",
+          "url": "https://www.theguardian.com/football/2026/jul/14/youri-tielemans-signs-manchester-united-aston-villa",
+          "role": "publication"
+        },
+        {
           "name": "Transfermarkt ES",
           "url": "https://www.transfermarkt.es/youri-tielemans-se-muda-a-manchester-united-como-uno-de-los-belgas-mas-caros-de-siempre/view/news/482957",
+          "role": "database"
+        },
+        {
+          "name": "Transfermarkt UK",
+          "url": "https://www.transfermarkt.co.uk/-euro-30m-market-value-manchester-united-sign-youri-tielemans-from-aston-villa/view/news/482847",
           "role": "database"
         }
       ],
@@ -865,7 +1059,9 @@
       ],
       "sourceAdapters": [
         "wikipedia-england",
-        "transfermarkt-es-rss"
+        "guardian-rss",
+        "transfermarkt-es-rss",
+        "transfermarkt-uk-rss"
       ]
     },
     {
@@ -1358,7 +1554,6 @@
       "sourceAdapters": [
         "wikipedia-italy"
       ],
-      "sourcePreviewCheckedAt": "2026-07-15T14:18:24.730Z",
       "sourcePreview": {
         "version": 1,
         "sourceUrl": "https://uscremonese.it/fellipe-jack-e-grigiorosso/",
@@ -1369,7 +1564,8 @@
         "publishedAt": null,
         "language": "it-IT",
         "fetchedAt": "2026-07-15T14:18:24.730Z"
-      }
+      },
+      "sourcePreviewCheckedAt": "2026-07-15T14:18:24.730Z"
     },
     {
       "id": "737913aaf00346",
@@ -1472,7 +1668,6 @@
       "sourceAdapters": [
         "wikipedia-italy"
       ],
-      "sourcePreviewCheckedAt": "2026-07-15T14:18:24.730Z",
       "sourcePreview": {
         "version": 1,
         "sourceUrl": "https://modenacalcio.com/calciomercato-stenio-zanetti-e-gialloblu/",
@@ -1483,7 +1678,8 @@
         "publishedAt": "2026-07-14T13:00:17.000Z",
         "language": "it-IT",
         "fetchedAt": "2026-07-15T14:18:24.730Z"
-      }
+      },
+      "sourcePreviewCheckedAt": "2026-07-15T14:18:24.730Z"
     },
     {
       "id": "3b55991048811d",
@@ -1586,7 +1782,6 @@
       "sourceAdapters": [
         "wikipedia-italy"
       ],
-      "sourcePreviewCheckedAt": "2026-07-15T14:18:24.730Z",
       "sourcePreview": {
         "version": 1,
         "sourceUrl": "https://www.acffiorentina.com/news/caprini-ceduto-14-07-2026",
@@ -1597,7 +1792,8 @@
         "publishedAt": null,
         "language": "it",
         "fetchedAt": "2026-07-15T14:18:24.730Z"
-      }
+      },
+      "sourcePreviewCheckedAt": "2026-07-15T14:18:24.730Z"
     },
     {
       "id": "0980f3fa1a6391",
@@ -1757,7 +1953,6 @@
       "sourceAdapters": [
         "wikipedia-italy"
       ],
-      "sourcePreviewCheckedAt": "2026-07-15T14:18:24.730Z",
       "sourcePreview": {
         "version": 1,
         "sourceUrl": "https://www.empolifc.it/lorenzo-ignacchiti-al-mantova",
@@ -1768,7 +1963,8 @@
         "publishedAt": "2026-07-14T16:19:00.000Z",
         "language": "it",
         "fetchedAt": "2026-07-15T14:18:24.730Z"
-      }
+      },
+      "sourcePreviewCheckedAt": "2026-07-15T14:18:24.730Z"
     },
     {
       "id": "4b7322e29fa82b",
@@ -1928,7 +2124,6 @@
       "sourceAdapters": [
         "wikipedia-italy"
       ],
-      "sourcePreviewCheckedAt": "2026-07-15T14:18:24.730Z",
       "sourcePreview": {
         "version": 1,
         "sourceUrl": "https://carraresecalcio1908.it/nota-ufficiale-127/",
@@ -1939,7 +2134,8 @@
         "publishedAt": "2026-07-14T15:14:54.000Z",
         "language": "it-IT",
         "fetchedAt": "2026-07-15T14:18:24.730Z"
-      }
+      },
+      "sourcePreviewCheckedAt": "2026-07-15T14:18:24.730Z"
     },
     {
       "id": "91ddd6bdf59db7",
@@ -2156,58 +2352,6 @@
       "sourceAdapters": [
         "transfermarkt-uk-rss"
       ]
-    },
-    {
-      "id": "c02824898ac21d",
-      "date": "2026-07-14",
-      "time": "19:02",
-      "headline": "Manchester United close to agreeing club-record sale of Melvine Malard to Chelsea",
-      "player": "Melvine Malard",
-      "playerUrl": null,
-      "age": null,
-      "position": null,
-      "nationality": null,
-      "flagCode": null,
-      "flag": "",
-      "fromClub": "Manchester United",
-      "fromClubUrl": null,
-      "fromClubCrest": null,
-      "toClub": "Chelsea",
-      "toClubUrl": null,
-      "toClubCrest": null,
-      "fee": "—",
-      "status": "rumour",
-      "extractionStatus": "complete",
-      "market": "United Kingdom",
-      "markets": [
-        "United Kingdom"
-      ],
-      "competition": null,
-      "competitionGender": "women",
-      "competitionGenderSource": "wikidata-p21",
-      "sourceAdapter": "guardian-rss",
-      "sourceRole": "publication",
-      "sourceName": "The Guardian",
-      "sourceUrl": "https://www.theguardian.com/football/2026/jul/14/manchester-united-close-to-agreeing-club-record-sale-of-melvine-malard-to-chelsea",
-      "sources": [
-        {
-          "name": "The Guardian",
-          "url": "https://www.theguardian.com/football/2026/jul/14/manchester-united-close-to-agreeing-club-record-sale-of-melvine-malard-to-chelsea",
-          "role": "publication"
-        }
-      ],
-      "firstSeenAt": "2026-07-14T17:02:34.000Z",
-      "competitions": [],
-      "sourceAdapters": [
-        "guardian-rss"
-      ],
-      "competitionGenderEvidence": {
-        "property": "P21",
-        "valueId": "Q6581072",
-        "referenceProperty": "P4656",
-        "referenceValue": "https://en.wikipedia.org/wiki/Melvine_Malard"
-      },
-      "playerQid": "Q64068571"
     },
     {
       "id": "cb12d9f0adbaeb",
@@ -2677,7 +2821,6 @@
       "sourceAdapters": [
         "wikipedia-germany"
       ],
-      "sourcePreviewCheckedAt": "2026-07-15T14:18:24.730Z",
       "sourcePreview": {
         "version": 1,
         "sourceUrl": "https://www.fcaugsburg.de/article/langfristiger-vertrag-fca-verstaerkt-sich-mit-hennes-behrens-23249",
@@ -2688,7 +2831,8 @@
         "publishedAt": null,
         "language": "de",
         "fetchedAt": "2026-07-15T14:18:24.730Z"
-      }
+      },
+      "sourcePreviewCheckedAt": "2026-07-15T14:18:24.730Z"
     },
     {
       "id": "6b5fbd6bdb872e",
@@ -2951,7 +3095,6 @@
       "sourceAdapters": [
         "wikipedia-italy"
       ],
-      "sourcePreviewCheckedAt": "2026-07-15T14:18:24.730Z",
       "sourcePreview": {
         "version": 1,
         "sourceUrl": "https://cagliaricalcio.com/news/fazzini-al-cagliari-seriea-craisportcenter/",
@@ -2962,7 +3105,8 @@
         "publishedAt": null,
         "language": "it-IT",
         "fetchedAt": "2026-07-15T14:18:24.730Z"
-      }
+      },
+      "sourcePreviewCheckedAt": "2026-07-15T14:18:24.730Z"
     },
     {
       "id": "1d759827df3415",
@@ -3122,7 +3266,6 @@
       "sourceAdapters": [
         "wikipedia-italy"
       ],
-      "sourcePreviewCheckedAt": "2026-07-15T14:18:24.730Z",
       "sourcePreview": {
         "version": 1,
         "sourceUrl": "https://www.speziacalcio.com/it/news/ufficiale-alessandro-cardinali-un-nuovo-calciatore-dello-spezia.28418.html",
@@ -3133,7 +3276,8 @@
         "publishedAt": null,
         "language": null,
         "fetchedAt": "2026-07-15T14:18:24.730Z"
-      }
+      },
+      "sourcePreviewCheckedAt": "2026-07-15T14:18:24.730Z"
     },
     {
       "id": "610a4f4ad3cc9a",
@@ -3178,7 +3322,19 @@
       ],
       "sourceAdapters": [
         "wikipedia-italy"
-      ]
+      ],
+      "sourcePreview": {
+        "version": 1,
+        "sourceUrl": "https://www.speziacalcio.com/it/news/ufficiale-denis-cazzadori-un-nuovo-attaccante-delle-aquile.28411.html",
+        "title": "Ufficiale | Denis Cazzadori è un nuovo attaccante delle Aquile",
+        "description": null,
+        "imageUrl": "https://www.speziacalcio.com/media/images/1920x1080/07_2026/cazzadori.54374.jpeg",
+        "siteName": "Spezia Calcio - Sito ufficiale",
+        "publishedAt": null,
+        "language": null,
+        "fetchedAt": "2026-07-15T14:26:37.948Z"
+      },
+      "sourcePreviewCheckedAt": "2026-07-15T14:26:37.948Z"
     },
     {
       "id": "10c123f7fecdfb",
@@ -3223,7 +3379,19 @@
       ],
       "sourceAdapters": [
         "wikipedia-italy"
-      ]
+      ],
+      "sourcePreview": {
+        "version": 1,
+        "sourceUrl": "https://modenacalcio.com/calciomercato-gaston-brugman-e-del-modena-fc/",
+        "title": "Calciomercato: Gaston Brugman è del Modena FC - Modena FC",
+        "description": "Il Modena FC comunica di aver acquisito le prestazioni sportive di Gaston Brugman, che ha firmato un contratto fino al 30 giugno 2027, con opzione per un’ulteriore stagione. Centrocampista uruguaiano di esperienza e qualità, arriva in gialloblù dopo un percorso importante tra Italia, Spagna e Stati Uniti. Dieci anni dopo Pablo Granoche, un calciatore…",
+        "imageUrl": "https://modenacalcio.com/wp-content/uploads/2026/07/Brugman.jpeg",
+        "siteName": "Modena FC",
+        "publishedAt": "2026-07-13T14:45:36.000Z",
+        "language": "it-IT",
+        "fetchedAt": "2026-07-15T14:26:37.948Z"
+      },
+      "sourcePreviewCheckedAt": "2026-07-15T14:26:37.948Z"
     },
     {
       "id": "17fb566f943512",
@@ -3268,7 +3436,8 @@
       ],
       "sourceAdapters": [
         "wikipedia-italy"
-      ]
+      ],
+      "sourcePreviewCheckedAt": "2026-07-15T14:26:37.948Z"
     },
     {
       "id": "d14fc52b8fe5ba",
@@ -3314,7 +3483,6 @@
       "sourceAdapters": [
         "wikipedia-italy"
       ],
-      "sourcePreviewCheckedAt": "2026-07-15T14:18:24.730Z",
       "sourcePreview": {
         "version": 1,
         "sourceUrl": "https://www.mantova1911.club/news/ufficiale-ismael-cajazzo-a-titolo-definitivo",
@@ -3325,7 +3493,8 @@
         "publishedAt": null,
         "language": "it-IT",
         "fetchedAt": "2026-07-15T14:18:24.730Z"
-      }
+      },
+      "sourcePreviewCheckedAt": "2026-07-15T14:18:24.730Z"
     },
     {
       "id": "fbe2aae5a91a57",
@@ -3370,7 +3539,19 @@
       ],
       "sourceAdapters": [
         "wikipedia-italy"
-      ]
+      ],
+      "sourcePreview": {
+        "version": 1,
+        "sourceUrl": "https://www.mantova1911.club/news/ufficiale-inter-arriva-attacante-spinacce",
+        "title": "Ufficiale: dall'Inter arriva l'attaccante Spinaccé",
+        "description": null,
+        "imageUrl": "https://cdn.prod.website-files.com/687f92d2fe919fa87c95b980/6a54ffa0a20d7b7c6530281d_IMG-20260713-WA0081.jpg",
+        "siteName": "Mantova",
+        "publishedAt": null,
+        "language": "it-IT",
+        "fetchedAt": "2026-07-15T14:26:37.948Z"
+      },
+      "sourcePreviewCheckedAt": "2026-07-15T14:26:37.948Z"
     },
     {
       "id": "dad454883950a2",
@@ -3564,7 +3745,6 @@
       "sourceAdapters": [
         "wikipedia-italy"
       ],
-      "sourcePreviewCheckedAt": "2026-07-15T14:18:24.730Z",
       "sourcePreview": {
         "version": 1,
         "sourceUrl": "https://www.frosinonecalcio.com/cittadini-torna-in-giallazzurro/",
@@ -3575,7 +3755,8 @@
         "publishedAt": null,
         "language": "it-IT",
         "fetchedAt": "2026-07-15T14:18:24.730Z"
-      }
+      },
+      "sourcePreviewCheckedAt": "2026-07-15T14:18:24.730Z"
     },
     {
       "id": "53d7fd325c93d2",
@@ -3620,7 +3801,19 @@
       ],
       "sourceAdapters": [
         "wikipedia-italy"
-      ]
+      ],
+      "sourcePreview": {
+        "version": 1,
+        "sourceUrl": "https://www.frosinonecalcio.com/fini-torna-al-frosinone/",
+        "title": "FINI TORNA AL FROSINONE",
+        "description": "Frosinone Calcio comunica di aver raggiunto l’accordo con la società sportiva Genoa Cricket and Football Club per l’acquisizione delle prestazioni sportive del calciatore Seydou Fini. L’attaccante, classe 2006, arriva a titolo temporaneo.",
+        "imageUrl": "https://www.frosinonecalcio.com/wp-content/uploads/2026/07/whatsapp-image-2026-07-08-at-14.48.05-1.jpeg",
+        "siteName": "Frosinone Calcio",
+        "publishedAt": null,
+        "language": "it-IT",
+        "fetchedAt": "2026-07-15T14:26:37.948Z"
+      },
+      "sourcePreviewCheckedAt": "2026-07-15T14:26:37.948Z"
     },
     {
       "id": "33768a37593487",
@@ -3665,7 +3858,19 @@
       ],
       "sourceAdapters": [
         "wikipedia-italy"
-      ]
+      ],
+      "sourcePreview": {
+        "version": 1,
+        "sourceUrl": "https://www.frosinonecalcio.com/calvani-torna-in-giallazzurro/",
+        "title": "CALVANI TORNA IN GIALLAZZURRO",
+        "description": "Frosinone Calcio comunica di aver raggiunto l’accordo con la società sportiva Genoa Cricket and Football Club per l’acquisizione delle prestazioni sportive del calciatore Gabriele Calvani. Il difensore, classe 2004, arriva a titolo temporaneo.",
+        "imageUrl": "https://www.frosinonecalcio.com/wp-content/uploads/2026/07/whatsapp-image-2026-07-08-at-14.48.04-1.jpeg",
+        "siteName": "Frosinone Calcio",
+        "publishedAt": null,
+        "language": "it-IT",
+        "fetchedAt": "2026-07-15T14:29:39.267Z"
+      },
+      "sourcePreviewCheckedAt": "2026-07-15T14:29:39.267Z"
     },
     {
       "id": "eff9b8634a58ce",
@@ -3710,7 +3915,19 @@
       ],
       "sourceAdapters": [
         "wikipedia-italy"
-      ]
+      ],
+      "sourcePreview": {
+        "version": 1,
+        "sourceUrl": "https://www.speziacalcio.com/it/news/ufficiale-abdoulie-ndow-un-nuovo-calciatore-dello-spezia.28415.html",
+        "title": "Ufficiale | Abdoulie Ndow è un nuovo calciatore dello Spezia",
+        "description": null,
+        "imageUrl": "https://www.speziacalcio.com/media/images/1920x1080/07_2026/img_9575.54372.jpg",
+        "siteName": "Spezia Calcio - Sito ufficiale",
+        "publishedAt": null,
+        "language": null,
+        "fetchedAt": "2026-07-15T14:29:39.267Z"
+      },
+      "sourcePreviewCheckedAt": "2026-07-15T14:29:39.267Z"
     },
     {
       "id": "ba4e8e898c441c",
@@ -3868,7 +4085,8 @@
       "status": "official",
       "market": "England",
       "markets": [
-        "England"
+        "England",
+        "Netherlands"
       ],
       "competition": "English leagues",
       "competitionGender": "men",
@@ -3882,6 +4100,11 @@
           "name": "BBC Sport",
           "url": "https://www.bbc.co.uk/sport/football/articles/cdr4vvlp7d0o",
           "role": "publication"
+        },
+        {
+          "name": "Transfermarkt NL",
+          "url": "https://www.transfermarkt.nl/man-city-haalt-tiener-monga-net-buiten-top-3-van-duurste-16-jarigen-ooit/view/news/482813",
+          "role": "database"
         }
       ],
       "firstSeenAt": "2026-07-11T12:00:00.000Z",
@@ -3889,7 +4112,8 @@
         "English leagues"
       ],
       "sourceAdapters": [
-        "wikipedia-england"
+        "wikipedia-england",
+        "transfermarkt-nl-rss"
       ]
     },
     {
@@ -4197,7 +4421,6 @@
       "sourceAdapters": [
         "wikipedia-germany"
       ],
-      "sourcePreviewCheckedAt": "2026-07-15T14:18:24.730Z",
       "sourcePreview": {
         "version": 1,
         "sourceUrl": "https://fc.de/aktuelles/news/fc-verpflichtet-gideon-mensah",
@@ -4208,7 +4431,8 @@
         "publishedAt": null,
         "language": null,
         "fetchedAt": "2026-07-15T14:18:24.730Z"
-      }
+      },
+      "sourcePreviewCheckedAt": "2026-07-15T14:18:24.730Z"
     },
     {
       "id": "19b29708105c90",
@@ -4253,7 +4477,19 @@
       ],
       "sourceAdapters": [
         "wikipedia-italy"
-      ]
+      ],
+      "sourcePreview": {
+        "version": 1,
+        "sourceUrl": "https://www.acffiorentina.com/news/atta-e-viola",
+        "title": "ACF Fiorentina | Atta è viola",
+        "description": null,
+        "imageUrl": "https://www.acffiorentina.com/getContentAsset/4d5f5492-6f30-454c-8f1c-d33517e65aa1/fdc2628b-8d67-425c-b6d0-a02576381c81/2rnk2sj5-d4k.webp?language=it",
+        "siteName": "ACF Fiorentina",
+        "publishedAt": null,
+        "language": "it",
+        "fetchedAt": "2026-07-15T14:26:37.948Z"
+      },
+      "sourcePreviewCheckedAt": "2026-07-15T14:26:37.948Z"
     },
     {
       "id": "c42d06116ebc91",
@@ -4299,7 +4535,6 @@
       "sourceAdapters": [
         "wikipedia-italy"
       ],
-      "sourcePreviewCheckedAt": "2026-07-15T14:18:24.730Z",
       "sourcePreview": {
         "version": 1,
         "sourceUrl": "https://www.hellasverona.it/news/salvatore-cerbone-e-un-nuovo-attaccante-gialloblu",
@@ -4310,7 +4545,8 @@
         "publishedAt": null,
         "language": "it",
         "fetchedAt": "2026-07-15T14:18:24.730Z"
-      }
+      },
+      "sourcePreviewCheckedAt": "2026-07-15T14:18:24.730Z"
     },
     {
       "id": "6657301561f056",
@@ -4355,7 +4591,19 @@
       ],
       "sourceAdapters": [
         "wikipedia-italy"
-      ]
+      ],
+      "sourcePreview": {
+        "version": 1,
+        "sourceUrl": "https://www.hellasverona.it/news/benvenuto-nicola-leali-e-un-nuovo-giocatore-gialloblu",
+        "title": "Benvenuto Nicola! Leali è un nuovo giocatore gialloblù | Hellas Verona Official Website",
+        "description": null,
+        "imageUrl": "https://hellas.hqcdn.it/media/share?f=2026/06/banner-22.jpg",
+        "siteName": "Verona",
+        "publishedAt": null,
+        "language": "it",
+        "fetchedAt": "2026-07-15T14:26:37.948Z"
+      },
+      "sourcePreviewCheckedAt": "2026-07-15T14:26:37.948Z"
     },
     {
       "id": "f62005db9441ee",
@@ -4401,7 +4649,6 @@
       "sourceAdapters": [
         "wikipedia-italy"
       ],
-      "sourcePreviewCheckedAt": "2026-07-15T14:18:24.730Z",
       "sourcePreview": {
         "version": 1,
         "sourceUrl": "https://www.veneziafc.it/news/seid-korac-all-hellas-verona",
@@ -4412,7 +4659,8 @@
         "publishedAt": "2026-07-11T16:22:27.334Z",
         "language": "it",
         "fetchedAt": "2026-07-15T14:18:24.730Z"
-      }
+      },
+      "sourcePreviewCheckedAt": "2026-07-15T14:18:24.730Z"
     },
     {
       "id": "bc1da2d9f68706",
@@ -4457,7 +4705,19 @@
       ],
       "sourceAdapters": [
         "wikipedia-italy"
-      ]
+      ],
+      "sourcePreview": {
+        "version": 1,
+        "sourceUrl": "https://www.veneziafc.it/news/alessio-pozzi-al-venezia-fc",
+        "title": "Alessio Pozzi al Venezia FC",
+        "description": "Le ultime notizie del Venezia FC — report delle partite, interviste e aggiornamenti dal club.",
+        "imageUrl": "https://images.veneziafc.it/image/private/t_ratio16_9-size60-f_webp-c_fill/prd/riqibayjyyn4ot1om5co",
+        "siteName": "Venezia FC",
+        "publishedAt": "2026-07-11T18:56:55.508Z",
+        "language": "it",
+        "fetchedAt": "2026-07-15T14:26:37.948Z"
+      },
+      "sourcePreviewCheckedAt": "2026-07-15T14:26:37.948Z"
     },
     {
       "id": "6b5553a2030e9c",
@@ -4502,7 +4762,19 @@
       ],
       "sourceAdapters": [
         "wikipedia-italy"
-      ]
+      ],
+      "sourcePreview": {
+        "version": 1,
+        "sourceUrl": "https://modenacalcio.com/calciomercato-bentornato-paulo-azzi/",
+        "title": "Calciomercato: bentornato Paulo Azzi - Modena FC",
+        "description": "Il Modena FC comunica di aver acquisito a titolo definitivo dall’AC Monza le prestazioni sportive di Paulo Azzi, che ha firmato un contratto fino al 30 giugno 2028, con opzione per un’ulteriore stagione. L’esterno brasiliano torna a vestire la maglia gialloblù dopo essere stato tra i grandi protagonisti della storica promozione in Serie B. Da",
+        "imageUrl": "https://modenacalcio.com/wp-content/uploads/2026/07/azziWEB.jpeg",
+        "siteName": "Modena FC",
+        "publishedAt": "2026-07-11T13:00:04.000Z",
+        "language": "it-IT",
+        "fetchedAt": "2026-07-15T14:29:39.267Z"
+      },
+      "sourcePreviewCheckedAt": "2026-07-15T14:29:39.267Z"
     },
     {
       "id": "17243514e30334",
@@ -4594,7 +4866,6 @@
       "sourceAdapters": [
         "wikipedia-italy"
       ],
-      "sourcePreviewCheckedAt": "2026-07-15T14:18:24.730Z",
       "sourcePreview": {
         "version": 1,
         "sourceUrl": "https://pisasportingclub.com/tommaso-marras-e-del-pisa/",
@@ -4605,7 +4876,8 @@
         "publishedAt": "2026-07-11T17:05:47.000Z",
         "language": "it-IT",
         "fetchedAt": "2026-07-15T14:18:24.730Z"
-      }
+      },
+      "sourcePreviewCheckedAt": "2026-07-15T14:18:24.730Z"
     },
     {
       "id": "6dc7ef74e04818",
@@ -4651,7 +4923,6 @@
       "sourceAdapters": [
         "wikipedia-poland"
       ],
-      "sourcePreviewCheckedAt": "2026-07-15T14:18:24.730Z",
       "sourcePreview": {
         "version": 1,
         "sourceUrl": "https://legia.com/michal-sevcik/90322",
@@ -4662,7 +4933,8 @@
         "publishedAt": null,
         "language": "pl-PL",
         "fetchedAt": "2026-07-15T14:18:24.730Z"
-      }
+      },
+      "sourcePreviewCheckedAt": "2026-07-15T14:18:24.730Z"
     },
     {
       "id": "aa99478631f0e1",
@@ -4708,7 +4980,6 @@
       "sourceAdapters": [
         "wikipedia-poland"
       ],
-      "sourcePreviewCheckedAt": "2026-07-15T14:18:24.730Z",
       "sourcePreview": {
         "version": 1,
         "sourceUrl": "https://piast-gliwice.eu/aktualnosci/newsy/marcel-mendes-dudzinski-dolacza-do-piasta",
@@ -4719,7 +4990,8 @@
         "publishedAt": null,
         "language": "pl",
         "fetchedAt": "2026-07-15T14:18:24.730Z"
-      }
+      },
+      "sourcePreviewCheckedAt": "2026-07-15T14:18:24.730Z"
     },
     {
       "id": "9be417fa9b5011",
@@ -4810,7 +5082,8 @@
       ],
       "sourceAdapters": [
         "wikipedia-poland"
-      ]
+      ],
+      "sourcePreviewCheckedAt": "2026-07-15T14:26:37.948Z"
     },
     {
       "id": "6eee38dd3c9b4a",
@@ -5441,7 +5714,6 @@
       "sourceAdapters": [
         "wikipedia-germany"
       ],
-      "sourcePreviewCheckedAt": "2026-07-15T14:18:24.730Z",
       "sourcePreview": {
         "version": 1,
         "sourceUrl": "https://www.tsg-hoffenheim.de/aktuelles/news/2026/07/tsg-hoffenheim-verpflichtet-top-talent-nathan-de-cat",
@@ -5452,7 +5724,8 @@
         "publishedAt": null,
         "language": "de-DE",
         "fetchedAt": "2026-07-15T14:18:24.730Z"
-      }
+      },
+      "sourcePreviewCheckedAt": "2026-07-15T14:18:24.730Z"
     },
     {
       "id": "89b4c455e89557",
@@ -5497,7 +5770,19 @@
       ],
       "sourceAdapters": [
         "wikipedia-germany"
-      ]
+      ],
+      "sourcePreview": {
+        "version": 1,
+        "sourceUrl": "https://www.fcaugsburg.de/article/fca-verpflichtet-defensiv-talent-sima-suso-23244",
+        "title": "FCA verpflichtet Defensiv-Talent Sima Suso | FC Augsburg",
+        "description": "Der FC Augsburg hat mit Sima Suso ein weiteres vielversprechendes Talent verpflichtet.",
+        "imageUrl": "https://www.fcaugsburg.de/media/fca/article_stage/0002/25/thumb_124041_article_stage_hd.jpeg",
+        "siteName": "FC Augsburg",
+        "publishedAt": null,
+        "language": "de",
+        "fetchedAt": "2026-07-15T14:26:37.948Z"
+      },
+      "sourcePreviewCheckedAt": "2026-07-15T14:26:37.948Z"
     },
     {
       "id": "f16959c80dc65c",
@@ -5542,7 +5827,19 @@
       ],
       "sourceAdapters": [
         "wikipedia-germany"
-      ]
+      ],
+      "sourcePreview": {
+        "version": 1,
+        "sourceUrl": "https://www.fcaugsburg.de/article/felix-meiser-wechselt-nach-duesseldorf-23245",
+        "title": "Felix Meiser wechselt nach Düsseldorf | FC Augsburg",
+        "description": "Abwehrspieler Felix Meiser wechselt vom FC Augsburg zum Zweitliga-Absteiger Fortuna Düsseldorf.",
+        "imageUrl": "https://www.fcaugsburg.de/media/fca/article_stage/0002/25/thumb_124042_article_stage_hd.jpeg",
+        "siteName": "FC Augsburg",
+        "publishedAt": null,
+        "language": "de",
+        "fetchedAt": "2026-07-15T14:29:39.267Z"
+      },
+      "sourcePreviewCheckedAt": "2026-07-15T14:29:39.267Z"
     },
     {
       "id": "b252911bc32657",
@@ -5588,7 +5885,6 @@
       "sourceAdapters": [
         "wikipedia-germany"
       ],
-      "sourcePreviewCheckedAt": "2026-07-15T14:18:24.730Z",
       "sourcePreview": {
         "version": 1,
         "sourceUrl": "https://www.hsv.de/news/aboubaka-soumahoro-wird-zum-rcd-mallorca-verliehen",
@@ -5599,7 +5895,8 @@
         "publishedAt": null,
         "language": "de-DE",
         "fetchedAt": "2026-07-15T14:18:24.730Z"
-      }
+      },
+      "sourcePreviewCheckedAt": "2026-07-15T14:18:24.730Z"
     },
     {
       "id": "9a4e6d1d336547",
@@ -5636,6 +5933,11 @@
           "name": "Werder Bremen",
           "url": "https://www.werder.de/news/maenner/2026-2027/pm-schlager-10072026",
           "role": "primary_official"
+        },
+        {
+          "name": "Transfermarkt DE",
+          "url": "https://www.transfermarkt.de/wiedersehen-mit-glasner-schlager-vor-unterschrift-bei-nottingham-forest/view/news/483012",
+          "role": "database"
         }
       ],
       "firstSeenAt": "2026-07-10T12:00:00.000Z",
@@ -5643,7 +5945,8 @@
         "Bundesliga"
       ],
       "sourceAdapters": [
-        "wikipedia-germany"
+        "wikipedia-germany",
+        "transfermarkt-de-rss"
       ],
       "sourcePreviewCheckedAt": "2026-07-15T14:18:24.730Z"
     },
@@ -5691,7 +5994,6 @@
       "sourceAdapters": [
         "wikipedia-germany"
       ],
-      "sourcePreviewCheckedAt": "2026-07-15T14:18:24.730Z",
       "sourcePreview": {
         "version": 1,
         "sourceUrl": "https://www.dynamo-dresden.de/aktuelles/news/profis/die-sgd-verpflichtet-thomas-keller/",
@@ -5702,7 +6004,8 @@
         "publishedAt": null,
         "language": "de-DE",
         "fetchedAt": "2026-07-15T14:18:24.730Z"
-      }
+      },
+      "sourcePreviewCheckedAt": "2026-07-15T14:18:24.730Z"
     },
     {
       "id": "834cac86abae4d",
@@ -5751,7 +6054,6 @@
         "wikipedia-germany",
         "wikipedia-italy"
       ],
-      "sourcePreviewCheckedAt": "2026-07-15T14:18:24.730Z",
       "sourcePreview": {
         "version": 1,
         "sourceUrl": "https://www.sampdoria.it/news/club/2026/07/10/sinani-e-blucerchiato-contratto-fino-al-30-giugno-2028/",
@@ -5762,7 +6064,8 @@
         "publishedAt": "2026-07-10T16:00:07.000Z",
         "language": "it-IT",
         "fetchedAt": "2026-07-15T14:18:24.730Z"
-      }
+      },
+      "sourcePreviewCheckedAt": "2026-07-15T14:18:24.730Z"
     },
     {
       "id": "3e9e64cc7e5c4b",
@@ -5807,7 +6110,19 @@
       ],
       "sourceAdapters": [
         "wikipedia-italy"
-      ]
+      ],
+      "sourcePreview": {
+        "version": 1,
+        "sourceUrl": "https://www.sampdoria.it/news/club/2026/07/10/coucke-ceduto-al-cercle-brugge-a-titolo-definitivo/",
+        "title": "Coucke ceduto al Cercle Brugge a titolo definitivo - U.C. Sampdoria",
+        "description": "L’U.C. Sampdoria comunica di aver ceduto a titolo definitivo al Cercle Brugge K.S.V. i diritti alle prestazioni sportive del calciatore Gaëtan Coucke. Leggi tutto...",
+        "imageUrl": "https://www.sampdoria.it/wp-content/uploads/2026/07/SerieB2025-26_MonSam_Singoli_0140.jpg",
+        "siteName": "U.C. Sampdoria",
+        "publishedAt": "2026-07-10T08:00:02.000Z",
+        "language": "it-IT",
+        "fetchedAt": "2026-07-15T14:26:37.948Z"
+      },
+      "sourcePreviewCheckedAt": "2026-07-15T14:26:37.948Z"
     },
     {
       "id": "134378cc4db0ae",
@@ -5852,7 +6167,19 @@
       ],
       "sourceAdapters": [
         "wikipedia-italy"
-      ]
+      ],
+      "sourcePreview": {
+        "version": 1,
+        "sourceUrl": "https://uscremonese.it/mattia-scaringi-in-prestito-alla-torres/",
+        "title": "Mattia Scaringi in prestito alla Torres – US Cremonese",
+        "description": null,
+        "imageUrl": "https://uscremonese.it/mattia-scaringi-in-prestito-alla-torres/null",
+        "siteName": "Cremonese",
+        "publishedAt": null,
+        "language": "it-IT",
+        "fetchedAt": "2026-07-15T14:26:37.948Z"
+      },
+      "sourcePreviewCheckedAt": "2026-07-15T14:26:37.948Z"
     },
     {
       "id": "a31c15503ded2e",
@@ -5897,7 +6224,19 @@
       ],
       "sourceAdapters": [
         "wikipedia-italy"
-      ]
+      ],
+      "sourcePreview": {
+        "version": 1,
+        "sourceUrl": "https://www.veneziafc.it/news/alessandro-plizzari-al-fc-sudtirol",
+        "title": "Alessandro Plizzari al FC Sudtirol",
+        "description": "Le ultime notizie del Venezia FC — report delle partite, interviste e aggiornamenti dal club.",
+        "imageUrl": "https://images.veneziafc.it/image/private/t_ratio16_9-size60-f_webp-c_fill/v1783677331/prd/koj7jhxhzvmwbrldyay0",
+        "siteName": "Venezia FC",
+        "publishedAt": "2026-07-10T10:25:25.845Z",
+        "language": "it",
+        "fetchedAt": "2026-07-15T14:29:39.267Z"
+      },
+      "sourcePreviewCheckedAt": "2026-07-15T14:29:39.267Z"
     },
     {
       "id": "bac88ed71abad4",
@@ -5943,7 +6282,6 @@
       "sourceAdapters": [
         "wikipedia-italy"
       ],
-      "sourcePreviewCheckedAt": "2026-07-15T14:18:24.730Z",
       "sourcePreview": {
         "version": 1,
         "sourceUrl": "https://www.usavellino1912.com/tommaso-martinelli-in-prestito-dalla-fiorentina/",
@@ -5954,7 +6292,8 @@
         "publishedAt": null,
         "language": "it-IT",
         "fetchedAt": "2026-07-15T14:18:24.730Z"
-      }
+      },
+      "sourcePreviewCheckedAt": "2026-07-15T14:18:24.730Z"
     },
     {
       "id": "40e04ef412f220",
@@ -5999,7 +6338,8 @@
       ],
       "sourceAdapters": [
         "wikipedia-italy"
-      ]
+      ],
+      "sourcePreviewCheckedAt": "2026-07-15T14:26:37.948Z"
     },
     {
       "id": "20486a25ceeed4",
@@ -6044,7 +6384,19 @@
       ],
       "sourceAdapters": [
         "wikipedia-italy"
-      ]
+      ],
+      "sourcePreview": {
+        "version": 1,
+        "sourceUrl": "https://www.usavellino1912.com/giacomo-faticanti-in-prestito-dalla-juventus/",
+        "title": "GIACOMO FATICANTI IN PRESTITO DALLA JUVENTUS",
+        "description": "L’U.S. Avellino 1912 comunica di aver acquisito dalla Juventus F.C. , a titolo temporaneo con diritto di opzione e controopzione, il diritto alle prestazioni sportive del calciatore Giacomo Faticanti. Nato a Roma il 31 luglio 2004, il centrocampista capitolino è cresciuto nelle giovanili dell' A.S. Roma. Tra i professionisti ha indossato le maglie di…",
+        "imageUrl": "https://www.usavellino1912.com/wp-content/uploads/2026/07/FATICANTI-POST.png",
+        "siteName": "Avellino",
+        "publishedAt": null,
+        "language": "it-IT",
+        "fetchedAt": "2026-07-15T14:29:39.267Z"
+      },
+      "sourcePreviewCheckedAt": "2026-07-15T14:29:39.267Z"
     },
     {
       "id": "226ca0a152ab29",
@@ -6089,7 +6441,19 @@
       ],
       "sourceAdapters": [
         "wikipedia-italy"
-      ]
+      ],
+      "sourcePreview": {
+        "version": 1,
+        "sourceUrl": "https://genoacfc.it/2026/07/10/havel-nuovo-attaccante-lacquisto-e-ufficiale/",
+        "title": "Havel nuovo attaccante, l’acquisto è ufficiale - Genoa Cricket and Football Club - Official Website",
+        "description": "Elias Havel è un nuovo giocatore del Genoa. L'attaccante austriaco è un nuovo jolly per De Rossi nelle opzioni offensive.",
+        "imageUrl": "https://genoacfc.it/wp-content/uploads/2026/07/web_havel.png",
+        "siteName": "Genoa Cricket and Football Club - Official Website",
+        "publishedAt": "2026-07-10T16:00:00.000Z",
+        "language": "it-IT",
+        "fetchedAt": "2026-07-15T14:26:37.948Z"
+      },
+      "sourcePreviewCheckedAt": "2026-07-15T14:26:37.948Z"
     },
     {
       "id": "9f7fff32f59d03",
@@ -6134,7 +6498,8 @@
       ],
       "sourceAdapters": [
         "wikipedia-italy"
-      ]
+      ],
+      "sourcePreviewCheckedAt": "2026-07-15T14:26:37.948Z"
     },
     {
       "id": "cdcf6c3630d992",
@@ -6179,7 +6544,8 @@
       ],
       "sourceAdapters": [
         "wikipedia-italy"
-      ]
+      ],
+      "sourcePreviewCheckedAt": "2026-07-15T14:26:37.948Z"
     },
     {
       "id": "fb4be9a131c74d",
@@ -6224,7 +6590,8 @@
       ],
       "sourceAdapters": [
         "wikipedia-italy"
-      ]
+      ],
+      "sourcePreviewCheckedAt": "2026-07-15T14:26:37.948Z"
     },
     {
       "id": "8abb01ad37377b",
@@ -6269,7 +6636,19 @@
       ],
       "sourceAdapters": [
         "wikipedia-poland"
-      ]
+      ],
+      "sourcePreview": {
+        "version": 1,
+        "sourceUrl": "https://wisla-plock.pl/aktualnosci/adam-radwanski-wraca-do-domu/",
+        "title": "Adam Radwański wraca do domu! - Wisła Płock S.A.",
+        "description": "Z przyjemnością ogłaszamy powrót kolejnego wychowanka, Płocczanina do Wisły Płock. Adam Radwański podpisał z naszym klubem kontrakt, ważny do 30 czerwca 2027 roku z możliwością przedłużenia współpracy o kolejny sezon. Urodzony 10 kwietnia 1998 roku w Płocku ofensywny pomocnik zaczynał swoją sportową przygodę w UKS MDK Płock i Mazowszu Płock, a następnie…",
+        "imageUrl": "https://wisla-plock.pl/wp-content/uploads/2026/07/Fot-11-4-scaled-optimized.jpg",
+        "siteName": "Wisła Płock S.A.",
+        "publishedAt": "2026-07-10T08:00:00.000Z",
+        "language": "pl-PL",
+        "fetchedAt": "2026-07-15T14:26:37.948Z"
+      },
+      "sourcePreviewCheckedAt": "2026-07-15T14:26:37.948Z"
     },
     {
       "id": "c3fbf22209eabb",
@@ -6314,7 +6693,8 @@
       ],
       "sourceAdapters": [
         "wikipedia-poland"
-      ]
+      ],
+      "sourcePreviewCheckedAt": "2026-07-15T14:26:37.948Z"
     },
     {
       "id": "2f5ccec5d06fac",
@@ -6359,7 +6739,19 @@
       ],
       "sourceAdapters": [
         "wikipedia-poland"
-      ]
+      ],
+      "sourcePreview": {
+        "version": 1,
+        "sourceUrl": "https://wislakrakow.com/en/blogs/news/elie-youan-zawodnikiem-wisly-krakow",
+        "title": "Élie Youan zawodnikiem Wisły Kraków",
+        "description": "Élie Youan został nowym piłkarzem Wisły Kraków. 27-letni francuski skrzydłowy podpisał z Białą Gwiazdą trzyletni kontrakt, obowiązujący do 30 czerwca 2029 roku.",
+        "imageUrl": "https://wislakrakow.com/cdn/shop/articles/News_Transfer_Youan_d267b4ad-8af8-4f6c-a1ee-2392a1e70a58.png?crop=center&height=630&v=1783710988&width=1200",
+        "siteName": "Wisła Kraków® Official Platform",
+        "publishedAt": "2026-07-10T14:02:57.000Z",
+        "language": "en",
+        "fetchedAt": "2026-07-15T14:26:37.948Z"
+      },
+      "sourcePreviewCheckedAt": "2026-07-15T14:26:37.948Z"
     },
     {
       "id": "3cbd5360034d79",
@@ -6944,7 +7336,8 @@
       ],
       "sourceAdapters": [
         "wikipedia-germany"
-      ]
+      ],
+      "sourcePreviewCheckedAt": "2026-07-15T14:26:37.948Z"
     },
     {
       "id": "9ebbc9550ed5b4",
@@ -6989,7 +7382,19 @@
       ],
       "sourceAdapters": [
         "wikipedia-germany"
-      ]
+      ],
+      "sourcePreview": {
+        "version": 1,
+        "sourceUrl": "https://sv07elversberg.de/cole-campbell-wechselt-aus-dortmund-an-die-kaiserlinde/",
+        "title": "Cole Campbell wechselt aus Dortmund an die Kaiserlinde - SV 07 Elversberg",
+        "description": "Die SV Elversberg hat ihre Offensive für die kommende Bundesliga-Saison weiter verstärkt: Cole Campbell, der zuletzt an die TSG Hoffenheim verliehen war, wechselt von Borussia Dortmund an die Kaiserlinde. Der 20-jährige Offensivspieler unterschreibt bei der SVE einen Vierjahresvertrag bis Sommer 2030. Der in Houston (Texas) geborene Campbell, der die…",
+        "imageUrl": "https://sv07elversberg.de/wp-content/uploads/2026/07/DSB06809-hp-scaled.jpg",
+        "siteName": "SV 07 Elversberg",
+        "publishedAt": "2026-07-09T08:40:14.000Z",
+        "language": "de",
+        "fetchedAt": "2026-07-15T14:26:37.948Z"
+      },
+      "sourcePreviewCheckedAt": "2026-07-15T14:26:37.948Z"
     },
     {
       "id": "34afab7a3e2639",
@@ -7079,7 +7484,8 @@
       ],
       "sourceAdapters": [
         "wikipedia-germany"
-      ]
+      ],
+      "sourcePreviewCheckedAt": "2026-07-15T14:26:37.948Z"
     },
     {
       "id": "bb6241256f2ebc",
@@ -7132,7 +7538,8 @@
       "sourceAdapters": [
         "wikipedia-germany",
         "wikipedia-poland"
-      ]
+      ],
+      "sourcePreviewCheckedAt": "2026-07-15T14:26:37.948Z"
     },
     {
       "id": "ad578ec03e7562",
@@ -7177,7 +7584,19 @@
       ],
       "sourceAdapters": [
         "wikipedia-germany"
-      ]
+      ],
+      "sourcePreview": {
+        "version": 1,
+        "sourceUrl": "https://www.hannover96.de/newscenter/news/details/37140-langfristig-gebunden-hannover-96-verpflichtet-torhueter-pascal-loretz-vom-fc-luzern.html",
+        "title": "Langfristig gebunden: Hannover 96 verpflichtet Torhüter Pascal Loretz vom FC Luzern",
+        "description": "Hannover 96 verstärkt sich auf der Torwartposition: Pascal Loretz wechselt vom Schweizer Erstligisten FC Luzern an den Maschsee. Der 23-jährige Keeper, der bereits mehrfach für die Schweizer A-Nationalmannschaft nominiert wurde, erhält bei Hannover 96 einen Vierjahresvertrag und wird damit langfristig bis zum 30. Juni 2030 gebunden.",
+        "imageUrl": "https://www.hannover96.de/fileadmin/_processed_/b/4/csm_Loretz-Juli2026-HD_b144f01acd.jpg",
+        "siteName": "Hannover 96",
+        "publishedAt": null,
+        "language": null,
+        "fetchedAt": "2026-07-15T14:29:39.267Z"
+      },
+      "sourcePreviewCheckedAt": "2026-07-15T14:29:39.267Z"
     },
     {
       "id": "fc7d1844a23070",
@@ -7222,7 +7641,19 @@
       ],
       "sourceAdapters": [
         "wikipedia-italy"
-      ]
+      ],
+      "sourcePreview": {
+        "version": 1,
+        "sourceUrl": "https://www.torinofc.it/news/09/07/2026/oristanio-al-toro_43697",
+        "title": "Oristanio al Toro | Torino FC",
+        "description": null,
+        "imageUrl": "https://www.torinofc.it/sites/default/files/styles/share_small/public/2026-07/_ALB9005.jpg?itok=piMRIZqq",
+        "siteName": "Oristanio al Toro | Torino FC",
+        "publishedAt": null,
+        "language": "it",
+        "fetchedAt": "2026-07-15T14:29:39.267Z"
+      },
+      "sourcePreviewCheckedAt": "2026-07-15T14:29:39.267Z"
     },
     {
       "id": "a6221f9a27a394",
@@ -7267,7 +7698,19 @@
       ],
       "sourceAdapters": [
         "wikipedia-italy"
-      ]
+      ],
+      "sourcePreview": {
+        "version": 1,
+        "sourceUrl": "https://www.acffiorentina.com/news/amatucci-080726",
+        "title": "ACF Fiorentina | Amatucci ceduto al Deportivo",
+        "description": null,
+        "imageUrl": "https://www.acffiorentina.com/getContentAsset/389757d5-d744-47b8-8b7a-a9747a2a083f/fdc2628b-8d67-425c-b6d0-a02576381c81/Lorenzo-Amatucci.webp?language=it",
+        "siteName": "ACF Fiorentina",
+        "publishedAt": null,
+        "language": "it",
+        "fetchedAt": "2026-07-15T14:29:39.267Z"
+      },
+      "sourcePreviewCheckedAt": "2026-07-15T14:29:39.267Z"
     },
     {
       "id": "4581521fc1059a",
@@ -7312,7 +7755,19 @@
       ],
       "sourceAdapters": [
         "wikipedia-italy"
-      ]
+      ],
+      "sourcePreview": {
+        "version": 1,
+        "sourceUrl": "https://www.veneziafc.it/news/albion-rrahmani-al-venezia-fc",
+        "title": "ALBION RRAHMANI AL VENEZIA FC",
+        "description": "Le ultime notizie del Venezia FC — report delle partite, interviste e aggiornamenti dal club.",
+        "imageUrl": "https://images.veneziafc.it/image/private/t_ratio16_9-size60-f_webp-c_fill/v1783585700/prd/skixhylronq7gjga7qoa",
+        "siteName": "Venezia FC",
+        "publishedAt": "2026-07-09T08:55:45.293Z",
+        "language": "it",
+        "fetchedAt": "2026-07-15T14:49:29.584Z"
+      },
+      "sourcePreviewCheckedAt": "2026-07-15T14:49:29.584Z"
     },
     {
       "id": "f5b11254538c61",
@@ -7357,7 +7812,19 @@
       ],
       "sourceAdapters": [
         "wikipedia-italy"
-      ]
+      ],
+      "sourcePreview": {
+        "version": 1,
+        "sourceUrl": "https://www.fc-suedtirol.com/it/news/kenny-mixtur-%C3%A8-un-nuovo-giocatore-dell-fc-s%C3%BCdtirol/24-10738.html",
+        "title": "Kenny Mixtur è un nuovo giocatore dell’FC Südtirol - FC Südtirol - Alto Adige",
+        "description": null,
+        "imageUrl": "https://www.fc-suedtirol.com/it/news/kenny-mixtur-%C3%A8-un-nuovo-giocatore-dell-fc-s%C3%BCdtirol/null",
+        "siteName": "Südtirol",
+        "publishedAt": null,
+        "language": null,
+        "fetchedAt": "2026-07-15T14:29:39.267Z"
+      },
+      "sourcePreviewCheckedAt": "2026-07-15T14:29:39.267Z"
     },
     {
       "id": "376e06df0acaa4",
@@ -7402,7 +7869,19 @@
       ],
       "sourceAdapters": [
         "wikipedia-italy"
-      ]
+      ],
+      "sourcePreview": {
+        "version": 1,
+        "sourceUrl": "https://www.fc-suedtirol.com/it/news/giacomo-stabile-%C3%A8-un-nuovo-giocatore-dell-fc-s%C3%BCdtirol/24-10741.html",
+        "title": "Giacomo Stabile è un nuovo giocatore dell’FC Südtirol - FC Südtirol - Alto Adige",
+        "description": null,
+        "imageUrl": "https://www.fc-suedtirol.com/it/news/giacomo-stabile-%C3%A8-un-nuovo-giocatore-dell-fc-s%C3%BCdtirol/null",
+        "siteName": "Südtirol",
+        "publishedAt": null,
+        "language": null,
+        "fetchedAt": "2026-07-15T14:49:29.584Z"
+      },
+      "sourcePreviewCheckedAt": "2026-07-15T14:49:29.584Z"
     },
     {
       "id": "d6b93de0baa0d4",
@@ -7447,7 +7926,19 @@
       ],
       "sourceAdapters": [
         "wikipedia-italy"
-      ]
+      ],
+      "sourcePreview": {
+        "version": 1,
+        "sourceUrl": "https://www.veneziafc.it/news/alejandro-gomes-furtado-al-venezia-fc",
+        "title": "Alejandro Gomes Furtado al Venezia FC",
+        "description": "Le ultime notizie del Venezia FC — report delle partite, interviste e aggiornamenti dal club.",
+        "imageUrl": "https://images.veneziafc.it/image/private/t_ratio16_9-size60-f_webp-c_fill/v1783599971/prd/igvuitczufqk26rlmdjd",
+        "siteName": "Venezia FC",
+        "publishedAt": "2026-07-09T19:18:00.600Z",
+        "language": "it",
+        "fetchedAt": "2026-07-15T15:05:32.519Z"
+      },
+      "sourcePreviewCheckedAt": "2026-07-15T15:05:32.519Z"
     },
     {
       "id": "e16b4d12a4053e",
@@ -7492,7 +7983,19 @@
       ],
       "sourceAdapters": [
         "wikipedia-italy"
-      ]
+      ],
+      "sourcePreview": {
+        "version": 1,
+        "sourceUrl": "https://www.torinofc.it/news/09/07/2026/perciun-allascoli_43705",
+        "title": "Perciun all'Ascoli | Torino FC",
+        "description": null,
+        "imageUrl": "https://www.torinofc.it/sites/default/files/styles/share_small/public/2026-07/SP104514%202.jpg?itok=UfbYI6O0",
+        "siteName": "Perciun all'Ascoli | Torino FC",
+        "publishedAt": null,
+        "language": "it",
+        "fetchedAt": "2026-07-15T14:49:29.584Z"
+      },
+      "sourcePreviewCheckedAt": "2026-07-15T14:49:29.584Z"
     },
     {
       "id": "da5423ccb0f3d4",
@@ -7537,7 +8040,19 @@
       ],
       "sourceAdapters": [
         "wikipedia-italy"
-      ]
+      ],
+      "sourcePreview": {
+        "version": 1,
+        "sourceUrl": "https://www.atalanta.it/news/nuovo-innesto-a-centrocampo-benvenuto-gianluca-gaetano",
+        "title": "Nuovo innesto a centrocampo: benvenuto Gianluca Gaetano! | Atalanta",
+        "description": "Il classe 2000 arriva a titolo definitivo dal Cagliari",
+        "imageUrl": "https://images.atalanta.it/image/private/t_ratio16_9-size60/v1783621537/prd/uw6ooqmvmue7cb9mrspl",
+        "siteName": "Atalanta - News",
+        "publishedAt": "2026-07-09T19:00:05.153Z",
+        "language": "it",
+        "fetchedAt": "2026-07-15T14:29:39.267Z"
+      },
+      "sourcePreviewCheckedAt": "2026-07-15T14:29:39.267Z"
     },
     {
       "id": "19a55e2eba2d38",
@@ -7582,7 +8097,19 @@
       ],
       "sourceAdapters": [
         "wikipedia-italy"
-      ]
+      ],
+      "sourcePreview": {
+        "version": 1,
+        "sourceUrl": "https://carraresecalcio1908.it/bentornato-a-carrara-tommaso-guercio-e-di-nuovo-azzurro/",
+        "title": "Bentornato a Carrara, Tommaso Guercio è di nuovo azzurro! • Carrarese Calcio 1908",
+        "description": "News • Carrarese Calcio 1908 è lieta di annunciare di aver raggiunto un accordo con la società Ślask Wroclaw per l’acquisizione a titolo temporaneo del diritto",
+        "imageUrl": "https://carraresecalcio1908.it/bentornato-a-carrara-tommaso-guercio-e-di-nuovo-azzurro/null",
+        "siteName": "Carrarese Calcio 1908",
+        "publishedAt": "2026-07-09T08:45:23.000Z",
+        "language": "it-IT",
+        "fetchedAt": "2026-07-15T14:29:39.267Z"
+      },
+      "sourcePreviewCheckedAt": "2026-07-15T14:29:39.267Z"
     },
     {
       "id": "7335afe7adf566",
@@ -7627,7 +8154,19 @@
       ],
       "sourceAdapters": [
         "wikipedia-italy"
-      ]
+      ],
+      "sourcePreview": {
+        "version": 1,
+        "sourceUrl": "https://carraresecalcio1908.it/pinelli-e-ufficialmente-azzurro/",
+        "title": "Pinelli è ufficialmente azzurro! • Carrarese Calcio 1908",
+        "description": "News • Carrarese Calcio 1908 è lieta di annunciare di aver raggiunto un accordo con la Società Sportiva Lazio per l’acquisizione a titolo temporaneo del diritto",
+        "imageUrl": "https://carraresecalcio1908.it/pinelli-e-ufficialmente-azzurro/null",
+        "siteName": "Carrarese Calcio 1908",
+        "publishedAt": "2026-07-09T14:00:00.000Z",
+        "language": "it-IT",
+        "fetchedAt": "2026-07-15T14:49:29.584Z"
+      },
+      "sourcePreviewCheckedAt": "2026-07-15T14:49:29.584Z"
     },
     {
       "id": "d5e4f2b781e35c",
@@ -7672,7 +8211,19 @@
       ],
       "sourceAdapters": [
         "wikipedia-poland"
-      ]
+      ],
+      "sourcePreview": {
+        "version": 1,
+        "sourceUrl": "https://www.zaglebie.com/Aktualnosci/Pierwszy-zespol/filip-szymczak-nowym-zawodnikiem-kghm-zaglebia-lubin_n19969",
+        "title": "Filip Szymczak nowym zawodnikiem KGHM Zagłębia Lubin",
+        "description": "Informujemy, że nowym piłkarzem zespołu KGHM Zagłębia Lubin został Filip Szymczak. 24-letni napastnik podpisał kontrakt do końca sezonu 2028/2029.",
+        "imageUrl": "https://www.zaglebie.com/aktualnosci/2026/7/szymczak_www.jpg.jpeg",
+        "siteName": "Zagłębie Lubin",
+        "publishedAt": null,
+        "language": "pl",
+        "fetchedAt": "2026-07-15T14:29:39.267Z"
+      },
+      "sourcePreviewCheckedAt": "2026-07-15T14:29:39.267Z"
     },
     {
       "id": "e54ddd15a6bcec",
@@ -7717,7 +8268,8 @@
       ],
       "sourceAdapters": [
         "wikipedia-poland"
-      ]
+      ],
+      "sourcePreviewCheckedAt": "2026-07-15T14:26:37.948Z"
     },
     {
       "id": "79fe08b7c7e5e4",
@@ -7762,7 +8314,19 @@
       ],
       "sourceAdapters": [
         "wikipedia-poland"
-      ]
+      ],
+      "sourcePreview": {
+        "version": 1,
+        "sourceUrl": "https://rksradomiak.pl/artykul-6896-filip_koperski_w_radomiaku_.html",
+        "title": "Filip Koperski w Radomiaku!",
+        "description": null,
+        "imageUrl": "https://rksradomiak.pl/null",
+        "siteName": "RKS Radomiak Radom",
+        "publishedAt": null,
+        "language": "en",
+        "fetchedAt": "2026-07-15T14:29:39.267Z"
+      },
+      "sourcePreviewCheckedAt": "2026-07-15T14:29:39.267Z"
     },
     {
       "id": "f368eca43451de",
@@ -7905,142 +8469,19 @@
       "sourceAdapters": [
         "wikipedia-england",
         "wikipedia-france"
-      ]
-    },
-    {
-      "id": "bc4a96407244f9",
-      "date": "2026-07-08",
-      "time": "—",
-      "player": "Nesta Guinness-Walker",
-      "playerUrl": "https://en.wikipedia.org/wiki/Nesta_Guinness-Walker",
-      "age": 27,
-      "position": "FB",
-      "nationality": "England",
-      "flagCode": "gb-eng",
-      "flag": "🇬🇧",
-      "fromClub": "Northampton Town",
-      "fromClubUrl": "https://en.wikipedia.org/wiki/Northampton_Town_F.C.",
-      "fromClubCrest": "https://upload.wikimedia.org/wikipedia/en/thumb/2/2d/Northampton_Town_F.C._logo.svg/120px-Northampton_Town_F.C._logo.svg.png",
-      "toClub": "Aberdeen",
-      "toClubUrl": "https://en.wikipedia.org/wiki/Aberdeen_F.C.",
-      "toClubCrest": "https://upload.wikimedia.org/wikipedia/en/thumb/f/fb/Aberdeen_FC_stars_crest.svg/120px-Aberdeen_FC_stars_crest.svg.png",
-      "fee": "Free",
-      "status": "official",
-      "market": "England",
-      "markets": [
-        "England"
       ],
-      "competition": "English leagues",
-      "competitionGender": "men",
-      "competitionGenderSource": "source-register",
-      "sourceAdapter": "wikipedia-england",
-      "sourceRole": "publication",
-      "sourceName": "BBC Sport",
-      "sourceUrl": "https://www.bbc.co.uk/sport/articles/cq81j2e959qo",
-      "sources": [
-        {
-          "name": "BBC Sport",
-          "url": "https://www.bbc.co.uk/sport/articles/cq81j2e959qo",
-          "role": "publication"
-        }
-      ],
-      "firstSeenAt": "2026-07-08T12:00:00.000Z",
-      "competitions": [
-        "English leagues"
-      ],
-      "sourceAdapters": [
-        "wikipedia-england"
-      ]
-    },
-    {
-      "id": "446c6c38ed9641",
-      "date": "2026-07-08",
-      "time": "—",
-      "player": "Angus Gunn",
-      "playerUrl": "https://en.wikipedia.org/wiki/Angus_Gunn",
-      "age": 30,
-      "position": "GK",
-      "nationality": "Scotland",
-      "flagCode": "gb-sct",
-      "flag": "🇬🇧",
-      "fromClub": "Nottingham Forest",
-      "fromClubUrl": "https://en.wikipedia.org/wiki/Nottingham_Forest_F.C.",
-      "fromClubCrest": "https://upload.wikimedia.org/wikipedia/en/thumb/e/e5/Nottingham_Forest_F.C._logo.svg/120px-Nottingham_Forest_F.C._logo.svg.png",
-      "toClub": "San Jose Earthquakes",
-      "toClubUrl": "https://en.wikipedia.org/wiki/San_Jose_Earthquakes",
-      "toClubCrest": "https://upload.wikimedia.org/wikipedia/en/thumb/9/98/San_Jose_Earthquakes_2014.svg/120px-San_Jose_Earthquakes_2014.svg.png",
-      "fee": "Free",
-      "status": "official",
-      "market": "England",
-      "markets": [
-        "England"
-      ],
-      "competition": "English leagues",
-      "competitionGender": "men",
-      "competitionGenderSource": "source-register",
-      "sourceAdapter": "wikipedia-england",
-      "sourceRole": "publication",
-      "sourceName": "BBC Sport",
-      "sourceUrl": "https://www.bbc.co.uk/sport/football/articles/c982080yd7ro",
-      "sources": [
-        {
-          "name": "BBC Sport",
-          "url": "https://www.bbc.co.uk/sport/football/articles/c982080yd7ro",
-          "role": "publication"
-        }
-      ],
-      "firstSeenAt": "2026-07-08T12:00:00.000Z",
-      "competitions": [
-        "English leagues"
-      ],
-      "sourceAdapters": [
-        "wikipedia-england"
-      ]
-    },
-    {
-      "id": "91e84b52cfb3ba",
-      "date": "2026-07-08",
-      "time": "—",
-      "player": "Will Jenkins",
-      "playerUrl": "https://en.wikipedia.org/wiki/Will_Jenkins_(footballer)?action=edit&redlink=1",
-      "age": null,
-      "position": null,
-      "nationality": "England",
-      "flagCode": "gb-eng",
-      "flag": "🇬🇧",
-      "fromClub": "South Shields",
-      "fromClubUrl": "https://en.wikipedia.org/wiki/South_Shields_F.C.",
-      "fromClubCrest": "https://upload.wikimedia.org/wikipedia/en/thumb/e/e5/South_Shields_FC_crest.svg/120px-South_Shields_FC_crest.svg.png",
-      "toClub": "Rochdale",
-      "toClubUrl": "https://en.wikipedia.org/wiki/Rochdale_A.F.C.",
-      "toClubCrest": "https://upload.wikimedia.org/wikipedia/en/thumb/b/bb/Rochdale_AFC_crest.svg/120px-Rochdale_AFC_crest.svg.png",
-      "fee": "Undisclosed",
-      "status": "official",
-      "market": "England",
-      "markets": [
-        "England"
-      ],
-      "competition": "English leagues",
-      "competitionGender": "men",
-      "competitionGenderSource": "source-register",
-      "sourceAdapter": "wikipedia-england",
-      "sourceRole": "publication",
-      "sourceName": "BBC Sport",
-      "sourceUrl": "https://www.bbc.co.uk/sport/football/articles/crm0rrpln8eo",
-      "sources": [
-        {
-          "name": "BBC Sport",
-          "url": "https://www.bbc.co.uk/sport/football/articles/crm0rrpln8eo",
-          "role": "publication"
-        }
-      ],
-      "firstSeenAt": "2026-07-08T12:00:00.000Z",
-      "competitions": [
-        "English leagues"
-      ],
-      "sourceAdapters": [
-        "wikipedia-england"
-      ]
+      "sourcePreview": {
+        "version": 1,
+        "sourceUrl": "https://www.toulousefc.com/play/blog/2026/07/emersonn-correia-quitte-le-toulouse-football-club-en-direction-du-ipswitch-town-football-club",
+        "title": "Emersonn Correia quitte le Toulouse Football Club en direction du Ipswitch Town Football Club - Toulouse FC",
+        "description": "Emersonn quitte le Toulouse FC pour Ipswich Town. Après 31 matchs, 7 buts et 3 passes décisives, le Brésilien s’envole pour la Premier League.",
+        "imageUrl": "https://www.toulousefc.com/media/pages/play/blog/6452f9d938-1783517768/8g2a0080.jpg",
+        "siteName": "Toulouse FC",
+        "publishedAt": null,
+        "language": "fr",
+        "fetchedAt": "2026-07-15T14:29:39.267Z"
+      },
+      "sourcePreviewCheckedAt": "2026-07-15T14:29:39.267Z"
     },
     {
       "id": "846f2c9142ee09",
@@ -8085,7 +8526,8 @@
       ],
       "sourceAdapters": [
         "wikipedia-germany"
-      ]
+      ],
+      "sourcePreviewCheckedAt": "2026-07-15T14:29:39.267Z"
     },
     {
       "id": "b68cb2776bbda9",
@@ -8130,7 +8572,8 @@
       ],
       "sourceAdapters": [
         "wikipedia-germany"
-      ]
+      ],
+      "sourcePreviewCheckedAt": "2026-07-15T14:29:39.267Z"
     },
     {
       "id": "ca5f0a7714843a",
@@ -8175,7 +8618,19 @@
       ],
       "sourceAdapters": [
         "wikipedia-germany"
-      ]
+      ],
+      "sourcePreview": {
+        "version": 1,
+        "sourceUrl": "https://fc.de/aktuelles/news/rasmus-carstensen-wechselt-nach-aarhus",
+        "title": "Rasmus Carstensen wechselt nach Aarhus | 1. FC Köln",
+        "description": null,
+        "imageUrl": "https://images.ctfassets.net/nurz7nsnha04/5lQ73jSxObdmmvPn2FQtn2/58064caa6a0773b477c0427dca52f028/20260707_Carstensen.jpg",
+        "siteName": "1. FC Köln",
+        "publishedAt": null,
+        "language": null,
+        "fetchedAt": "2026-07-15T14:29:39.267Z"
+      },
+      "sourcePreviewCheckedAt": "2026-07-15T14:29:39.267Z"
     },
     {
       "id": "81c4912a06238c",
@@ -8221,7 +8676,19 @@
       ],
       "sourceAdapters": [
         "wikipedia-germany"
-      ]
+      ],
+      "sourcePreview": {
+        "version": 1,
+        "sourceUrl": "https://schalke04.de/personal/kevin-mueller-weiter-auf-schalke/",
+        "title": "Kevin Müller weiter auf Schalke",
+        "description": "Auf erfolgreiche Leihe folgt feste Verpflichtung: Kevin Müller gehört auch in der neuen Spielzeit zum Torwart-Team des FC Schalke 04.",
+        "imageUrl": "https://storage.schalke04.de/sites/1/2026/07/260708-mueller.jpg",
+        "siteName": "Fußball",
+        "publishedAt": "2026-07-08T07:58:47.000Z",
+        "language": "de-DE",
+        "fetchedAt": "2026-07-15T14:29:39.267Z"
+      },
+      "sourcePreviewCheckedAt": "2026-07-15T14:29:39.267Z"
     },
     {
       "id": "6bce370fb52ef4",
@@ -8266,7 +8733,19 @@
       ],
       "sourceAdapters": [
         "wikipedia-france"
-      ]
+      ],
+      "sourcePreview": {
+        "version": 1,
+        "sourceUrl": "https://www.psg.fr/content/gabriel-moscardo-prete-au-rcd-espanyol-paris-saint-germain-2026-2027",
+        "title": "Gabriel Moscardo prêté au RCD Espanyol",
+        "description": "Arrivé au Paris Saint-Germain au mois de janvier 2024, le milieu de terrain brésilien rejoint le RCD Espanyol de Barcelone, en première division espagnole, dans le cadre d’un prêt d’une saison sans option d’achat.",
+        "imageUrl": "https://media.psg.fr/image/upload/w_1200,c_fill,g_auto/f_avif/Gabriel_Moscardo_rhdwqv",
+        "siteName": "Paris Saint-Germain",
+        "publishedAt": null,
+        "language": "fr",
+        "fetchedAt": "2026-07-15T14:29:39.267Z"
+      },
+      "sourcePreviewCheckedAt": "2026-07-15T14:29:39.267Z"
     },
     {
       "id": "d6c946b6bf038a",
@@ -8311,7 +8790,19 @@
       ],
       "sourceAdapters": [
         "wikipedia-france"
-      ]
+      ],
+      "sourcePreview": {
+        "version": 1,
+        "sourceUrl": "https://www.rcstrasbourgalsace.fr/mateo-del-blanco-rejoint-le-racing/",
+        "title": "Mateo Del Blanco rejoint le Racing",
+        "description": "Le Racing Club de Strasbourg Alsace est heureux d’annoncer l’arrivée de Mateo Del Blanco, en provenance du Club Atlético Unión. Le latéral gauche argentin a paraphé un contrat jusqu’en 2031. Né en 2003 à Santa Fe, Mateo Del Blanco a évolué dans les catégories de jeunes de l’Unión, avant d’y signer son premier contrat professionnel",
+        "imageUrl": "https://www.rcstrasbourgalsace.fr/wp-content/uploads/2025/06/bandeau_mobile_campagne_abo_2526.jpg",
+        "siteName": "Racing Club de Strasbourg Alsace - Site officiel",
+        "publishedAt": "2026-07-08T18:01:07.000Z",
+        "language": "fr-FR",
+        "fetchedAt": "2026-07-15T14:29:39.267Z"
+      },
+      "sourcePreviewCheckedAt": "2026-07-15T14:29:39.267Z"
     },
     {
       "id": "214be733efffcd",
@@ -8356,7 +8847,19 @@
       ],
       "sourceAdapters": [
         "wikipedia-poland"
-      ]
+      ],
+      "sourcePreview": {
+        "version": 1,
+        "sourceUrl": "https://www.lechpoznan.pl/aktualnosci,2,sammy-dudek-wypozyczony-do-unii-skierniewice,47849.html",
+        "title": "Sammy Dudek wypożyczony do Unii Skierniewice",
+        "description": "Pomocnik Lecha Poznań Sammy Dudek spędzi najbliższy sezon w zespole beniaminka I ligi - Unii Skierniewice. W środę oba kluby podpisały umowę o wypożyczeniu 18-latka do 30 czerwca 2027 roku.",
+        "imageUrl": "https://www.lechpoznan.pl/files/cache/4/d/s_960x504_4db39c62d2ad4f21c1f2b6a07f51e4251783419470.jpg",
+        "siteName": "Lech Poznań",
+        "publishedAt": "2026-07-08T19:45:00.000Z",
+        "language": "pl",
+        "fetchedAt": "2026-07-15T14:29:39.267Z"
+      },
+      "sourcePreviewCheckedAt": "2026-07-15T14:29:39.267Z"
     },
     {
       "id": "07a3673ee7be1d",
@@ -8401,7 +8904,19 @@
       ],
       "sourceAdapters": [
         "wikipedia-poland"
-      ]
+      ],
+      "sourcePreview": {
+        "version": 1,
+        "sourceUrl": "https://www.gornikzabrze.pl/aktualnosci/wydarzenia/maksymilian-pingot-wypozyczony-do-odry-opole",
+        "title": "Maksymilian Pingot wypożyczony do Odry Opole | Górnik Zabrze",
+        "description": "23 - letni środkowy obrońca przenosi się do Odry Opole. Kluby sfinalizowały umowę transferu czasowego, która obowiązywała będzie do końca sezonu 2026/27",
+        "imageUrl": "https://assets.gornikzabrze.pl/sites/default/files/styles/seo_image/public/2026-07/DSC04842.jpg.webp?h=e98c7d5f",
+        "siteName": "Górnik Zabrze",
+        "publishedAt": "2026-07-08T12:14:10.000Z",
+        "language": "pl",
+        "fetchedAt": "2026-07-15T14:29:39.267Z"
+      },
+      "sourcePreviewCheckedAt": "2026-07-15T14:29:39.267Z"
     },
     {
       "id": "fa2c1b6a6370b9",
@@ -8446,7 +8961,8 @@
       ],
       "sourceAdapters": [
         "wikipedia-poland"
-      ]
+      ],
+      "sourcePreviewCheckedAt": "2026-07-15T14:29:39.267Z"
     },
     {
       "id": "6bb5d5b146d7bf",
@@ -8491,7 +9007,19 @@
       ],
       "sourceAdapters": [
         "wikipedia-poland"
-      ]
+      ],
+      "sourcePreview": {
+        "version": 1,
+        "sourceUrl": "https://wisla-plock.pl/aktualnosci/giannis-niarchos-odchodzi-do-1-fc-slovacko/",
+        "title": "Giannis Niarchos odchodzi do 1. FC Slovácko - Wisła Płock S.A.",
+        "description": "Giannis Niarchos, dziękujemy! 24-letni napastnik na podstawie gotówkowego transferu definitywnego odchodzi do przedstawiciela czeskiej ekstraklasy 1. FC Slovácko. Grecki snajper dołączył do nas ze słowackiego klubu FC Košice tuż przed startem sezonu 2025/2026. W tamtych rozgrywkach wystąpił w 20 meczach PKO Bank Polski Ekstraklasy, w większości w roli…",
+        "imageUrl": "https://wisla-plock.pl/wp-content/uploads/2026/05/POGWPL-85-optimized.jpg",
+        "siteName": "Wisła Płock S.A.",
+        "publishedAt": "2026-07-08T11:00:00.000Z",
+        "language": "pl-PL",
+        "fetchedAt": "2026-07-15T14:29:39.267Z"
+      },
+      "sourcePreviewCheckedAt": "2026-07-15T14:29:39.267Z"
     },
     {
       "id": "f8cc0b6cf4f932",
@@ -8536,7 +9064,19 @@
       ],
       "sourceAdapters": [
         "wikipedia-poland"
-      ]
+      ],
+      "sourcePreview": {
+        "version": 1,
+        "sourceUrl": "https://rksradomiak.pl/artykul-6892-conrado_w_radomiaku_.html",
+        "title": "Conrado w Radomiaku!",
+        "description": null,
+        "imageUrl": "https://rksradomiak.pl/null",
+        "siteName": "RKS Radomiak Radom",
+        "publishedAt": null,
+        "language": "en",
+        "fetchedAt": "2026-07-15T14:49:29.584Z"
+      },
+      "sourcePreviewCheckedAt": "2026-07-15T14:49:29.584Z"
     },
     {
       "id": "f9467dcdf0da1a",
@@ -8582,7 +9122,19 @@
       ],
       "sourceAdapters": [
         "wikipedia-germany"
-      ]
+      ],
+      "sourcePreview": {
+        "version": 1,
+        "sourceUrl": "https://fck.de/blog/kelven-frees-wird-ein-roter-teufel/",
+        "title": "Kelven Frees wird ein Roter Teufel - 1. FC Kaiserslautern",
+        "description": "Der 1. FC Kaiserslautern verstärkt seine Defensive: Vom Bundesligisten TSG Hoffenheim wechselt Innenverteidiger Kelven Frees auf Leihbasis in die Pfalz.",
+        "imageUrl": "https://fck.de/wp-content/uploads/2026/07/RV200933.jpg",
+        "siteName": "1. FC Kaiserslautern",
+        "publishedAt": "2026-07-07T16:54:54.000Z",
+        "language": "de",
+        "fetchedAt": "2026-07-15T14:49:29.584Z"
+      },
+      "sourcePreviewCheckedAt": "2026-07-15T14:49:29.584Z"
     },
     {
       "id": "3346d2f141a528",
@@ -8627,7 +9179,19 @@
       ],
       "sourceAdapters": [
         "wikipedia-germany"
-      ]
+      ],
+      "sourcePreview": {
+        "version": 1,
+        "sourceUrl": "https://www.fcaugsburg.de/article/erneute-leihe-kyliane-dong-wechselt-zu-den-bolton-wanderers-23233",
+        "title": "Erneute Leihe: Kyliane Dong wechselt zu den Bolton Wanderers | FC Augsburg",
+        "description": "Kyliane Dong wird in der Saison 2026/27 für die Bolton Wanderers auflaufen.",
+        "imageUrl": "https://www.fcaugsburg.de/media/fca/article_stage/0002/24/thumb_123984_article_stage_hd.jpeg",
+        "siteName": "FC Augsburg",
+        "publishedAt": null,
+        "language": "de",
+        "fetchedAt": "2026-07-15T14:49:29.584Z"
+      },
+      "sourcePreviewCheckedAt": "2026-07-15T14:49:29.584Z"
     },
     {
       "id": "a0f5848191d434",
@@ -8672,7 +9236,19 @@
       ],
       "sourceAdapters": [
         "wikipedia-germany"
-      ]
+      ],
+      "sourcePreview": {
+        "version": 1,
+        "sourceUrl": "https://fc.de/aktuelles/news/jakub-kaminski-verlaesst-den-1-fc-koeln",
+        "title": "Jakub Kaminski verlässt den 1. FC Köln | 1. FC Köln",
+        "description": null,
+        "imageUrl": "https://images.ctfassets.net/nurz7nsnha04/1OxYqWwOm6Yf4tFHShLyVz/fe330e30ba3eb02ed5c93c855cb1697f/20260707_Kaminski2.jpg",
+        "siteName": "1. FC Köln",
+        "publishedAt": null,
+        "language": null,
+        "fetchedAt": "2026-07-15T14:49:29.584Z"
+      },
+      "sourcePreviewCheckedAt": "2026-07-15T14:49:29.584Z"
     },
     {
       "id": "58ce0384ad64df",
@@ -8717,7 +9293,19 @@
       ],
       "sourceAdapters": [
         "wikipedia-germany"
-      ]
+      ],
+      "sourcePreview": {
+        "version": 1,
+        "sourceUrl": "https://www.scp07.de/Newsarchiv/Woerner-nach-Regensburg.html",
+        "title": "Wörner nach Regensburg - Newsarchiv - SC Paderborn 07",
+        "description": null,
+        "imageUrl": "https://www.scp07.de/Newsarchiv/null",
+        "siteName": "SC Paderborn",
+        "publishedAt": null,
+        "language": "de",
+        "fetchedAt": "2026-07-15T14:49:29.584Z"
+      },
+      "sourcePreviewCheckedAt": "2026-07-15T14:49:29.584Z"
     },
     {
       "id": "b97416f654a5a8",
@@ -8807,7 +9395,19 @@
       ],
       "sourceAdapters": [
         "wikipedia-germany"
-      ]
+      ],
+      "sourcePreview": {
+        "version": 1,
+        "sourceUrl": "https://www.fc-heidenheim.de/news/detail/nick-rothweiler-wechselt-auf-leihbasis-zum-ksv-hessen-kassel",
+        "title": "Nick Rothweiler wechselt auf Leihbasis zum KSV Hessen Kassel | 1. FC Heidenheim 1846 e. V.",
+        "description": "FCH Mittelfeldspieler Nick Rothweiler schließt sich bis Saisonende 2026/27 auf Leihbasis dem KSV Hessen Kassel an und wird dabei in der Regionalliga Südwest auflaufen. Der Vertra",
+        "imageUrl": "https://assets.fc-heidenheim.de/image/503561443546/image_481er545e97kb9f4cv4ttlov70/-FWEBP-Tnews",
+        "siteName": "1. FC Heidenheim",
+        "publishedAt": null,
+        "language": "de",
+        "fetchedAt": "2026-07-15T14:49:29.584Z"
+      },
+      "sourcePreviewCheckedAt": "2026-07-15T14:49:29.584Z"
     },
     {
       "id": "71e938f205b338",
@@ -8852,7 +9452,19 @@
       ],
       "sourceAdapters": [
         "wikipedia-germany"
-      ]
+      ],
+      "sourcePreview": {
+        "version": 1,
+        "sourceUrl": "https://www.fcstpauli.com/news/der-fc-st-pauli-verpflichtet-branimir-hrgota",
+        "title": "FC St. Pauli | Der FC St. Pauli verpflichtet Branimir Hrgota",
+        "description": "Der FC St. Pauli verzeichnet einen weiteren Neuzugang. Offensiv-Allrounder Branimir Hrgota wechselt ablösefrei ans Millerntor. Der 33-jährige Schwede…",
+        "imageUrl": "https://api.fcstpauli.com/uploads/images/Fu%C3%9Fball/1-Profis/Saison-2026-2027/Neuzug%C3%A4nge/Branimir-Hrgota/_1200x630_crop_center-center_82_none/FCP09717.jpg?v=1783439739%2C0.509%2C0.1707",
+        "siteName": "FC St. Pauli",
+        "publishedAt": null,
+        "language": "de",
+        "fetchedAt": "2026-07-15T14:49:29.584Z"
+      },
+      "sourcePreviewCheckedAt": "2026-07-15T14:49:29.584Z"
     },
     {
       "id": "67a9133204eca5",
@@ -8898,7 +9510,19 @@
       ],
       "sourceAdapters": [
         "wikipedia-france"
-      ]
+      ],
+      "sourcePreview": {
+        "version": 1,
+        "sourceUrl": "https://www.asmonaco.com/fr/news/sadibou-sane-s-engages-a-l-as-monaco",
+        "title": "Sadibou Sané à l’AS Monaco | AS Monaco",
+        "description": "L’AS Monaco est heureux d’annoncer l’arrivée de Sadibou Sané en provenance du FC Metz, qui s’engage pour 5 saisons et est désormais lié au club de la Principauté jusqu’au 30 juin 2031.",
+        "imageUrl": "https://www.asmonaco.com/fr/news/null",
+        "siteName": "Monaco",
+        "publishedAt": null,
+        "language": "fr-FR",
+        "fetchedAt": "2026-07-15T14:49:29.584Z"
+      },
+      "sourcePreviewCheckedAt": "2026-07-15T14:49:29.584Z"
     },
     {
       "id": "194210a1a4476b",
@@ -8943,7 +9567,19 @@
       ],
       "sourceAdapters": [
         "wikipedia-france"
-      ]
+      ],
+      "sourcePreview": {
+        "version": 1,
+        "sourceUrl": "https://sdponferradina.com/2026/07/07/la-sd-ponferradina-incorpora-al-portero-alex-dominguez/",
+        "title": "La SD Ponferradina incorpora al portero Álex Domínguez – Sociedad Deportiva Ponferradina",
+        "description": null,
+        "imageUrl": "https://sdponferradina.com/2026/07/07/la-sd-ponferradina-incorpora-al-portero-alex-dominguez/null",
+        "siteName": "Ponferradina",
+        "publishedAt": null,
+        "language": "es",
+        "fetchedAt": "2026-07-15T14:49:29.584Z"
+      },
+      "sourcePreviewCheckedAt": "2026-07-15T14:49:29.584Z"
     },
     {
       "id": "63de6ea9183775",
@@ -8989,7 +9625,19 @@
       ],
       "sourceAdapters": [
         "wikipedia-france"
-      ]
+      ],
+      "sourcePreview": {
+        "version": 1,
+        "sourceUrl": "https://www.stade-de-reims.com/sambou-soumano-nouvelle-arme-offensive/",
+        "title": "Sambou Soumano, nouvelle arme offensive - Stade de Reims",
+        "description": "Le Stade de Reims est heureux d’annoncer l’arrivée de Sambou Soumano, attaquant sénégalais de 25 ans. Auteur de 26 buts lors de ses deux dernières saisons complètes en Ligue 2 BKT, il s’engage avec les Rouge et Blanc jusqu’en 2030. Né à Dakar, Sambou Soumano réalise sa formation au sein de l’académie Youth Elite Football,",
+        "imageUrl": "https://www.stade-de-reims.com/wp-content/uploads/2026/07/Sans-titre-9.jpg",
+        "siteName": "Stade de Reims",
+        "publishedAt": "2026-07-07T09:59:00.000Z",
+        "language": "fr-FR",
+        "fetchedAt": "2026-07-15T14:49:29.584Z"
+      },
+      "sourcePreviewCheckedAt": "2026-07-15T14:49:29.584Z"
     },
     {
       "id": "ef01a0e712b920",
@@ -9034,7 +9682,19 @@
       ],
       "sourceAdapters": [
         "wikipedia-poland"
-      ]
+      ],
+      "sourcePreview": {
+        "version": 1,
+        "sourceUrl": "https://www.zaglebie.com/Aktualnosci/Pierwszy-zespol/krzysztof-kolanko-odchodzi-z-kghm-zaglebia-lubin_n19965",
+        "title": "Krzysztof Kolanko odchodzi z KGHM Zagłębia Lubin",
+        "description": "Informujemy, że Krzysztof Kolanko odszedł z KGHM Zagłębia Lubin. 19-letni piłkarz przeniósł się do Podbeskidzia Bielsko-Biała na zasadzie transferu definitywnego.",
+        "imageUrl": "https://www.zaglebie.com/aktualnosci/2026/7/Koolanko/20260707_100919.jpg.jpeg",
+        "siteName": "Zagłębie Lubin",
+        "publishedAt": null,
+        "language": "pl",
+        "fetchedAt": "2026-07-15T14:49:29.584Z"
+      },
+      "sourcePreviewCheckedAt": "2026-07-15T14:49:29.584Z"
     },
     {
       "id": "d99b66a519e6e1",
@@ -9079,7 +9739,19 @@
       ],
       "sourceAdapters": [
         "wikipedia-poland"
-      ]
+      ],
+      "sourcePreview": {
+        "version": 1,
+        "sourceUrl": "https://lkslodz.pl/aktualnosci/michal-kaput-w-lks/",
+        "title": "Michał Kaput w ŁKS",
+        "description": "Drugą linię ŁKS-u wzmocni w nowym sezonie Michał Kaput. Nasz klub związał się z doświadczonym pomocnikiem, który pięć ostatnich sezonów spędził w Ekstraklasie, roczną umową z opcją przedłużenia o kolejny sezon.",
+        "imageUrl": "https://lkslodz.pl/wp-content/uploads/2026/07/Michal-KAput-scaled.jpg",
+        "siteName": "ŁKS Łódź - oficjalna strona dwukrotnego Mistrza Polski",
+        "publishedAt": "2026-07-07T14:44:00.000Z",
+        "language": "pl-PL",
+        "fetchedAt": "2026-07-15T14:49:29.584Z"
+      },
+      "sourcePreviewCheckedAt": "2026-07-15T14:49:29.584Z"
     },
     {
       "id": "2164c6acb84dc8",
@@ -9124,7 +9796,8 @@
       ],
       "sourceAdapters": [
         "wikipedia-poland"
-      ]
+      ],
+      "sourcePreviewCheckedAt": "2026-07-15T14:49:29.584Z"
     },
     {
       "id": "465603962ffc0b",
@@ -9169,7 +9842,8 @@
       ],
       "sourceAdapters": [
         "wikipedia-poland"
-      ]
+      ],
+      "sourcePreviewCheckedAt": "2026-07-15T15:05:32.519Z"
     },
     {
       "id": "a1ca0551e25fb9",
@@ -9259,7 +9933,8 @@
       ],
       "sourceAdapters": [
         "wikipedia-poland"
-      ]
+      ],
+      "sourcePreviewCheckedAt": "2026-07-15T14:49:29.584Z"
     },
     {
       "id": "b339787be127b7",
@@ -9304,7 +9979,19 @@
       ],
       "sourceAdapters": [
         "wikipedia-germany"
-      ]
+      ],
+      "sourcePreview": {
+        "version": 1,
+        "sourceUrl": "https://www.bayer04.de/de-de/news/bayer04/bayer-04-verleiht-verteidiger-talent-traore-zum-slowakischen-erstligisten-as-trencin",
+        "title": "Bayer 04 verleiht Verteidiger-Talent Traoré zum slowakischen Erstligisten AS Trencin | Bayer04.de",
+        "description": "Issa Traoré wechselt von Bayer 04 Leverkusen zum slowakischen Erstligisten AS Trencin. Der Werksklub transferiert den Innenverteidiger auf Leihbasis für ein Jahr zum diesjährigen Meisterschafts-Neunten in der Slowakei.",
+        "imageUrl": "https://b04-ep-media-prod.azureedge.net/pickerimages/crop_20260324_FS_Training_249207_894331_XL.jpg",
+        "siteName": "Bayer 04 Leverkusen Fussball GmbH",
+        "publishedAt": null,
+        "language": "de",
+        "fetchedAt": "2026-07-15T14:49:29.584Z"
+      },
+      "sourcePreviewCheckedAt": "2026-07-15T14:49:29.584Z"
     },
     {
       "id": "fc0e761b96e006",
@@ -9349,7 +10036,19 @@
       ],
       "sourceAdapters": [
         "wikipedia-germany"
-      ]
+      ],
+      "sourcePreview": {
+        "version": 1,
+        "sourceUrl": "https://www.scfreiburg.com/aktuell/nachrichten/profis/news/2026/27/good-luck-and-goodbye-merlin/",
+        "title": "Goodbye and good luck, Merlin! | SC Freiburg",
+        "description": "Der Sport-Club und der FC Everton bestätigen den festen Wechsel von Merlin Röhl in die Premier League. Der 24-Jährige war bereits vergangene Saison an den Cl...",
+        "imageUrl": "https://www.scfreiburg.com/?eID=crop&width=1200&height=630&file=fileadmin/01_Content/01_Bilder/07_News/02_Profis/2026_27/News/20260706_roehl.jpg",
+        "siteName": "SC Freiburg",
+        "publishedAt": null,
+        "language": "de-DE",
+        "fetchedAt": "2026-07-15T14:49:29.584Z"
+      },
+      "sourcePreviewCheckedAt": "2026-07-15T14:49:29.584Z"
     },
     {
       "id": "515de34312f189",
@@ -9394,7 +10093,19 @@
       ],
       "sourceAdapters": [
         "wikipedia-germany"
-      ]
+      ],
+      "sourcePreview": {
+        "version": 1,
+        "sourceUrl": "https://www.fcaugsburg.de/article/oliver-sorg-wechselt-zuruck-nach-osterreich-23228",
+        "title": "Oliver Sorg wechselt zur SV Ried | FC Augsburg",
+        "description": "Oliver Sorg wechselt zurück in die Heimat und schließt sich dem österreichischen Bundesligisten SV Ried an.",
+        "imageUrl": "https://www.fcaugsburg.de/media/fca/article_stage/0002/24/thumb_123969_article_stage_hd.jpeg",
+        "siteName": "FC Augsburg",
+        "publishedAt": null,
+        "language": "de",
+        "fetchedAt": "2026-07-15T15:05:32.519Z"
+      },
+      "sourcePreviewCheckedAt": "2026-07-15T15:05:32.519Z"
     },
     {
       "id": "353758f9a5435a",
@@ -9439,7 +10150,19 @@
       ],
       "sourceAdapters": [
         "wikipedia-germany"
-      ]
+      ],
+      "sourcePreview": {
+        "version": 1,
+        "sourceUrl": "https://www.mainz05.de/news/lasse-riess-neuer-vertrag-und-leihe-nach-duesseldorf",
+        "title": "1. FSV Mainz 05 - Lasse Rieß: Neuer Vertrag und Leihe nach Düsseldorf",
+        "description": null,
+        "imageUrl": "https://www.mainz05.de/news/null",
+        "siteName": "1. FSV Mainz 05",
+        "publishedAt": null,
+        "language": "de",
+        "fetchedAt": "2026-07-15T14:49:29.584Z"
+      },
+      "sourcePreviewCheckedAt": "2026-07-15T14:49:29.584Z"
     },
     {
       "id": "a8130f6c51fb42",
@@ -9484,7 +10207,19 @@
       ],
       "sourceAdapters": [
         "wikipedia-germany"
-      ]
+      ],
+      "sourcePreview": {
+        "version": 1,
+        "sourceUrl": "https://www.zelvia.co.jp/news/news-351681/",
+        "title": "アキコッホコバヤシ選手 完全移籍加入のお知らせ | お知らせ | ＦＣ町田ゼルビア",
+        "description": "この度、KarlsruheSC(ドイツ)よりアキコッホコバヤシ選手が完全移籍加入することが決定しましたのでお知らせいたし...",
+        "imageUrl": "https://www.zelvia.co.jp/wp-content/uploads/2026/06/26-27_Banner_Welcome.png",
+        "siteName": "Machida Zelvia",
+        "publishedAt": null,
+        "language": "ja",
+        "fetchedAt": "2026-07-15T14:49:29.584Z"
+      },
+      "sourcePreviewCheckedAt": "2026-07-15T14:49:29.584Z"
     },
     {
       "id": "ffc4efbfd9c8cc",
@@ -9529,7 +10264,19 @@
       ],
       "sourceAdapters": [
         "wikipedia-france"
-      ]
+      ],
+      "sourcePreview": {
+        "version": 1,
+        "sourceUrl": "https://www.psg.fr/content/alessandro-longoni-sengage-avec-le-paris-saint-germain-jusquen-2031-psg-news-equipe-premiere-football-mercato-2026-2027",
+        "title": "Alessandro Longoni s'engage avec le Paris Saint-Germain jusqu'en 2031",
+        "description": "Le Paris Saint-Germain est heureux d’annoncer l’arrivée du gardien de but italien Alessandro Longoni. Âgé de 18 ans, le natif de Côme s’est engagé avec le Club jusqu’en 2031. Il portera le numéro 16.",
+        "imageUrl": "https://media.psg.fr/image/upload/w_1200,c_fill,g_auto/f_avif/Alessandro_Longoni_zyh3cn",
+        "siteName": "Paris Saint-Germain",
+        "publishedAt": null,
+        "language": "fr",
+        "fetchedAt": "2026-07-15T14:49:29.584Z"
+      },
+      "sourcePreviewCheckedAt": "2026-07-15T14:49:29.584Z"
     },
     {
       "id": "47253c2ab4378d",
@@ -9574,7 +10321,19 @@
       ],
       "sourceAdapters": [
         "wikipedia-france"
-      ]
+      ],
+      "sourcePreview": {
+        "version": 1,
+        "sourceUrl": "https://www.psg.fr/content/renato-marin-prete-une-saison-au-cd-nacional-paris-saint-germain-2026-2027",
+        "title": "Renato Marin prêté une saison au CD Nacional",
+        "description": "Le gardien de but de 19 ans, arrivé au Paris Saint-Germain au mois de juillet 2025, évoluera avec le CD Nacional, club de première division portugaise, lors de la saison 2026-2027, dans le cadre d’un prêt sans option d’achat.",
+        "imageUrl": "https://media.psg.fr/image/upload/w_1200,c_fill,g_auto/f_avif/Renato_Marin_hwqgzn",
+        "siteName": "Paris Saint-Germain",
+        "publishedAt": null,
+        "language": "fr",
+        "fetchedAt": "2026-07-15T15:05:32.519Z"
+      },
+      "sourcePreviewCheckedAt": "2026-07-15T15:05:32.519Z"
     },
     {
       "id": "087feca014c83f",
@@ -9619,7 +10378,19 @@
       ],
       "sourceAdapters": [
         "wikipedia-france"
-      ]
+      ],
+      "sourcePreview": {
+        "version": 1,
+        "sourceUrl": "https://losc.fr/actualites/2026-07-06/loun-srdanovic-defenseur-international-u19-suisse-rejoint-le-losc",
+        "title": "Loun Srdanovic, défenseur international U19 suisse, rejoint le LOSC | LOSC",
+        "description": null,
+        "imageUrl": "https://losc.fr/actualites/2026-07-06/null",
+        "siteName": "Lille",
+        "publishedAt": null,
+        "language": "fr",
+        "fetchedAt": "2026-07-15T14:49:29.584Z"
+      },
+      "sourcePreviewCheckedAt": "2026-07-15T14:49:29.584Z"
     },
     {
       "id": "fa4c237df662b1",
@@ -9667,7 +10438,19 @@
       "sourceAdapters": [
         "wikipedia-france",
         "wikipedia-poland"
-      ]
+      ],
+      "sourcePreview": {
+        "version": 1,
+        "sourceUrl": "https://www.rcstrasbourgalsace.fr/milosz-piekutowski-est-bleublanc/",
+        "title": "Miłosz Piekutowski est Bleu&Blanc",
+        "description": "Le Racing Club de Strasbourg Alsace est heureux d’officialiser l’arrivée de Miłosz Piekutowski. Le gardien polonais, en provenance du Jagiellonia Białystok, s’est engagé avec le Racing jusqu’en 2031. Formé au Jagiellonia Białystok, Miłosz a disputé 8 rencontres toutes compétitions confondues lors de la saison 2025-2026, dont deux en UEFA Conference League.…",
+        "imageUrl": "https://www.rcstrasbourgalsace.fr/wp-content/uploads/2025/06/bandeau_mobile_campagne_abo_2526.jpg",
+        "siteName": "Racing Club de Strasbourg Alsace - Site officiel",
+        "publishedAt": "2026-07-06T16:02:18.000Z",
+        "language": "fr-FR",
+        "fetchedAt": "2026-07-15T15:05:32.519Z"
+      },
+      "sourcePreviewCheckedAt": "2026-07-15T15:05:32.519Z"
     },
     {
       "id": "346c475efa3db6",
@@ -9712,7 +10495,19 @@
       ],
       "sourceAdapters": [
         "wikipedia-netherlands"
-      ]
+      ],
+      "sourcePreview": {
+        "version": 1,
+        "sourceUrl": "https://www.psv.nl/media/artikel/transfer-psv-verwelkomt-sven-mijnans-als-nieuwe-middenvelder",
+        "title": "Transfer | PSV verwelkomt Sven Mijnans als nieuwe middenvelder",
+        "description": "PSV heeft met AZ overeenstemming bereikt over de transfer van Sven Mijnans. De 26-jarige aanvallende middenvelder tekent in Eindhoven een contract tot medio 2031 en gaat spelen met rugnummer 21.",
+        "imageUrl": "https://www.psv.nl/upload_mm/7/3/f/cid144644_1783364429719_PSV%20-%20Sven%20Mijnans%20-%20Signing-07052_1200x844.jpg",
+        "siteName": "PSV",
+        "publishedAt": "2026-07-06T19:29:00.000Z",
+        "language": "nl",
+        "fetchedAt": "2026-07-15T15:05:32.519Z"
+      },
+      "sourcePreviewCheckedAt": "2026-07-15T15:05:32.519Z"
     },
     {
       "id": "fc578639a04726",
@@ -9757,7 +10552,19 @@
       ],
       "sourceAdapters": [
         "wikipedia-netherlands"
-      ]
+      ],
+      "sourcePreview": {
+        "version": 1,
+        "sourceUrl": "https://www.sanfrecce.co.jp/news/team/12554",
+        "title": "セバスティアン・アレー選手 FCユトレヒトより完全移籍加入のお知らせ | サンフレッチェ広島 オフィシャルサイト",
+        "description": "このたび、FCユトレヒト（オ...",
+        "imageUrl": "https://static.www.sanfrecce.co.jp/uploads/images/56vqapx5nmhaeqvtj71dtc16.jpg",
+        "siteName": "サンフレッチェ広島 オフィシャルサイト",
+        "publishedAt": null,
+        "language": "ja",
+        "fetchedAt": "2026-07-15T15:05:32.519Z"
+      },
+      "sourcePreviewCheckedAt": "2026-07-15T15:05:32.519Z"
     },
     {
       "id": "2f9e8d4c320192",
@@ -9802,7 +10609,19 @@
       ],
       "sourceAdapters": [
         "wikipedia-netherlands"
-      ]
+      ],
+      "sourcePreview": {
+        "version": 1,
+        "sourceUrl": "https://www.realzaragoza.com/noticias/sem-westerveld-nuevo-jugador-del-real-zaragoza",
+        "title": "Sem Westerveld, nuevo jugador del Real Zaragoza",
+        "description": "El portero neerlandés, nacido en San Sebastián, firma por tres temporadas con el Real Zaragoza tras terminar contrato con el AZ Alkmaar",
+        "imageUrl": "https://statics-maker.llt-services.com/zar/images/2026/07/06/large/5520fb7a-d8f9-43ff-8c6e-dc456ab79f2b-599.jpg",
+        "siteName": "Real Zaragoza",
+        "publishedAt": null,
+        "language": "es",
+        "fetchedAt": "2026-07-15T15:05:32.519Z"
+      },
+      "sourcePreviewCheckedAt": "2026-07-15T15:05:32.519Z"
     },
     {
       "id": "cecbb56ee66f42",
@@ -9847,7 +10666,19 @@
       ],
       "sourceAdapters": [
         "wikipedia-netherlands"
-      ]
+      ],
+      "sourcePreview": {
+        "version": 1,
+        "sourceUrl": "https://az.nl/inside-az/nieuws/2026/juli/buurmeester-gaat-spaans-avontuur-aan-bij-cd-leganes",
+        "title": "Buurmeester gaat Spaans avontuur aan bij C.D. Leganés",
+        "description": null,
+        "imageUrl": "https://az.nl/inside-az/nieuws/2026/juli/null",
+        "siteName": "AZ",
+        "publishedAt": null,
+        "language": "nl",
+        "fetchedAt": "2026-07-15T15:05:32.519Z"
+      },
+      "sourcePreviewCheckedAt": "2026-07-15T15:05:32.519Z"
     },
     {
       "id": "3404b2c7d93192",
@@ -9892,7 +10723,19 @@
       ],
       "sourceAdapters": [
         "wikipedia-netherlands"
-      ]
+      ],
+      "sourcePreview": {
+        "version": 1,
+        "sourceUrl": "https://az.nl/inside-az/nieuws/2026/juli/buurmeester-gaat-spaans-avontuur-aan-bij-cd-leganes",
+        "title": "Buurmeester gaat Spaans avontuur aan bij C.D. Leganés",
+        "description": null,
+        "imageUrl": "https://az.nl/inside-az/nieuws/2026/juli/null",
+        "siteName": "AZ",
+        "publishedAt": null,
+        "language": "nl",
+        "fetchedAt": "2026-07-15T15:05:32.519Z"
+      },
+      "sourcePreviewCheckedAt": "2026-07-15T15:05:32.519Z"
     },
     {
       "id": "b52704030bb92a",
@@ -9937,7 +10780,19 @@
       ],
       "sourceAdapters": [
         "wikipedia-poland"
-      ]
+      ],
+      "sourcePreview": {
+        "version": 1,
+        "sourceUrl": "https://www.nkmaribor.com/news/jBymN4sae4iXzw532Qei",
+        "title": "NK Maribor",
+        "description": "Uradna stran NK Maribor.",
+        "imageUrl": "https://www.nkmaribor.com/news/null",
+        "siteName": "Maribor",
+        "publishedAt": null,
+        "language": "en",
+        "fetchedAt": "2026-07-15T15:05:32.519Z"
+      },
+      "sourcePreviewCheckedAt": "2026-07-15T15:05:32.519Z"
     },
     {
       "id": "2abf0d5efefc90",
@@ -9982,7 +10837,8 @@
       ],
       "sourceAdapters": [
         "wikipedia-poland"
-      ]
+      ],
+      "sourcePreviewCheckedAt": "2026-07-15T15:05:32.519Z"
     },
     {
       "id": "380671382085b9",
@@ -10027,7 +10883,19 @@
       ],
       "sourceAdapters": [
         "wikipedia-poland"
-      ]
+      ],
+      "sourcePreview": {
+        "version": 1,
+        "sourceUrl": "https://sandecja.pl/Aktualnosci/Pierwsza-Druzyna/2026-07-06-Lukasz-Gerstenstein-Saczersem~n3686",
+        "title": "Łukasz Gerstenstein \"Sączersem\"",
+        "description": "Nowym zawodnikiem naszego zespołu został 21 - letni lewy obrońca, Łukasz Gerstenstein, który związał się z nami dwuletnią umową, z opcją przedłużenia o dwanaście miesięcy.",
+        "imageUrl": "https://sandecja.pl/Aktualno%C5%9Bci/2026/07/3686/25806/image-thumb__25806__news-index/GERSTENSTEIN_SANDECJA%20%281%20z%2010%29.e7de2d1d.jpg",
+        "siteName": "Sandecja Nowy Sącz",
+        "publishedAt": null,
+        "language": "pl",
+        "fetchedAt": "2026-07-15T15:05:32.519Z"
+      },
+      "sourcePreviewCheckedAt": "2026-07-15T15:05:32.519Z"
     },
     {
       "id": "ce8c0d43fb917c",
@@ -10117,7 +10985,8 @@
       ],
       "sourceAdapters": [
         "wikipedia-germany"
-      ]
+      ],
+      "sourcePreviewCheckedAt": "2026-07-15T15:05:32.519Z"
     },
     {
       "id": "b2acb4b16a257f",
@@ -10162,7 +11031,19 @@
       ],
       "sourceAdapters": [
         "wikipedia-germany"
-      ]
+      ],
+      "sourcePreview": {
+        "version": 1,
+        "sourceUrl": "https://schalke04.de/personal/leihe-felipe-sanchez/",
+        "title": "Felipe Sanchez wechselt auf Leihbasis zu Santos Laguna",
+        "description": "Innenverteidiger Felipe Sanchez verlässt den FC Schalke 04 und wird für eine Saison an den mexikanischen Erstligisten Santos Laguna verliehen.",
+        "imageUrl": "https://storage.schalke04.de/sites/1/2026/07/260704-sanchez.jpg",
+        "siteName": "Fußball",
+        "publishedAt": "2026-07-05T15:57:24.000Z",
+        "language": "de-DE",
+        "fetchedAt": "2026-07-15T15:05:32.519Z"
+      },
+      "sourcePreviewCheckedAt": "2026-07-15T15:05:32.519Z"
     },
     {
       "id": "e19eabf2a23625",
@@ -10207,7 +11088,19 @@
       ],
       "sourceAdapters": [
         "wikipedia-germany"
-      ]
+      ],
+      "sourcePreview": {
+        "version": 1,
+        "sourceUrl": "https://1.fc-magdeburg.de/news/detail/junges-offensivtalent-fuer-den-fcm",
+        "title": "Junges Offensivtalent für den FCM",
+        "description": "Der 19-jährige Flügelspieler wechselt leihweise von Brighton & Hove Albion an die Elbe.",
+        "imageUrl": "https://1.fc-magdeburg.de/fileadmin/_processed_/7/8/csm_20260705_Doyoung_5a4382c9ce.jpg",
+        "siteName": "1. FC Magdeburg",
+        "publishedAt": null,
+        "language": "de-DE",
+        "fetchedAt": "2026-07-15T15:05:32.519Z"
+      },
+      "sourcePreviewCheckedAt": "2026-07-15T15:05:32.519Z"
     },
     {
       "id": "5f42cbaa9575f0",
@@ -10252,7 +11145,19 @@
       ],
       "sourceAdapters": [
         "wikipedia-france"
-      ]
+      ],
+      "sourcePreview": {
+        "version": 1,
+        "sourceUrl": "https://www.staderennais.com/actualites/mercato/voici-big-man-bienvenue-eliezer-mayenda",
+        "title": "Voici Big Man, bienvenue Eliezer Mayenda ! | Stade Rennais F.C.",
+        "description": "Attaquant prometteur, formé à Sochaux avant d’être aguerri aux joutes du football anglo-saxon, Eliezer Mayenda, 21 ans, rejoint le Stade Rennais F.C. L’international espagnol Espoirs, surnommé Big Man, s’est engagé jusqu’en 2031 avec le club de la capitale bretonne.",
+        "imageUrl": "https://www.staderennais.com/sites/default/files/styles/og_image/private/2026-07/01_site1920x1080_0.jpg.webp?itok=8UNzdgPW",
+        "siteName": "Rennes",
+        "publishedAt": null,
+        "language": "fr",
+        "fetchedAt": "2026-07-15T15:05:32.519Z"
+      },
+      "sourcePreviewCheckedAt": "2026-07-15T15:05:32.519Z"
     },
     {
       "id": "4ca21b5926994a",
@@ -10297,7 +11202,8 @@
       ],
       "sourceAdapters": [
         "wikipedia-netherlands"
-      ]
+      ],
+      "sourcePreviewCheckedAt": "2026-07-15T15:05:32.519Z"
     },
     {
       "id": "2a680e308c6469",
@@ -10342,7 +11248,8 @@
       ],
       "sourceAdapters": [
         "wikipedia-poland"
-      ]
+      ],
+      "sourcePreviewCheckedAt": "2026-07-15T16:09:29.539Z"
     },
     {
       "id": "fd496587c909a4",
@@ -10387,7 +11294,19 @@
       ],
       "sourceAdapters": [
         "wikipedia-poland"
-      ]
+      ],
+      "sourcePreview": {
+        "version": 1,
+        "sourceUrl": "https://rksradomiak.pl/artykul-6890-maurides_odchodzi_z_radomiaka.html",
+        "title": "Maurides odchodzi z Radomiaka",
+        "description": null,
+        "imageUrl": "https://rksradomiak.pl/null",
+        "siteName": "RKS Radomiak Radom",
+        "publishedAt": null,
+        "language": "en",
+        "fetchedAt": "2026-07-15T15:05:32.519Z"
+      },
+      "sourcePreviewCheckedAt": "2026-07-15T15:05:32.519Z"
     },
     {
       "id": "7e3afc08b43a0c",
@@ -10432,7 +11351,19 @@
       ],
       "sourceAdapters": [
         "wikipedia-germany"
-      ]
+      ],
+      "sourcePreview": {
+        "version": 1,
+        "sourceUrl": "https://www.hsv.de/news/hsv-verpflichtet-mads-broecker",
+        "title": "HSV verpflichtet Mads Bröcker",
+        "description": "Der 18-Jährige wechselt aus dem Nachwuchs von RB Leipzig zu den Rothosen und soll sukzessive über die U21 an die Profis herangeführt werden.",
+        "imageUrl": "https://www.hsv.de/news/null",
+        "siteName": "HSV.de",
+        "publishedAt": null,
+        "language": "de-DE",
+        "fetchedAt": "2026-07-15T15:05:32.519Z"
+      },
+      "sourcePreviewCheckedAt": "2026-07-15T15:05:32.519Z"
     },
     {
       "id": "78b59934b617dc",
@@ -10477,7 +11408,19 @@
       ],
       "sourceAdapters": [
         "wikipedia-germany"
-      ]
+      ],
+      "sourcePreview": {
+        "version": 1,
+        "sourceUrl": "https://www.fussball.vsg-altglienicke.de/artikel/108956/john-anthony-brooks-wechselt-zur-vsg-altglienicke",
+        "title": "John Anthony Brooks wechselt zur VSG Altglienicke",
+        "description": "Powered by Regionalfussball",
+        "imageUrl": "https://images.ebcdn.de/club-7318/ArticleTeaser_108956.jpg?v=1&width=1200&height=600&mode=crop&format=webp",
+        "siteName": "VSG Altglienicke",
+        "publishedAt": null,
+        "language": "de",
+        "fetchedAt": "2026-07-15T15:05:32.519Z"
+      },
+      "sourcePreviewCheckedAt": "2026-07-15T15:05:32.519Z"
     },
     {
       "id": "537ed843bcd457",
@@ -10522,7 +11465,19 @@
       ],
       "sourceAdapters": [
         "wikipedia-germany"
-      ]
+      ],
+      "sourcePreview": {
+        "version": 1,
+        "sourceUrl": "https://www.ksc.de/profis/saison/news/show/article/naechster-neuzugang-deniz-ofli-kommt-per-leihe-aus-muenchen/",
+        "title": "Nächster Neuzugang: Deniz Ofli kommt per Leihe aus München",
+        "description": "Nach Stürmer Moritz Broschinski verpflichtet der Karlsruher SC den 19-jährigen Linksverteidiger per Leihe vom FC Bayern München und schließt somit die nächste wichtige Stelle in der Kaderplanung für 2026/27.",
+        "imageUrl": "https://www.ksc.de/fileadmin/_processed_/4/d/csm_DSC07241-2_1998bde815.jpg",
+        "siteName": "Karlsruher SC",
+        "publishedAt": null,
+        "language": "de",
+        "fetchedAt": "2026-07-15T15:05:32.519Z"
+      },
+      "sourcePreviewCheckedAt": "2026-07-15T15:05:32.519Z"
     },
     {
       "id": "d75f7ff009dfb8",
@@ -10567,7 +11522,19 @@
       ],
       "sourceAdapters": [
         "wikipedia-germany"
-      ]
+      ],
+      "sourcePreview": {
+        "version": 1,
+        "sourceUrl": "https://www.holstein-kiel.de/news-profis/holstein-kiel-verpflichtet-sebastian-schonlau/",
+        "title": "Holstein Kiel verpflichtet Sebastian Schonlau",
+        "description": "Innenverteidiger Sebastian Schonlau kehrt vom kanadischen Club Vancouver Whitecaps FC nach Norddeutschland zurück und unterschreibt bei Holstein Kiel einen Vertrag zu leistungsbezogenen Konditionen. „Sebastian ist ein Spieler mit großer Erfahrung und einer außergewöhnlichen Persönlichkeit“, erklärt Olaf Rebbe, Geschäftsführer Sport der KSV. „Wir haben uns…",
+        "imageUrl": "https://www.holstein-kiel.de/wp-content/uploads/2026/07/DSC09366-2.jpg",
+        "siteName": "Kieler Sportvereinigung Holstein von 1900 e. V.",
+        "publishedAt": "2026-07-04T07:58:00.000Z",
+        "language": "de",
+        "fetchedAt": "2026-07-15T15:05:32.519Z"
+      },
+      "sourcePreviewCheckedAt": "2026-07-15T15:05:32.519Z"
     },
     {
       "id": "651c50b467428b",
@@ -10612,7 +11579,19 @@
       ],
       "sourceAdapters": [
         "wikipedia-france"
-      ]
+      ],
+      "sourcePreview": {
+        "version": 1,
+        "sourceUrl": "https://www.rcstrasbourgalsace.fr/benjamin-brantlind-sengage-avec-le-racing/",
+        "title": "Benjamin Brantlind s’engage avec le Racing",
+        "description": "Benjamin Brantlind rejoint le Racing Club de Strasbourg Alsace. Le jeune milieu offensif suédois arrive en provenance de l’IFK Göteborg et découvrira la Ligue 1 sous les couleurs du Racing.",
+        "imageUrl": "https://www.rcstrasbourgalsace.fr/wp-content/uploads/2025/06/bandeau_mobile_campagne_abo_2526.jpg",
+        "siteName": "Racing Club de Strasbourg Alsace - Site officiel",
+        "publishedAt": "2026-07-04T11:30:00.000Z",
+        "language": "fr-FR",
+        "fetchedAt": "2026-07-15T16:09:29.539Z"
+      },
+      "sourcePreviewCheckedAt": "2026-07-15T16:09:29.539Z"
     },
     {
       "id": "097d2a787ec313",
@@ -10657,7 +11636,8 @@
       ],
       "sourceAdapters": [
         "wikipedia-poland"
-      ]
+      ],
+      "sourcePreviewCheckedAt": "2026-07-15T15:05:32.519Z"
     },
     {
       "id": "7349ca86823fbf",
@@ -10702,7 +11682,19 @@
       ],
       "sourceAdapters": [
         "wikipedia-poland"
-      ]
+      ],
+      "sourcePreview": {
+        "version": 1,
+        "sourceUrl": "https://pogongrodzisk.pl/aktualnosci/krzysztof-kaminski-nowym-bramkarzem-pogoni-grodzisk-mazowiecki",
+        "title": "Krzysztof Kamiński nowym bramkarzem Pogoni Grodzisk Mazowiecki!",
+        "description": "Doświadczony bramkarz dołącza do naszego zespołu, wzmacniając rywalizację między słupkami przed nadchodzącym sezonem.",
+        "imageUrl": "https://content.app-sources.com/s/313711923628105611/uploads/AAA_Slider/DSC04387-2_-_poziom-3145713.jpg",
+        "siteName": "Pogoń Grodzisk Mazowiecki",
+        "publishedAt": null,
+        "language": "pl",
+        "fetchedAt": "2026-07-15T15:05:32.519Z"
+      },
+      "sourcePreviewCheckedAt": "2026-07-15T15:05:32.519Z"
     },
     {
       "id": "a76c44dc482890",
@@ -10747,7 +11739,8 @@
       ],
       "sourceAdapters": [
         "wikipedia-poland"
-      ]
+      ],
+      "sourcePreviewCheckedAt": "2026-07-15T17:39:43.486Z"
     },
     {
       "id": "5db1f53ed81a56",
@@ -10792,7 +11785,8 @@
       ],
       "sourceAdapters": [
         "wikipedia-poland"
-      ]
+      ],
+      "sourcePreviewCheckedAt": "2026-07-15T16:09:29.539Z"
     },
     {
       "id": "ba3626868bb036",
@@ -10837,7 +11831,8 @@
       ],
       "sourceAdapters": [
         "wikipedia-poland"
-      ]
+      ],
+      "sourcePreviewCheckedAt": "2026-07-15T16:09:29.539Z"
     },
     {
       "id": "c340dfd66a6043",
@@ -10882,7 +11877,8 @@
       ],
       "sourceAdapters": [
         "wikipedia-germany"
-      ]
+      ],
+      "sourcePreviewCheckedAt": "2026-07-15T16:09:29.539Z"
     },
     {
       "id": "a658cddd64e71a",
@@ -10927,7 +11923,8 @@
       ],
       "sourceAdapters": [
         "wikipedia-france"
-      ]
+      ],
+      "sourcePreviewCheckedAt": "2026-07-15T16:09:29.539Z"
     },
     {
       "id": "91dc09f6150137",
@@ -10972,7 +11969,19 @@
       ],
       "sourceAdapters": [
         "wikipedia-france"
-      ]
+      ],
+      "sourcePreview": {
+        "version": 1,
+        "sourceUrl": "https://www.staderennais.com/actualites/mercato/mathys-silistrie-en-pret-a-quevilly-rouen-metropole",
+        "title": "Mathys Silistrie en prêt à Quevilly Rouen Métropole | Stade Rennais F.C.",
+        "description": null,
+        "imageUrl": "https://www.staderennais.com/sites/default/files/styles/og_image/private/2026-07/01_site1920x1080.jpg.webp?itok=MOLGr9Mo",
+        "siteName": "Rennes",
+        "publishedAt": null,
+        "language": "fr",
+        "fetchedAt": "2026-07-15T16:09:29.539Z"
+      },
+      "sourcePreviewCheckedAt": "2026-07-15T16:09:29.539Z"
     },
     {
       "id": "fa9542822a2824",
@@ -11017,7 +12026,19 @@
       ],
       "sourceAdapters": [
         "wikipedia-netherlands"
-      ]
+      ],
+      "sourcePreview": {
+        "version": 1,
+        "sourceUrl": "https://www.sc-heerenveen.nl/nieuws/sc-heerenveen-haalt-darling-bladi-van-real-betis",
+        "title": "sc Heerenveen haalt Darling Bladi van Real Betis",
+        "description": null,
+        "imageUrl": "https://www.sc-heerenveen.nl/media/ajmf3hk5/darling-bladi.jpg",
+        "siteName": "ScHeerenveen",
+        "publishedAt": null,
+        "language": "nl",
+        "fetchedAt": "2026-07-15T16:09:29.539Z"
+      },
+      "sourcePreviewCheckedAt": "2026-07-15T16:09:29.539Z"
     },
     {
       "id": "6f747037415e3c",
@@ -11062,7 +12083,19 @@
       ],
       "sourceAdapters": [
         "wikipedia-netherlands"
-      ]
+      ],
+      "sourcePreview": {
+        "version": 1,
+        "sourceUrl": "https://www.ga-eagles.nl/jakob-breum-maakt-overstap-naar-as-saint-etienne/",
+        "title": "Jakob Breum maakt overstap naar AS Saint-Étienne - Go Ahead Eagles",
+        "description": "Jakob Breum maakt per direct de overstap van Go Ahead Eagles naar AS Saint-Étienne uit Frankrijk. Breum maakte in de zomer van 2023 de overstap naar Go Ahead Eagles en speelde 105 wedstrijden voor de club. In die 105 wedstrijden kwam Breum tot 20 doelpunten en 17 assists. Tot twee keer toe maakte Breum een",
+        "imageUrl": "https://storage.googleapis.com/ga-eagles-media/wp-content/uploads/sites/1/2026/07/270626TERWGAE088-scaled.jpg",
+        "siteName": "Go Ahead Eagles",
+        "publishedAt": "2026-07-03T17:30:04.000Z",
+        "language": "nl-NL",
+        "fetchedAt": "2026-07-15T16:09:29.539Z"
+      },
+      "sourcePreviewCheckedAt": "2026-07-15T16:09:29.539Z"
     },
     {
       "id": "4df7a967d67df0",
@@ -11107,7 +12140,8 @@
       ],
       "sourceAdapters": [
         "wikipedia-netherlands"
-      ]
+      ],
+      "sourcePreviewCheckedAt": "2026-07-15T16:09:29.539Z"
     },
     {
       "id": "bc735af820cd90",
@@ -11152,7 +12186,19 @@
       ],
       "sourceAdapters": [
         "wikipedia-netherlands"
-      ]
+      ],
+      "sourcePreview": {
+        "version": 1,
+        "sourceUrl": "https://www.realvalladolid.es/noticias/de-rooij-potencia-las-bandas",
+        "title": "De Rooij potencia las bandas",
+        "description": "El Real Valladolid ha alcanzado un acuerdo con el extremo neerlandés, que llega libre y firma hasta 2030",
+        "imageUrl": "https://statics-maker.llt-services.com/vll/images/2026/07/03/large/55471572-afb3-4c03-9c03-38443594c4f2-386.jpg",
+        "siteName": "Real Valladolid",
+        "publishedAt": null,
+        "language": "es",
+        "fetchedAt": "2026-07-15T16:09:29.539Z"
+      },
+      "sourcePreviewCheckedAt": "2026-07-15T16:09:29.539Z"
     },
     {
       "id": "8542549c20271c",
@@ -11197,7 +12243,19 @@
       ],
       "sourceAdapters": [
         "wikipedia-netherlands"
-      ]
+      ],
+      "sourcePreview": {
+        "version": 1,
+        "sourceUrl": "https://fc.tps.fi/uutiset/hollantilaishyokkaaja-kian-visser-loppukauden-kattavalla-sopimuksella-tps-hyokkaykseen/",
+        "title": "Hollantilaishyökkääjä Kian Visser loppukauden kattavalla sopimuksella TPS-hyökkäykseen - FC TPS",
+        "description": "24-vuotias hollantilaishyökkääjä Kian Visser liittyy TPS:ään loppukauden 2026 kattavalla sopimuksella. Hollannin Leeuwardenissa syntynyt Visser siirtyy Tepsiin hollantilaisseura SC Cambuurista. 194-senttinen hyökkääjä nousi Cambuurin edustusjoukkueeseen kesällä 2025 Harkemase Boysista, jossa hän teki vahvaa jälkeä Hollannin Derde Divisiessä. Kaudella…",
+        "imageUrl": "https://fc.tps.fi/wp-content/uploads/2026/07/sopimusjulkaisu-miehet-1080x1350-copy-1.png",
+        "siteName": "FC TPS",
+        "publishedAt": "2026-07-03T12:43:38.000Z",
+        "language": "fi",
+        "fetchedAt": "2026-07-15T16:09:29.539Z"
+      },
+      "sourcePreviewCheckedAt": "2026-07-15T16:09:29.539Z"
     },
     {
       "id": "3bb849a7b9fc62",
@@ -11242,7 +12300,19 @@
       ],
       "sourceAdapters": [
         "wikipedia-poland"
-      ]
+      ],
+      "sourcePreview": {
+        "version": 1,
+        "sourceUrl": "https://www.gornikzabrze.pl/aktualnosci/wydarzenia/borislav-rupanov-wypozyczony-do-uniao-leiria",
+        "title": "Borislav Rupanov wypożyczony do União Leiria | Górnik Zabrze",
+        "description": "21-letni napastnik będzie w najbliższym sezonie reprezentował barwy portugalskiego União Leiria. Kluby doszły do porozumienia w sprawie umowy transferu czasowego, który potrwa do końca sezonu 2026/27 i zawiera opcję wykupu zawodnika.",
+        "imageUrl": "https://assets.gornikzabrze.pl/sites/default/files/styles/seo_image/public/2026-07/20260131_PF_XX_356.JPG.webp?h=59463f8d",
+        "siteName": "Górnik Zabrze",
+        "publishedAt": "2026-07-03T19:25:08.000Z",
+        "language": "pl",
+        "fetchedAt": "2026-07-15T16:09:29.539Z"
+      },
+      "sourcePreviewCheckedAt": "2026-07-15T16:09:29.539Z"
     },
     {
       "id": "8918e119845d99",
@@ -11287,7 +12357,8 @@
       ],
       "sourceAdapters": [
         "wikipedia-poland"
-      ]
+      ],
+      "sourcePreviewCheckedAt": "2026-07-15T16:09:29.539Z"
     },
     {
       "id": "6a3dfa526f26ad",
@@ -11332,7 +12403,19 @@
       ],
       "sourceAdapters": [
         "wikipedia-poland"
-      ]
+      ],
+      "sourcePreview": {
+        "version": 1,
+        "sourceUrl": "https://legia.com/pilka-nozna/leszczu/89497",
+        "title": "Jan Leszczyński odchodzi z Legii",
+        "description": "Środkowy obrońca Jan Leszczyński opuszcza Legię Warszawa. 19-letni absolwent Akademii Legii i młodzieżowy reprezentant Polski przenosi się do występującej w Bundeslidze Borussii Mönchengladbach.",
+        "imageUrl": "https://d1j74847gr8im9.cloudfront.net/eyJidWNrZXQiOiJ1bXBpcmUtbWVkaWEtZmlsZXMiLCJrZXkiOiI3NzdjYWIzOC0xOGI0LTRhZTItYTExZS02YTEzNGE4NTQyYWIvMTc4MjkwMDcyOV9MRUdNT1QwNDAuanBnIiwiZWRpdHMiOnsiZXh0cmFjdCI6eyJ3aWR0aCI6NDAxMiwiaGVpZ2h0IjoyNjc0LCJsZWZ0IjowLCJ0b3AiOjExNTh9LCJyZXNpemUiOnsid2lkdGgiOjE5MjAsImhlaWdodCI6MTkyMCwiZml0IjoiaW5zaWRlIiwid2l0aG91dEVubGFyZ2VtZW50Ijp0cnVlfSwid2VicCI6eyJxdWFsaXR5Ijo4MH19fQ==",
+        "siteName": "Legia Warszawa - Strona oficjalna",
+        "publishedAt": null,
+        "language": "pl-PL",
+        "fetchedAt": "2026-07-15T16:09:29.539Z"
+      },
+      "sourcePreviewCheckedAt": "2026-07-15T16:09:29.539Z"
     },
     {
       "id": "aa75a61c0c0b87",
@@ -11377,7 +12460,19 @@
       ],
       "sourceAdapters": [
         "wikipedia-poland"
-      ]
+      ],
+      "sourcePreview": {
+        "version": 1,
+        "sourceUrl": "https://www.zaglebie.com/Aktualnosci/Pierwszy-zespol/david-colina-wzmacnia-zespol-miedziowych_n19960",
+        "title": "David Čolina wzmacnia zespół Miedziowych",
+        "description": "Informujemy, że nowym piłkarzem KGHM Zagłębia Lubin został chorwacki lewy obrońca David Čolina. 25-latek podpisał z Klubem umowę do końca sezonu 2027/2028.",
+        "imageUrl": "https://www.zaglebie.com/aktualnosci/2026/7/COLINA_www.jpg.jpeg",
+        "siteName": "Zagłębie Lubin",
+        "publishedAt": null,
+        "language": "pl",
+        "fetchedAt": "2026-07-15T16:09:29.539Z"
+      },
+      "sourcePreviewCheckedAt": "2026-07-15T16:09:29.539Z"
     },
     {
       "id": "3ca8ace0e41189",
@@ -11422,7 +12517,19 @@
       ],
       "sourceAdapters": [
         "wikipedia-poland"
-      ]
+      ],
+      "sourcePreview": {
+        "version": 1,
+        "sourceUrl": "https://wisla-plock.pl/aktualnosci/oskar-klat-wypozyczony-do-olimpii-grudziadz/",
+        "title": "Oskar Klat wypożyczony do Olimpii Grudziądz - Wisła Płock S.A.",
+        "description": "Oskar Klat podpisał nowy kontrakt z Wisłą Płock obowiązujący do 30 czerwca 2028 roku, ale najbliższy sezon spędzi na wypożyczeniu w drugoligowej Olimpii Grudziądz. Urodzony 9 kwietnia 2007 roku w Płocku Oskar Klat swoją przygodę z piłką rozpoczął w szeregach Stowarzyszenia Sportu Młodzieżowego Wisła Płock, po czym przez trzy lata szkolił się w warszawskiej…",
+        "imageUrl": "https://wisla-plock.pl/wp-content/uploads/2026/06/fot-8-optimized.jpg",
+        "siteName": "Wisła Płock S.A.",
+        "publishedAt": "2026-07-03T14:00:00.000Z",
+        "language": "pl-PL",
+        "fetchedAt": "2026-07-15T16:09:29.539Z"
+      },
+      "sourcePreviewCheckedAt": "2026-07-15T16:09:29.539Z"
     },
     {
       "id": "b6b37430dcc70b",
@@ -11467,7 +12574,8 @@
       ],
       "sourceAdapters": [
         "wikipedia-poland"
-      ]
+      ],
+      "sourcePreviewCheckedAt": "2026-07-15T17:39:43.486Z"
     },
     {
       "id": "de7c5851869818",
@@ -11512,7 +12620,19 @@
       ],
       "sourceAdapters": [
         "wikipedia-poland"
-      ]
+      ],
+      "sourcePreview": {
+        "version": 1,
+        "sourceUrl": "https://cfintercity.com/el-cf-intercity-incorpora-a-carlitos-un-delantero-de-prestigio-internacional-de-regreso-a-casa/",
+        "title": "El CF Intercity incorpora a Carlitos, un delantero de prestigio internacional de regreso a casa – CF Intercity Alicante",
+        "description": null,
+        "imageUrl": "https://cfintercity.com/el-cf-intercity-incorpora-a-carlitos-un-delantero-de-prestigio-internacional-de-regreso-a-casa/null",
+        "siteName": "Intercity",
+        "publishedAt": null,
+        "language": "es",
+        "fetchedAt": "2026-07-15T16:09:29.539Z"
+      },
+      "sourcePreviewCheckedAt": "2026-07-15T16:09:29.539Z"
     },
     {
       "id": "4da299cc2170d0",
@@ -11557,7 +12677,19 @@
       ],
       "sourceAdapters": [
         "wikipedia-france"
-      ]
+      ],
+      "sourcePreview": {
+        "version": 1,
+        "sourceUrl": "https://losc.fr/actualites/2026-07-02/rafael-fernandes-prete-au-club-sport-maritimo",
+        "title": "Rafael Fernandes prêté au Club Sport Marítimo | LOSC",
+        "description": null,
+        "imageUrl": "https://losc.fr/actualites/2026-07-02/null",
+        "siteName": "Lille",
+        "publishedAt": null,
+        "language": "fr",
+        "fetchedAt": "2026-07-15T16:09:29.539Z"
+      },
+      "sourcePreviewCheckedAt": "2026-07-15T16:09:29.539Z"
     },
     {
       "id": "34d484549e571d",
@@ -11602,7 +12734,8 @@
       ],
       "sourceAdapters": [
         "wikipedia-france"
-      ]
+      ],
+      "sourcePreviewCheckedAt": "2026-07-15T17:39:43.486Z"
     },
     {
       "id": "fc56a8b8f3cdf9",
@@ -11647,7 +12780,19 @@
       ],
       "sourceAdapters": [
         "wikipedia-france"
-      ]
+      ],
+      "sourcePreview": {
+        "version": 1,
+        "sourceUrl": "https://www.asmonaco.com/fr/news/mathys-detourbet-rejoint-l-as-monaco-en-pret",
+        "title": "Mathys Detourbet rejoint l'AS Monaco en prêt en provenance de Manchester City | AS Monaco",
+        "description": "L’AS Monaco est heureux d’annoncer l’arrivée en prêt de l’ailier gauche Mathys Detourbet, en provenance de Manchester City.",
+        "imageUrl": "https://www.asmonaco.com/fr/news/null",
+        "siteName": "Monaco",
+        "publishedAt": null,
+        "language": "fr-FR",
+        "fetchedAt": "2026-07-15T16:09:29.539Z"
+      },
+      "sourcePreviewCheckedAt": "2026-07-15T16:09:29.539Z"
     },
     {
       "id": "0f359feccd5c39",
@@ -11692,7 +12837,19 @@
       ],
       "sourceAdapters": [
         "wikipedia-france"
-      ]
+      ],
+      "sourcePreview": {
+        "version": 1,
+        "sourceUrl": "https://www.asmonaco.com/fr/news/kassoum-ouattara-rejoint-le-besiktas-jk",
+        "title": "Kassoum Ouattara rejoint le Beşiktaş JK | AS Monaco",
+        "description": "L’AS Monaco annonce le départ de Kassoum Ouattara au Beşiktaş JK. Après trois saisons avec le Club de la Principauté, le latéral gauche de 21 ans va découvrir le championnat de Turquie.",
+        "imageUrl": "https://www.asmonaco.com/fr/news/null",
+        "siteName": "Monaco",
+        "publishedAt": null,
+        "language": "fr-FR",
+        "fetchedAt": "2026-07-15T17:39:43.486Z"
+      },
+      "sourcePreviewCheckedAt": "2026-07-15T17:39:43.486Z"
     },
     {
       "id": "95a284c42b822b",
@@ -11737,7 +12894,19 @@
       ],
       "sourceAdapters": [
         "wikipedia-france"
-      ]
+      ],
+      "sourcePreview": {
+        "version": 1,
+        "sourceUrl": "https://www.ogcnice.com/fr/article/130533/laurent-abergel-est-nicois.html",
+        "title": "Laurent Abergel est Niçois",
+        "description": null,
+        "imageUrl": "https://www.ogcnice-assets.com/images/articles/unes/2026/06/Site-Abergel-16-9.jpg",
+        "siteName": "OGC Nice",
+        "publishedAt": null,
+        "language": "fr",
+        "fetchedAt": "2026-07-15T16:09:29.539Z"
+      },
+      "sourcePreviewCheckedAt": "2026-07-15T16:09:29.539Z"
     },
     {
       "id": "641edbf6c25a57",
@@ -11782,7 +12951,19 @@
       ],
       "sourceAdapters": [
         "wikipedia-netherlands"
-      ]
+      ],
+      "sourcePreview": {
+        "version": 1,
+        "sourceUrl": "https://fctwente.nl/nieuws/remko-pasveer-breidt-keepersteam-uit-bij-fc-twente",
+        "title": "Remko Pasveer breidt keepersteam uit bij FC Twente",
+        "description": null,
+        "imageUrl": "https://fctwente.nl/nieuws/null",
+        "siteName": "FC Twente",
+        "publishedAt": null,
+        "language": "nl-NL",
+        "fetchedAt": "2026-07-15T16:09:29.539Z"
+      },
+      "sourcePreviewCheckedAt": "2026-07-15T16:09:29.539Z"
     },
     {
       "id": "b63cf343ed1d0d",
@@ -11827,7 +13008,19 @@
       ],
       "sourceAdapters": [
         "wikipedia-netherlands"
-      ]
+      ],
+      "sourcePreview": {
+        "version": 1,
+        "sourceUrl": "https://www.fcgroningen.nl/nieuws/fc-groningen-transfereert-postema-naar-noors-kampioen/",
+        "title": "FC Groningen transfereert Postema naar Noors kampioen",
+        "description": "FC Groningen heeft met het Viking FK overeenstemming bereikt over de transfer van Romano Postema naar Noorwegen. De eigen opgeleide spits had nog een contract tot 2027 in Euroborg waardoor de Trots van het Noorden een transfervergoeding ontvangt van de...",
+        "imageUrl": "https://www.fcgroningen.nl/wp-content/uploads/sites/7/2026/07/07042024JW49025.jpg",
+        "siteName": "FC Groningen",
+        "publishedAt": "2026-07-02T14:03:26.000Z",
+        "language": "nl-NL",
+        "fetchedAt": "2026-07-15T16:09:29.539Z"
+      },
+      "sourcePreviewCheckedAt": "2026-07-15T16:09:29.539Z"
     },
     {
       "id": "6bba524a9d1ef6",
@@ -11872,7 +13065,8 @@
       ],
       "sourceAdapters": [
         "wikipedia-poland"
-      ]
+      ],
+      "sourcePreviewCheckedAt": "2026-07-15T17:39:43.486Z"
     },
     {
       "id": "67c6b4972756e2",
@@ -11917,7 +13111,19 @@
       ],
       "sourceAdapters": [
         "wikipedia-poland"
-      ]
+      ],
+      "sourcePreview": {
+        "version": 1,
+        "sourceUrl": "https://kspolonia.pl/tomasz-makowski-nowym-pilkarzem-czarnych-koszul/",
+        "title": "Tomasz Makowski nowym piłkarzem Czarnych Koszul - Oficjalna strona Polonii Warszawa",
+        "description": "Wzmacniamy środek pola! Do Dumy Stolicy przenosi się Tomasz Makowski, który związał się z naszym klubem umową do końca sezonu 2027/2028 z opcją przedłużenia o kolejny rok. Makowski to defensywny pomocnik z ogromnym doświadczeniem na poziomie Ekstraklasy. Pochodzący ze Zgierza 26-latek stawiał pierwsze piłkarskie kroki w akademiach WUKS-u Rosanów oraz UKS-u…",
+        "imageUrl": "https://kspolonia.pl/wp-content/uploads/2026/07/1080x400-2.png",
+        "siteName": "Tomasz Makowski nowym piłkarzem Czarnych Koszul - Oficjalna strona Polonii…",
+        "publishedAt": "2026-07-02T10:00:00.000Z",
+        "language": "en-us",
+        "fetchedAt": "2026-07-15T16:09:29.539Z"
+      },
+      "sourcePreviewCheckedAt": "2026-07-15T16:09:29.539Z"
     },
     {
       "id": "57f10bd7f37ec6",
@@ -11962,7 +13168,8 @@
       ],
       "sourceAdapters": [
         "wikipedia-poland"
-      ]
+      ],
+      "sourcePreviewCheckedAt": "2026-07-15T17:39:43.486Z"
     },
     {
       "id": "507a41c756ec56",
@@ -12007,7 +13214,19 @@
       ],
       "sourceAdapters": [
         "wikipedia-poland"
-      ]
+      ],
+      "sourcePreview": {
+        "version": 1,
+        "sourceUrl": "https://pogongrodzisk.pl/aktualnosci/nikodem-niski-wraca-do-pogoni-grodzisk-mazowiecki",
+        "title": "Nikodem Niski wraca do Pogoni Grodzisk Mazowiecki",
+        "description": "Wahadłowy wzmocnił drużynę trenera Tomasza Kafarskiego przed sezonem 2026/2027 Betclic 1. Ligi, przenosząc się do Grodziska Mazowieckiego po sezonie spędzonym w Koronie Kielce. Zawodnik podpisał kontrakt na jeden sezon.",
+        "imageUrl": "https://content.app-sources.com/s/313711923628105611/uploads/AAA_Slider/DSC04211-_poziom-2999245.jpg",
+        "siteName": "Pogoń Grodzisk Mazowiecki",
+        "publishedAt": null,
+        "language": "pl",
+        "fetchedAt": "2026-07-15T17:39:43.486Z"
+      },
+      "sourcePreviewCheckedAt": "2026-07-15T17:39:43.486Z"
     },
     {
       "id": "e8a5c590ca28c4",
@@ -12052,7 +13271,19 @@
       ],
       "sourceAdapters": [
         "wikipedia-poland"
-      ]
+      ],
+      "sourcePreview": {
+        "version": 1,
+        "sourceUrl": "https://wartasieradz.com/tomasz-swedrowski-wrocil-do-warty-sieradz/",
+        "title": "Tomasz Swędrowski wrócił do Warty Sieradz! - KS Warta Sieradz",
+        "description": "Tomasz Swędrowski wrócił do Warty Sieradz! - Po 14,5 roku znów zobaczymy Tomasza Swędrowskiego w biało-zielonych barwach! Środkowy pomocnik przychodzi do Warty Sieradz z ekstraklasowej Wieczystej",
+        "imageUrl": "https://wartasieradz.com/tomasz-swedrowski-wrocil-do-warty-sieradz/null",
+        "siteName": "KS Warta Sieradz",
+        "publishedAt": "2026-07-02T13:30:57.000Z",
+        "language": "pl-PL",
+        "fetchedAt": "2026-07-15T17:39:43.486Z"
+      },
+      "sourcePreviewCheckedAt": "2026-07-15T17:39:43.486Z"
     }
   ]
 }

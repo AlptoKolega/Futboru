@@ -11,6 +11,7 @@ import {
   extractRumourMovement,
   flagCodeFromName,
   hasStructuredRoute,
+  inspectRssPayload,
   mergeHeadlineEvidence,
   mergeRumourFragments,
   matchesOfficialWebsite,
@@ -24,6 +25,8 @@ import {
   parseWikipediaDatedTransfers,
   parseWikipediaTransfers,
   positionCode,
+  previousTransfersForSource,
+  validateRssPayload,
   verifyOfficialClubSources,
 } from "../scripts/refresh.mjs";
 
@@ -247,6 +250,50 @@ test("the newest deployed snapshot wins over an older repository fallback", () =
   assert.equal(latest.competitionGender, "men");
 });
 
+test("a legacy zero-count source report does not hide an older per-source snapshot", () => {
+  const sourceId = "transfermarkt-uk-rss";
+  const olderTransfer = {
+    id: "tm-old", date: "2026-07-14", player: "Player", fromClub: "Club A", toClub: "Club B",
+    status: "rumour", sourceAdapter: sourceId, sourceName: "Transfermarkt UK",
+    sourceUrl: "https://www.transfermarkt.co.uk/claim", sourceRole: "database",
+  };
+  const selected = previousTransfersForSource([
+    {
+      generatedAt: "2026-07-15T08:00:00.000Z",
+      sources: [{ id: sourceId, status: "ok", count: 1 }],
+      transfers: [olderTransfer],
+    },
+    {
+      generatedAt: "2026-07-15T09:00:00.000Z",
+      sources: [{ id: sourceId, status: "ok", count: 0 }],
+      transfers: [],
+    },
+  ], sourceId);
+
+  assert.deepEqual(selected.map((transfer) => transfer.id), ["tm-old"]);
+});
+
+test("an observed non-empty feed with no matches is an authoritative per-source zero", () => {
+  const sourceId = "transfermarkt-uk-rss";
+  const selected = previousTransfersForSource([
+    {
+      generatedAt: "2026-07-15T08:00:00.000Z",
+      sources: [{ id: sourceId, status: "ok", count: 1 }],
+      transfers: [{
+        id: "tm-old", date: "2026-07-14", player: "Player", fromClub: "Club A", toClub: "Club B",
+        status: "rumour", sourceAdapter: sourceId,
+      }],
+    },
+    {
+      generatedAt: "2026-07-15T09:00:00.000Z",
+      sources: [{ id: sourceId, status: "ok", count: 0, observedCount: 10 }],
+      transfers: [],
+    },
+  ], sourceId);
+
+  assert.deepEqual(selected, []);
+});
+
 test("deduplication carries Wikidata identity evidence with an adopted category", () => {
   const evidence = {
     property: "P21", valueId: "Q6581072", referenceProperty: "P4656",
@@ -419,6 +466,26 @@ test("club market parser reads direction, competition, source date, nationality 
   assert.equal(result[1].fromClub, "Bayern Munich");
   assert.equal(result[1].toClub.toLowerCase(), "free agent");
   assert.equal(result[1].fee, "Free");
+});
+
+test("RSS inspection recognizes RSS and Atom roots and rejects HTML masquerading as a feed", () => {
+  assert.deepEqual(inspectRssPayload("<rss><channel><item/><item/></channel></rss>"), {
+    rootName: "rss", isFeedRoot: true, observedCount: 2,
+  });
+  assert.deepEqual(inspectRssPayload("<feed><entry/></feed>"), {
+    rootName: "feed", isFeedRoot: true, observedCount: 1,
+  });
+  assert.deepEqual(inspectRssPayload("<html><body>Access denied</body></html>"), {
+    rootName: "html", isFeedRoot: false, observedCount: 0,
+  });
+  assert.throws(
+    () => validateRssPayload("<html><body>Access denied</body></html>", { id: "transfermarkt-uk-rss", label: "Transfermarkt UK" }),
+    /not an RSS or Atom feed/,
+  );
+  assert.throws(
+    () => validateRssPayload("<rss><channel/></rss>", { id: "transfermarkt-uk-rss", label: "Transfermarkt UK" }),
+    /contained no items/,
+  );
 });
 
 test("BBC parser accepts only transfer-rumour signals", () => {
@@ -637,6 +704,72 @@ test("localized Transfermarkt fixtures parse useful claims and reject locale-spe
     assert.equal(result[0].sourceRole, "database", fixture.id);
     assert.equal(result[0].competitionGender, "unknown", fixture.id);
   }
+});
+
+test("current Transfermarkt headlines produce safe structured routes and retain partial evidence", () => {
+  const now = new Date("2026-07-15T18:00:00Z");
+  const item = (title, slug, description = "") => `
+    <item><title>${title}</title><link>https://example.test/${slug}</link>
+      <pubDate>Wed, 15 Jul 2026 14:00:00 GMT</pubDate><description>${description}</description></item>`;
+  const source = (id) => RSS_SOURCES.find((entry) => entry.id === id);
+
+  const de = parseRssRumours(`<rss><channel>
+    ${item("1860 München: Thomas Dähne wechselt zu Heidenheim", "daehne")}
+    ${item("Eintracht Frankfurt: Noel Aseko vom FC Bayern vor Unterschrift", "aseko")}
+    ${item("Schalke arbeitet an Leihe von Valencia-Verteidiger Cenk Özkacar", "oezkacar")}
+    ${item("VfL Osnabrück: Ex-Profi Simakala wechselt nach Belgien zu Eupen", "simakala")}
+  </channel></rss>`, source("transfermarkt-de-rss"), now);
+  const uk = parseRssRumours(`<rss><channel>
+    ${item("Manchester United sign Youri Tielemans from Aston Villa", "tielemans")}
+    ${item("€30m package - Galatasaray sign Lesley Ugochukwu from Burnley", "ugochukwu")}
+    ${item(
+      "Leandro Trossard joins Beşiktaş for €20m package as Arsenal eye Rogers",
+      "trossard",
+      "Leandro Trossard has completed his move to Besitkas from Arsenal with the Turkish club confirming the deal.",
+    )}
+  </channel></rss>`, source("transfermarkt-uk-rss"), now);
+  const nl = parseRssRumours(`<rss><channel>
+    ${item("Manchester City haalt Jeremy Monga binnen – waar staat hij op de ranglijst van duurste 16-jarigen?", "monga")}
+    ${item("Transfers op Transfermarkt: ranglijst meest waardevolle spelers", "noise")}
+  </channel></rss>`, source("transfermarkt-nl-rss"), now);
+  const pt = parseRssRumours(`<rss><channel>
+    ${item("Hjulmand reforça Atlético de Madrid e torna-se na sétima maior venda", "hjulmand")}
+    ${item("As últimas do mercado: todas as transferências", "noise-pt")}
+  </channel></rss>`, source("transfermarkt-pt-rss"), now);
+
+  assert.deepEqual(
+    de.filter(hasStructuredRoute).map(({ player, fromClub, toClub }) => ({ player, fromClub, toClub })),
+    [
+      { player: "Thomas Dähne", fromClub: "1860 München", toClub: "Heidenheim" },
+      { player: "Noel Aseko", fromClub: "FC Bayern", toClub: "Eintracht Frankfurt" },
+      { player: "Cenk Özkacar", fromClub: "Valencia", toClub: "Schalke" },
+    ],
+  );
+  const simakala = de.find((entry) => entry.headline.includes("Simakala"));
+  assert.equal(simakala.extractionStatus, "unresolved");
+  assert.equal(simakala.player, null);
+  assert.equal(simakala.fromClub, null);
+
+  assert.deepEqual(
+    uk.map(({ player, fromClub, toClub, fee, extractionStatus }) => ({ player, fromClub, toClub, fee, extractionStatus })),
+    [
+      { player: "Youri Tielemans", fromClub: "Aston Villa", toClub: "Manchester United", fee: "—", extractionStatus: "complete" },
+      { player: "Lesley Ugochukwu", fromClub: "Burnley", toClub: "Galatasaray", fee: "€30m", extractionStatus: "complete" },
+      { player: "Leandro Trossard", fromClub: "Arsenal", toClub: "Beşiktaş", fee: "€20m", extractionStatus: "complete" },
+    ],
+  );
+  assert.equal(Object.hasOwn(uk[2], "description"), false);
+  assert.equal(nl.length, 1);
+  assert.equal(nl[0].player, "Jeremy Monga");
+  assert.equal(nl[0].extractionStatus, "partial");
+  assert.equal(pt.length, 1);
+  assert.equal(pt[0].player, "Hjulmand");
+  assert.equal(pt[0].extractionStatus, "partial");
+
+  const finalStructuredYield = [...de, ...uk, ...nl, ...pt].filter(hasStructuredRoute);
+  assert.deepEqual(finalStructuredYield.map((entry) => entry.player), [
+    "Thomas Dähne", "Noel Aseko", "Cenk Özkacar", "Youri Tielemans", "Lesley Ugochukwu", "Leandro Trossard",
+  ]);
 });
 
 test("a complete UK Transfermarkt claim absorbs its matching Spanish partial signal", () => {

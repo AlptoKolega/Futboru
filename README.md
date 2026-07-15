@@ -11,8 +11,8 @@ A minimalist, source-backed football transfer feed. The site does not reproduce 
 - cautiously filtered transfer signals from national football RSS feeds in the United Kingdom, Germany, Italy, Spain, France, the Netherlands, Poland, Portugal, and Brazil, always marked as a `Rumour`; headlines are parsed into player, selling club, and buying club, and incomplete claims are not published as table rows;
 - localized Transfermarkt news through the published German, UK, Italian, Spanish, Dutch, Polish, and Portuguese RSS feeds, never by scraping or copying its transfer database;
 - manually curated, source-backed rumours in `data/manual-rumours.json`;
-- claim-level deduplication that retains multiple source links when two markets report the same move;
-- independent source health reports, stale-data fallback, validation, and a GitHub Actions refresh every 30 minutes;
+- claim-level deduplication that retains multiple source links when two markets report the same move; secondary links are exposed in the source drawer instead of creating duplicate rows;
+- independent source health reports, per-source last-good-data fallback, validation, and a GitHub Actions refresh every 30 minutes;
 - an accessible, responsive interface with no menu or cards, plus a restrained source-preview drawer on verified official rows.
 
 `Official` means the move appears in one of the completed-transfer registers. The source link in each row points to the cited club statement or publication. Newsroom, database, journalist, and community reports remain `Rumours` until the move appears in a completed register.
