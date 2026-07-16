@@ -2,6 +2,12 @@ import { createHash } from "node:crypto";
 import { readFile, writeFile } from "node:fs/promises";
 import { fileURLToPath } from "node:url";
 import * as cheerio from "cheerio";
+import {
+  LEAGUE_SEASON,
+  competitionIdFromLabel,
+  enrichLeagueMemberships,
+  isLeagueId,
+} from "../league-data.js";
 
 export const WIKIPEDIA_SOURCES = [
   {
@@ -266,6 +272,7 @@ const TRANSFERMARKT_BACKFILL_URL = new URL("../data/transfermarkt-news-backfill.
 const CURATED_OFFICIAL_SOURCES_URL = new URL("../data/official-sources.json", import.meta.url);
 const CURATED_PLAYER_METADATA_URL = new URL("../data/player-metadata.json", import.meta.url);
 const CURATED_TRANSFER_CORRECTIONS_URL = new URL("../data/transfer-corrections.json", import.meta.url);
+const COMPETITION_CLUBS_URL = new URL("../data/competition-clubs.json", import.meta.url);
 const PREVIOUS_DEPLOYED_DATA_URL = process.env.PREVIOUS_DEPLOYED_DATA_URL || "";
 const USER_AGENT = "Futboru/0.1 (+https://github.com/AlptoKolega/Futboru; public transfer-feed PoC)";
 const LOOKBACK_DAYS = Number(process.env.LOOKBACK_DAYS || 14);
@@ -672,6 +679,7 @@ export function parseWikipediaClubTransfers(html, config, now = new Date()) {
     const clubUrl = clubHeadingUrl($, heading);
     const leagueSection = clubSection.parents("section").first();
     const competition = cleanText(leagueSection.find(":scope > .mw-heading2 h2").first().text()) || null;
+    const competitionId = competitionIdFromLabel(competition);
 
     clubSection.find("table.wikitable.football-squad").each((tableIndex, table) => {
       const incoming = tableIndex === 0;
@@ -724,6 +732,13 @@ export function parseWikipediaClubTransfers(html, config, now = new Date()) {
           market: config.country,
           markets: [config.country],
           competition,
+          competitionIds: competitionId ? [competitionId] : [],
+          leagueMemberships: competitionId ? [{
+            side: incoming ? "to" : "from",
+            competitionId,
+            season: LEAGUE_SEASON,
+            provenance: "register-section",
+          }] : [],
           competitionGender: normaliseCompetitionGender(config.competitionGender),
           competitionGenderSource: normaliseCompetitionGender(config.competitionGender) !== "unknown" ? "source-register" : null,
           sourceAdapter: config.id,
@@ -2358,6 +2373,14 @@ async function readCuratedOfficialSources() {
   }
 }
 
+async function readCompetitionClubCatalog() {
+  const catalog = JSON.parse(await readFile(COMPETITION_CLUBS_URL, "utf8"));
+  if (catalog?.season !== LEAGUE_SEASON || !catalog?.competitions) {
+    throw new Error(`League club catalog is not valid for ${LEAGUE_SEASON}`);
+  }
+  return catalog;
+}
+
 export async function verifyOfficialClubSources(transfers, loaders = {}) {
   for (const transfer of transfers) {
     transfer.sources = transferSources(transfer).map((source) => (
@@ -2491,6 +2514,19 @@ function mergeTransfer(target, incoming) {
   const competitions = [...(target.competitions || []), target.competition, ...(incoming.competitions || []), incoming.competition].filter(Boolean);
   target.competitions = [...new Set(competitions)];
   target.competition ||= target.competitions[0] || null;
+  const memberships = [
+    ...(Array.isArray(target.leagueMemberships) ? target.leagueMemberships : []),
+    ...(Array.isArray(incoming.leagueMemberships) ? incoming.leagueMemberships : []),
+  ];
+  target.leagueMemberships = [...new Map(memberships.map((membership) => [
+    `${membership?.side}|${membership?.competitionId}`,
+    membership,
+  ])).values()].filter((membership) => membership?.side && membership?.competitionId);
+  const competitionIds = [
+    ...(Array.isArray(target.competitionIds) ? target.competitionIds : []),
+    ...(Array.isArray(incoming.competitionIds) ? incoming.competitionIds : []),
+  ].filter(isLeagueId);
+  target.competitionIds = [...new Set(competitionIds)];
   target.sourceAdapters = [...new Set([
     ...(target.sourceAdapters || []), target.sourceAdapter,
     ...(incoming.sourceAdapters || []), incoming.sourceAdapter,
@@ -2712,6 +2748,14 @@ export function normaliseStoredTransfer(transfer) {
     markets: Array.isArray(transfer.markets) ? transfer.markets : (transfer.market ? [transfer.market] : []),
     competition: transfer.competition || null,
     competitions: Array.isArray(transfer.competitions) ? transfer.competitions : (transfer.competition ? [transfer.competition] : []),
+    competitionIds: Array.isArray(transfer.competitionIds)
+      ? [...new Set(transfer.competitionIds.filter(isLeagueId))]
+      : [],
+    leagueMemberships: Array.isArray(transfer.leagueMemberships)
+      ? transfer.leagueMemberships.filter((membership) => (
+        ["from", "to"].includes(membership?.side) && isLeagueId(membership?.competitionId)
+      ))
+      : [],
     competitionGender,
     competitionGenderSource,
     competitionGenderEvidence: hasWikidataEvidence ? transfer.competitionGenderEvidence : null,
@@ -2939,6 +2983,8 @@ export async function refresh() {
       if (a.status !== b.status) return a.status === "official" ? -1 : 1;
       return (b.firstSeenAt || "").localeCompare(a.firstSeenAt || "");
     });
+
+  enrichLeagueMemberships(transfers, await readCompetitionClubCatalog());
 
   try {
     await enrichPlayerDetails(transfers);

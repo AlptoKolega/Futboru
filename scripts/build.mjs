@@ -9,11 +9,19 @@ await rm(output, { force: true, recursive: true });
 await mkdir(output, { recursive: true });
 await mkdir(fontOutput, { recursive: true });
 
-for (const entry of ["index.html", "styles.css", "app.js", ".nojekyll"]) {
+for (const entry of ["index.html", "styles.css", "app.js", "league-data.js", ".nojekyll"]) {
   await cp(new URL(`../${entry}`, import.meta.url), new URL(entry, output));
 }
 
 let index = await readFile(new URL("index.html", output), "utf8");
+
+const leagueModule = await readFile(new URL("league-data.js", output));
+const leagueFingerprint = createHash("sha256").update(leagueModule).digest("hex").slice(0, 12);
+const versionedLeagueModule = `league-data.${leagueFingerprint}.js`;
+await cp(new URL("league-data.js", output), new URL(versionedLeagueModule, output));
+let app = await readFile(new URL("app.js", output), "utf8");
+app = app.replace("./league-data.js", `./${versionedLeagueModule}`);
+await writeFile(new URL("app.js", output), app);
 
 for (const asset of ["styles.css", "app.js"]) {
   const reference = `./${asset}`;

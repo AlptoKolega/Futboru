@@ -1,3 +1,10 @@
+import {
+  ALL_LEAGUE_IDS,
+  LEAGUE_COUNTRIES,
+  isLeagueId,
+  transferMatchesLeagueSelection,
+} from "./league-data.js";
+
 const elements = {
   freshness: document.querySelector("#freshness"),
   feed: document.querySelector("#feed"),
@@ -17,6 +24,13 @@ const elements = {
   sourcePreviewTo: document.querySelector("#source-preview-to"),
   sourcePreviewSources: document.querySelector("#source-preview-sources"),
   sourcePreviewSourcesList: document.querySelector("#source-preview-sources-list"),
+  leagueFilterTrigger: document.querySelector("#league-filter-trigger"),
+  leagueFilterTriggerCount: document.querySelector("#league-filter-trigger-count"),
+  leagueFilterPanel: document.querySelector("#league-filter-panel"),
+  leagueFilterGrid: document.querySelector("#league-filter-grid"),
+  leagueFilterSelectAll: document.querySelector("#league-filter-select-all"),
+  leagueFilterClear: document.querySelector("#league-filter-clear"),
+  leagueFilterClose: document.querySelector("#league-filter-close"),
   statusFilters: [...document.querySelectorAll("[data-status-filter]")],
   genderFilters: [...document.querySelectorAll("[data-gender]")],
   counts: {
@@ -29,6 +43,7 @@ const elements = {
 const state = {
   activeFilter: "all",
   activeGenders: new Set(["men", "women"]),
+  activeLeagueIds: new Set(ALL_LEAGUE_IDS),
   transfers: [],
 };
 
@@ -102,11 +117,23 @@ function genderFilteredTransfers() {
   return state.transfers.filter(includedByGender);
 }
 
+function scopeFilteredTransfers() {
+  return genderFilteredTransfers().filter((transfer) => (
+    transferMatchesLeagueSelection(transfer, state.activeLeagueIds)
+  ));
+}
+
 function visibleTransfers() {
-  const transfers = genderFilteredTransfers();
+  const transfers = scopeFilteredTransfers();
   return state.activeFilter === "all"
     ? transfers
     : transfers.filter((transfer) => transfer.status === state.activeFilter);
+}
+
+function activeLeagueLabel() {
+  if (state.activeLeagueIds.size === ALL_LEAGUE_IDS.length) return "all tracked leagues";
+  if (state.activeLeagueIds.size === 1) return "1 selected league";
+  return `${state.activeLeagueIds.size} selected leagues`;
 }
 
 function activeGenderLabel() {
@@ -119,6 +146,111 @@ function resultLabel(count) {
   if (state.activeFilter === "official") return count === 1 ? "official transfer" : "official transfers";
   if (state.activeFilter === "rumour") return count === 1 ? "rumour" : "rumours";
   return count === 1 ? "transfer" : "transfers";
+}
+
+function leagueCheckboxId(competitionId) {
+  return `league-${competitionId.replace(/[^a-z0-9]+/gi, "-")}`;
+}
+
+function updateLeagueFilterControls() {
+  for (const country of LEAGUE_COUNTRIES) {
+    const leagueIds = country.leagues.map((league) => league.id);
+    const selectedCount = leagueIds.filter((id) => state.activeLeagueIds.has(id)).length;
+    const countryInput = elements.leagueFilterGrid.querySelector(`[data-country-id="${country.id}"]`);
+    if (countryInput) {
+      countryInput.checked = selectedCount === leagueIds.length;
+      countryInput.indeterminate = selectedCount > 0 && selectedCount < leagueIds.length;
+    }
+    for (const competitionId of leagueIds) {
+      const leagueInput = elements.leagueFilterGrid.querySelector(`[data-league-id="${competitionId}"]`);
+      if (leagueInput) leagueInput.checked = state.activeLeagueIds.has(competitionId);
+    }
+  }
+
+  const selectedCount = state.activeLeagueIds.size;
+  const allSelected = selectedCount === ALL_LEAGUE_IDS.length;
+  const countLabel = allSelected ? "All" : (selectedCount ? `${selectedCount}/${ALL_LEAGUE_IDS.length}` : "None");
+  elements.leagueFilterTriggerCount.textContent = countLabel;
+  elements.leagueFilterTrigger.setAttribute(
+    "aria-label",
+    allSelected ? "Leagues, all selected" : `Leagues, ${selectedCount} of ${ALL_LEAGUE_IDS.length} selected`,
+  );
+  elements.leagueFilterTrigger.classList.toggle("is-active", !allSelected);
+  elements.leagueFilterSelectAll.disabled = allSelected;
+  elements.leagueFilterClear.disabled = selectedCount === 0;
+}
+
+function applyLeagueSelection() {
+  updateLeagueFilterControls();
+  updateCounts();
+  render();
+}
+
+function setCountryLeagues(country, checked) {
+  for (const league of country.leagues) {
+    if (checked) state.activeLeagueIds.add(league.id);
+    else state.activeLeagueIds.delete(league.id);
+  }
+  applyLeagueSelection();
+}
+
+function setLeague(competitionId, checked) {
+  if (checked) state.activeLeagueIds.add(competitionId);
+  else state.activeLeagueIds.delete(competitionId);
+  applyLeagueSelection();
+}
+
+function buildLeagueFilter() {
+  const fragment = document.createDocumentFragment();
+
+  for (const country of LEAGUE_COUNTRIES) {
+    const fieldset = document.createElement("fieldset");
+    fieldset.className = "league-filter-country";
+
+    const legend = document.createElement("legend");
+    legend.className = "league-filter-country-heading";
+    const countryLabel = document.createElement("label");
+    countryLabel.className = "league-filter-country-toggle";
+    const countryInput = document.createElement("input");
+    countryInput.className = "league-filter-checkbox";
+    countryInput.type = "checkbox";
+    countryInput.checked = true;
+    countryInput.dataset.countryId = country.id;
+    countryInput.addEventListener("change", () => setCountryLeagues(country, countryInput.checked));
+    const countryName = document.createElement("span");
+    countryName.className = "league-filter-country-name";
+    countryName.textContent = country.name;
+    countryLabel.append(countryInput, countryName);
+    legend.append(countryLabel);
+    fieldset.append(legend);
+
+    const list = document.createElement("ul");
+    list.className = "league-filter-list";
+    for (const league of country.leagues) {
+      const item = document.createElement("li");
+      const label = document.createElement("label");
+      label.className = "league-filter-option";
+      label.htmlFor = leagueCheckboxId(league.id);
+      const input = document.createElement("input");
+      input.className = "league-filter-checkbox";
+      input.id = leagueCheckboxId(league.id);
+      input.type = "checkbox";
+      input.checked = true;
+      input.dataset.leagueId = league.id;
+      input.addEventListener("change", () => setLeague(league.id, input.checked));
+      const name = document.createElement("span");
+      name.className = "league-filter-option-label";
+      name.textContent = league.name;
+      label.append(input, name);
+      item.append(label);
+      list.append(item);
+    }
+    fieldset.append(list);
+    fragment.append(fieldset);
+  }
+
+  elements.leagueFilterGrid.replaceChildren(fragment);
+  updateLeagueFilterControls();
 }
 
 function parseFeeMillions(value) {
@@ -647,13 +779,22 @@ function render() {
     return;
   }
 
+  if (state.activeLeagueIds.size === 0) {
+    const empty = document.createElement("p");
+    empty.className = "empty";
+    empty.textContent = "Select at least one league to show transfers.";
+    elements.feed.append(empty);
+    elements.filterSummary.textContent = "No league selected. Select at least one league to show transfers.";
+    return;
+  }
+
   if (!visible.length) {
     const status = resultLabel(0);
     const empty = document.createElement("p");
     empty.className = "empty";
-    empty.textContent = `There are no ${status} in ${activeGenderLabel()} yet.`;
+    empty.textContent = `There are no ${status} in ${activeLeagueLabel()} yet.`;
     elements.feed.append(empty);
-    elements.filterSummary.textContent = `Showing 0 ${status} in ${activeGenderLabel()}.`;
+    elements.filterSummary.textContent = `Showing 0 ${status} in ${activeGenderLabel()} across ${activeLeagueLabel()}.`;
     return;
   }
 
@@ -678,11 +819,11 @@ function render() {
   }
 
   const status = resultLabel(visible.length);
-  elements.filterSummary.textContent = `Showing ${visible.length} ${status} in ${activeGenderLabel()}.`;
+  elements.filterSummary.textContent = `Showing ${visible.length} ${status} in ${activeGenderLabel()} across ${activeLeagueLabel()}.`;
 }
 
 function updateCounts() {
-  const transfers = genderFilteredTransfers();
+  const transfers = scopeFilteredTransfers();
   const official = transfers.filter((transfer) => transfer.status === "official").length;
   const rumour = transfers.filter((transfer) => transfer.status === "rumour").length;
   elements.counts.all.textContent = String(transfers.length);
@@ -741,7 +882,13 @@ async function loadFeed() {
 
   state.transfers = payload.transfers
     .filter(isStructuredMovement)
-    .map((transfer) => ({ ...transfer, competitionGender: competitionGender(transfer) }));
+    .map((transfer) => ({
+      ...transfer,
+      competitionIds: Array.isArray(transfer.competitionIds)
+        ? transfer.competitionIds.filter(isLeagueId)
+        : [],
+      competitionGender: competitionGender(transfer),
+    }));
   elements.freshness.textContent = formatFreshness(payload.generatedAt);
   updateCounts();
   render();
@@ -755,6 +902,38 @@ for (const filter of elements.statusFilters) {
 for (const filter of elements.genderFilters) {
   filter.addEventListener("click", () => toggleGender(filter.dataset.gender));
 }
+
+elements.leagueFilterSelectAll.addEventListener("click", () => {
+  state.activeLeagueIds = new Set(ALL_LEAGUE_IDS);
+  applyLeagueSelection();
+});
+
+elements.leagueFilterClear.addEventListener("click", () => {
+  state.activeLeagueIds.clear();
+  applyLeagueSelection();
+});
+
+elements.leagueFilterClose.addEventListener("click", () => {
+  elements.leagueFilterPanel.hidePopover();
+  elements.leagueFilterTrigger.focus({ preventScroll: true });
+});
+
+elements.leagueFilterPanel.addEventListener("toggle", (event) => {
+  const open = event.newState === "open";
+  elements.leagueFilterTrigger.setAttribute("aria-expanded", String(open));
+  if (open) {
+    requestAnimationFrame(() => {
+      elements.leagueFilterGrid.querySelector("input")?.focus({ preventScroll: true });
+    });
+  }
+});
+
+document.addEventListener("keydown", (event) => {
+  if (event.key !== "Escape" || !elements.leagueFilterPanel.matches(":popover-open")) return;
+  event.preventDefault();
+  elements.leagueFilterPanel.hidePopover();
+  elements.leagueFilterTrigger.focus({ preventScroll: true });
+});
 
 elements.themeToggle.addEventListener("click", () => {
   setTheme(document.documentElement.dataset.theme === "dark" ? "light" : "dark", true);
@@ -798,6 +977,7 @@ window.addEventListener("storage", (event) => {
 });
 
 setTheme(document.documentElement.dataset.theme);
+buildLeagueFilter();
 
 loadFeed().catch((error) => {
   console.error(error);

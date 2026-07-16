@@ -41,13 +41,31 @@
               Rumours <span class="filter-count" id="count-rumour">0</span>
             </button>
           </div>
-          <span class="filter-separator" aria-hidden="true"></span>
-          <div class="filters gender-filters" role="group" aria-label="Include transfers by competition category">
-            <button class="filter gender-filter is-active" type="button" data-gender="men" aria-pressed="true" aria-controls="feed">
-              Men
-            </button>
-            <button class="filter gender-filter is-active" type="button" data-gender="women" aria-pressed="true" aria-controls="feed">
-              Women
+          <span class="filter-separator status-scope-separator" aria-hidden="true"></span>
+          <div class="scope-filters">
+            <div class="filters gender-filters" role="group" aria-label="Include transfers by competition category">
+              <button class="filter gender-filter is-active" type="button" data-gender="men" aria-pressed="true" aria-controls="feed">
+                Men
+              </button>
+              <button class="filter gender-filter is-active" type="button" data-gender="women" aria-pressed="true" aria-controls="feed">
+                Women
+              </button>
+            </div>
+            <span class="filter-separator league-filter-separator" aria-hidden="true"></span>
+            <button
+              class="filter league-filter-trigger"
+              id="league-filter-trigger"
+              type="button"
+              popovertarget="league-filter-panel"
+              aria-controls="league-filter-panel"
+              aria-expanded="false"
+              aria-haspopup="dialog"
+            >
+              <span>Leagues</span>
+              <span class="league-filter-trigger-count" id="league-filter-trigger-count">All</span>
+              <svg class="league-filter-trigger-icon" viewBox="0 0 12 12" aria-hidden="true" focusable="false">
+                <path d="m3 4.5 3 3 3-3"></path>
+              </svg>
             </button>
           </div>
         </div>
@@ -71,6 +89,29 @@
         </div>
       </header>
 
+      <section
+        class="league-filter-panel"
+        id="league-filter-panel"
+        popover="auto"
+        role="dialog"
+        aria-modal="false"
+        aria-labelledby="league-filter-panel-title"
+      >
+        <header class="league-filter-panel-header">
+          <h2 id="league-filter-panel-title">Leagues</h2>
+          <div class="league-filter-actions" aria-label="League filter actions">
+            <button class="league-filter-action" id="league-filter-select-all" type="button">All leagues</button>
+            <button class="league-filter-action" id="league-filter-clear" type="button">Clear</button>
+            <button class="league-filter-close" id="league-filter-close" type="button" aria-label="Close leagues">
+              <svg viewBox="0 0 16 16" aria-hidden="true" focusable="false">
+                <path d="m4 4 8 8M12 4l-8 8"></path>
+              </svg>
+            </button>
+          </div>
+        </header>
+        <div class="league-filter-grid" id="league-filter-grid" aria-label="Leagues by country"></div>
+      </section>
+
       <main>
         <h1 class="sr-only">Football transfers</h1>
         <p class="sr-only" id="filter-summary" aria-live="polite" aria-atomic="true"></p>
@@ -80,8 +121,8 @@
         </div>
 
         <p class="methodology">
-          Every entry links to its underlying club or publication source. Confirmed moves cover England, Germany, Italy,
-          France, the Netherlands, and Poland; newsroom and database signals always remain rumours.
+          Every entry links to its underlying club or publication source. Confirmed moves cover 26 competitions across
+          11 national markets; newsroom and database signals always remain rumours.
           Register data: <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>.
         </p>
       </main>

@@ -5,7 +5,7 @@ A minimalist, source-backed football transfer feed. The site does not reproduce 
 ## What the PoC includes
 
 - confirmed transfers from 11 current summer-window registers: England, Germany, Italy, France, the Netherlands, Poland, Scotland, Denmark, Switzerland, Norway, and Sweden, including the original cited club or publication link for every row;
-- league coverage across the Premier League and EFL, Bundesliga and 2. Bundesliga, Serie A and Serie B, Ligue 1 and Ligue 2, Eredivisie, Ekstraklasa, the Scottish Premiership, Superliga, Swiss Super League, Eliteserien, Allsvenskan, and other divisions present in those national registers;
+- 26 filterable competitions across 11 countries, with season-scoped club membership so a cross-league move appears under either endpoint league rather than the country of the reporting publication;
 - age, nationality, compact locally hosted SVG flags, and Football Manager-style position codes enriched from Wikidata and Wikipedia, with source-backed exceptions in `data/player-metadata.json`;
 - exact, source-backed corrections for register typos in `data/transfer-corrections.json`, applied only when the cited URL already belongs to that transfer record;
 - club crests and club links sourced from English Wikipedia page metadata;
@@ -17,7 +17,7 @@ A minimalist, source-backed football transfer feed. The site does not reproduce 
 - claim-level deduplication that retains multiple source links when two markets report the same move; secondary links are exposed in the source drawer instead of creating duplicate rows;
 - window-long retention for structured RSS claims, so a dated rumour does not disappear merely because it rotates out of a publisher's short live feed;
 - independent source health reports, per-source last-good-data fallback, validation, and a GitHub Actions refresh every 30 minutes;
-- an accessible, responsive interface with no menu or cards, plus a restrained source-preview drawer on verified official rows.
+- an accessible, responsive interface with inline status/category controls, a single compact league picker, and a restrained source-preview drawer on verified official rows.
 
 `Official` means the move appears in one of the completed-transfer registers. The source link in each row points to the cited club statement or publication. Newsroom, database, journalist, and community reports remain `Rumours` until the move appears in a completed register.
 
