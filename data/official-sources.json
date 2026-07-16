@@ -1,5 +1,275 @@
 [
   {
+    "date": "2026-07-16",
+    "player": "Conor Chaplin",
+    "fromClub": "Ipswich Town",
+    "toClub": "Leicester City",
+    "club": "Leicester City",
+    "officialWebsite": "https://www.lcfc.com",
+    "sourceUrl": "https://www.lcfc.com/media-article/leicester-city-lcfc-conor-chaplin-sign-transfer"
+  },
+  {
+    "date": "2026-07-16",
+    "player": "Christ Makosso",
+    "fromClub": "Luton Town",
+    "toClub": "Auxerre",
+    "club": "Auxerre",
+    "officialWebsite": "https://www.aja.fr",
+    "sourceUrl": "https://www.aja.fr/christ-makosso-nouveau-roc-de-laja/"
+  },
+  {
+    "date": "2026-07-15",
+    "player": "Lewis Dobbin",
+    "fromClub": "Aston Villa",
+    "toClub": "Southampton",
+    "club": "Southampton",
+    "officialWebsite": "https://www.southamptonfc.com",
+    "sourceUrl": "https://www.southamptonfc.com/en/news/article/dobbin-arrives-to-boost-forward-line"
+  },
+  {
+    "date": "2026-07-15",
+    "player": "Thomas Meunier",
+    "fromClub": "Lille",
+    "toClub": "Sunderland",
+    "club": "Sunderland",
+    "officialWebsite": "https://www.safc.com",
+    "sourceUrl": "https://www.safc.com/news/2026/july/15/thomas-meunier-joins-sunderland/"
+  },
+  {
+    "date": "2026-07-15",
+    "player": "Elkan Baggott",
+    "fromClub": "Ipswich Town",
+    "toClub": "Millwall",
+    "club": "Millwall",
+    "officialWebsite": "https://www.millwallfc.co.uk",
+    "sourceUrl": "https://millwallfc.co.uk/news/2026/july/15/millwall-announce-elkan-baggott-signing/"
+  },
+  {
+    "date": "2026-07-15",
+    "player": "Silko Thomas",
+    "fromClub": "Leicester City",
+    "toClub": "Wycombe Wanderers",
+    "club": "Wycombe Wanderers",
+    "officialWebsite": "https://www.wwfc.com",
+    "sourceUrl": "https://www.wwfc.com/news/2026/july/15/silko-signs/"
+  },
+  {
+    "date": "2026-07-15",
+    "player": "Amani Richards",
+    "fromClub": "Leicester City",
+    "toClub": "Barnsley",
+    "club": "Leicester City",
+    "officialWebsite": "https://www.lcfc.com",
+    "sourceUrl": "https://www.lcfc.com/media-article/amani-richards-signs-barnsley-transfer-leicester-city-lcfc-sky-bet-league-one"
+  },
+  {
+    "date": "2026-07-15",
+    "player": "Harry Winks",
+    "fromClub": "Leicester City",
+    "toClub": "Cagliari",
+    "club": "Leicester City",
+    "officialWebsite": "https://www.lcfc.com",
+    "sourceUrl": "https://www.lcfc.com/media-article/harry-winks-cagliari-permanent-deal-transfer-leicester-city"
+  },
+  {
+    "date": "2026-07-15",
+    "player": "Leandro Trossard",
+    "fromClub": "Arsenal",
+    "toClub": "Beşiktaş",
+    "club": "Beşiktaş",
+    "officialWebsite": "https://www.bjk.com.tr",
+    "sourceUrl": "https://www.bjk.com.tr/tr/haber/94734/besiktasimiza-hos-geldin-leandro-trossard.html"
+  },
+  {
+    "date": "2026-07-14",
+    "player": "Álvaro Rodríguez",
+    "fromClub": "Elche",
+    "toClub": "Bournemouth",
+    "club": "Bournemouth",
+    "officialWebsite": "https://www.afcb.co.uk",
+    "sourceUrl": "https://www.afcb.co.uk/news/2026/july/14/afc-bournemouth-sign--lvaro-rodr-guez-from-elche-on-long-term-deal/"
+  },
+  {
+    "date": "2026-07-08",
+    "player": "Geovany Quenda",
+    "fromClub": "Sporting CP",
+    "toClub": "Chelsea",
+    "club": "Chelsea",
+    "officialWebsite": "https://www.chelseafc.com",
+    "sourceUrl": "https://www.chelseafc.com/en/news/article/geovany-quenda-joins-chelsea"
+  },
+  {
+    "date": "2026-07-07",
+    "player": "Jaidon Anthony",
+    "fromClub": "Burnley",
+    "toClub": "Brentford",
+    "club": "Brentford",
+    "officialWebsite": "https://www.brentfordfc.com",
+    "sourceUrl": "https://www.brentfordfc.com/en/news/article/first-team-brentford-sign-jaidon-anthony-burnley-transfer"
+  },
+  {
+    "date": "2026-07-06",
+    "player": "Sandro Tonali",
+    "fromClub": "Newcastle United",
+    "toClub": "Tottenham Hotspur",
+    "club": "Tottenham Hotspur",
+    "officialWebsite": "https://www.tottenhamhotspur.com",
+    "sourceUrl": "https://www.tottenhamhotspur.com/news/1076467/welcome-sandro-tonali-makes-the-move-to-n17"
+  },
+  {
+    "date": "2026-07-03",
+    "player": "Nathan Aké",
+    "fromClub": "Manchester City",
+    "toClub": "Fenerbahçe",
+    "club": "Manchester City",
+    "officialWebsite": "https://www.mancity.com",
+    "sourceUrl": "https://www.mancity.com/news/mens/nathan-ake-leaves-city-for-fenerbahce-63918750/"
+  },
+  {
+    "date": "2026-07-02",
+    "player": "Mateus Fernandes",
+    "fromClub": "West Ham United",
+    "toClub": "Tottenham Hotspur",
+    "club": "Tottenham Hotspur",
+    "officialWebsite": "https://www.tottenhamhotspur.com",
+    "sourceUrl": "https://www.tottenhamhotspur.com/news/1076042/mateus-fernandes-signs/"
+  },
+  {
+    "date": "2026-07-02",
+    "player": "Hayden Hackney",
+    "fromClub": "Middlesbrough",
+    "toClub": "Everton",
+    "club": "Everton",
+    "officialWebsite": "https://www.evertonfc.com",
+    "sourceUrl": "https://www.evertonfc.com/news/2026/july/02/everton-complete-hackney-deal/"
+  },
+  {
+    "date": "2026-07-01",
+    "player": "Anthony Gordon",
+    "fromClub": "Newcastle United",
+    "toClub": "Barcelona",
+    "club": "Barcelona",
+    "officialWebsite": "https://www.fcbarcelona.com",
+    "sourceUrl": "https://www.fcbarcelona.com/en/football/first-team/news/4511134/anthony-gordon-becomes-an-fc-barcelona-player"
+  },
+  {
+    "date": "2026-07-01",
+    "player": "Marc Cucurella",
+    "fromClub": "Chelsea",
+    "toClub": "Real Madrid",
+    "club": "Real Madrid",
+    "officialWebsite": "https://www.realmadrid.com",
+    "sourceUrl": "https://www.realmadrid.com/en-US/news/club/announcements/comunicado-oficial-cucurella-15-06-2026"
+  },
+  {
+    "date": "2026-07-14",
+    "player": "Karl Darlow",
+    "fromClub": "Leeds United",
+    "toClub": "Manchester United",
+    "club": "Manchester United",
+    "officialWebsite": "https://www.manutd.com",
+    "sourceUrl": "https://www.manutd.com/en/news/karl-darlow-signs-for-manchester-united"
+  },
+  {
+    "date": "2026-07-14",
+    "player": "Charlie Taylor",
+    "fromClub": "Southampton",
+    "toClub": "Derby County",
+    "club": "Derby County",
+    "officialWebsite": "https://www.dcfc.co.uk",
+    "sourceUrl": "https://www.dcfc.co.uk/news/2026/07/signing-defender-charlie-taylor-signs-for-derby-county"
+  },
+  {
+    "date": "2026-07-14",
+    "player": "Eseosa Sule",
+    "fromClub": "West Bromwich Albion",
+    "toClub": "St Mirren",
+    "club": "St Mirren",
+    "officialWebsite": "https://www.stmirren.com",
+    "sourceUrl": "https://www.stmirren.com/news/eseosa-sule-signs"
+  },
+  {
+    "date": "2026-07-14",
+    "player": "Nathan Lowe",
+    "fromClub": "Stoke City",
+    "toClub": "Hibernian",
+    "club": "Hibernian",
+    "officialWebsite": "https://www.hibernianfc.co.uk",
+    "sourceUrl": "https://www.hibernianfc.co.uk/news/2026/july/14/nathan-lowe-joins-hibs-on-loan/"
+  },
+  {
+    "date": "2026-07-09",
+    "player": "Illan Meslier",
+    "fromClub": "Leeds United",
+    "toClub": "Arsenal",
+    "club": "Arsenal",
+    "officialWebsite": "https://www.arsenal.com",
+    "sourceUrl": "https://www.arsenal.com/news/illan-meslier-signs-arsenal"
+  },
+  {
+    "date": "2026-07-02",
+    "player": "Jack Butland",
+    "fromClub": "Rangers",
+    "toClub": "Hull City",
+    "club": "Hull City",
+    "officialWebsite": "https://www.wearehullcity.co.uk",
+    "sourceUrl": "https://www.wearehullcity.co.uk/news/2026/july/02/hull-city-complete-butland-signing/"
+  },
+  {
+    "date": "2026-07-02",
+    "player": "Luke Graham",
+    "fromClub": "Dundee",
+    "toClub": "Stoke City",
+    "club": "Stoke City",
+    "officialWebsite": "https://www.stokecityfc.com",
+    "sourceUrl": "https://www.stokecityfc.com/news/2026/july/02/from-kilts-to-kilns-luke-graham-is-citys-fifth-summer-signing/"
+  },
+  {
+    "date": "2026-07-01",
+    "player": "Ethan Galbraith",
+    "fromClub": "Swansea City",
+    "toClub": "Stoke City",
+    "club": "Stoke City",
+    "officialWebsite": "https://www.stokecityfc.com",
+    "sourceUrl": "https://www.stokecityfc.com/news/2026/july/01/ethan-galbraith-is-a-potter/"
+  },
+  {
+    "date": "2026-07-01",
+    "player": "Ibrahima Konaté",
+    "fromClub": "Liverpool",
+    "toClub": "Real Madrid",
+    "club": "Real Madrid",
+    "officialWebsite": "https://www.realmadrid.com",
+    "sourceUrl": "https://www.realmadrid.com/es-ES/noticias/club/comunicados/comunicado-oficial-konate-18-06-2026"
+  },
+  {
+    "date": "2026-07-01",
+    "player": "Bernardo Silva",
+    "fromClub": "Manchester City",
+    "toClub": "Real Madrid",
+    "club": "Real Madrid",
+    "officialWebsite": "https://www.realmadrid.com",
+    "sourceUrl": "https://www.realmadrid.com/en-US/news/club/announcements/comunicado-oficial-bernardo-silva-17-06-2026"
+  },
+  {
+    "date": "2026-07-01",
+    "player": "Andy Robertson",
+    "fromClub": "Liverpool",
+    "toClub": "Tottenham Hotspur",
+    "club": "Tottenham Hotspur",
+    "officialWebsite": "https://www.tottenhamhotspur.com",
+    "sourceUrl": "https://www.tottenhamhotspur.com/news/1071931/robertson-signing-secured"
+  },
+  {
+    "date": "2026-07-01",
+    "player": "Billy Koumetio",
+    "fromClub": "Dundee",
+    "toClub": "Charlton Athletic",
+    "club": "Dundee",
+    "officialWebsite": "https://dundeefc.co.uk",
+    "sourceUrl": "https://dundeefc.co.uk/news/billy-koumetio-departs/"
+  },
+  {
     "date": "2026-07-14",
     "player": "Youri Tielemans",
     "fromClub": "Aston Villa",

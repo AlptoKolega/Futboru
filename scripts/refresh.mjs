@@ -8,6 +8,8 @@ import {
   enrichLeagueMemberships,
   isLeagueId,
 } from "../league-data.js";
+import { discoverOfficialClubSource, rankOfficialSourceCandidate } from "./official-club-sources.mjs";
+import { fetchPublicHttps, publicHttpsUrl, readBoundedResponse } from "./safe-fetch.mjs";
 
 export const WIKIPEDIA_SOURCES = [
   {
@@ -288,6 +290,11 @@ const SOURCE_PREVIEW_CONCURRENCY = Number(process.env.SOURCE_PREVIEW_CONCURRENCY
 const SOURCE_PREVIEW_TIMEOUT_MS = Number(process.env.SOURCE_PREVIEW_TIMEOUT_MS || 8_000);
 const SOURCE_PREVIEW_HEAD_BYTES = Number(process.env.SOURCE_PREVIEW_HEAD_BYTES || 196_608);
 const SOURCE_PREVIEW_RETRY_HOURS = Number(process.env.SOURCE_PREVIEW_RETRY_HOURS || 24 * 7);
+const OFFICIAL_SITEMAP_CONCURRENCY = Number(process.env.OFFICIAL_SITEMAP_CONCURRENCY || 8);
+const OFFICIAL_ARTICLE_CONCURRENCY = Number(process.env.OFFICIAL_ARTICLE_CONCURRENCY || 6);
+const MAX_OFFICIAL_SITEMAPS_PER_REFRESH = Number(process.env.MAX_OFFICIAL_SITEMAPS_PER_REFRESH || 180);
+const OFFICIAL_SITEMAP_TIMEOUT_MS = Number(process.env.OFFICIAL_SITEMAP_TIMEOUT_MS || 10_000);
+const OFFICIAL_SITEMAP_MAX_BYTES = Number(process.env.OFFICIAL_SITEMAP_MAX_BYTES || 2_000_000);
 const COMPETITION_GENDERS = new Set(["men", "women", "unknown"]);
 
 function normaliseCompetitionGender(value) {
@@ -436,8 +443,29 @@ function referenceIndex($) {
   return references;
 }
 
-function firstReference($, container, references = referenceIndex($)) {
+function referenceMetadata($, reference) {
+  const external = reference
+    .find('cite.citation a.external[href^="http"], a.external[href^="http"], a[rel~="mw:ExtLink"][href^="http"]')
+    .first();
+  const coins = new URLSearchParams(
+    String(reference.find(".Z3988").first().attr("title") || "").replaceAll("&amp;", "&"),
+  );
+  const rawDate = coins.get("rft.date");
+  const date = /^\d{4}-\d{2}-\d{2}/.test(rawDate || "")
+    ? rawDate.slice(0, 10)
+    : isoDate(rawDate);
+  return {
+    url: coins.get("rft_id") || external.attr("href") || null,
+    title: cleanText(coins.get("rft.atitle") || reference.text()),
+    publication: cleanText(coins.get("rft.jtitle")),
+    date,
+  };
+}
+
+function allReferences($, container, references = referenceIndex($)) {
   let fallback = null;
+  const found = [];
+  const seen = new Set();
   const hrefs = container.find('sup.reference a[href^="#"]')
     .map((_, anchor) => $(anchor).attr("href"))
     .get();
@@ -446,28 +474,18 @@ function firstReference($, container, references = referenceIndex($)) {
     const id = decodeURIComponent(href.slice(1));
     const reference = references.get(id);
     if (!reference?.length) continue;
-
-    const external = reference
-      .find('cite.citation a.external[href^="http"], a.external[href^="http"], a[rel~="mw:ExtLink"][href^="http"]')
-      .first();
-    const coins = new URLSearchParams(
-      String(reference.find(".Z3988").first().attr("title") || "").replaceAll("&amp;", "&"),
-    );
-    const rawDate = coins.get("rft.date");
-    const date = /^\d{4}-\d{2}-\d{2}/.test(rawDate || "")
-      ? rawDate.slice(0, 10)
-      : isoDate(rawDate);
-    const metadata = {
-      url: coins.get("rft_id") || external.attr("href") || null,
-      title: cleanText(coins.get("rft.atitle") || reference.text()),
-      publication: cleanText(coins.get("rft.jtitle")),
-      date,
-    };
+    const metadata = referenceMetadata($, reference);
     fallback ||= metadata;
-    if (metadata.url) return metadata;
+    if (!metadata.url || seen.has(metadata.url)) continue;
+    seen.add(metadata.url);
+    found.push(metadata);
   }
 
-  return fallback;
+  return found.length ? found : (fallback ? [fallback] : []);
+}
+
+function firstReference($, container, references = referenceIndex($)) {
+  return allReferences($, container, references)[0] || null;
 }
 
 function statusFromReference(reference) {
@@ -586,7 +604,9 @@ export function parseWikipediaDatedTransfers(html, config = WIKIPEDIA_SOURCES[0]
     if (!player) return;
 
     const country = countryFromFlag($, playerCell) || (!playerAnchor ? config.country : null);
-    const reference = firstReference($, feeCell, references) || firstReference($, $(row), references);
+    const rowReferences = allReferences($, feeCell, references);
+    if (!rowReferences.length) rowReferences.push(...allReferences($, $(row), references));
+    const reference = rowReferences[0] || null;
     const sourceUrl = reference?.url || config.url;
     const sourceName = sourceLabel(sourceUrl);
     const role = sourceRole(sourceUrl);
@@ -622,7 +642,11 @@ export function parseWikipediaDatedTransfers(html, config = WIKIPEDIA_SOURCES[0]
       sourceRole: role,
       sourceName,
       sourceUrl,
-      sources: [sourceEvidence(sourceName, sourceUrl, role)],
+      sources: rowReferences.length
+        ? rowReferences.filter((item) => item.url).map((item) => (
+          sourceEvidence(sourceLabel(item.url), item.url, sourceRole(item.url))
+        ))
+        : [sourceEvidence(sourceName, sourceUrl, role)],
       firstSeenAt: `${currentDate}T12:00:00.000Z`,
     });
   });
@@ -691,7 +715,8 @@ export function parseWikipediaClubTransfers(html, config, now = new Date()) {
         const player = cleanText(playerAnchor.text() || playerCell.clone().children("i, sup").remove().end().text());
         if (!player) return;
 
-        const reference = firstReference($, playerCell, references);
+        const rowReferences = allReferences($, playerCell, references);
+        const reference = rowReferences[0] || null;
         const date = reference?.date;
         if (!date || !inLookback(date, now)) return;
 
@@ -745,7 +770,11 @@ export function parseWikipediaClubTransfers(html, config, now = new Date()) {
           sourceRole: role,
           sourceName,
           sourceUrl,
-          sources: [sourceEvidence(sourceName, sourceUrl, role)],
+          sources: rowReferences.length
+            ? rowReferences.filter((item) => item.url).map((item) => (
+              sourceEvidence(sourceLabel(item.url), item.url, sourceRole(item.url))
+            ))
+            : [sourceEvidence(sourceName, sourceUrl, role)],
           firstSeenAt: `${date}T12:00:00.000Z`,
         });
       });
@@ -1187,6 +1216,21 @@ async function fetchText(url) {
   return response.text();
 }
 
+async function fetchOfficialSitemap(url) {
+  const fetched = await fetchPublicHttps(url, {
+    timeoutMs: OFFICIAL_SITEMAP_TIMEOUT_MS,
+    requestInit: {
+      headers: {
+        Accept: "application/xml,text/xml,text/plain;q=0.9,*/*;q=0.5",
+        "User-Agent": USER_AGENT,
+      },
+    },
+  });
+  const { response } = fetched;
+  if (!response.ok) throw new Error(`${url}: HTTP ${response.status}`);
+  return new TextDecoder().decode(await readBoundedResponse(response, OFFICIAL_SITEMAP_MAX_BYTES));
+}
+
 function safeHttpsUrl(value, baseUrl = undefined) {
   try {
     const url = new URL(value, baseUrl);
@@ -1319,21 +1363,23 @@ export function normaliseSourcePreview(preview, transfer = {}) {
 }
 
 async function fetchSourcePreviewHead(url) {
-  const response = await fetch(url, {
-    headers: {
-      Accept: "text/html,application/xhtml+xml;q=0.9",
-      "User-Agent": USER_AGENT,
+  const fetched = await fetchPublicHttps(url, {
+    timeoutMs: SOURCE_PREVIEW_TIMEOUT_MS,
+    requestInit: {
+      headers: {
+        Accept: "text/html,application/xhtml+xml;q=0.9",
+        "User-Agent": USER_AGENT,
+      },
     },
-    redirect: "follow",
-    signal: AbortSignal.timeout(SOURCE_PREVIEW_TIMEOUT_MS),
   });
+  const { response } = fetched;
   if (!response.ok) throw new Error(`HTTP ${response.status}`);
   if (!/\b(?:text\/html|application\/xhtml\+xml)\b/i.test(response.headers.get("content-type") || "")) {
     throw new Error("non-HTML response");
   }
 
   const requestedRoot = new URL("/", url).href;
-  if (!matchesOfficialWebsite(response.url || url, requestedRoot)) throw new Error("redirected outside verified club domain");
+  if (!matchesOfficialWebsite(fetched.url, requestedRoot)) throw new Error("redirected outside verified club domain");
   if (!response.body) throw new Error("empty response");
 
   const reader = response.body.getReader();
@@ -2278,6 +2324,14 @@ function sourcePathname(url) {
 }
 
 export function matchesOfficialWebsite(sourceUrl, officialWebsiteUrl) {
+  if (!publicHttpsUrl(sourceUrl)) return false;
+  try {
+    const official = new URL(officialWebsiteUrl);
+    if (!new Set(["http:", "https:"]).has(official.protocol)
+      || official.username || official.password || official.port) return false;
+  } catch {
+    return false;
+  }
   const sourceHost = sourceHostname(sourceUrl);
   const officialHost = sourceHostname(officialWebsiteUrl);
   if (!sourceHost || !officialHost) return false;
@@ -2302,25 +2356,110 @@ function isFootballClubEntity(entity) {
 
 const OFFICIAL_CLUB_WEBSITE_OVERRIDES = new Map([
   [["AS Monaco", "Monaco"], "https://www.asmonaco.com"],
+  // Audited club domains cited by the current transfer registers. These
+  // aliases are needed when the register links a short club name to a city,
+  // municipality, or disambiguation page instead of the football-club page.
+  [["AGF", "Aarhus GF"], "https://agf.dk"],
   [["AZ", "AZ Alkmaar"], "https://www.az.nl"],
+  [["Basel", "FC Basel"], "https://www.fcb.ch"],
+  [["Brage", "IK Brage"], "https://ikbrage.se"],
+  [["Brommapojkarna", "IF Brommapojkarna"], "https://bpfotboll.se"],
+  [["Brøndby", "Brøndby IF"], "https://brondby.com"],
+  [["Cracovia", "KS Cracovia"], "https://cracovia.pl"],
+  [["Degerfors", "Degerfors IF"], "https://www.degerforsif.se"],
+  [["Djurgården", "Djurgårdens IF"], "https://www.dif.se"],
+  [["Egersund", "Egersunds IK"], "https://eikfotball.no"],
   [["Empoli", "Empoli FC"], "https://www.empolifc.it"],
+  [["Excelsior", "Excelsior Rotterdam"], "https://excelsiorrotterdam.nl"],
+  [["Falkenberg", "Falkenbergs FF"], "https://falkenbergsff.se"],
   [["FC Groningen", "Groningen"], "https://www.fcgroningen.nl"],
   [["FC Twente", "Twente"], "https://www.fctwente.nl"],
+  [["Fredrikstad", "Fredrikstad FK"], "https://www.fredrikstadfk.no"],
+  [["Grasshopper", "Grasshopper Club Zürich"], "https://www.gcz.ch"],
+  [["Hammarby", "Hammarby IF"], "https://www.hammarbyfotboll.se"],
+  [["Haugesund", "FK Haugesund"], "https://www.fkh.no"],
   [["Heerenveen", "SC Heerenveen"], "https://www.sc-heerenveen.nl"],
+  [["Helsingborg", "Helsingborgs IF"], "https://www.hif.se"],
   [["Hamburger SV", "HSV"], "https://www.hsv.de"],
   [["Intercity", "CF Intercity"], "https://cfintercity.com"],
+  [["Kalmar", "Kalmar FF"], "https://kalmarff.se"],
+  [["KFUM", "KFUM Oslo"], "https://kaaffa.no"],
+  [["Kristiansund", "Kristiansund BK"], "https://www.kristiansundbk.no"],
+  [["Landskrona", "Landskrona BoIS"], "https://landskronabois.se"],
   [["Legia Warsaw"], "https://legia.com"],
+  [["Lens", "RC Lens"], "https://www.rclens.fr"],
   [["Lille", "LOSC Lille"], "https://www.losc.fr"],
+  [["Lugano", "FC Lugano"], "https://www.fclugano.com"],
+  [["Luzern", "FC Luzern"], "https://fcl.ch"],
+  [["Lyn", "Lyn 1896 FK"], "https://www.lyn1896.no"],
   [["Lyon", "Olympique Lyonnais"], "https://www.ol.fr"],
+  [["Midtjylland", "FC Midtjylland"], "https://www.fcm.dk"],
+  [["Mjällby", "Mjällby AIF"], "https://maif.se"],
+  [["Molde", "Molde FK"], "https://www.moldefk.no"],
+  [["Moss", "Moss FK"], "https://www.mossfk.no"],
+  [["NEC", "NEC Nijmegen"], "https://www.nec-nijmegen.nl"],
+  [["Nordsjælland", "FC Nordsjælland"], "https://fcn.dk"],
+  [["Örebro", "Örebro SK"], "https://oskfotboll.se"],
   [["Piast Gliwice"], "https://piast-gliwice.eu"],
   [["Pogoń Grodzisk Mazowiecki"], "https://pogongrodzisk.pl"],
   [["PSV", "PSV Eindhoven"], "https://www.psv.nl"],
   [["Radomiak Radom"], "https://rksradomiak.pl"],
+  [["Randers", "Randers FC"], "https://randersfc.dk"],
+  [["Ranheim", "Ranheim Fotball"], "https://www.ranheimfotball.no"],
   [["Rennes", "Stade Rennais"], "https://www.staderennais.com"],
+  [["Servette", "Servette FC"], "https://servettefc.ch"],
+  [["St. Gallen", "St Gallen", "FC St. Gallen"], "https://www.fcsg.ch"],
+  [["Start", "IK Start"], "https://www.ikstart.no"],
   [["Strasbourg", "RC Strasbourg"], "https://www.rcstrasbourgalsace.fr"],
+  [["Sundsvall", "GIF Sundsvall"], "https://www.gifsundsvall.se"],
+  [["Sønderjyske", "Sønderjyske Fodbold"], "https://soenderjyskefodbold.dk"],
+  [["Vaduz", "FC Vaduz"], "https://www.fcvaduz.li"],
+  [["Viborg", "Viborg FF"], "https://www.vff.dk"],
+  [["Viking", "Viking FK"], "https://www.vikingfotball.no"],
   [["Warta Sieradz"], "https://wartasieradz.com"],
   [["Wisła Kraków"], "https://wislakrakow.com"],
+  [["Wycombe Wanderers"], "https://wycombewanderersfc.co.uk"],
+  [["Young Boys", "BSC Young Boys"], "https://www.bscyb.ch"],
 ].flatMap(([aliases, website]) => aliases.map((alias) => [footballClubKey(alias), website])));
+
+function sourceUrlSupportsPlayer(sourceUrl, player) {
+  let urlText = "";
+  try {
+    const url = new URL(sourceUrl);
+    urlText = canonicalIdentity(`${decodeURIComponent(url.pathname)} ${decodeURIComponent(url.search)}`
+      .replaceAll("ø", "o").replaceAll("Ø", "O")
+      .replaceAll("ł", "l").replaceAll("Ł", "L")
+      .replaceAll("đ", "d").replaceAll("Đ", "D")
+      .replaceAll("æ", "ae").replaceAll("Æ", "Ae")
+      .replaceAll("œ", "oe").replaceAll("Œ", "Oe")
+      .replaceAll("ß", "ss"));
+  } catch {
+    return false;
+  }
+  const playerTokens = canonicalIdentity(String(player || "")
+    .replaceAll("ø", "o").replaceAll("Ø", "O")
+    .replaceAll("ł", "l").replaceAll("Ł", "L")
+    .replaceAll("đ", "d").replaceAll("Đ", "D")
+    .replaceAll("æ", "ae").replaceAll("Æ", "Ae")
+    .replaceAll("œ", "oe").replaceAll("Œ", "Oe")
+    .replaceAll("ß", "ss"))
+    .split(" ")
+    .filter((token) => token.length >= 3);
+  if (!playerTokens.length) return false;
+  const comparable = (token) => token.replaceAll("ae", "a").replaceAll("oe", "o").replaceAll("ue", "u");
+  const urlTokens = new Set(urlText.split(" ").flatMap((token) => [token, comparable(token)]));
+  const matchedTokens = playerTokens.filter((token) => (
+    urlTokens.has(token) || urlTokens.has(comparable(token))
+  ));
+  const surname = playerTokens.at(-1);
+  return matchedTokens.length >= Math.min(2, playerTokens.length)
+    || (surname.length >= 4 && (urlTokens.has(surname) || urlTokens.has(comparable(surname))));
+}
+
+function sourceUrlSupportsOfficialAnnouncement(sourceUrl, player) {
+  return sourceUrlSupportsPlayer(sourceUrl, player)
+    && rankOfficialSourceCandidate(sourceUrl) >= 0;
+}
 
 function selectPreferredSource(transfer) {
   const preferredSource = [...transferSources(transfer)]
@@ -2381,50 +2520,144 @@ async function readCompetitionClubCatalog() {
   return catalog;
 }
 
+async function mapWithConcurrency(items, concurrency, worker) {
+  const queue = [...items];
+  const results = [];
+  const workerCount = Math.min(queue.length, Math.max(1, Number(concurrency) || 1));
+  await Promise.all(Array.from({ length: workerCount }, async () => {
+    while (queue.length) {
+      const item = queue.shift();
+      results.push(await worker(item));
+    }
+  }));
+  return results;
+}
+
+async function discoverOfficialSourcesFromSitemaps(transfers, clubsByTransfer, loaders = {}) {
+  const candidates = transfers.filter((transfer) => (
+    transfer.status === "official"
+    && !transferSources(transfer).some((source) => source.role === "primary_official")
+  ));
+  if (!candidates.length) return { checkedSitemaps: 0, discovered: 0 };
+
+  const sitemapTargets = new Map();
+  for (const transfer of candidates) {
+    for (const club of clubsByTransfer.get(transfer.id) || []) {
+      for (const website of club.officialWebsites || []) {
+        try {
+          const verifiedWebsite = publicHttpsUrl(website.url);
+          if (!verifiedWebsite) continue;
+          const sitemapUrl = new URL("/sitemap.xml", verifiedWebsite).href;
+          sitemapTargets.set(sitemapUrl, { sitemapUrl, websiteUrl: website.url });
+        } catch {
+          // Invalid P856 values cannot become discovery targets.
+        }
+      }
+    }
+  }
+
+  const loadSitemap = loaders.fetchOfficialSitemap || fetchOfficialSitemap;
+  const sitemapByUrl = new Map();
+  const limitedTargets = [...sitemapTargets.values()].slice(0, Math.max(0, MAX_OFFICIAL_SITEMAPS_PER_REFRESH));
+  await mapWithConcurrency(limitedTargets, OFFICIAL_SITEMAP_CONCURRENCY, async (target) => {
+    try {
+      sitemapByUrl.set(target.sitemapUrl, await loadSitemap(target.sitemapUrl));
+    } catch {
+      // A missing or blocked sitemap only disables discovery for this host.
+    }
+  });
+
+  let discovered = 0;
+  await mapWithConcurrency(candidates, OFFICIAL_ARTICLE_CONCURRENCY, async (transfer) => {
+    const clubs = clubsByTransfer.get(transfer.id) || [];
+    for (const club of clubs) {
+      const officialWebsites = (club.officialWebsites || []).map((website) => ({
+        url: website.url,
+        club: club.name,
+      }));
+      for (const website of club.officialWebsites || []) {
+        let sitemapUrl;
+        try {
+          const verifiedWebsite = publicHttpsUrl(website.url);
+          if (!verifiedWebsite) continue;
+          sitemapUrl = new URL("/sitemap.xml", verifiedWebsite).href;
+        } catch {
+          continue;
+        }
+        const sitemapXml = sitemapByUrl.get(sitemapUrl);
+        if (!sitemapXml) continue;
+        const source = await discoverOfficialClubSource({
+          transfer,
+          sitemapXml,
+          officialWebsites,
+          publisherClub: club.name,
+          matchesOfficialWebsite,
+          fetchArticle: loaders.fetchOfficialArticle,
+          maxCandidates: 5,
+        });
+        if (!source) continue;
+        transfer.sources = transferSources({
+          sources: [
+            ...transferSources(transfer),
+            sourceEvidence(club.name, source.url, "primary_official"),
+          ],
+        });
+        selectPreferredSource(transfer);
+        discovered += 1;
+        return;
+      }
+    }
+  });
+
+  return { checkedSitemaps: sitemapByUrl.size, discovered };
+}
+
 export async function verifyOfficialClubSources(transfers, loaders = {}) {
+  const clubTitles = transfers.flatMap((transfer) => [
+    wikipediaTitle(transfer.fromClubUrl),
+    wikipediaTitle(transfer.toClubUrl),
+  ]).filter(Boolean);
+
+  const loadPageMetadata = loaders.wikipediaPageMetadata || wikipediaPageMetadata;
+  const loadEntities = loaders.wikidataEntities || wikidataEntities;
+  const pageMetadata = clubTitles.length ? await loadPageMetadata(clubTitles) : new Map();
+  const clubQids = [...new Set([...pageMetadata.values()].map((page) => page?.qid).filter(Boolean))];
+  const clubEntities = clubQids.length ? await loadEntities(clubQids, "claims") : {};
+  const clubsByTransfer = new Map();
+
   for (const transfer of transfers) {
+    // Do not mutate the snapshot until both Wikidata lookups have succeeded.
+    // A transient metadata failure therefore preserves the last verified
+    // source roles instead of leaving a half-downgraded feed behind.
     transfer.sources = transferSources(transfer).map((source) => (
       source.role === "primary_official"
         ? { ...source, role: sourceRole(source.url) }
         : source
     ));
-    selectPreferredSource(transfer);
-  }
-
-  const clubTitles = transfers.flatMap((transfer) => [
-    wikipediaTitle(transfer.fromClubUrl),
-    wikipediaTitle(transfer.toClubUrl),
-  ]).filter(Boolean);
-  if (!clubTitles.length) return transfers;
-
-  const loadPageMetadata = loaders.wikipediaPageMetadata || wikipediaPageMetadata;
-  const loadEntities = loaders.wikidataEntities || wikidataEntities;
-  const pageMetadata = await loadPageMetadata(clubTitles);
-  const clubQids = [...new Set([...pageMetadata.values()].map((page) => page?.qid).filter(Boolean))];
-  if (!clubQids.length) return transfers;
-  const clubEntities = await loadEntities(clubQids, "claims");
-
-  for (const transfer of transfers) {
     const clubs = [
       { name: transfer.fromClub, title: wikipediaTitle(transfer.fromClubUrl) },
       { name: transfer.toClub, title: wikipediaTitle(transfer.toClubUrl) },
-    ].filter((club) => club.name && club.title)
+    ].filter((club) => club.name)
       .map((club) => {
-        const qid = pageMetadata.get(club.title.toLowerCase())?.qid;
+        const qid = club.title ? pageMetadata.get(club.title.toLowerCase())?.qid : null;
         const entity = clubEntities[qid];
         const overrideWebsite = OFFICIAL_CLUB_WEBSITE_OVERRIDES.get(footballClubKey(club.name));
         return {
           ...club,
           officialWebsites: [
-            ...(isFootballClubEntity(entity) ? stringClaimValues(entity, "P856") : []),
-            ...(overrideWebsite ? [overrideWebsite] : []),
+            ...(isFootballClubEntity(entity)
+              ? stringClaimValues(entity, "P856").map((url) => ({ url, requiresPlayerEvidence: false }))
+              : []),
+            ...(overrideWebsite ? [{ url: overrideWebsite, requiresPlayerEvidence: true }] : []),
           ],
         };
       });
+    clubsByTransfer.set(transfer.id, clubs);
 
     transfer.sources = transferSources(transfer).map((source) => {
       const verifiedClub = clubs.find((club) => club.officialWebsites.some((website) => (
-        matchesOfficialWebsite(source.url, website)
+        matchesOfficialWebsite(source.url, website.url)
+        && sourceUrlSupportsOfficialAnnouncement(source.url, transfer.player)
       )));
       if (verifiedClub) {
         return { ...source, name: verifiedClub.name, role: "primary_official" };
@@ -2432,6 +2665,13 @@ export async function verifyOfficialClubSources(transfers, loaders = {}) {
       return source;
     });
     selectPreferredSource(transfer);
+  }
+
+  if (loaders.discoverOfficialAnnouncements) {
+    const report = await discoverOfficialSourcesFromSitemaps(transfers, clubsByTransfer, loaders);
+    if (loaders.discoveryReport && typeof loaders.discoveryReport === "object") {
+      Object.assign(loaders.discoveryReport, report);
+    }
   }
 
   return transfers;
@@ -2792,6 +3032,21 @@ export function carryPreviousEnrichment(transfers, previousTransfers) {
       for (const field of ["age", "position", "nationality", "flagCode", "flag", "fromClubCrest", "toClubCrest"]) {
         if (!transfer[field] && previous[field]) transfer[field] = previous[field];
       }
+
+      // A previously verified club link is valuable evidence, but verification
+      // is snapshot-local. Carry it only as a normal candidate so the current
+      // refresh must match it against the endpoint club's audited/P856 domain
+      // before it can become `primary_official` again.
+      if (transfer.status === "official" && previous.status === "official") {
+        const previousOfficialSources = transferSources(previous)
+          .filter((source) => source.role === "primary_official")
+          .map((source) => ({ ...source, role: sourceRole(source.url) }));
+        if (previousOfficialSources.length) {
+          transfer.sources = transferSources({
+            sources: [...transferSources(transfer), ...previousOfficialSources],
+          });
+        }
+      }
     }
     const previousCategory = previous;
     const previousCompetitionGender = normaliseCompetitionGender(previousCategory?.competitionGender);
@@ -2998,8 +3253,17 @@ export async function refresh() {
     console.warn(`Competition category enrichment skipped: ${error.message}`);
   }
 
+  const officialSourceDiscovery = {};
   try {
-    await verifyOfficialClubSources(transfers);
+    await verifyOfficialClubSources(transfers, {
+      discoverOfficialAnnouncements: true,
+      discoveryReport: officialSourceDiscovery,
+    });
+    if (officialSourceDiscovery.checkedSitemaps) {
+      console.log(
+        `Official club discovery checked ${officialSourceDiscovery.checkedSitemaps} sitemaps and matched ${officialSourceDiscovery.discovered || 0} announcements.`,
+      );
+    }
   } catch (error) {
     console.warn(`Official club source verification skipped: ${error.message}`);
   }
