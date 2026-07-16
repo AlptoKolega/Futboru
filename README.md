@@ -4,9 +4,10 @@ A minimalist, source-backed football transfer feed. The site does not reproduce 
 
 ## What the PoC includes
 
-- confirmed transfers from current English, German, Italian, French, Dutch, and Polish summer-window registers, including the original cited club or publication link for every row;
-- league coverage across the Premier League and EFL, Bundesliga and 2. Bundesliga, Serie A and Serie B, Ligue 1 and Ligue 2, Eredivisie, Ekstraklasa, and other divisions present in those national registers;
+- confirmed transfers from 11 current summer-window registers: England, Germany, Italy, France, the Netherlands, Poland, Scotland, Denmark, Switzerland, Norway, and Sweden, including the original cited club or publication link for every row;
+- league coverage across the Premier League and EFL, Bundesliga and 2. Bundesliga, Serie A and Serie B, Ligue 1 and Ligue 2, Eredivisie, Ekstraklasa, the Scottish Premiership, Superliga, Swiss Super League, Eliteserien, Allsvenskan, and other divisions present in those national registers;
 - age, nationality, compact locally hosted SVG flags, and Football Manager-style position codes enriched from Wikidata and Wikipedia, with source-backed exceptions in `data/player-metadata.json`;
+- exact, source-backed corrections for register typos in `data/transfer-corrections.json`, applied only when the cited URL already belongs to that transfer record;
 - club crests and club links sourced from English Wikipedia page metadata;
 - cautiously filtered transfer signals from national football RSS feeds in the United Kingdom, Germany, Italy, Spain, France, the Netherlands, Poland, Portugal, and Brazil, always marked as a `Rumour`; headlines are parsed into player, selling club, and buying club, and incomplete claims are not published as table rows;
 - localized Transfermarkt news through the published German, UK, Italian, Spanish, Dutch, Polish, and Portuguese RSS feeds, never by scraping or copying its transfer database;
@@ -14,6 +15,7 @@ A minimalist, source-backed football transfer feed. The site does not reproduce 
 - direct club announcements curated in `data/official-sources.json`; these replace a publication as the preferred link on a matching confirmed row while keeping BBC, Transfermarkt, and other corroborating links attached;
 - manually curated, source-backed rumours in `data/manual-rumours.json`;
 - claim-level deduplication that retains multiple source links when two markets report the same move; secondary links are exposed in the source drawer instead of creating duplicate rows;
+- window-long retention for structured RSS claims, so a dated rumour does not disappear merely because it rotates out of a publisher's short live feed;
 - independent source health reports, per-source last-good-data fallback, validation, and a GitHub Actions refresh every 30 minutes;
 - an accessible, responsive interface with no menu or cards, plus a restrained source-preview drawer on verified official rows.
 
@@ -33,6 +35,11 @@ Confirmed-transfer registers:
 - [France](https://en.wikipedia.org/wiki/List_of_French_football_transfers_summer_2026)
 - [Netherlands](https://en.wikipedia.org/wiki/List_of_Dutch_football_transfers_summer_2026)
 - [Poland](https://en.wikipedia.org/wiki/List_of_Polish_football_transfers_summer_2026)
+- [Scotland](https://en.wikipedia.org/wiki/List_of_Scottish_football_transfers_summer_2026)
+- [Denmark](https://en.wikipedia.org/wiki/List_of_Danish_football_transfers_summer_2026)
+- [Switzerland](https://en.wikipedia.org/wiki/List_of_Swiss_football_transfers_summer_2026)
+- [Norway](https://en.wikipedia.org/wiki/List_of_Norwegian_football_transfers_summer_2026)
+- [Sweden](https://en.wikipedia.org/wiki/List_of_Swedish_football_transfers_summer_2026)
 
 Rumour and discovery feeds:
 
@@ -47,6 +54,8 @@ Rumour and discovery feeds:
 - Brazil: [ge](https://ge.globo.com/rss/ge/)
 
 The registers are used as structured indexes, but Futboru does not send the reader to a generic index when a direct citation exists. The row links to the underlying club announcement or local/national publication. A citation receives the highest `primary_official` priority only when its hostname matches the official website (`P856`) of the selling or buying club in Wikidata, or when a curated announcement's URL matches the audited official website stored alongside it. An unknown domain remains a publication source; source quality never changes an already confirmed transfer back into a rumour. Transfermarkt is used as a news signal through the RSS interface listed in its [official RSS guide](https://www.transfermarkt.us/intern/rssguide) and, for the requested 1 July backfill, its public day-by-day news archive. Its HTML transfer database is not scraped.
+
+Official register rows are retained for the whole configured transfer window; the refresh no longer applies a hidden per-country or global row cap. Source health reports expose both the number observed and any operator-imposed emergency truncation.
 
 Clicking a row opens the preview only when its preferred link is a verified `primary_official` club source. The refresh job reads at most the first 192 KiB of the page and stops at the end of `<head>`; it stores only capped Open Graph/Twitter title, description, image URL, site/language/date metadata, and never reads or republishes the article body. Preview requests are deduplicated, limited to 24 new URLs per refresh, serialized per host, cached for seven days, and isolated so a blocked club page cannot break the transfer feed.
 

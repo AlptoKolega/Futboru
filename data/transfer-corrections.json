@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 1,
+  "records": [
+    {
+      "date": "2026-07-08",
+      "player": "Giulio Patrignani",
+      "fromClub": "Cremonese",
+      "toClub": "Savona",
+      "correctedToClub": "Savoia",
+      "sourceUrl": "https://uscremonese.it/giulio-patrignani-in-prestito-al-savoia/"
+    },
+    {
+      "date": "2026-07-07",
+      "player": "Michele Paganetto",
+      "fromClub": "Cremonese",
+      "toClub": "Ospitaletto",
+      "correctedPlayer": "Michele Paganotti",
+      "sourceUrl": "https://uscremonese.it/ragnoli-galli-e-paganotti-in-prestito-allospitaletto-2/"
+    }
+  ]
+}

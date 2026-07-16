@@ -2,8 +2,10 @@ import test from "node:test";
 import assert from "node:assert/strict";
 import {
   RSS_SOURCES,
+  WIKIPEDIA_SOURCES,
   applyCuratedPlayerMetadata,
   applyCuratedOfficialSources,
+  applyCuratedTransferCorrections,
   competitionGenderFromEntity,
   carryPreviousEnrichment,
   carryPreviousSourcePreviews,
@@ -31,10 +33,21 @@ import {
   positionCode,
   positionCodesFromText,
   previousTransfersForSource,
+  retainSourceHistory,
   transfermarktBackfillRecords,
   validateRssPayload,
   verifyOfficialClubSources,
 } from "../scripts/refresh.mjs";
+
+test("completed-transfer registers cover the configured national markets without duplicate adapters", () => {
+  const markets = WIKIPEDIA_SOURCES.map((source) => source.country);
+  assert.deepEqual(markets, [
+    "England", "Germany", "Italy", "France", "Netherlands", "Poland",
+    "Scotland", "Denmark", "Switzerland", "Norway", "Sweden",
+  ]);
+  assert.equal(new Set(WIKIPEDIA_SOURCES.map((source) => source.id)).size, WIKIPEDIA_SOURCES.length);
+  assert.ok(WIKIPEDIA_SOURCES.every((source) => ["dated", "clubs"].includes(source.parser)));
+});
 
 test("Wikipedia parser inherits a rowspan date and keeps source and club links", () => {
   const html = `
@@ -250,6 +263,58 @@ test("curated player metadata fills exact gaps and the publication gate rejects 
   assert.equal(hasCompletePlayerMetadata({ nationality: "France", position: null }), false);
 });
 
+test("an exact curated player record can explicitly correct a sourced metadata field", () => {
+  const transfers = [{
+    date: "2026-07-03", player: "Willy Vogt", fromClub: "Bellinzona", toClub: "Motherwell",
+    nationality: "Scotland", position: null, flagCode: "gb-sct", flag: "🇬🇧",
+  }];
+  const record = {
+    date: "2026-07-03", player: "Willy Vogt", fromClub: "Bellinzona", toClub: "Motherwell",
+    nationality: "Switzerland", position: "AMR / AML", overrideFields: ["nationality"],
+    playerUrl: "https://www.transfermarkt.com/willy-vogt/profil/spieler/500782",
+    sourceUrl: "https://www.motherwellfc.co.uk/2026/07/03/say-hello-to-willy-vogt/",
+  };
+
+  applyCuratedPlayerMetadata(transfers, { schemaVersion: 1, records: [record] });
+
+  assert.equal(transfers[0].nationality, "Switzerland");
+  assert.equal(transfers[0].flagCode, "ch");
+  assert.equal(transfers[0].position, "AMR / AML");
+});
+
+test("a curated transfer correction requires matching source evidence and refreshes its identity", () => {
+  const sourceUrl = "https://club.example/official-correction";
+  const transfers = [{
+    id: "old", date: "2026-07-08", player: "Example Player",
+    fromClub: "Club A", toClub: "Wrong Club", sourceUrl,
+    sources: [{ name: "Club A", url: sourceUrl, role: "publication" }],
+  }, {
+    id: "old-duplicate", date: "2026-07-08", player: "Example Player",
+    fromClub: "Club A", toClub: "Wrong Club", sourceUrl,
+    sources: [{ name: "Club A", url: sourceUrl, role: "publication" }],
+  }, {
+    id: "untouched", date: "2026-07-08", player: "Other Player",
+    fromClub: "Club A", toClub: "Wrong Club", sourceUrl: "https://other.example/report",
+    sources: [{ name: "Other", url: "https://other.example/report", role: "publication" }],
+  }];
+  const corrections = [{
+    date: "2026-07-08", player: "Example Player", fromClub: "Club A", toClub: "Wrong Club",
+    correctedToClub: "Right Club", sourceUrl,
+  }, {
+    date: "2026-07-08", player: "Other Player", fromClub: "Club A", toClub: "Wrong Club",
+    correctedToClub: "Right Club", sourceUrl,
+  }];
+
+  applyCuratedTransferCorrections(transfers, corrections);
+
+  assert.equal(transfers[0].toClub, "Right Club");
+  assert.notEqual(transfers[0].id, "old");
+  assert.equal(transfers[1].toClub, "Right Club");
+  assert.notEqual(transfers[1].id, "old-duplicate");
+  assert.equal(transfers[2].toClub, "Wrong Club");
+  assert.equal(transfers[2].id, "untouched");
+});
+
 test("previous Wikidata categories are reused only with stable entity evidence", () => {
   const current = [
     { id: "one", player: "Ambiguous Name", competitionGender: "unknown" },
@@ -378,6 +443,25 @@ test("an observed non-empty feed with no matches is an authoritative per-source 
   assert.deepEqual(selected, []);
 });
 
+test("a structured RSS claim remains in the transfer-window history after feed rotation", () => {
+  const current = [{
+    id: "current", date: "2026-07-16", player: "Current Player",
+    fromClub: "Club A", toClub: "Club B", status: "rumour",
+    sourceUrl: "https://example.test/current",
+  }];
+  const previous = [{
+    id: "previous", date: "2026-07-03", player: "Previous Player",
+    fromClub: "Club C", toClub: "Club D", status: "rumour",
+    sourceUrl: "https://example.test/previous",
+  }, { ...current[0] }];
+
+  const retained = retainSourceHistory(current, previous);
+
+  assert.equal(retained.currentCount, 1);
+  assert.equal(retained.carriedCount, 1);
+  assert.deepEqual(retained.entries.map((entry) => entry.id), ["current", "previous"]);
+});
+
 test("deduplication carries Wikidata identity evidence with an adopted category", () => {
   const evidence = {
     property: "P21", valueId: "Q6581072", referenceProperty: "P4656",
@@ -441,6 +525,10 @@ test("country aliases map to local 4:3 SVG assets", () => {
     ["Côte d’Ivoire", "ci"],
     ["Indonesia", "id"],
     ["Russia", "ru"],
+    ["Faroe Islands", "fo"],
+    ["Liechtenstein", "li"],
+    ["Iraq", "iq"],
+    ["Saint Lucia", "lc"],
   ];
 
   for (const [label, expected] of cases) assert.equal(flagCodeFromName(label), expected, label);
@@ -933,6 +1021,20 @@ test("official source preview reads only capped head metadata and resolves a sec
   assert.equal(preview.siteName, "Club FC");
   assert.equal(preview.publishedAt, "2026-07-15T07:30:00.000Z");
   assert.equal(preview.language, "en-GB");
+});
+
+test("official source preview rejects a placeholder image value", () => {
+  const preview = parseSourcePreviewHtml(`
+    <html><head>
+      <meta property="og:title" content="Player joins Club">
+      <meta property="og:image" content="null">
+    </head></html>
+  `, {
+    sourceUrl: "https://club.example/news/player-joins",
+    fetchedAt: "2026-07-16T10:00:00.000Z",
+  });
+
+  assert.equal(preview.imageUrl, null);
 });
 
 test("source preview normalization is bound to a verified HTTPS club source", () => {

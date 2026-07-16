@@ -54,6 +54,51 @@ export const WIKIPEDIA_SOURCES = [
     competitionGender: "men",
     parser: "clubs",
   },
+  {
+    id: "wikipedia-scotland",
+    label: "Scotland transfer register",
+    url: "https://en.wikipedia.org/wiki/List_of_Scottish_football_transfers_summer_2026",
+    country: "Scotland",
+    competition: "Scottish leagues",
+    competitionGender: "men",
+    parser: "dated",
+  },
+  {
+    id: "wikipedia-denmark",
+    label: "Denmark transfer register",
+    url: "https://en.wikipedia.org/wiki/List_of_Danish_football_transfers_summer_2026",
+    country: "Denmark",
+    competition: "Danish leagues",
+    competitionGender: "men",
+    parser: "clubs",
+  },
+  {
+    id: "wikipedia-switzerland",
+    label: "Switzerland transfer register",
+    url: "https://en.wikipedia.org/wiki/List_of_Swiss_football_transfers_summer_2026",
+    country: "Switzerland",
+    competition: "Swiss leagues",
+    competitionGender: "men",
+    parser: "clubs",
+  },
+  {
+    id: "wikipedia-norway",
+    label: "Norway transfer register",
+    url: "https://en.wikipedia.org/wiki/List_of_Norwegian_football_transfers_summer_2026",
+    country: "Norway",
+    competition: "Norwegian leagues",
+    competitionGender: "men",
+    parser: "clubs",
+  },
+  {
+    id: "wikipedia-sweden",
+    label: "Sweden transfer register",
+    url: "https://en.wikipedia.org/wiki/List_of_Swedish_football_transfers_summer_2026",
+    country: "Sweden",
+    competition: "Swedish leagues",
+    competitionGender: "men",
+    parser: "clubs",
+  },
 ];
 
 export const WIKIPEDIA_URL = WIKIPEDIA_SOURCES[0].url;
@@ -220,13 +265,16 @@ const MANUAL_RUMOURS_URL = new URL("../data/manual-rumours.json", import.meta.ur
 const TRANSFERMARKT_BACKFILL_URL = new URL("../data/transfermarkt-news-backfill.json", import.meta.url);
 const CURATED_OFFICIAL_SOURCES_URL = new URL("../data/official-sources.json", import.meta.url);
 const CURATED_PLAYER_METADATA_URL = new URL("../data/player-metadata.json", import.meta.url);
+const CURATED_TRANSFER_CORRECTIONS_URL = new URL("../data/transfer-corrections.json", import.meta.url);
 const PREVIOUS_DEPLOYED_DATA_URL = process.env.PREVIOUS_DEPLOYED_DATA_URL || "";
 const USER_AGENT = "Futboru/0.1 (+https://github.com/AlptoKolega/Futboru; public transfer-feed PoC)";
 const LOOKBACK_DAYS = Number(process.env.LOOKBACK_DAYS || 14);
 const TRANSFER_WINDOW_START = process.env.TRANSFER_WINDOW_START || "2026-07-01";
-const MAX_OFFICIAL = Number(process.env.MAX_OFFICIAL || 300);
-const MAX_OFFICIAL_PER_MARKET = Number(process.env.MAX_OFFICIAL_PER_MARKET || 60);
-const MAX_RUMOURS = Number(process.env.MAX_RUMOURS || 48);
+// Official registers are already bounded by the configured transfer window. Keep
+// optional emergency caps for operators, but never truncate the public feed by default.
+const MAX_OFFICIAL_PER_MARKET = Number(
+  process.env.MAX_OFFICIAL_PER_MARKET || Number.POSITIVE_INFINITY,
+);
 const MAX_RUMOURS_PER_SOURCE = Number(process.env.MAX_RUMOURS_PER_SOURCE || 4);
 const MAX_SOURCE_PREVIEWS_PER_REFRESH = Number(process.env.MAX_SOURCE_PREVIEWS_PER_REFRESH || 24);
 const SOURCE_PREVIEW_CONCURRENCY = Number(process.env.SOURCE_PREVIEW_CONCURRENCY || 4);
@@ -248,14 +296,14 @@ const COUNTRY_FLAG_CODES = new Map([
   ["england", "gb-eng"], ["estonia", "ee"], ["finland", "fi"], ["france", "fr"], ["gabon", "ga"],
   ["gambia", "gm"], ["the gambia", "gm"], ["georgia", "ge"], ["germany", "de"], ["ghana", "gh"],
   ["greece", "gr"], ["guyana", "gy"], ["guinea", "gn"], ["hungary", "hu"], ["iceland", "is"],
-  ["indonesia", "id"], ["iran", "ir"], ["ireland", "ie"], ["republic of ireland", "ie"],
+  ["indonesia", "id"], ["iran", "ir"], ["iraq", "iq"], ["ireland", "ie"], ["republic of ireland", "ie"],
   ["israel", "il"], ["italy", "it"],
   ["ivory coast", "ci"], ["cote d'ivoire", "ci"], ["jamaica", "jm"], ["japan", "jp"], ["kenya", "ke"],
-  ["kosovo", "xk"], ["mali", "ml"], ["mexico", "mx"], ["morocco", "ma"], ["netherlands", "nl"],
+  ["kosovo", "xk"], ["liechtenstein", "li"], ["mali", "ml"], ["mexico", "mx"], ["morocco", "ma"], ["netherlands", "nl"],
   ["new zealand", "nz"], ["nigeria", "ng"], ["north macedonia", "mk"], ["northern ireland", "gb-nir"],
   ["norway", "no"], ["paraguay", "py"], ["peru", "pe"], ["poland", "pl"], ["portugal", "pt"],
   ["romania", "ro"], ["russia", "ru"], ["scotland", "gb-sct"], ["senegal", "sn"],
-  ["serbia", "rs"], ["sierra leone", "sl"],
+  ["serbia", "rs"], ["sierra leone", "sl"], ["saint lucia", "lc"],
   ["slovakia", "sk"], ["slovenia", "si"], ["south africa", "za"], ["south korea", "kr"],
   ["korea republic", "kr"], ["republic of korea", "kr"], ["spain", "es"], ["sweden", "se"],
   ["switzerland", "ch"], ["tunisia", "tn"], ["turkey", "tr"], ["turkiye", "tr"], ["ukraine", "ua"],
@@ -272,6 +320,7 @@ const COUNTRY_FLAG_CODES = new Map([
   ["honduras", "hn"], ["madagascar", "mg"], ["azerbaijan", "az"], ["belarus", "by"],
   ["cuba", "cu"], ["grenada", "gd"], ["burundi", "bi"], ["montserrat", "ms"],
   ["lithuania", "lt"], ["latvia", "lv"], ["guadeloupe", "gp"], ["malta", "mt"],
+  ["faroe islands", "fo"],
   ["ulster banner", "gb-nir"], ["guinea bissau", "gw"],
 ]);
 
@@ -1132,6 +1181,13 @@ function safeHttpsUrl(value, baseUrl = undefined) {
   }
 }
 
+function safePreviewImageUrl(value, baseUrl) {
+  const resolved = safeHttpsUrl(value, baseUrl);
+  if (!resolved) return null;
+  const finalSegment = new URL(resolved).pathname.replace(/\/+$/, "").split("/").at(-1)?.toLowerCase();
+  return ["null", "undefined", "none"].includes(finalSegment) ? null : resolved;
+}
+
 function previewText(value, maximumLength) {
   const text = cleanText(value)
     .replace(/[\u0000-\u001f\u007f-\u009f\u200b-\u200d\ufeff]/g, "")
@@ -1192,7 +1248,7 @@ export function parseSourcePreviewHtml(html, context = {}) {
     'meta[name="twitter:image"]',
     'meta[property="twitter:image"]',
   );
-  const imageUrl = rawImageUrl ? safeHttpsUrl(rawImageUrl, sourceUrl) : null;
+  const imageUrl = rawImageUrl ? safePreviewImageUrl(rawImageUrl, sourceUrl) : null;
   const siteName = previewText(
     meta('meta[property="og:site_name"]', 'meta[name="application-name"]') || context.sourceName,
     80,
@@ -1239,7 +1295,7 @@ export function normaliseSourcePreview(preview, transfer = {}) {
     sourceUrl,
     title,
     description: previewText(preview.description, 360),
-    imageUrl: safeHttpsUrl(preview.imageUrl, sourceUrl),
+    imageUrl: safePreviewImageUrl(preview.imageUrl, sourceUrl),
     siteName: previewText(preview.siteName, 80),
     publishedAt: normalisePreviewDate(preview.publishedAt),
     language: normalisePreviewLanguage(preview.language),
@@ -2004,6 +2060,7 @@ async function readTransfermarktBackfill() {
 const PLAYER_POSITION_PATTERN = /^(?:GK|SW|DC|DR|DL|FB|WB|WBR|WBL|DM|MC|MR|ML|WM|AMC|AMR|AML|AM|SS|ST)(?: \/ (?:GK|SW|DC|DR|DL|FB|WB|WBR|WBL|DM|MC|MR|ML|WM|AMC|AMR|AML|AM|SS|ST))*$/;
 
 function validateCuratedPlayerMetadata(item) {
+  const overrideFields = Array.isArray(item?.overrideFields) ? item.overrideFields : [];
   return item
     && typeof item === "object"
     && /^\d{4}-\d{2}-\d{2}$/.test(item.date || "")
@@ -2012,7 +2069,8 @@ function validateCuratedPlayerMetadata(item) {
     && PLAYER_POSITION_PATTERN.test(cleanText(item.position))
     && /^https:\/\//.test(item.sourceUrl || "")
     && /^https:\/\//.test(item.playerUrl || "")
-    && (!item.playerQid || /^Q\d+$/.test(item.playerQid));
+    && (!item.playerQid || /^Q\d+$/.test(item.playerQid))
+    && overrideFields.every((field) => ["nationality", "position", "playerUrl", "playerQid"].includes(field));
 }
 
 export function applyCuratedPlayerMetadata(transfers, payload) {
@@ -2025,14 +2083,15 @@ export function applyCuratedPlayerMetadata(transfers, payload) {
     if (!validateCuratedPlayerMetadata(item)) continue;
     const target = byIdentity.get(`${item.date}|${claimIdentity(item)}`);
     if (!target) continue;
-    if (!meaningful(target.nationality)) {
+    const overrideFields = new Set(item.overrideFields || []);
+    if (!meaningful(target.nationality) || overrideFields.has("nationality")) {
       target.nationality = cleanText(item.nationality);
       target.flagCode = flagCodeFromName(target.nationality);
       target.flag = flagFromName(target.nationality);
     }
-    if (!meaningful(target.position)) target.position = cleanText(item.position);
-    if (!target.playerUrl) target.playerUrl = item.playerUrl;
-    target.playerQid ||= item.playerQid || null;
+    if (!meaningful(target.position) || overrideFields.has("position")) target.position = cleanText(item.position);
+    if (!target.playerUrl || overrideFields.has("playerUrl")) target.playerUrl = item.playerUrl;
+    if (!target.playerQid || overrideFields.has("playerQid")) target.playerQid = item.playerQid || null;
     target.playerMetadataSourceUrl = item.sourceUrl;
   }
 
@@ -2042,6 +2101,68 @@ export function applyCuratedPlayerMetadata(transfers, payload) {
 async function readCuratedPlayerMetadata() {
   try {
     return JSON.parse(await readFile(CURATED_PLAYER_METADATA_URL, "utf8"));
+  } catch {
+    return { schemaVersion: 1, records: [] };
+  }
+}
+
+function validateCuratedTransferCorrection(item) {
+  return item
+    && typeof item === "object"
+    && /^\d{4}-\d{2}-\d{2}$/.test(item.date || "")
+    && hasStructuredRoute(item)
+    && /^https:\/\//.test(item.sourceUrl || "")
+    && [item.correctedPlayer, item.correctedFromClub, item.correctedToClub].some(meaningful)
+    && (!item.correctedPlayerUrl || /^https:\/\//.test(item.correctedPlayerUrl));
+}
+
+export function applyCuratedTransferCorrections(transfers, payload) {
+  const records = Array.isArray(payload) ? payload : payload?.records;
+  const byIdentity = new Map();
+  for (const transfer of transfers) {
+    const key = `${transfer.date}|${claimIdentity(transfer)}`;
+    byIdentity.set(key, [...(byIdentity.get(key) || []), transfer]);
+  }
+
+  for (const item of Array.isArray(records) ? records : []) {
+    if (!validateCuratedTransferCorrection(item)) continue;
+    const targets = byIdentity.get(`${item.date}|${claimIdentity(item)}`) || [];
+    for (const target of targets) {
+      const evidenceMatches = transferSources(target).some((source) => (
+        safeHttpsUrl(source.url) === safeHttpsUrl(item.sourceUrl)
+      ));
+      if (!evidenceMatches) continue;
+
+      if (meaningful(item.correctedPlayer)) {
+        target.player = cleanText(item.correctedPlayer);
+        target.playerUrl = safeHttpsUrl(item.correctedPlayerUrl) || null;
+        target.playerQid = null;
+        target.age = null;
+        target.position = null;
+        target.nationality = null;
+        target.flagCode = null;
+        target.flag = "";
+      }
+      if (meaningful(item.correctedFromClub)) {
+        target.fromClub = cleanText(item.correctedFromClub);
+        target.fromClubUrl = null;
+        target.fromClubCrest = null;
+      }
+      if (meaningful(item.correctedToClub)) {
+        target.toClub = cleanText(item.correctedToClub);
+        target.toClubUrl = null;
+        target.toClubCrest = null;
+      }
+      target.id = transferId(target.date, target.player, target.fromClub, target.toClub);
+    }
+  }
+
+  return transfers;
+}
+
+async function readCuratedTransferCorrections() {
+  try {
+    return JSON.parse(await readFile(CURATED_TRANSFER_CORRECTIONS_URL, "utf8"));
   } catch {
     return { schemaVersion: 1, records: [] };
   }
@@ -2413,6 +2534,16 @@ export function deduplicateTransfers(transfers) {
   return merged;
 }
 
+export function retainSourceHistory(currentEntries, previousEntries) {
+  const currentCount = currentEntries.length;
+  const entries = deduplicateTransfers([...currentEntries, ...previousEntries]);
+  return {
+    entries,
+    currentCount,
+    carriedCount: Math.max(0, entries.length - currentCount),
+  };
+}
+
 function headlineContainsPlayer(headline, player) {
   const headlineKey = canonicalIdentity(headline);
   const playerKey = canonicalIdentity(player);
@@ -2711,6 +2842,7 @@ export async function refresh() {
   for (const source of WIKIPEDIA_SOURCES) {
     const result = resultById.get(source.id);
     let entries = [];
+    let observedCount = null;
     let status = "ok";
     try {
       if (result.status === "rejected") throw result.reason;
@@ -2721,6 +2853,7 @@ export async function refresh() {
         right.date.localeCompare(left.date)
         || (right.firstSeenAt || "").localeCompare(left.firstSeenAt || "")
       ));
+      observedCount = entries.length;
       entries = entries.slice(0, MAX_OFFICIAL_PER_MARKET);
     } catch (error) {
       status = "stale";
@@ -2736,12 +2869,14 @@ export async function refresh() {
       kind: "transfer-register",
       status,
       count: entries.length,
+      observedCount,
+      truncatedCount: observedCount === null ? null : observedCount - entries.length,
     });
   }
 
+  applyCuratedTransferCorrections(official, await readCuratedTransferCorrections());
   official = deduplicateTransfers(official)
-    .sort((left, right) => right.date.localeCompare(left.date))
-    .slice(0, MAX_OFFICIAL);
+    .sort((left, right) => right.date.localeCompare(left.date));
   carryPreviousEnrichment(official, previousTransfers);
   try {
     await enrichClubCrests(official);
@@ -2754,13 +2889,20 @@ export async function refresh() {
     let entries = [];
     let status = "ok";
     let observedCount = null;
+    let currentCount = 0;
+    let carriedCount = 0;
     try {
       if (result.status === "rejected") throw result.reason;
       observedCount = inspectRssPayload(result.value).observedCount;
       entries = parseRssRumours(result.value, source);
+      ({ entries, currentCount, carriedCount } = retainSourceHistory(
+        entries,
+        previousForSource(source),
+      ));
     } catch (error) {
       status = "stale";
       entries = previousForSource(source);
+      carriedCount = entries.length;
       console.error(`${source.label}: ${error?.message || error}`);
     }
     rumours.push(...entries);
@@ -2773,6 +2915,8 @@ export async function refresh() {
       status,
       count: entries.length,
       observedCount,
+      currentCount,
+      carriedCount,
     });
   }
 
@@ -2780,8 +2924,7 @@ export async function refresh() {
     .sort((left, right) => (right.firstSeenAt || "").localeCompare(left.firstSeenAt || ""));
   rumours = mergeHeadlineEvidence(official, rumours);
   rumours = mergeRumourFragments(rumours)
-    .filter(hasStructuredRoute)
-    .slice(0, MAX_RUMOURS);
+    .filter(hasStructuredRoute);
   carryPreviousEnrichment(rumours, previousTransfers);
 
   const manualRumours = await readManualRumours();
