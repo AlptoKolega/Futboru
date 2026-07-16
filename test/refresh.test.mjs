@@ -2,15 +2,19 @@ import test from "node:test";
 import assert from "node:assert/strict";
 import {
   RSS_SOURCES,
+  applyCuratedPlayerMetadata,
+  applyCuratedOfficialSources,
   competitionGenderFromEntity,
   carryPreviousEnrichment,
   carryPreviousSourcePreviews,
   deduplicateTransfers,
   enrichCompetitionGenders,
+  enrichPlayerDetails,
   enrichOfficialSourcePreviews,
   extractRumourMovement,
   flagCodeFromName,
   hasStructuredRoute,
+  hasCompletePlayerMetadata,
   inspectRssPayload,
   mergeHeadlineEvidence,
   mergeRumourFragments,
@@ -25,7 +29,9 @@ import {
   parseWikipediaDatedTransfers,
   parseWikipediaTransfers,
   positionCode,
+  positionCodesFromText,
   previousTransfersForSource,
+  transfermarktBackfillRecords,
   validateRssPayload,
   verifyOfficialClubSources,
 } from "../scripts/refresh.mjs";
@@ -164,6 +170,84 @@ test("name-only rumours use an exact footballer entity and keep uncertain matche
   assert.equal(transfers[1].competitionGender, "unknown");
   assert.equal(transfers[2].competitionGender, "unknown");
   assert.equal(transfers[3].competitionGender, "men");
+});
+
+test("name-only rumours receive player metadata only after a footballer and route match", async () => {
+  const transfers = [{
+    date: "2026-07-13", player: "Brais Méndez", playerUrl: null,
+    fromClub: "Real Sociedad", toClub: "Columbus Crew",
+    age: null, position: null, nationality: null,
+  }, {
+    date: "2026-07-13", player: "Alex Example", playerUrl: null,
+    fromClub: "Old Club", toClub: "New Club",
+    age: null, position: null, nationality: null,
+  }];
+  const entityClaim = (qid) => ({ mainsnak: { datavalue: { value: { id: qid } } } });
+
+  await enrichPlayerDetails(transfers, {
+    wikipediaPageMetadata: async () => new Map([
+      ["brais méndez", { qid: "Q1", title: "Brais Méndez" }],
+      ["alex example", { qid: "Q2", title: "Alex Example" }],
+    ]),
+    wikidataEntities: async (_ids, props) => props === "labels"
+      ? {
+        Q3: { labels: { en: { value: "Columbus Crew F.C." } } },
+        Q4: { labels: { en: { value: "central midfielder" } } },
+        Q5: { labels: { en: { value: "Spain" } } },
+      }
+      : {
+        Q1: {
+          descriptions: { en: { value: "Spanish footballer" } },
+          claims: {
+            P31: [entityClaim("Q5")], P106: [entityClaim("Q937857")],
+            P54: [entityClaim("Q3")], P413: [entityClaim("Q4")], P1532: [entityClaim("Q5")],
+            P569: [{ mainsnak: { datavalue: { value: { time: "+1997-01-07T00:00:00Z" } } } }],
+          },
+        },
+        Q2: {
+          descriptions: { en: { value: "British actor" } },
+          claims: { P31: [entityClaim("Q5")] },
+        },
+      },
+  });
+
+  assert.equal(transfers[0].nationality, "Spain");
+  assert.equal(transfers[0].position, "MC");
+  assert.equal(transfers[0].age, 29);
+  assert.equal(transfers[0].playerUrl, "https://en.wikipedia.org/wiki/Brais_M%C3%A9ndez");
+  assert.equal(transfers[1].nationality, null);
+  assert.equal(transfers[1].position, null);
+  assert.equal(transfers[1].playerUrl, null);
+});
+
+test("curated player metadata fills exact gaps and the publication gate rejects incomplete rows", () => {
+  const transfers = [{
+    date: "2026-07-08", player: "Angus Gunn", fromClub: "Nottingham Forest",
+    toClub: "San Jose Earthquakes", nationality: null, position: null, playerUrl: null,
+  }, {
+    date: "2026-07-08", player: "Existing Player", fromClub: "Club A", toClub: "Club B",
+    nationality: "France", position: "ST", playerUrl: "https://en.wikipedia.org/wiki/Existing_Player",
+  }];
+  const record = {
+    date: "2026-07-08", player: "Angus Gunn", fromClub: "Nottingham Forest",
+    toClub: "San Jose Earthquakes", nationality: "Scotland", position: "GK",
+    playerUrl: "https://en.wikipedia.org/wiki/Angus_Gunn", playerQid: "Q20807705",
+    sourceUrl: "https://en.wikipedia.org/wiki/Angus_Gunn",
+  };
+
+  applyCuratedPlayerMetadata(transfers, { schemaVersion: 1, records: [
+    record,
+    { ...record, position: "Goalkeeper" },
+    { ...record, sourceUrl: "javascript:alert(1)" },
+  ] });
+
+  assert.equal(transfers[0].nationality, "Scotland");
+  assert.equal(transfers[0].position, "GK");
+  assert.equal(transfers[0].flagCode, "gb-sct");
+  assert.equal(transfers[0].playerQid, "Q20807705");
+  assert.equal(hasCompletePlayerMetadata(transfers[0]), true);
+  assert.equal(hasCompletePlayerMetadata(transfers[1]), true);
+  assert.equal(hasCompletePlayerMetadata({ nationality: "France", position: null }), false);
 });
 
 test("previous Wikidata categories are reused only with stable entity evidence", () => {
@@ -355,6 +439,8 @@ test("country aliases map to local 4:3 SVG assets", () => {
     ["Georgia (country)", "ge"],
     ["Flag of The Gambia", "gm"],
     ["Côte d’Ivoire", "ci"],
+    ["Indonesia", "id"],
+    ["Russia", "ru"],
   ];
 
   for (const [label, expected] of cases) assert.equal(flagCodeFromName(label), expected, label);
@@ -635,6 +721,34 @@ test("localized Transfermarkt feeds stay database rumours and merge the same str
   assert.equal(polishClaim.sourceRole, "database");
   const [merged] = deduplicateTransfers([englishClaim, polishClaim]);
   assert.equal(merged.sources.length, 2);
+});
+
+test("vetted Transfermarkt news-archive records become safe database rumours only", () => {
+  const records = transfermarktBackfillRecords([
+    {
+      date: "2026-07-02", player: "Brais Méndez", fromClub: "Real Sociedad",
+      toClub: "Columbus Crew", fee: "€6m", competitionGender: "men",
+      sourceName: "Transfermarkt UK", market: "United Kingdom",
+      sourceUrl: "https://www.transfermarkt.co.uk/example/view/news/482290",
+    },
+    {
+      date: "2026-07-02", player: "Brais Méndez", fromClub: "Real Sociedad",
+      toClub: "Columbus Crew", sourceName: "Transfermarkt UK",
+      sourceUrl: "https://transfermarkt.co.uk.evil.example/example/view/news/482290",
+    },
+    {
+      date: "2026-07-02", player: "Brais Méndez", fromClub: "Real Sociedad",
+      toClub: "Columbus Crew", sourceName: "Transfermarkt UK",
+      sourceUrl: "https://www.transfermarkt.co.uk/statistik/neuestetransfers",
+    },
+  ]);
+
+  assert.equal(records.length, 1);
+  assert.equal(records[0].status, "rumour");
+  assert.equal(records[0].sourceRole, "database");
+  assert.equal(records[0].sourceAdapter, "transfermarkt-archive");
+  assert.equal(records[0].competitionGender, "men");
+  assert.equal(records[0].fee, "€6m");
 });
 
 test("localized Transfermarkt fixtures parse useful claims and reject locale-specific noise", () => {
@@ -1009,6 +1123,59 @@ test("only a club domain verified through Wikidata becomes the preferred officia
   assert.equal(transfers[1].sourceRole, "publication");
 });
 
+test("a curated club announcement becomes preferred while existing evidence stays attached", () => {
+  const transfers = [{
+    id: "tielemans", date: "2026-07-14", player: "Youri Tielemans",
+    fromClub: "Aston Villa", toClub: "Manchester United", status: "official",
+    sourceName: "BBC Sport", sourceUrl: "https://www.bbc.co.uk/sport/tielemans",
+    sourceRole: "publication", sources: [
+      { name: "BBC Sport", url: "https://www.bbc.co.uk/sport/tielemans", role: "publication" },
+      { name: "Transfermarkt UK", url: "https://www.transfermarkt.co.uk/tielemans", role: "database" },
+    ],
+  }];
+  const announcement = {
+    date: "2026-07-14", player: "Youri Tielemans",
+    fromClub: "Aston Villa", toClub: "Manchester United", club: "Manchester United",
+    officialWebsite: "https://www.manutd.com",
+    sourceUrl: "https://www.manutd.com/en/news/tielemans",
+  };
+
+  applyCuratedOfficialSources(transfers, [announcement, announcement]);
+
+  assert.equal(transfers[0].sourceName, "Manchester United");
+  assert.equal(transfers[0].sourceRole, "primary_official");
+  assert.equal(transfers[0].sourceUrl, announcement.sourceUrl);
+  assert.equal(transfers[0].sources.length, 3);
+  assert.deepEqual(new Set(transfers[0].sources.map((source) => source.name)), new Set([
+    "BBC Sport", "Transfermarkt UK", "Manchester United",
+  ]));
+});
+
+test("curated announcements fail closed for wrong routes, clubs, domains and unconfirmed rows", () => {
+  const base = {
+    id: "tielemans", date: "2026-07-14", player: "Youri Tielemans",
+    fromClub: "Aston Villa", toClub: "Manchester United", status: "official",
+    sourceName: "BBC Sport", sourceUrl: "https://www.bbc.co.uk/sport/tielemans",
+    sourceRole: "publication",
+  };
+  const transfers = [base, { ...base, id: "rumour", status: "rumour" }];
+  const common = {
+    date: "2026-07-14", player: "Youri Tielemans",
+    fromClub: "Aston Villa", toClub: "Manchester United",
+    officialWebsite: "https://www.manutd.com",
+  };
+
+  applyCuratedOfficialSources(transfers, [
+    { ...common, club: "Manchester City", sourceUrl: "https://www.manutd.com/en/news/tielemans" },
+    { ...common, club: "Manchester United", sourceUrl: "https://manutd.com.evil.example/tielemans" },
+    { ...common, date: "2026-07-13", club: "Manchester United", sourceUrl: "https://www.manutd.com/en/news/tielemans" },
+  ]);
+
+  assert.equal(transfers[0].sourceName, "BBC Sport");
+  assert.equal(transfers[0].sourceRole, "publication");
+  assert.equal(transfers[1].sourceName, "BBC Sport");
+});
+
 test("official website matching respects hostname boundaries", () => {
   assert.equal(matchesOfficialWebsite("https://news.club.example/post", "https://club.example"), true);
   assert.equal(matchesOfficialWebsite("https://club.example/post", "https://news.club.example"), false);
@@ -1271,4 +1438,10 @@ test("football positions use compact Football Manager-style codes", () => {
   for (const [label, expected] of cases) assert.equal(positionCode(label), expected, label);
   assert.equal(positionCode("anything", "Q201330"), "GK");
   assert.equal(positionCode("unknown role"), null);
+});
+
+test("Wikipedia infobox position markup becomes compact multi-position codes", () => {
+  assert.equal(positionCodesFromText("{{ubl|[[Centre-back]]|[[Left-back]]}}"), "DC / DL");
+  assert.equal(positionCodesFromText("[[Right-back]] or [[Right wing-back]]"), "DR / WBR");
+  assert.equal(positionCodesFromText("not specified"), null);
 });

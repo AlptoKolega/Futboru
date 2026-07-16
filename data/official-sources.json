@@ -1,0 +1,47 @@
+[
+  {
+    "date": "2026-07-14",
+    "player": "Youri Tielemans",
+    "fromClub": "Aston Villa",
+    "toClub": "Manchester United",
+    "club": "Manchester United",
+    "officialWebsite": "https://www.manutd.com",
+    "sourceUrl": "https://www.manutd.com/en/news/manchester-united-announce-signing-of-youri-tielemans?t=y"
+  },
+  {
+    "date": "2026-07-13",
+    "player": "Andrey Santos",
+    "fromClub": "Chelsea",
+    "toClub": "Manchester United",
+    "club": "Manchester United",
+    "officialWebsite": "https://www.manutd.com",
+    "sourceUrl": "https://www.manutd.com/en/news/andrey-santos-signs-for-manchester-united?t=y"
+  },
+  {
+    "date": "2026-07-11",
+    "player": "Jeremy Monga",
+    "fromClub": "Leicester City",
+    "toClub": "Manchester City",
+    "club": "Manchester City",
+    "officialWebsite": "https://www.mancity.com",
+    "sourceUrl": "https://live.mancity.com/news/mens/monga-signs-for-manchester-city-63919355"
+  },
+  {
+    "date": "2026-07-14",
+    "player": "Luka Vušković",
+    "fromClub": "Tottenham Hotspur",
+    "toClub": "Brighton & Hove Albion",
+    "club": "Brighton & Hove Albion",
+    "officialWebsite": "https://www.brightonandhovealbion.com",
+    "sourceUrl": "https://www.brightonandhovealbion.com/media-article/mft-transfer-news-luka-vuskovic-tottenham-july-2026"
+  },
+  {
+    "date": "2026-07-09",
+    "player": "Sean Steur",
+    "fromClub": "Ajax",
+    "toClub": "Newcastle United",
+    "club": "Newcastle United",
+    "officialWebsite": "https://www.newcastleunited.com",
+    "sourceUrl": "https://www.newcastleunited.com/en/news/sean-steur-signs-for-newcastle-united"
+  }
+]

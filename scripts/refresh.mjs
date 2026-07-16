@@ -217,9 +217,13 @@ export const RSS_SOURCES = [
 
 const OUTPUT_URL = new URL("../data/transfers.json", import.meta.url);
 const MANUAL_RUMOURS_URL = new URL("../data/manual-rumours.json", import.meta.url);
+const TRANSFERMARKT_BACKFILL_URL = new URL("../data/transfermarkt-news-backfill.json", import.meta.url);
+const CURATED_OFFICIAL_SOURCES_URL = new URL("../data/official-sources.json", import.meta.url);
+const CURATED_PLAYER_METADATA_URL = new URL("../data/player-metadata.json", import.meta.url);
 const PREVIOUS_DEPLOYED_DATA_URL = process.env.PREVIOUS_DEPLOYED_DATA_URL || "";
 const USER_AGENT = "Futboru/0.1 (+https://github.com/AlptoKolega/Futboru; public transfer-feed PoC)";
 const LOOKBACK_DAYS = Number(process.env.LOOKBACK_DAYS || 14);
+const TRANSFER_WINDOW_START = process.env.TRANSFER_WINDOW_START || "2026-07-01";
 const MAX_OFFICIAL = Number(process.env.MAX_OFFICIAL || 300);
 const MAX_OFFICIAL_PER_MARKET = Number(process.env.MAX_OFFICIAL_PER_MARKET || 60);
 const MAX_RUMOURS = Number(process.env.MAX_RUMOURS || 48);
@@ -244,12 +248,14 @@ const COUNTRY_FLAG_CODES = new Map([
   ["england", "gb-eng"], ["estonia", "ee"], ["finland", "fi"], ["france", "fr"], ["gabon", "ga"],
   ["gambia", "gm"], ["the gambia", "gm"], ["georgia", "ge"], ["germany", "de"], ["ghana", "gh"],
   ["greece", "gr"], ["guyana", "gy"], ["guinea", "gn"], ["hungary", "hu"], ["iceland", "is"],
-  ["iran", "ir"], ["ireland", "ie"], ["republic of ireland", "ie"], ["israel", "il"], ["italy", "it"],
+  ["indonesia", "id"], ["iran", "ir"], ["ireland", "ie"], ["republic of ireland", "ie"],
+  ["israel", "il"], ["italy", "it"],
   ["ivory coast", "ci"], ["cote d'ivoire", "ci"], ["jamaica", "jm"], ["japan", "jp"], ["kenya", "ke"],
   ["kosovo", "xk"], ["mali", "ml"], ["mexico", "mx"], ["morocco", "ma"], ["netherlands", "nl"],
   ["new zealand", "nz"], ["nigeria", "ng"], ["north macedonia", "mk"], ["northern ireland", "gb-nir"],
   ["norway", "no"], ["paraguay", "py"], ["peru", "pe"], ["poland", "pl"], ["portugal", "pt"],
-  ["romania", "ro"], ["scotland", "gb-sct"], ["senegal", "sn"], ["serbia", "rs"], ["sierra leone", "sl"],
+  ["romania", "ro"], ["russia", "ru"], ["scotland", "gb-sct"], ["senegal", "sn"],
+  ["serbia", "rs"], ["sierra leone", "sl"],
   ["slovakia", "sk"], ["slovenia", "si"], ["south africa", "za"], ["south korea", "kr"],
   ["korea republic", "kr"], ["republic of korea", "kr"], ["spain", "es"], ["sweden", "se"],
   ["switzerland", "ch"], ["tunisia", "tn"], ["turkey", "tr"], ["turkiye", "tr"], ["ukraine", "ua"],
@@ -284,8 +290,13 @@ function isoDate(value) {
 
 function inLookback(dateKey, now = new Date()) {
   const date = new Date(`${dateKey}T12:00:00Z`);
-  const cutoff = new Date(now);
-  cutoff.setUTCDate(cutoff.getUTCDate() - LOOKBACK_DAYS);
+  const rollingCutoff = new Date(now);
+  rollingCutoff.setUTCDate(rollingCutoff.getUTCDate() - LOOKBACK_DAYS);
+  const windowCutoff = new Date(`${TRANSFER_WINDOW_START}T00:00:00Z`);
+  const usesCurrentWindow = !Number.isNaN(windowCutoff.getTime())
+    && windowCutoff.getUTCFullYear() === now.getUTCFullYear()
+    && windowCutoff <= now;
+  const cutoff = usesCurrentWindow ? windowCutoff : rollingCutoff;
   return date >= cutoff && date <= new Date(now.getTime() + 86_400_000);
 }
 
@@ -1035,7 +1046,8 @@ export function parseRssRumours(xml, config = RSS_SOURCES[0], now = new Date()) 
     if (!title || !link || Number.isNaN(published.getTime()) || !config.pattern.test(title)) return;
     const excluded = config.excludePattern?.test(title) && !config.excludeOverridePattern?.test(title);
     if (excluded || (config.linkPattern && !config.linkPattern.test(link))) return;
-    if (now.getTime() - published.getTime() > LOOKBACK_DAYS * 86_400_000) return;
+    const date = published.toISOString().slice(0, 10);
+    if (!inLookback(date, now)) return;
 
     const displayTitle = cleanText(title.replace(config.stripPrefix || /^$/, ""));
     let movement = extractRumourMovement(displayTitle, config);
@@ -1045,7 +1057,6 @@ export function parseRssRumours(xml, config = RSS_SOURCES[0], now = new Date()) 
         movement = mergeMovementDetails(movement, extractRumourMovement(description, config));
       }
     }
-    const date = published.toISOString().slice(0, 10);
     const time = new Intl.DateTimeFormat("en-GB", {
       hour: "2-digit",
       minute: "2-digit",
@@ -1470,6 +1481,7 @@ async function wikipediaPageMetadata(titles, { includeThumbnail = false } = {}) 
         metadata.set(originalTitle.toLowerCase(), {
           qid: page?.pageprops?.wikibase_item || null,
           thumbnail: page?.thumbnail?.source || null,
+          title: page.title,
         });
       }
     }
@@ -1605,7 +1617,7 @@ function isFootballPlayerEntity(entity) {
 
 function footballClubKey(value) {
   return canonicalIdentity(value)
-    .replace(/\b(?:women|women s|ladies|feminine|feminin|femenino|femenina|femminile|frauen|w f c)\b/g, " ")
+    .replace(/\b(?:women|women s|ladies|feminine|feminin|femenino|femenina|femminile|frauen|a f c|w f c|f c|s c|a c|c f|f k|k s|s k)\b/g, " ")
     .replace(/\s+/g, " ")
     .trim();
 }
@@ -1705,11 +1717,8 @@ export function positionCode(label = "", qid = "") {
   return null;
 }
 
-function compactPositionCodes(positionIds, positionEntities) {
-  let codes = [...new Set(positionIds
-    .map((positionId) => positionCode(positionEntities[positionId]?.labels?.en?.value, positionId))
-    .filter(Boolean))];
-
+function compactPositionCodeList(items) {
+  let codes = [...new Set(items.filter(Boolean))];
   const specificGroups = [
     { generic: "FB", specific: ["DR", "DL", "WBR", "WBL"] },
     { generic: "WB", specific: ["WBR", "WBL"] },
@@ -1724,37 +1733,141 @@ function compactPositionCodes(positionIds, positionEntities) {
   return codes.slice(0, 2).join(" / ") || null;
 }
 
-async function enrichPlayerDetails(transfers) {
-  const withPages = transfers.filter((transfer) => transfer.playerUrl);
-  if (!withPages.length) return transfers;
+function compactPositionCodes(positionIds, positionEntities) {
+  return compactPositionCodeList(positionIds
+    .map((positionId) => positionCode(positionEntities[positionId]?.labels?.en?.value, positionId)));
+}
 
-  const titles = withPages.map((transfer) => wikipediaTitle(transfer.playerUrl));
-  const pageMetadata = await wikipediaPageMetadata(titles);
+export function positionCodesFromText(value) {
+  const cleaned = cleanText(String(value || "")
+    .replace(/<ref\b[^>]*>[\s\S]*?<\/ref>|<ref\b[^>]*\/>/gi, " ")
+    .replace(/\[\[[^\]|]+\|([^\]]+)]]/g, "$1")
+    .replace(/\[\[([^\]]+)]]/g, "$1")
+    .replace(/\{\{(?:ubl|unbulleted list|flatlist|plainlist)\s*\|/gi, "")
+    .replace(/\{\{[^|{}]+\|([^{}]+)}}/g, "$1")
+    .replace(/[{}'*]/g, " "));
+  const labels = cleaned.split(/\s*(?:[,;/|]|\bor\b|\band\b)\s*/i).filter(Boolean);
+  const codes = labels.map((label) => positionCode(label)).filter(Boolean);
+  return compactPositionCodeList(codes.length ? codes : [positionCode(cleaned)]);
+}
+
+function wikipediaInfoboxPosition(wikitext) {
+  const start = String(wikitext || "").search(/\{\{\s*Infobox football biography\b/i);
+  if (start < 0) return null;
+  const infoboxHead = String(wikitext).slice(start, start + 16_384);
+  const match = infoboxHead.match(/^\|\s*position\s*=\s*([\s\S]*?)(?=^\|\s*[a-z][a-z0-9_ ]*\s*=|^}})/im);
+  return positionCodesFromText(match?.[1]);
+}
+
+async function wikipediaPlayerPositions(titles) {
+  const uniqueTitles = [...new Set(titles.filter(Boolean))];
+  const positions = new Map();
+
+  for (const titleBatch of batches(uniqueTitles, 25)) {
+    const queryUrl = new URL("https://en.wikipedia.org/w/api.php");
+    queryUrl.search = new URLSearchParams({
+      action: "query",
+      format: "json",
+      formatversion: "2",
+      prop: "revisions",
+      redirects: "1",
+      rvprop: "content",
+      rvslots: "main",
+      titles: titleBatch.join("|"),
+    });
+    const response = await fetch(queryUrl, {
+      headers: { "User-Agent": USER_AGENT },
+      signal: AbortSignal.timeout(20_000),
+    });
+    if (!response.ok) throw new Error(`Wikipedia player positions: HTTP ${response.status}`);
+    const payload = await response.json();
+    if (payload?.error) throw new Error(`Wikipedia player positions: ${payload.error.code || "unknown error"}`);
+
+    const aliases = new Map();
+    for (const item of [...(payload?.query?.normalized || []), ...(payload?.query?.redirects || [])]) {
+      if (item?.from && item?.to) aliases.set(item.from.toLowerCase(), item.to.toLowerCase());
+    }
+    const pages = new Map((payload?.query?.pages || [])
+      .filter((page) => page?.title)
+      .map((page) => [page.title.toLowerCase(), page]));
+
+    for (const originalTitle of titleBatch) {
+      let resolvedTitle = originalTitle.toLowerCase();
+      const visited = new Set();
+      while (aliases.has(resolvedTitle) && !visited.has(resolvedTitle)) {
+        visited.add(resolvedTitle);
+        resolvedTitle = aliases.get(resolvedTitle);
+      }
+      const page = pages.get(resolvedTitle) || pages.get(originalTitle.toLowerCase());
+      const wikitext = page?.revisions?.[0]?.slots?.main?.content;
+      const position = wikipediaInfoboxPosition(wikitext);
+      if (position) positions.set(originalTitle.toLowerCase(), position);
+    }
+  }
+
+  return positions;
+}
+
+export async function enrichPlayerDetails(transfers, loaders = {}) {
+  const unresolved = transfers.filter((transfer) => (
+    cleanText(transfer.player)
+    && (!meaningful(transfer.nationality) || !meaningful(transfer.position) || transfer.age == null)
+  ));
+  if (!unresolved.length) return transfers;
+
+  const titles = unresolved.map((transfer) => wikipediaTitle(transfer.playerUrl) || cleanText(transfer.player));
+  const loadPageMetadata = loaders.wikipediaPageMetadata || wikipediaPageMetadata;
+  const loadEntities = loaders.wikidataEntities || wikidataEntities;
+  const loadPlayerPositions = loaders.wikipediaPlayerPositions || wikipediaPlayerPositions;
+  const pageMetadata = await loadPageMetadata(titles);
   const qids = [...new Set([...pageMetadata.values()].map((page) => page.qid).filter(Boolean))];
-  const entities = await wikidataEntities(qids);
+  if (!qids.length) return transfers;
+  const entities = await loadEntities(qids);
+  const clubIds = [...new Set(qids.flatMap((qid) => claimIds(entities[qid], "P54")))];
+  const clubEntities = clubIds.length ? await loadEntities(clubIds, "labels") : {};
   const positionIds = [...new Set(qids.flatMap((qid) => claimIds(entities[qid], "P413")))];
+  const sportCountryIds = [...new Set(qids.flatMap((qid) => claimIds(entities[qid], "P1532")))];
   const citizenshipIds = [...new Set(qids.flatMap((qid) => claimIds(entities[qid], "P27")))];
-  const relatedEntities = await wikidataEntities([...positionIds, ...citizenshipIds], "labels");
+  const relatedEntities = await loadEntities([...positionIds, ...sportCountryIds, ...citizenshipIds], "labels");
 
-  for (let index = 0; index < withPages.length; index += 1) {
-    const transfer = withPages[index];
-    const qid = pageMetadata.get(titles[index]?.toLowerCase())?.qid;
+  for (let index = 0; index < unresolved.length; index += 1) {
+    const transfer = unresolved[index];
+    const metadata = pageMetadata.get(titles[index]?.toLowerCase());
+    const qid = metadata?.qid;
     const entity = entities[qid];
     if (!entity) continue;
+    if (!transfer.playerUrl && (
+      !isFootballPlayerEntity(entity) || !entityMatchesTransferClub(transfer, entity, clubEntities)
+    )) continue;
 
     const birthTime = entity?.claims?.P569?.[0]?.mainsnak?.datavalue?.value?.time;
     const enrichedAge = ageAt(birthTime, transfer.date);
     const enrichedPosition = compactPositionCodes(claimIds(entity, "P413"), relatedEntities);
-    const citizenshipId = claimIds(entity, "P27")[0];
-    const enrichedNationality = relatedEntities[citizenshipId]?.labels?.en?.value || null;
-    if (enrichedAge !== null) transfer.age = enrichedAge;
-    if (enrichedPosition) transfer.position = enrichedPosition;
+    const nationalityId = claimIds(entity, "P1532")[0] || claimIds(entity, "P27")[0];
+    const enrichedNationality = relatedEntities[nationalityId]?.labels?.en?.value || null;
+    if (transfer.age == null && enrichedAge !== null) transfer.age = enrichedAge;
+    if (!meaningful(transfer.position) && enrichedPosition) transfer.position = enrichedPosition;
     if (!transfer.nationality && enrichedNationality) {
       transfer.nationality = enrichedNationality;
       transfer.flagCode = flagCodeFromName(enrichedNationality);
       transfer.flag = flagFromName(enrichedNationality);
     }
+    if (!transfer.playerUrl && metadata?.title) {
+      transfer.playerUrl = `https://en.wikipedia.org/wiki/${encodeURIComponent(metadata.title.replaceAll(" ", "_"))}`;
+    }
+  }
 
+  const withoutPosition = unresolved.filter((transfer) => !meaningful(transfer.position) && transfer.playerUrl);
+  if (withoutPosition.length) {
+    const positionTitles = withoutPosition.map((transfer) => wikipediaTitle(transfer.playerUrl));
+    const positions = await loadPlayerPositions(positionTitles);
+    withoutPosition.forEach((transfer, index) => {
+      const position = positions.get(positionTitles[index]?.toLowerCase());
+      if (position) {
+        transfer.position = position;
+        transfer.playerMetadataSourceUrl ||= transfer.playerUrl;
+      }
+    });
   }
 
   return transfers;
@@ -1828,6 +1941,114 @@ async function readManualRumours() {
   } catch {
     return [];
   }
+}
+
+function validateTransfermarktBackfill(item) {
+  if (!item || typeof item !== "object") return false;
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(item.date || "") || !hasStructuredRoute(item)) return false;
+  if (!/^Transfermarkt\b/.test(cleanText(item.sourceName))) return false;
+  const hostname = sourceHostname(item.sourceUrl);
+  const pathname = sourcePathname(item.sourceUrl);
+  return /^(?:transfermarkt\.(?:de|it|es|nl|pl|pt)|transfermarkt\.co\.uk)$/.test(hostname || "")
+    && /\/view\/news\/\d+$/.test(pathname || "");
+}
+
+export function transfermarktBackfillRecords(items) {
+  return (Array.isArray(items) ? items : [])
+    .filter(validateTransfermarktBackfill)
+    .map((item) => {
+      const competitionGender = normaliseCompetitionGender(item.competitionGender);
+      return {
+        id: item.id || createHash("sha1").update(`transfermarkt-archive|${item.sourceUrl}`).digest("hex").slice(0, 14),
+        date: item.date,
+        player: cleanText(item.player),
+        playerUrl: null,
+        age: null,
+        position: null,
+        nationality: null,
+        flagCode: null,
+        flag: "",
+        fromClub: cleanText(item.fromClub),
+        fromClubUrl: null,
+        fromClubCrest: null,
+        toClub: cleanText(item.toClub),
+        toClubUrl: null,
+        toClubCrest: null,
+        fee: cleanText(item.fee) || "—",
+        status: "rumour",
+        competitionGender,
+        competitionGenderSource: competitionGender === "unknown" ? null : "manual",
+        competitionGenderEvidence: null,
+        playerQid: null,
+        sourceAdapter: "transfermarkt-archive",
+        sourceRole: "database",
+        sourceName: cleanText(item.sourceName),
+        sourceUrl: item.sourceUrl,
+        sources: [sourceEvidence(cleanText(item.sourceName), item.sourceUrl, "database")],
+        market: cleanText(item.market) || null,
+        markets: cleanText(item.market) ? [cleanText(item.market)] : [],
+        time: "—",
+        firstSeenAt: `${item.date}T12:00:00.000Z`,
+      };
+    });
+}
+
+async function readTransfermarktBackfill() {
+  try {
+    return transfermarktBackfillRecords(JSON.parse(await readFile(TRANSFERMARKT_BACKFILL_URL, "utf8")));
+  } catch {
+    return [];
+  }
+}
+
+const PLAYER_POSITION_PATTERN = /^(?:GK|SW|DC|DR|DL|FB|WB|WBR|WBL|DM|MC|MR|ML|WM|AMC|AMR|AML|AM|SS|ST)(?: \/ (?:GK|SW|DC|DR|DL|FB|WB|WBR|WBL|DM|MC|MR|ML|WM|AMC|AMR|AML|AM|SS|ST))*$/;
+
+function validateCuratedPlayerMetadata(item) {
+  return item
+    && typeof item === "object"
+    && /^\d{4}-\d{2}-\d{2}$/.test(item.date || "")
+    && hasStructuredRoute(item)
+    && meaningful(item.nationality)
+    && PLAYER_POSITION_PATTERN.test(cleanText(item.position))
+    && /^https:\/\//.test(item.sourceUrl || "")
+    && /^https:\/\//.test(item.playerUrl || "")
+    && (!item.playerQid || /^Q\d+$/.test(item.playerQid));
+}
+
+export function applyCuratedPlayerMetadata(transfers, payload) {
+  const records = Array.isArray(payload) ? payload : payload?.records;
+  const byIdentity = new Map(
+    transfers.map((transfer) => [`${transfer.date}|${claimIdentity(transfer)}`, transfer]),
+  );
+
+  for (const item of Array.isArray(records) ? records : []) {
+    if (!validateCuratedPlayerMetadata(item)) continue;
+    const target = byIdentity.get(`${item.date}|${claimIdentity(item)}`);
+    if (!target) continue;
+    if (!meaningful(target.nationality)) {
+      target.nationality = cleanText(item.nationality);
+      target.flagCode = flagCodeFromName(target.nationality);
+      target.flag = flagFromName(target.nationality);
+    }
+    if (!meaningful(target.position)) target.position = cleanText(item.position);
+    if (!target.playerUrl) target.playerUrl = item.playerUrl;
+    target.playerQid ||= item.playerQid || null;
+    target.playerMetadataSourceUrl = item.sourceUrl;
+  }
+
+  return transfers;
+}
+
+async function readCuratedPlayerMetadata() {
+  try {
+    return JSON.parse(await readFile(CURATED_PLAYER_METADATA_URL, "utf8"));
+  } catch {
+    return { schemaVersion: 1, records: [] };
+  }
+}
+
+export function hasCompletePlayerMetadata(transfer) {
+  return meaningful(transfer?.nationality) && PLAYER_POSITION_PATTERN.test(cleanText(transfer?.position));
 }
 
 function canonicalIdentity(value) {
@@ -1972,6 +2193,48 @@ function selectPreferredSource(transfer) {
   transfer.sourceName = preferredSource.name;
   transfer.sourceUrl = preferredSource.url;
   transfer.sourceRole = preferredSource.role;
+}
+
+function validateCuratedOfficialSource(item) {
+  if (!item || typeof item !== "object") return false;
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(item.date || "")) return false;
+  if (!hasStructuredRoute(item) || !cleanText(item.club)) return false;
+  if (!/^https:\/\//.test(item.sourceUrl || "") || !/^https:\/\//.test(item.officialWebsite || "")) return false;
+  const routeClubs = [item.fromClub, item.toClub].map(canonicalIdentity);
+  if (!routeClubs.includes(canonicalIdentity(item.club))) return false;
+  return matchesOfficialWebsite(item.sourceUrl, item.officialWebsite);
+}
+
+export function applyCuratedOfficialSources(transfers, items) {
+  const transferByIdentity = new Map(
+    transfers
+      .filter((transfer) => transfer.status === "official")
+      .map((transfer) => [`${transfer.date}|${claimIdentity(transfer)}`, transfer]),
+  );
+
+  for (const item of Array.isArray(items) ? items : []) {
+    if (!validateCuratedOfficialSource(item)) continue;
+    const target = transferByIdentity.get(`${item.date}|${claimIdentity(item)}`);
+    if (!target) continue;
+    target.sources = transferSources({
+      sources: [
+        ...transferSources(target),
+        sourceEvidence(cleanText(item.club), item.sourceUrl, "primary_official"),
+      ],
+    });
+    selectPreferredSource(target);
+  }
+
+  return transfers;
+}
+
+async function readCuratedOfficialSources() {
+  try {
+    const items = JSON.parse(await readFile(CURATED_OFFICIAL_SOURCES_URL, "utf8"));
+    return Array.isArray(items) ? items : [];
+  } catch {
+    return [];
+  }
 }
 
 export async function verifyOfficialClubSources(transfers, loaders = {}) {
@@ -2271,7 +2534,9 @@ function hasVerifiableCompetitionGender(transfer, competitionGender, competition
   if (competitionGenderSource === "source-register" || competitionGenderSource === "source-feed") {
     return configuredCompetitionGenderProvenance(transfer, competitionGender) === competitionGenderSource;
   }
-  if (competitionGenderSource === "manual") return hasAdapter(transfer, "manual");
+  if (competitionGenderSource === "manual") {
+    return hasAdapter(transfer, "manual") || hasAdapter(transfer, "transfermarkt-archive");
+  }
   if (competitionGenderSource === "wikidata-p21") {
     return /^Q\d+$/.test(transfer.playerQid || "")
       && isValidCompetitionGenderEvidence(transfer.competitionGenderEvidence, competitionGender);
@@ -2483,12 +2748,6 @@ export async function refresh() {
   } catch (error) {
     console.warn(`Club crest enrichment skipped: ${error.message}`);
   }
-  try {
-    await enrichPlayerDetails(official);
-  } catch (error) {
-    console.warn(`Player detail enrichment skipped: ${error.message}`);
-  }
-
   let rumours = [];
   for (const source of RSS_SOURCES) {
     const result = resultById.get(source.id);
@@ -2526,14 +2785,10 @@ export async function refresh() {
   carryPreviousEnrichment(rumours, previousTransfers);
 
   const manualRumours = await readManualRumours();
+  const transfermarktBackfill = await readTransfermarktBackfill();
   carryPreviousEnrichment(manualRumours, previousTransfers);
-  try {
-    await enrichCompetitionGenders([...official, ...rumours, ...manualRumours]);
-  } catch (error) {
-    console.warn(`Competition category enrichment skipped: ${error.message}`);
-  }
-
-  let transfers = deduplicateTransfers([...official, ...rumours, ...manualRumours])
+  carryPreviousEnrichment(transfermarktBackfill, previousTransfers);
+  let transfers = deduplicateTransfers([...official, ...rumours, ...manualRumours, ...transfermarktBackfill])
     .filter(hasStructuredRoute)
     .sort((a, b) => {
       const dateOrder = b.date.localeCompare(a.date);
@@ -2543,18 +2798,47 @@ export async function refresh() {
     });
 
   try {
+    await enrichPlayerDetails(transfers);
+  } catch (error) {
+    console.warn(`Player detail enrichment skipped: ${error.message}`);
+  }
+  applyCuratedPlayerMetadata(transfers, await readCuratedPlayerMetadata());
+  try {
+    await enrichCompetitionGenders(transfers);
+  } catch (error) {
+    console.warn(`Competition category enrichment skipped: ${error.message}`);
+  }
+
+  try {
     await verifyOfficialClubSources(transfers);
   } catch (error) {
     console.warn(`Official club source verification skipped: ${error.message}`);
   }
+  applyCuratedOfficialSources(transfers, await readCuratedOfficialSources());
   await enrichOfficialSourcePreviews(transfers, previousTransfers);
   transfers = transfers.map(normaliseStoredTransfer);
+
+  const withheldTransfers = transfers
+    .filter((transfer) => !hasCompletePlayerMetadata(transfer))
+    .map((transfer) => ({
+      id: transfer.id,
+      date: transfer.date,
+      player: transfer.player,
+      missing: [
+        ...(!meaningful(transfer.nationality) ? ["nationality"] : []),
+        ...(!PLAYER_POSITION_PATTERN.test(cleanText(transfer.position)) ? ["position"] : []),
+      ],
+    }));
+  if (withheldTransfers.length) {
+    console.warn(`Withheld ${withheldTransfers.length} entries without complete player metadata.`);
+    transfers = transfers.filter(hasCompletePlayerMetadata);
+  }
 
   if (!transfers.length) {
     throw new Error("No source returned entries; the previous data file was left unchanged");
   }
 
-  const payload = { generatedAt, sources: sourceReports, transfers };
+  const payload = { generatedAt, sources: sourceReports, withheldTransfers, transfers };
   await writeFile(OUTPUT_URL, `${JSON.stringify(payload, null, 2)}\n`, "utf8");
   const officialCount = transfers.filter((transfer) => transfer.status === "official").length;
   const rumourCount = transfers.filter((transfer) => transfer.status === "rumour").length;
