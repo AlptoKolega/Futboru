@@ -205,6 +205,13 @@ function setLeague(competitionId, checked) {
   applyLeagueSelection();
 }
 
+function animateLeagueCheckbox(input) {
+  if (reducedMotion.matches) return;
+  input.classList.remove("is-animating");
+  void input.offsetWidth;
+  input.classList.add("is-animating");
+}
+
 function buildLeagueFilter() {
   const fragment = document.createDocumentFragment();
 
@@ -221,7 +228,10 @@ function buildLeagueFilter() {
     countryInput.type = "checkbox";
     countryInput.checked = true;
     countryInput.dataset.countryId = country.id;
-    countryInput.addEventListener("change", () => setCountryLeagues(country, countryInput.checked));
+    countryInput.addEventListener("change", () => {
+      animateLeagueCheckbox(countryInput);
+      setCountryLeagues(country, countryInput.checked);
+    });
     const countryTitle = document.createElement("span");
     countryTitle.className = "league-filter-country-title";
     const countryFlag = document.createElement("span");
@@ -256,7 +266,10 @@ function buildLeagueFilter() {
       input.type = "checkbox";
       input.checked = true;
       input.dataset.leagueId = league.id;
-      input.addEventListener("change", () => setLeague(league.id, input.checked));
+      input.addEventListener("change", () => {
+        animateLeagueCheckbox(input);
+        setLeague(league.id, input.checked);
+      });
       const name = document.createElement("span");
       name.className = "league-filter-option-label";
       name.textContent = league.name;
@@ -967,6 +980,11 @@ for (const filter of elements.statusFilters) {
   filter.addEventListener("click", () => setFilter(filter.dataset.statusFilter));
 }
 
+elements.leagueFilterGrid.addEventListener("animationend", (event) => {
+  if (event.animationName !== "league-filter-checkbox-feedback") return;
+  event.target.classList.remove("is-animating");
+});
+
 for (const count of Object.values(elements.counts)) {
   count.addEventListener("animationend", (event) => {
     if (event.animationName !== "filter-count-in") return;
@@ -1067,6 +1085,9 @@ if ("ResizeObserver" in window) {
 
 reducedMotion.addEventListener("change", () => {
   if (!reducedMotion.matches) return;
+  for (const checkbox of elements.leagueFilterGrid.querySelectorAll(".league-filter-checkbox.is-animating")) {
+    checkbox.classList.remove("is-animating");
+  }
   for (const count of Object.values(elements.counts)) {
     count.classList.remove("is-changing");
     delete count.dataset.previous;
