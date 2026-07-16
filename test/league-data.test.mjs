@@ -16,6 +16,10 @@ const clubCatalog = JSON.parse(
 test("league filter exposes 11 countries and the 26 tracked competitions", () => {
   assert.equal(LEAGUE_COUNTRIES.length, 11);
   assert.equal(ALL_LEAGUE_IDS.length, 26);
+  assert.deepEqual(
+    LEAGUE_COUNTRIES.map(({ flagCode }) => flagCode),
+    ["gb-eng", "de", "it", "fr", "nl", "pl", "gb-sct", "dk", "ch", "no", "se"],
+  );
   assert.equal(new Set(ALL_LEAGUE_IDS).size, 26);
 });
 

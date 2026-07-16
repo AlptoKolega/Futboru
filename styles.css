@@ -448,6 +448,7 @@ html[data-theme="light"] .theme-icon-moon {
 
 .league-filter-country-heading {
   margin: 0 0 10px;
+  padding: 0;
 }
 
 .league-filter-country-toggle,
@@ -460,6 +461,7 @@ html[data-theme="light"] .theme-icon-moon {
 }
 
 .league-filter-country-toggle {
+  align-items: center;
   color: var(--text);
   font-size: 12.5px;
   font-weight: 650;
@@ -520,6 +522,47 @@ html[data-theme="light"] .theme-icon-moon {
 .league-filter-checkbox:focus-visible {
   outline: 2px solid var(--focus);
   outline-offset: 3px;
+}
+
+.league-filter-country-toggle > .league-filter-checkbox {
+  margin-top: 0;
+}
+
+.league-filter-country-title {
+  display: inline-flex;
+  min-width: 0;
+  align-items: center;
+  gap: 5px;
+}
+
+.league-filter-country-flag {
+  position: relative;
+  display: block;
+  width: 16px;
+  height: 12px;
+  overflow: hidden;
+  flex: 0 0 16px;
+  border-radius: 2px;
+}
+
+.league-filter-country-flag::after {
+  position: absolute;
+  border: 1px solid var(--flag-outline);
+  border-radius: inherit;
+  content: "";
+  inset: 0;
+  pointer-events: none;
+}
+
+.league-filter-country-flag.is-missing {
+  visibility: hidden;
+}
+
+.league-filter-country-flag-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .league-filter-option-label,

@@ -217,10 +217,24 @@ function buildLeagueFilter() {
     countryInput.checked = true;
     countryInput.dataset.countryId = country.id;
     countryInput.addEventListener("change", () => setCountryLeagues(country, countryInput.checked));
+    const countryTitle = document.createElement("span");
+    countryTitle.className = "league-filter-country-title";
+    const countryFlag = document.createElement("span");
+    countryFlag.className = "league-filter-country-flag";
+    countryFlag.setAttribute("aria-hidden", "true");
+    const countryFlagImage = document.createElement("img");
+    countryFlagImage.className = "league-filter-country-flag-image";
+    countryFlagImage.src = `./assets/flags/${country.flagCode}.svg`;
+    countryFlagImage.alt = "";
+    countryFlagImage.addEventListener("error", () => {
+      countryFlag.classList.add("is-missing");
+    }, { once: true });
+    countryFlag.append(countryFlagImage);
     const countryName = document.createElement("span");
     countryName.className = "league-filter-country-name";
     countryName.textContent = country.name;
-    countryLabel.append(countryInput, countryName);
+    countryTitle.append(countryFlag, countryName);
+    countryLabel.append(countryInput, countryTitle);
     legend.append(countryLabel);
     fieldset.append(legend);
 

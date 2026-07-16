@@ -4,6 +4,7 @@ export const LEAGUE_COUNTRIES = Object.freeze([
   {
     id: "eng",
     name: "England",
+    flagCode: "gb-eng",
     leagues: [
       { id: "eng.premier-league", name: "Premier League" },
       { id: "eng.championship", name: "Championship" },
@@ -14,6 +15,7 @@ export const LEAGUE_COUNTRIES = Object.freeze([
   {
     id: "ger",
     name: "Germany",
+    flagCode: "de",
     leagues: [
       { id: "ger.bundesliga", name: "Bundesliga" },
       { id: "ger.2-bundesliga", name: "2. Bundesliga" },
@@ -22,6 +24,7 @@ export const LEAGUE_COUNTRIES = Object.freeze([
   {
     id: "ita",
     name: "Italy",
+    flagCode: "it",
     leagues: [
       { id: "ita.serie-a", name: "Serie A" },
       { id: "ita.serie-b", name: "Serie B" },
@@ -30,6 +33,7 @@ export const LEAGUE_COUNTRIES = Object.freeze([
   {
     id: "fra",
     name: "France",
+    flagCode: "fr",
     leagues: [
       { id: "fra.ligue-1", name: "Ligue 1" },
       { id: "fra.ligue-2", name: "Ligue 2" },
@@ -38,6 +42,7 @@ export const LEAGUE_COUNTRIES = Object.freeze([
   {
     id: "ned",
     name: "Netherlands",
+    flagCode: "nl",
     leagues: [
       { id: "ned.eredivisie", name: "Eredivisie" },
       { id: "ned.eerste-divisie", name: "Eerste Divisie" },
@@ -46,6 +51,7 @@ export const LEAGUE_COUNTRIES = Object.freeze([
   {
     id: "pol",
     name: "Poland",
+    flagCode: "pl",
     leagues: [
       { id: "pol.ekstraklasa", name: "Ekstraklasa" },
       { id: "pol.i-liga", name: "I liga" },
@@ -54,6 +60,7 @@ export const LEAGUE_COUNTRIES = Object.freeze([
   {
     id: "sco",
     name: "Scotland",
+    flagCode: "gb-sct",
     leagues: [
       { id: "sco.premiership", name: "Premiership" },
       { id: "sco.championship", name: "Championship" },
@@ -64,6 +71,7 @@ export const LEAGUE_COUNTRIES = Object.freeze([
   {
     id: "den",
     name: "Denmark",
+    flagCode: "dk",
     leagues: [
       { id: "den.superliga", name: "Superliga" },
       { id: "den.1-division", name: "1st Division" },
@@ -72,6 +80,7 @@ export const LEAGUE_COUNTRIES = Object.freeze([
   {
     id: "sui",
     name: "Switzerland",
+    flagCode: "ch",
     leagues: [
       { id: "sui.super-league", name: "Super League" },
       { id: "sui.challenge-league", name: "Challenge League" },
@@ -80,6 +89,7 @@ export const LEAGUE_COUNTRIES = Object.freeze([
   {
     id: "nor",
     name: "Norway",
+    flagCode: "no",
     leagues: [
       { id: "nor.eliteserien", name: "Eliteserien" },
       { id: "nor.1-division", name: "First Division" },
@@ -88,6 +98,7 @@ export const LEAGUE_COUNTRIES = Object.freeze([
   {
     id: "swe",
     name: "Sweden",
+    flagCode: "se",
     leagues: [
       { id: "swe.allsvenskan", name: "Allsvenskan" },
       { id: "swe.superettan", name: "Superettan" },
