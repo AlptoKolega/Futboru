@@ -31,6 +31,8 @@ const elements = {
   leagueFilterSelectAll: document.querySelector("#league-filter-select-all"),
   leagueFilterClear: document.querySelector("#league-filter-clear"),
   leagueFilterClose: document.querySelector("#league-filter-close"),
+  statusFilterGroup: document.querySelector(".status-filters"),
+  statusFilterIndicator: document.querySelector(".status-filter-indicator"),
   statusFilters: [...document.querySelectorAll("[data-status-filter]")],
   genderFilters: [...document.querySelectorAll("[data-gender]")],
   counts: {
@@ -48,6 +50,9 @@ const state = {
 };
 
 let sourceDrawerInvoker = null;
+let statusFilterIndicatorFrame = 0;
+let statusFilterIndicatorReady = false;
+const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 
 const COMPETITION_GENDERS = new Set(["men", "women", "unknown"]);
 
@@ -836,13 +841,61 @@ function render() {
   elements.filterSummary.textContent = `Showing ${visible.length} ${status} in ${activeGenderLabel()} across ${activeLeagueLabel()}.`;
 }
 
+function scheduleStatusFilterIndicator() {
+  cancelAnimationFrame(statusFilterIndicatorFrame);
+  statusFilterIndicatorFrame = requestAnimationFrame(() => {
+    statusFilterIndicatorFrame = 0;
+    const active = elements.statusFilters.find((button) => button.classList.contains("is-active"));
+    if (!active) return;
+
+    const groupBounds = elements.statusFilterGroup.getBoundingClientRect();
+    const activeBounds = active.getBoundingClientRect();
+    elements.statusFilterGroup.style.setProperty(
+      "--status-filter-indicator-x",
+      `${activeBounds.left - groupBounds.left}px`,
+    );
+    elements.statusFilterGroup.style.setProperty(
+      "--status-filter-indicator-width",
+      `${activeBounds.width}px`,
+    );
+    elements.statusFilterGroup.classList.add("has-sliding-indicator");
+
+    if (!statusFilterIndicatorReady) {
+      statusFilterIndicatorReady = true;
+      requestAnimationFrame(() => {
+        elements.statusFilterGroup.classList.add("is-indicator-animated");
+      });
+    }
+  });
+}
+
+function updateCount(element, value) {
+  const nextValue = String(value);
+  const valueElement = element.querySelector(".filter-count-value");
+  if (!valueElement || valueElement.textContent === nextValue) return;
+
+  if (reducedMotion.matches) {
+    valueElement.textContent = nextValue;
+    element.classList.remove("is-changing");
+    delete element.dataset.previous;
+    return;
+  }
+
+  element.dataset.previous = valueElement.textContent;
+  valueElement.textContent = nextValue;
+  element.classList.remove("is-changing");
+  void element.offsetWidth;
+  element.classList.add("is-changing");
+}
+
 function updateCounts() {
   const transfers = scopeFilteredTransfers();
   const official = transfers.filter((transfer) => transfer.status === "official").length;
   const rumour = transfers.filter((transfer) => transfer.status === "rumour").length;
-  elements.counts.all.textContent = String(transfers.length);
-  elements.counts.official.textContent = String(official);
-  elements.counts.rumour.textContent = String(rumour);
+  updateCount(elements.counts.all, transfers.length);
+  updateCount(elements.counts.official, official);
+  updateCount(elements.counts.rumour, rumour);
+  scheduleStatusFilterIndicator();
 }
 
 function setFilter(filter) {
@@ -852,6 +905,7 @@ function setFilter(filter) {
     button.classList.toggle("is-active", active);
     button.setAttribute("aria-pressed", String(active));
   }
+  scheduleStatusFilterIndicator();
   render();
 }
 
@@ -911,6 +965,15 @@ async function loadFeed() {
 
 for (const filter of elements.statusFilters) {
   filter.addEventListener("click", () => setFilter(filter.dataset.statusFilter));
+}
+
+for (const count of Object.values(elements.counts)) {
+  count.addEventListener("animationend", (event) => {
+    if (event.animationName !== "filter-count-in") return;
+    count.classList.remove("is-changing");
+    delete count.dataset.previous;
+    scheduleStatusFilterIndicator();
+  });
 }
 
 for (const filter of elements.genderFilters) {
@@ -992,6 +1055,25 @@ window.addEventListener("storage", (event) => {
 
 setTheme(document.documentElement.dataset.theme);
 buildLeagueFilter();
+scheduleStatusFilterIndicator();
+
+if ("ResizeObserver" in window) {
+  const statusFilterResizeObserver = new ResizeObserver(scheduleStatusFilterIndicator);
+  statusFilterResizeObserver.observe(elements.statusFilterGroup);
+  for (const filter of elements.statusFilters) statusFilterResizeObserver.observe(filter);
+} else {
+  window.addEventListener("resize", scheduleStatusFilterIndicator);
+}
+
+reducedMotion.addEventListener("change", () => {
+  if (!reducedMotion.matches) return;
+  for (const count of Object.values(elements.counts)) {
+    count.classList.remove("is-changing");
+    delete count.dataset.previous;
+  }
+});
+
+document.fonts?.ready.then(scheduleStatusFilterIndicator);
 
 loadFeed().catch((error) => {
   console.error(error);

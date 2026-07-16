@@ -32,14 +32,15 @@
         <div class="header-controls">
           <div class="filters status-filters" role="group" aria-label="Filter transfers by status">
             <button class="filter is-active" type="button" data-status-filter="all" aria-pressed="true" aria-controls="feed">
-              All <span class="filter-count" id="count-all">0</span>
+              All <span class="filter-count" id="count-all"><span class="filter-count-value">0</span></span>
             </button>
             <button class="filter" type="button" data-status-filter="official" aria-pressed="false" aria-controls="feed">
-              Official <span class="filter-count" id="count-official">0</span>
+              Official <span class="filter-count" id="count-official"><span class="filter-count-value">0</span></span>
             </button>
             <button class="filter" type="button" data-status-filter="rumour" aria-pressed="false" aria-controls="feed">
-              Rumours <span class="filter-count" id="count-rumour">0</span>
+              Rumours <span class="filter-count" id="count-rumour"><span class="filter-count-value">0</span></span>
             </button>
+            <span class="status-filter-indicator" aria-hidden="true"></span>
           </div>
           <span class="filter-separator status-scope-separator" aria-hidden="true"></span>
           <div class="scope-filters">
